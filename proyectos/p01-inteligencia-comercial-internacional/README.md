@@ -41,6 +41,25 @@ No se presenta como un sistema formal de rating pais, una due diligence completa
 
 ---
 
+## Alcance del modo demo
+
+El modo demo valida que:
+
+- el flujo de comparacion y ranking funciona de extremo a extremo sin APIs reales,
+- los paises soportados en el catalogo demo se procesan de forma consistente,
+- los paises fuera de catalogo muestran mensajes claros,
+- los rankings generados se guardan en el historico local para el dashboard.
+
+El modo demo no valida que:
+
+- los proveedores reales (Groq/Tavily) respondan correctamente,
+- los prompts y respuestas en produccion sean estables frente a variaciones reales,
+- el rendimiento y los limites de cuota de APIs en escenarios reales sean suficientes.
+
+Por tanto, el modo demo no sustituye una validacion posterior con APIs reales.
+
+---
+
 ## Limites importantes
 
 - Los resultados son **orientativos** y no equivalen a una evaluacion soberana formal.
@@ -94,6 +113,16 @@ pytest -q
 ```
 
 La suite usa `pytest.ini` para fijar `--basetemp=.pytest_tmp` y evitar problemas de permisos con el directorio temporal global de Windows.
+
+---
+
+## Checklist manual demo
+
+1. Ejecutar un ranking demo con paises soportados (ej: Mexico, Alemania) y confirmar que se genera tabla.
+2. Ejecutar un ranking demo con paises no soportados (ej: Francia, Argentina) y confirmar mensaje explicito de catalogo demo.
+3. Ejecutar un ranking mixto (ej: Mexico, Francia, Alemania) y confirmar que omite no soportados y continua con soportados.
+4. Confirmar que tras un ranking valido se crea un run en `history/` con `manifest.json` y `ranking.json`.
+5. Abrir dashboard y verificar que aparecen filas historicas del ranking guardado.
 
 ---
 
