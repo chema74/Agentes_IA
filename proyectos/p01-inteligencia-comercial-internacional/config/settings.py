@@ -30,6 +30,7 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 CONFIG_DIR = BASE_DIR / "config"
+DATA_DIR = BASE_DIR / "data"
 ENV_FILE = BASE_DIR / ".env"
 WEIGHTS_FILE = CONFIG_DIR / "weights.yaml"
 
@@ -175,6 +176,9 @@ IS_PRODUCTION = APP_MODE == "production"
 APP_TITLE = str(
     _read_env("APP_TITLE", "Inteligencia Comercial Internacional")
 ).strip()
+HISTORY_DB_PATH = Path(
+    str(_read_env("HISTORY_DB_PATH", DATA_DIR / "p01_history.sqlite3"))
+).resolve()
 
 DEBUG_MODE = _to_bool(_read_env("DEBUG_MODE", "true" if IS_DEMO else "false"))
 LOG_LEVEL = str(
@@ -596,8 +600,10 @@ __all__ = [
     "IS_PRODUCTION",
     "BASE_DIR",
     "CONFIG_DIR",
+    "DATA_DIR",
     "ENV_FILE",
     "WEIGHTS_FILE",
+    "HISTORY_DB_PATH",
     "DEBUG_MODE",
     "LOG_LEVEL",
     "DEFAULT_COUNTRY",

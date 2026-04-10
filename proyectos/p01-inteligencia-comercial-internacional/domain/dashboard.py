@@ -5,9 +5,7 @@ Responsabilidad: transformar el historial de rankings en tablas coherentes para 
 
 from __future__ import annotations
 
-import json
 from collections import Counter, defaultdict
-from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import pandas as pd
@@ -36,22 +34,13 @@ def load_historical_rankings() -> List[Dict[str, Any]]:
     runs = history.list_ranking_runs()
     for run in runs:
         run_id = str(run.get("run_id", "")).strip()
-        if not run_id:
-            artifacts = run.get("artifacts", {})
-            if isinstance(artifacts, dict):
-                for artifact_path in artifacts.values():
-                    run_id = Path(str(artifact_path)).parent.name
-                    if run_id:
-                        break
 
         if not run_id:
             continue
 
-        ranking_path = history.HISTORY_BASE_DIR / run_id / "ranking.json"
-        if ranking_path.exists():
-            with open(ranking_path, "r", encoding="utf-8") as f:
-                ranking_data = json.load(f)
-            results.append({"manifest": run, "ranking_data": ranking_data})
+        payload = history.load_ranking_payload(run_id)
+        if payload is not None:
+            results.append(payload)
     return results
 
 

@@ -5,7 +5,9 @@ from domain.dashboard import build_dashboard_rows, load_historical_rankings
 
 def test_save_ranking_history_creates_run_files(tmp_path, monkeypatch):
     history_dir = tmp_path / "history"
+    history_db_path = tmp_path / "data" / "history.sqlite3"
     monkeypatch.setattr(history, "HISTORY_BASE_DIR", history_dir)
+    monkeypatch.setattr(history, "HISTORY_DB_PATH", history_db_path)
 
     resultados = [
         {
@@ -38,11 +40,14 @@ def test_save_ranking_history_creates_run_files(tmp_path, monkeypatch):
     assert run_id is not None
     assert (history_dir / run_id / "manifest.json").exists()
     assert (history_dir / run_id / "ranking.json").exists()
+    assert history_db_path.exists()
 
 
 def test_save_ranking_history_is_visible_in_dashboard_loader(tmp_path, monkeypatch):
     history_dir = tmp_path / "history"
+    history_db_path = tmp_path / "data" / "history.sqlite3"
     monkeypatch.setattr(history, "HISTORY_BASE_DIR", history_dir)
+    monkeypatch.setattr(history, "HISTORY_DB_PATH", history_db_path)
 
     resultados = [
         {

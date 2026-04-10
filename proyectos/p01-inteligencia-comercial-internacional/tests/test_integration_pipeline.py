@@ -1,7 +1,5 @@
-from pathlib import Path
-
 from domain import exporters, history
-from domain.dashboard import load_historical_rankings, build_dashboard_rows, compute_dashboard_metrics
+from domain.dashboard import build_dashboard_rows, compute_dashboard_metrics, load_historical_rankings
 from domain.schemas import RankingMetadata, RankingItem, RankingResult, SourceItem
 
 
@@ -35,7 +33,22 @@ def build_sample_ranking_result(run_id: str = "2026-04-06_150000") -> RankingRes
                         summary="Resumen México",
                     )
                 ],
-                raw_result={"pais": "México"},
+                raw_result={
+                    "pais": "México",
+                    "scores": {
+                        "riesgo_politico": 4.0,
+                        "riesgo_comercial": 5.0,
+                        "estabilidad_economica": 10.0,
+                    },
+                    "fuentes": [
+                        {
+                            "categoria": "economico",
+                            "titulo": "Fuente México",
+                            "url": "https://example.com/mx",
+                            "resumen": "Resumen México",
+                        }
+                    ],
+                },
             ),
             RankingItem(
                 position=2,
@@ -48,7 +61,15 @@ def build_sample_ranking_result(run_id: str = "2026-04-06_150000") -> RankingRes
                 },
                 executive_summary="Chile presenta estabilidad relativa.",
                 sources=[],
-                raw_result={"pais": "Chile"},
+                raw_result={
+                    "pais": "Chile",
+                    "scores": {
+                        "riesgo_politico": 4.0,
+                        "riesgo_comercial": 6.0,
+                        "estabilidad_economica": 9.0,
+                    },
+                    "fuentes": [],
+                },
             ),
             RankingItem(
                 position=3,
@@ -61,7 +82,15 @@ def build_sample_ranking_result(run_id: str = "2026-04-06_150000") -> RankingRes
                 },
                 executive_summary="Colombia ofrece potencial con cautelas.",
                 sources=[],
-                raw_result={"pais": "Colombia"},
+                raw_result={
+                    "pais": "Colombia",
+                    "scores": {
+                        "riesgo_politico": 5.0,
+                        "riesgo_comercial": 6.0,
+                        "estabilidad_economica": 8.0,
+                    },
+                    "fuentes": [],
+                },
             ),
         ],
     )
@@ -70,9 +99,11 @@ def build_sample_ranking_result(run_id: str = "2026-04-06_150000") -> RankingRes
 def test_full_ranking_pipeline_export_history_dashboard(tmp_path, monkeypatch):
     rankings_dir = tmp_path / "rankings"
     history_dir = rankings_dir / "history"
+    history_db_path = rankings_dir / "data" / "history.sqlite3"
 
     monkeypatch.setattr(exporters, "RANKINGS_OUTPUT_DIR", rankings_dir)
     monkeypatch.setattr(history, "HISTORY_BASE_DIR", history_dir)
+    monkeypatch.setattr(history, "HISTORY_DB_PATH", history_db_path)
 
     ranking_result = build_sample_ranking_result()
 
@@ -98,6 +129,7 @@ def test_full_ranking_pipeline_export_history_dashboard(tmp_path, monkeypatch):
 
     assert run_dir.exists()
     assert (run_dir / "manifest.json").exists()
+    assert history_db_path.exists()
 
     runs = history.list_ranking_runs()
     assert len(runs) == 1
@@ -118,9 +150,11 @@ def test_full_ranking_pipeline_export_history_dashboard(tmp_path, monkeypatch):
 def test_full_ranking_pipeline_with_two_runs(tmp_path, monkeypatch):
     rankings_dir = tmp_path / "rankings"
     history_dir = rankings_dir / "history"
+    history_db_path = rankings_dir / "data" / "history.sqlite3"
 
     monkeypatch.setattr(exporters, "RANKINGS_OUTPUT_DIR", rankings_dir)
     monkeypatch.setattr(history, "HISTORY_BASE_DIR", history_dir)
+    monkeypatch.setattr(history, "HISTORY_DB_PATH", history_db_path)
 
     run_1 = build_sample_ranking_result(run_id="2026-04-06_150000")
     run_2 = build_sample_ranking_result(run_id="2026-04-07_160000")
