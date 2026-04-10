@@ -1,0 +1,661 @@
+{
+  "metadata": {
+    "generated_at": "2026-04-07 13:54:23",
+    "sector": "General",
+    "tipo_empresa": "PYME"
+  },
+  "items": [
+    {
+      "position": 1,
+      "country": "Vietnam",
+      "score_total": 6.875,
+      "dimension_scores": {
+        "riesgo_politico": 6.5,
+        "estabilidad_economica": 4.2,
+        "riesgo_regulatorio": 3.8,
+        "riesgo_geopolitico": 5.0,
+        "riesgo_comercial": 4.5,
+        "riesgo_operativo": 4.0,
+        "ajuste_sectorial": 2.8,
+        "oportunidad_sectorial": 2.2
+      },
+      "resultado_completo": {
+        "resumen_ejecutivo": "Vietnam es un país con un sistema político autoritario dominado por el Partido Comunista de Vietnam. La economía del país ha experimentado un crecimiento significativo en los últimos años, con un PIB nominal de 457.000 millones de USD en 2024. Sin embargo, el país también enfrenta desafíos como la inestabilidad política y la dependencia de la inversión extranjera.",
+        "riesgo_politico": "",
+        "riesgo_comercial": "",
+        "estabilidad_economica": "",
+        "oportunidades": [
+          "Sector de procesamiento y manufactura en expansión, con oportunidades para la inversión extranjera",
+          "Creciente demanda de productos vietnamitas en mercados internacionales, como Túnez",
+          "Incentivos para la inversión extranjera directa, como exenciones arancelarias y reducciones de rentas y gravámenes"
+        ],
+        "riesgos_clave": [],
+        "recomendacion_final": "",
+        "scores": {
+          "riesgo_politico": 6.5,
+          "estabilidad_economica": 4.2,
+          "riesgo_regulatorio": 3.8,
+          "riesgo_geopolitico": 5.0,
+          "riesgo_comercial": 4.5,
+          "riesgo_operativo": 4.0,
+          "ajuste_sectorial": 2.8,
+          "oportunidad_sectorial": 2.2
+        },
+        "justificacion_scores": {
+          "riesgo_politico": [
+            "Inestabilidad política actual",
+            "Sistema autoritario"
+          ],
+          "estabilidad_economica": [
+            "Crecimiento económico del 6,2%",
+            "PIB nominal de 457.000 millones de USD"
+          ],
+          "riesgo_regulatorio": [
+            "Aranceles del 20% a las exportaciones vietnamitas",
+            "Acuerdos de comercio con la UE"
+          ],
+          "riesgo_geopolitico": [
+            "No hay información relevante"
+          ],
+          "riesgo_comercial": [
+            "Acceso al mercado",
+            "Competencia"
+          ],
+          "riesgo_operativo": [
+            "Facilidad de hacer negocios",
+            "Infraestructura"
+          ],
+          "ajuste_sectorial": [
+            "Sector de procesamiento y manufactura en crecimiento",
+            "Inversión extranjera directa"
+          ],
+          "oportunidad_sectorial": [
+            "Oportunidades de negocio en Vietnam",
+            "Crecimiento del sector de procesamiento y manufactura"
+          ]
+        },
+        "fuentes": [
+          {
+            "categoria": "politico",
+            "titulo": "Vietnam: Organización política e inestabilidad actual - TARPÁN",
+            "url": "https://tarpan.cl/articulos/vietnam-organizacion-politica-e-inestabilidad-actual/",
+            "resumen": "**En el comunicado emitido por el Comité Central del Partido Comunista de Vietnam sobre el caso de Vương Đình Huệ**, se repiten frases familiares como “responsabilidad del líder” y “violación del Reglamento que prohíbe a los miembros del partido ciertas acciones”. Por último, el **Comité Central de "
+          },
+          {
+            "categoria": "politico",
+            "titulo": "Política de Vietnam - Wikipedia, la enciclopedia libre",
+            "url": "https://es.wikipedia.org/wiki/Pol%C3%ADtica_de_Vietnam",
+            "resumen": "La política de Vietnam está dominada por un único partido bajo un sistema autoritario, el Partido Comunista de Vietnam (PCV). El presidente de Vietnam es el"
+          },
+          {
+            "categoria": "politico",
+            "titulo": "Vietnam revisa el mandato y plantea expectativas para el próximo ...",
+            "url": "https://es.vietnamplus.vn/primer-ministro-de-vietnam-revisa-el-mandato-y-plantea-expectativas-para-el-proximo-periodo-post234091.vnp",
+            "resumen": "***El XIV Congreso Nacional del Partido ha fijado como objetivos y exigencias para el período 2026-2030 mantener un entorno de paz y estabilidad, impulsar un desarrollo rápido y sostenible del país y defender firmemente la Patria socialista de Vietnam;*** aspirar a un crecimiento económico de dos dí"
+          },
+          {
+            "categoria": "economico",
+            "titulo": "VIETNAM - INDICADORES ECONÓMICOS",
+            "url": "https://es.tradingeconomics.com/vietnam/indicators",
+            "resumen": "| PIB - Tasa de crecimiento anual | 7.83 | 8.46 | 13.71 | -6.02 | Por Ciento | 2026-03 |. | PIB - Tasa de crecimiento anual | 7.83 | 8.46 | 13.71 | -6.02 | Por Ciento | 2026-03 |. | PIB - Precios constantes | 2589918 | 1922776 | 5830725 | 480455 | Vnd Billion | 2026-03 |. | Pib De La Construcción | "
+          },
+          {
+            "categoria": "economico",
+            "titulo": "Economía de Vietnam: PIB, Inflación y Tasas - Focus Economics",
+            "url": "https://www.focus-economics.com/es/countries/vietnam/",
+            "resumen": "PIB nominal de 457.000 millones de USD en 2024. PIB per cápita de 4.531 USD frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 6,2% en"
+          },
+          {
+            "categoria": "economico",
+            "titulo": "Vietnam se marca un objetivo un crecimiento del 10 % de PIB para ...",
+            "url": "https://www.swissinfo.ch/spa/vietnam-se-marca-un-objetivo-un-crecimiento-del-10-%25-de-pib-para-2026/90193196",
+            "resumen": "Bangkok, 20 oct (EFE).- El primer ministro de Vietnam, Pham Minh Chinh, dijo este lunes que el país se ha marcado un objetivo de crecimiento del 10 % en su Producto Interior Bruto (PIB) para 2026, mientras estima en el 8 % el crecimiento de este año, pese a los reveses de la guerra comercial. «La ec"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Análisis del acuerdo comercial entre EE.UU. y Vietnam",
+            "url": "https://www.sglusa.com/es/analyzing-the-us-vietnam-trade-deal/",
+            "resumen": "1. Arancel del 20% a las exportaciones vietnamitas · 2. Arancel del 40% para las mercancías transbordadas · 3. Cero aranceles a las exportaciones"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Acuerdos de Comercio e Inversión UE-Vietnam",
+            "url": "https://comercio.gob.es/PoliticaComercialUE/AcuerdosComerciales/acuerdoscomerciales/Vietnam/Ficha-Vietnam.pdf",
+            "resumen": "MINISTERIO DE INDUSTRIA, COMERCIO Y TURISMO SECRETARÍA DE ESTADO DE COMERCIO DIRECCIÓN GENERAL DE POLÍTICA COMERCIAL SUBDIRECCION GENERAL DE POLÍTICA COMERCIAL DE LA UNIÓN EUROPEA www.comercio.gob.es sgpolcoue.sscc@mincotur.es PASEO DE LA CASTELLANA, 162 28046, MADRID TEL: 91 349 36 70 - Vietnam con"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Vietnam agiliza sus normas comerciales y aduaneras",
+            "url": "https://amec.es/anticipate/alertas-y-oportunidades/vietnam-agiliza-sus-normas-comerciales-y-aduaneras/",
+            "resumen": "Vietnam reforma sus leyes de comercio y aduanas para facilitar las exportaciones, simplificar procesos y promover la inversión extranjera, especialmente en"
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "Sector de procesamiento y manufactura de Vietnam atrae flujos de ...",
+            "url": "https://es.nhandan.vn/sector-de-procesamiento-y-manufactura-de-vietnam-atrae-flujos-de-inversion-extranjera-post79897.html",
+            "resumen": "Vietnam mantiene sólido crecimiento pese a desafíos globales Inversión social total en Vietnam crece casi un 11 por ciento en el primer trimestre Crecimiento del primer trimestre sienta bases para expansión económica en 2026 Productos vietnamitas encuentran crecientes oportunidades en Túnez Exportac"
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "GLOBAL CV | Oportunidades de negocio en Vietnam - YouTube",
+            "url": "https://www.youtube.com/watch?v=pGM-OsUhCu8",
+            "resumen": "Vietnam, reconocido por su rica herencia cultural y su dinámica economía en expansión, ofrece un entorno favorable para el desarrollo"
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "Vietnam: Oportunidades Empresariales 2026 - Empresa Exterior",
+            "url": "https://empresaexterior.com/art/102084/vietnam-oportunidades-empresariales-2026",
+            "resumen": "A estos incentivos cabe añadir otros, igualmente diseñados para impulsar la inversión extranjera directa, ya sean arancelarios: exenciones por la importación de máquinas, equipos y componentes que no sean fabricados localmente; arrendaticios: exenciones o reducciones de rentas y gravàmenes por el ar"
+          }
+        ],
+        "bandas_confianza": {
+          "riesgo_politico": "media",
+          "estabilidad_economica": "alta",
+          "riesgo_regulatorio": "media",
+          "riesgo_geopolitico": "baja",
+          "riesgo_comercial": "media",
+          "riesgo_operativo": "media",
+          "ajuste_sectorial": "media",
+          "oportunidad_sectorial": "alta"
+        },
+        "cobertura_evidencia": {
+          "riesgo_politico": 2,
+          "estabilidad_economica": 3,
+          "riesgo_regulatorio": 2,
+          "riesgo_geopolitico": 0,
+          "riesgo_comercial": 1,
+          "riesgo_operativo": 1,
+          "ajuste_sectorial": 2,
+          "oportunidad_sectorial": 3
+        },
+        "_scoring_fallback": false,
+        "_cache_used": true
+      }
+    },
+    {
+      "position": 2,
+      "country": "Australia",
+      "score_total": 6.5,
+      "dimension_scores": {
+        "riesgo_politico": 6.5,
+        "estabilidad_economica": 4.2,
+        "riesgo_regulatorio": 3.5,
+        "riesgo_geopolitico": 5.0,
+        "riesgo_comercial": 4.0,
+        "riesgo_operativo": 5.0,
+        "ajuste_sectorial": 5.0,
+        "oportunidad_sectorial": 2.8
+      },
+      "resultado_completo": {
+        "resumen_ejecutivo": "Australia se encuentra en un momento de incertidumbre política después de las elecciones generales, lo que puede afectar la estabilidad económica del país. La economía australiana ha experimentado un crecimiento moderado, con un PIB nominal de 1,83 billones de USD en 2025. Sin embargo, el país enfrenta desafíos de seguridad y estabilidad económica debido a la presión global.",
+        "riesgo_politico": "",
+        "riesgo_comercial": "",
+        "estabilidad_economica": "",
+        "oportunidades": [
+          "Oportunidades de exportación para las PYMEs debido al valor de minimis",
+          "Crecimiento del comercio electrónico en Australia",
+          "Inversión en sectores en auge como la educación y la tecnología"
+        ],
+        "riesgos_clave": [],
+        "recomendacion_final": "",
+        "scores": {
+          "riesgo_politico": 6.5,
+          "estabilidad_economica": 4.2,
+          "riesgo_regulatorio": 3.5,
+          "riesgo_geopolitico": 5.0,
+          "riesgo_comercial": 4.0,
+          "riesgo_operativo": 5.0,
+          "ajuste_sectorial": 5.0,
+          "oportunidad_sectorial": 2.8
+        },
+        "justificacion_scores": {
+          "riesgo_politico": [
+            "incertidumbre política después de las elecciones generales",
+            "desafíos de seguridad y estabilidad económica"
+          ],
+          "estabilidad_economica": [
+            "tasa de crecimiento trimestral del 0.8%",
+            "tasa de inflación del 3.7%"
+          ],
+          "riesgo_regulatorio": [
+            "umbral de valor mínimo de Australia (de minimis) para impuestos",
+            "aranceles e impuestos en importaciones"
+          ],
+          "riesgo_geopolitico": [
+            "no hay información específica sobre tensiones regionales o sanciones"
+          ],
+          "riesgo_comercial": [
+            "acceso al mercado y competencia",
+            "oportunidades comerciales en Australia"
+          ],
+          "riesgo_operativo": [
+            "no hay información específica sobre facilidad de hacer negocios o infraestructura"
+          ],
+          "ajuste_sectorial": [
+            "no hay información específica sobre el encaje del sector objetivo en el mercado australiano"
+          ],
+          "oportunidad_sectorial": [
+            "oportunidades de inversión en sectores en auge de Australia",
+            "exportación española a Australia por sector"
+          ]
+        },
+        "fuentes": [
+          {
+            "categoria": "politico",
+            "titulo": "Australia después de las elecciones generales: en el limbo político",
+            "url": "https://vovworld.vn/es-ES/enfoque-de-actualidad/australia-despues-de-las-elecciones-generales-en-el-limbo-politico-1400460.vov5",
+            "resumen": "Los australianos esperaban que la votación anticipada daría estabilidad política al país, pero esta trajo solo incertidumbre. Eso significa que aún queda un"
+          },
+          {
+            "categoria": "politico",
+            "titulo": "Política | La seguridad de Australia ante la presión global por ... - SBS",
+            "url": "https://www.sbs.com.au/language/spanish/es/podcast-episode/politica-la-seguridad-de-australia-ante-la-presion-global-por-la-guerra-en-oriente-medio/r9tlhvfz8",
+            "resumen": "Australia enfrenta crecientes desafíos de seguridad y estabilidad económica debido al impacto de la guerra entre Estados Unidos,"
+          },
+          {
+            "categoria": "politico",
+            "titulo": "La seguridad de Australia ante la presión global por la guerra en ...",
+            "url": "https://www.youtube.com/watch?v=W6H62hwB5d8",
+            "resumen": "Australia enfrenta crecientes desafíos de seguridad y estabilidad económica debido al impacto de la guerra entre Estados Unidos,"
+          },
+          {
+            "categoria": "economico",
+            "titulo": "AUSTRALIA . - DATOS - INDICADORES ECONÓMICOS - TABLA",
+            "url": "https://es.tradingeconomics.com/australia/indicators.",
+            "resumen": "| PIB - Tasa de crecimiento trimestral | 0.8 | 0.5 | 4.4 | -6.8 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 2.6 | 2.1 | 10.2 | -5.9 | Por Ciento | 2025-12 |. | Tasa De Inflación | 3.7 | 3.8 | 3.8 | 1.9 | Por Ciento | 2026-02 |. | PIB - Tasa de crecimiento trimestral | 0.8 | 0.5 | 4"
+          },
+          {
+            "categoria": "economico",
+            "titulo": "Economía de Australia: PIB, Inflación, Tasas - Focus Economics",
+            "url": "https://www.focus-economics.com/es/countries/australia/",
+            "resumen": "PIB nominal de 1,741 billones de USD en 2023. PIB per cápita de 66.204 USD, frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 2,3% en"
+          },
+          {
+            "categoria": "economico",
+            "titulo": "Australia GDP (2025) - Worldometer",
+            "url": "https://www.worldometers.info/es/pib/pib-australia/",
+            "resumen": ":   El Producto Interno Bruto (PIB) nominal (a precios corrientes) de Australia es de $1,83 billones ($1.829.508.000.000) a fecha de 2025, según el Fondo Monetario Internacional (FMI). :   La tasa de crecimiento del PIB en 2025 fue del **1,8%**, según el Fondo Monetario Internacional (FMI). :   El P"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Mínimos de exportación: ¿Cómo exportar a Australia?",
+            "url": "https://bootcamp.latam.express.dhl.com/es-ar/minimos-de-exportacion-para-no-pagar-impuestos-australia",
+            "resumen": "Como hemos desarrollado en un post anterior sobre procedimientos y trámites aduaneros, los mínimos de exportación para no pagar impuestos hacen referencia al valor “de minimis”, cuyo impacto es beneficioso para la participación de las pymes en el mercado exportador. Como emprendedor puede que busque"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Una guía transfronteriza para el comercio electrónico en Australia",
+            "url": "https://zonos.com/es/docs/guides/country-guides/australia",
+            "resumen": "El landed cost para una transacción transfronteriza incluye todos los aranceles, impuestos y tarifas asociados con la compra. Se cobrarán aranceles e impuestos solo en las importaciones a Australia donde el valor total FOB de la importación exceda el umbral de valor mínimo de Australia (de minimis),"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Oportunidades comerciales en Australia",
+            "url": "https://mexico.embassy.gov.au/mctycastellano/trade.html",
+            "resumen": "A través de una red global de oficinas, Austrade apoya a las empresas australianas en el crecimiento de sus negocios internacionales, atrae inversión extranjera directa a Australia y promueve el sector de educación de Australia internacionalmente. Austrade ayuda a las empresas alrededor del mundo a "
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "[PDF] Haciendo Negocios en Australia",
+            "url": "https://www.uria.com/documentos/galerias/2383/documento/4517/doc004.p",
+            "resumen": "australia busca todas las oportunidades posibles para abrir mercados globales a los exportadores y para impulsar los flujos de inversión en todos los sectores."
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "[PDF] Australia y Nueva Zelanda: Principales oportunidades y aspectos a ...",
+            "url": "https://videoexterior.com/wp-content/uploads/2019/05/informeAUSNZL.pdf",
+            "resumen": "Exportación española a Australia por sector. Datos en ... Oportunidades comerciales y de inversión para las empresas gallegas en. Australia y Nueva Zelanda."
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "Invierte en los sectores en auge de Australia - Biz Latin Hub",
+            "url": "https://www.bizlatinhub.com/es/invertir-australias-sectores-en-boom/",
+            "resumen": "Australia es una de las principales economías del mundo, así como uno de los destinos más atractivos para la inversión extranjera."
+          }
+        ],
+        "bandas_confianza": {
+          "riesgo_politico": "media",
+          "estabilidad_economica": "alta",
+          "riesgo_regulatorio": "media",
+          "riesgo_geopolitico": "baja",
+          "riesgo_comercial": "media",
+          "riesgo_operativo": "baja",
+          "ajuste_sectorial": "baja",
+          "oportunidad_sectorial": "media"
+        },
+        "_cache_used": true
+      }
+    },
+    {
+      "position": 3,
+      "country": "México",
+      "score_total": 5.7875,
+      "dimension_scores": {
+        "riesgo_politico": 8.0,
+        "estabilidad_economica": 6.5,
+        "riesgo_regulatorio": 5.0,
+        "riesgo_geopolitico": 5.0,
+        "riesgo_comercial": 4.0,
+        "riesgo_operativo": 5.0,
+        "ajuste_sectorial": 5.0,
+        "oportunidad_sectorial": 3.2
+      },
+      "resultado_completo": {
+        "resumen_ejecutivo": "México presenta un entorno político inestable que aumenta el riesgo para las empresas, especialmente para las PYME. La economía del país muestra un crecimiento lento, con un PIB que creció un 1,2% en 2024. El contexto regulatorio requiere que las empresas cumplan con trámites legales específicos para exportar e importar.",
+        "riesgo_politico": "",
+        "riesgo_comercial": "",
+        "estabilidad_economica": "",
+        "oportunidades": [
+          "Oportunidades de exportación a mercados estadounidenses y canadienses",
+          "Demanda creciente de productos y servicios en el mercado mexicano",
+          "Inversión en proyectos de energía y infraestructura en México"
+        ],
+        "riesgos_clave": [],
+        "recomendacion_final": "",
+        "scores": {
+          "riesgo_politico": 8.0,
+          "estabilidad_economica": 6.5,
+          "riesgo_regulatorio": 5.0,
+          "riesgo_geopolitico": 5.0,
+          "riesgo_comercial": 4.0,
+          "riesgo_operativo": 5.0,
+          "ajuste_sectorial": 5.0,
+          "oportunidad_sectorial": 3.2
+        },
+        "justificacion_scores": {
+          "riesgo_politico": [
+            "Inestabilidad política aumenta el riesgo político en México según AtlasIntel",
+            "La desestabilidad incrementa el riesgo político de las compañías"
+          ],
+          "estabilidad_economica": [
+            "El PIB de México creció un 1,2% en 2024",
+            "La tasa de inflación es de 4.02%"
+          ],
+          "riesgo_regulatorio": [
+            "Se requieren trámites legales para exportar desde México",
+            "No hay información adicional sobre regulaciones específicas"
+          ],
+          "riesgo_geopolitico": [
+            "No hay información sobre tensiones regionales o sanciones"
+          ],
+          "riesgo_comercial": [
+            "México fue uno de los principales mercados para los exportadores estadounidenses en 2022",
+            "Hay oportunidades comerciales en México"
+          ],
+          "riesgo_operativo": [
+            "No hay información sobre la facilidad de hacer negocios en México"
+          ],
+          "ajuste_sectorial": [
+            "No hay información sobre el encaje del sector objetivo en el mercado mexicano"
+          ],
+          "oportunidad_sectorial": [
+            "México tiene un mercado grande y creciente",
+            "Hay oportunidades de negocio e inversión en México"
+          ]
+        },
+        "fuentes": [
+          {
+            "categoria": "politico",
+            "titulo": "Inestabilidad aumenta riesgo político en México según AtlasIntel",
+            "url": "https://dinero.hn/inestabilidad-aumenta-riesgo-politico-en-mexico-segun-atlasintel/",
+            "resumen": "El índice, que evalúa el riesgo político en una escala de 0 a 100 (siendo 100 el máximo riesgo y un posible colapso), toma en cuenta factores como la inestabilidad institucional, el conflicto social, la delincuencia y la corrupción. En la capital mexicana, el pasado mes fue escenario de una gran pro"
+          },
+          {
+            "categoria": "politico",
+            "titulo": "[PDF] SITUACIÓN Y PERSPECTIVA 2022 - MÉXICO - LLYC",
+            "url": "https://llyc.global/wp-content/uploads/2024/11/2022_LLYC_Informe_Mexico_Situacion_y_perspectiva_2022.pdf",
+            "resumen": "política en el país. La desestabilidad incrementa el riesgo político de las compañías, generando incertidumbre en sus planes estratégicos de desarrollo en"
+          },
+          {
+            "categoria": "politico",
+            "titulo": "El año que puede TORCER a México: Riesgos del 2026 I MLDA",
+            "url": "https://www.youtube.com/watch?v=6Gq13UiSsEk",
+            "resumen": "... políticos”, enfocado en lo que puede pegarle directo a empresas, inversión y estabilidad del país ... riesgo #1 no es económico… es político"
+          },
+          {
+            "categoria": "economico",
+            "titulo": "México - Producto Interior Bruto (PIB), desempleo, inflación, datos ...",
+            "url": "https://www.epdata.es/datos/mexico-datos-macroeconomicos-datos-graficos/656",
+            "resumen": "**El Producto Interior Bruto (PIB) de México creció un 1,2% en 2024**, según el dato publicado por el Instituto Nacional de Estadística y Geografía (Inegi). El **Producto Interior Bruto (PIB) de México** avanzó un 0,8% en el cuarto trimestre con respecto al mismo periodo del año pasado, según la est"
+          },
+          {
+            "categoria": "economico",
+            "titulo": "MÉXICO - INDICADORES ECONÓMICOS",
+            "url": "https://es.tradingeconomics.com/mexico/indicators",
+            "resumen": "MÉXICO - INDICADORES ECONÓMICOS ; PIB - Tasa de crecimiento anual, 1.8, -0.1 ; Tasa de Desempleo, 2.6, 2.7 ; Tasa De Inflación, 4.02, 3.79 ; Tasa de inflación ("
+          },
+          {
+            "categoria": "economico",
+            "titulo": "Economía de México: PIB, Inflación y Tasas de Interés",
+            "url": "https://www.focus-economics.com/es/countries/mexico/",
+            "resumen": "PIB nominal de 1,795 billones de USD en 2023. PIB per cápita de 14.024 USD, frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 1,5% en"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Trámites legales para que tu nueva empresa pueda exportar desde ...",
+            "url": "https://cicde.mx/tramites-legales-nueva-empresa-pueda-exportar-desde-mexico/",
+            "resumen": "Si estás considerando exportar productos desde México, es fundamental que tu empresa cumpla con todos los trámites legales requeridos para evitar sanciones y facilitar la logística de exportación. En este artículo, exploraremos los pasos clave que tu empresa debe seguir para realizar una exportación"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Documentación para importar o exportar a México en 2025",
+            "url": "https://www.kensalogistics.com/documentacion-importante-considerar-exportar-mexico-2025",
+            "resumen": "* **Contar con un sistema automatizado de inventarios en el comercio exterior.** Este tipo de herramientas permite gestionar de manera eficiente los registros de las mercancías que entran o salen del país, asegurando que los datos estén siempre actualizados y disponibles para cumplir con los requisi"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "¿Cuáles son los requisitos para la importación y exportación México ...",
+            "url": "https://consultoraencomercioexterior.com/cuales-son-los-requisitos-para-la-importacion-y-exportacion-mexico-2024/",
+            "resumen": "Sin embargo, **para participar de manera eficiente y cumplir con las normativas del comercio exterior, es importante estar al tanto de los requisitos específicos y trámites necesarios.** En este artículo, detallaremos los pasos esenciales para importar y exportar productos en México, destacando los "
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "Oportunidades de mercado y estrategias de exportación en México",
+            "url": "https://grow.exim.gov/es/mercados/mexico",
+            "resumen": "Con 324.3 mil millones de dólares en ventas de exportación, México fue uno de los principales mercados para los exportadores estadounidenses en 2022. ¿Se ha"
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "Oportunidades Comerciales – Consejo Empresarial Mexicano de ...",
+            "url": "https://comce.org.mx/oportunidades-comerciales/",
+            "resumen": "El Consulado General de México en Vancouver comparte la oportunidad comercial por parte de una empresa canadiense, especializada en la fabricación de maquinaria para pruebas de calidad en celdas de combustible de hidrógeno y electrolizadores. Se hace de su conocimiento que la Embajada de México en C"
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "OPORTUNIDADES DE NEGOCIO E INVERSIÓN EN MÉXICO 2025",
+            "url": "https://www.asturex.org/oportunidades-de-negocio-e-inversion-en-mexico-2025/",
+            "resumen": "**Enlaces oficiales:** Secretaría de Energía (SENER) — https://www.gob.mx/sener/ ; Acuerdos y estrategias publicadas en el DOF (consulta en SENER). **Enlace útil:** Proyectos México / Banco Nacional de Obras y Servicios Públicos —  (portal de proyectos y razones para invertir). **Enlaces oficiales r"
+          }
+        ],
+        "bandas_confianza": {
+          "riesgo_politico": "alta",
+          "estabilidad_economica": "alta",
+          "riesgo_regulatorio": "media",
+          "riesgo_geopolitico": "baja",
+          "riesgo_comercial": "media",
+          "riesgo_operativo": "baja",
+          "ajuste_sectorial": "baja",
+          "oportunidad_sectorial": "media"
+        },
+        "cobertura_evidencia": {
+          "riesgo_politico": 3,
+          "estabilidad_economica": 3,
+          "riesgo_regulatorio": 2,
+          "riesgo_geopolitico": 0,
+          "riesgo_comercial": 2,
+          "riesgo_operativo": 0,
+          "ajuste_sectorial": 0,
+          "oportunidad_sectorial": 2
+        },
+        "_scoring_fallback": false,
+        "_cache_used": true
+      }
+    },
+    {
+      "position": 4,
+      "country": "Colombia",
+      "score_total": 5.0,
+      "dimension_scores": {
+        "riesgo_politico": 8.0,
+        "estabilidad_economica": 6.5,
+        "riesgo_regulatorio": 5.0,
+        "riesgo_geopolitico": 5.0,
+        "riesgo_comercial": 6.0,
+        "riesgo_operativo": 6.5,
+        "ajuste_sectorial": 7.0,
+        "oportunidad_sectorial": 4.0
+      },
+      "resultado_completo": {
+        "resumen_ejecutivo": "Colombia enfrenta desafíos políticos y de seguridad, lo que puede afectar la estabilidad del país. Sin embargo, el país también ofrece oportunidades de inversión en sectores como la manufactura y el comercio internacional. La economía colombiana ha registrado un crecimiento medio anual del 3,0% en la década hasta 2023.",
+        "riesgo_politico": "",
+        "riesgo_comercial": "",
+        "estabilidad_economica": "",
+        "oportunidades": [
+          "Inversión en sectores de manufacturas como el automotriz y el textil",
+          "Desarrollo de la industria de software y tecnologías de la información",
+          "Exportación de productos como azúcar y leche en polvo"
+        ],
+        "riesgos_clave": [],
+        "recomendacion_final": "",
+        "scores": {
+          "riesgo_politico": 8.0,
+          "estabilidad_economica": 6.5,
+          "riesgo_regulatorio": 5.0,
+          "riesgo_geopolitico": 5.0,
+          "riesgo_comercial": 6.0,
+          "riesgo_operativo": 6.5,
+          "ajuste_sectorial": 7.0,
+          "oportunidad_sectorial": 4.0
+        },
+        "justificacion_scores": {
+          "riesgo_politico": [
+            "Crisis de gobernabilidad e inestabilidad democrática en Colombia",
+            "La trágica crisis de seguridad que atraviesa Colombia"
+          ],
+          "estabilidad_economica": [
+            "Crecimiento económico medio anual del 3,0% en la década hasta 2023",
+            "Tasa de inflación del 5,29% en 2026-02"
+          ],
+          "riesgo_regulatorio": [
+            "Aranceles de exportación en Colombia",
+            "Requisitos de registro y permisos para exportar"
+          ],
+          "riesgo_geopolitico": [
+            "No se encontraron señales relevantes"
+          ],
+          "riesgo_comercial": [
+            "Acceso al mercado y competencia",
+            "Barreras no arancelarias"
+          ],
+          "riesgo_operativo": [
+            "Facilidad de hacer negocios y burocracia",
+            "Infraestructura"
+          ],
+          "ajuste_sectorial": [
+            "Sectores para invertir en Colombia",
+            "Oportunidades de inversión en manufacturas"
+          ],
+          "oportunidad_sectorial": [
+            "Oportunidades de inversión en sectores como el automotriz y el textil",
+            "Crecimiento del sector de software"
+          ]
+        },
+        "fuentes": [
+          {
+            "categoria": "politico",
+            "titulo": "Crisis de gobernabilidad e inestabilidad democrática en Colombia",
+            "url": "https://www.observatoriopoliticodelasamericas.com/en/noticias/crisis-de-gobernabilidad-e-inestabilidad-democr%C3%A1tica-en-colombia",
+            "resumen": "Esta definición permite identificar las tensiones que enfrenta el sistema político colombiano bajo el gobierno de Gustavo Petro, particularmente en lo relativo a la articulación entre poder Ejecutivo, Congreso y la opinión pública. Así, el hundimiento de la reforma laboral significó un revés para la"
+          },
+          {
+            "categoria": "politico",
+            "titulo": "¿Cuáles son los retos de Colombia con el nuevo gobierno?",
+            "url": "https://blog.bancolombia.com/actualidad/retos-nuevo-gobierno-colombia/?wpsnetn=x",
+            "resumen": "En estos puntos resaltan las nuevas políticas que presenta el gobierno en temas como la diversificación de la matriz energética y sostenibilidad, reforma agraria y modernización del campo, posicionamiento de Colombia en el mapa del turismo mundial y la conectividad de internet que se pretende llevar"
+          },
+          {
+            "categoria": "politico",
+            "titulo": "La trágica crisis de seguridad que atraviesa Colombia",
+            "url": "https://revanellis.com/la-tragica-crisis-de-seguridad-que-atraviesa-colombia.html",
+            "resumen": "Colombia también atraviesa una situación de parálisis y polarización política, agravada por luchas internas y múltiples escándalos de"
+          },
+          {
+            "categoria": "economico",
+            "titulo": "Economía de Colombia: PIB, Inflación y Tasas - Focus Economics",
+            "url": "https://www.focus-economics.com/es/countries/colombia/",
+            "resumen": "Crecimento económico. La economía registró un crecimiento medio anual del 3,0% en la década hasta 2023. · Política presupuestaria. El déficit fiscal de Colombia"
+          },
+          {
+            "categoria": "economico",
+            "titulo": "COLOMBIA - INDICADORES ECONÓMICOS",
+            "url": "https://es.tradingeconomics.com/colombia/indicators",
+            "resumen": "| PIB - Tasa de crecimiento trimestral | 0.1 | 1.2 | 9.9 | -16.4 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 2.3 | 3.6 | 18.6 | -16.8 | Por Ciento | 2025-12 |. | Tasa De Inflación | 5.29 | 5.35 | 41.65 | -0.87 | Por Ciento | 2026-02 |. | PIB - Tasa de crecimiento trimestral | 0.1 |"
+          },
+          {
+            "categoria": "economico",
+            "titulo": "Crecimiento del PIB (% anual) - Colombia | Data - Banco Mundial",
+            "url": "https://datos.bancomundial.org/indicador/NY.GDP.MKTP.KD.ZG?locations=CO",
+            "resumen": "Explorar los indicadores del desarrollo mundial porPaísoIndicador. # Crecimiento del PIB (% anual) - Colombia. #### Descargar datos. #### DataBank. #### Ver en tablas de Indicadores del desarrollo mundial (WDI). ## Países y economías seleccionados. ## Todos los países y economías. Trabajamos por un "
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Aranceles de exportación en Colombia: Guía completa - CLM Cargo",
+            "url": "https://www.clmcargo.com/es-co/aranceles-de-exportacion-en-colombia",
+            "resumen": "Los aranceles de exportación en Colombia son impuestos que se aplican a las mercancías que venden al exterior. Los aranceles son cargas monetarias que se imponen sobre las mercancías en el proceso de exportación e importación. La información sobre subpartidas es crucial para garantizar que se apliqu"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Introducción al comercio internacional en Colombia: importancia y ...",
+            "url": "https://zonafrancapc.co/introduccion-al-comercio-internacional-en-colombia-importancia-y-oportunidades/",
+            "resumen": "Para exportar se requiere la factura comercial, lista de empaque, carta de instrucciones de despacho, el certificado de origen, la solicitud del DEX al agente de Aduanas y la verificación de los permisos, documentos y pagos respectivos por parte del agente de aduanas. Los beneficios se refieren a la"
+          },
+          {
+            "categoria": "regulatorio",
+            "titulo": "Exportar desde Colombia: 10 puntos a tener en cuenta - TIBA Group",
+            "url": "https://www.tibagroup.com/es/comercio-internacional/exportar/exportar-colombia",
+            "resumen": "En Colombia cualquier persona natural o empresa que desee importar o exportar, debe tener un Registro Único Tributario (RUT), que lo capacite"
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "Sectores Para Invertir - Marca País Colombia",
+            "url": "https://colombia.co/extranjeros/negocios-en-colombia/inversion/sectores-para-invertir",
+            "resumen": "Colombia ofrece grandes oportunidades de inversión en divisiones del sector de manufacturas como el automotriz y el textil. Este último cuenta hoy en día con un"
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "Sectores para invertir en Colombia",
+            "url": "https://investincolombia.com.co/es/sectores",
+            "resumen": "**Bienvenido, usted está en INVEST IN COLOMBIA**. **Bienvenido, usted está en INVEST IN COLOMBIA**. # Sectores para invertir en Colombia. PROCOLOMBIA ha identificado los sectores que representan oportunidades de inversión en el país y que cuentan con el apoyo del Gobierno para su desarrollo. Encuent"
+          },
+          {
+            "categoria": "oportunidades",
+            "titulo": "Nueve oportunidades que marcarán el futuro de Colombia en ...",
+            "url": "https://economiaaplicada.co/index.php/67-comercio-exterior/712-ss0090",
+            "resumen": "**Industria de Software.** La encuesta de servicios DANE revela que las actividades informáticas son el sector de mayor crecimiento del sector servicios y que en 2015 registró el crecimiento de sus ventas más alto en los últimos ocho años. **Azúcar y leche en polvo.** La aprobación del tratado de li"
+          }
+        ],
+        "bandas_confianza": {
+          "riesgo_politico": "alta",
+          "estabilidad_economica": "alta",
+          "riesgo_regulatorio": "media",
+          "riesgo_geopolitico": "baja",
+          "riesgo_comercial": "media",
+          "riesgo_operativo": "media",
+          "ajuste_sectorial": "media",
+          "oportunidad_sectorial": "alta"
+        },
+        "cobertura_evidencia": {
+          "riesgo_politico": 3,
+          "estabilidad_economica": 3,
+          "riesgo_regulatorio": 2,
+          "riesgo_geopolitico": 0,
+          "riesgo_comercial": 1,
+          "riesgo_operativo": 1,
+          "ajuste_sectorial": 2,
+          "oportunidad_sectorial": 3
+        },
+        "_cache_used": true
+      }
+    }
+  ]
+}

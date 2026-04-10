@@ -1,0 +1,627 @@
+{
+    "metadata": {
+        "run_id": "2026-04-06_112028",
+        "generated_at": "2026-04-06T11:20:28",
+        "sector": "Construcción",
+        "company_type": "Gran empresa",
+        "countries_requested": [
+            "México",
+            "Marruecos",
+            "Colombia"
+        ],
+        "total_countries": 3,
+        "version": "fase_9c"
+    },
+    "ranking": [
+        {
+            "position": 1,
+            "country": "Marruecos",
+            "score_total": 21.0,
+            "dimension_scores": {
+                "riesgo_politico": 4.0,
+                "riesgo_comercial": 5.0,
+                "estabilidad_economica": 8.0
+            },
+            "executive_summary": "Marruecos presenta un entorno económico y político complejo, con una economía en crecimiento y un sector de la construcción en expansión. La estabilidad política y la atracción de inversiones extranjeras son factores clave para el desarrollo del país. Sin embargo, la gobernanza y la situación social también plantean desafíos.",
+            "sources": [
+                {
+                    "category": "politico",
+                    "title": "The 3 gaps WITH MOROCCO that are worrying for Spain. - YouTube",
+                    "url": "https://www.youtube.com/watch?v=SDsy5EOzVnc",
+                    "summary": "... Marruecos? Durante décadas, la estabilidad en el Estrecho dependía de una métrica incuestionable: la hegemonía militar española. Hoy, los"
+                },
+                {
+                    "category": "politico",
+                    "title": "[PDF] Marruecos",
+                    "url": "https://www.exteriores.gob.es/documents/fichaspais/marruecos_ficha%20pais.pdf",
+                    "summary": "Visita del Presidente del Gobierno, Pedro Sán­ chez, presidiendo la delegación española asistente a la XII RAN en la que participaron igualmente Vicepresidenta primera del Gobierno y ministra de Asuntos Económicos y Transformación Digital, Sra. Nadia Calviño, Vicepresidenta tercera del Gobierno y mi"
+                },
+                {
+                    "category": "politico",
+                    "title": "Marruecos. Gobernanza a la deriva en medio de una tormenta social",
+                    "url": "https://orientxxi.info/marruecos-gobernanza-a-la-deriva-en-medio-de-una-tormenta-social,5930",
+                    "summary": "La prensa francesa cercana al palacio rebosa de argumentos para “explicar” la originalidad e incluso la “pertinencia” de este curioso “exilio” de M6 en el corazón de la ciudad luz y hace mención tanto a la enfermedad de su madre como a un estilo de gobierno que le sería propio y, por ende, innovador"
+                },
+                {
+                    "category": "economico",
+                    "title": "Economía de Marruecos: PIB, Inflación y Tasas - Focus Economics",
+                    "url": "https://www.focus-economics.com/es/countries/marruecos/",
+                    "summary": "Marruecos Datos económicos ; Crecimiento económico (PIB nominal, var. anual), -7.0, 10.8 ; Reservas internacionales (meses de importaciones), 11.0, 8.3 ; Inversión"
+                },
+                {
+                    "category": "economico",
+                    "title": "Indicadores de Marruecos - Economía - TradingView",
+                    "url": "https://es.tradingview.com/markets/world-economy/countries/morocco/",
+                    "summary": "Indicadores de Marruecos · Crecimiento del PIB · Tipo de interés · Tasa de inflación · Tasa de desempleo · Balanza comercial · Deuda pública/PIB."
+                },
+                {
+                    "category": "economico",
+                    "title": "MARRUECOS - INDICADORES ECONÓMICOS",
+                    "url": "https://es.tradingeconomics.com/morocco/indicators",
+                    "summary": "| PIB - Tasa de crecimiento anual | 4.1 | 4 | 14.3 | -14.9 | Por Ciento | 2025-12 |. | PIB - Precios constantes | 343863 | 339324 | 343863 | 187096 | Mad Millones | 2025-12 |. | Pib De Agricultura | 26991 | 27032 | 30549 | 15879 | Mad Millones | 2025-12 |. | Pib De La Construcción | 17451 | 17457 | "
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Requisitos para exportar a Marruecos: Trámites aduaneros y logísticos",
+                    "url": "https://bolipesk.es/exportar-a-marruecos-tramites-aduaneros-y-logisticos/",
+                    "summary": "Factura comercial y declaración aduanera adaptada a las regulaciones locales marroquíes. Certificados fitosanitarios o sanitarios si la"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "[PDF] Exportar a Marruecos",
+                    "url": "https://emarr.cancilleria.gob.ar/userfiles/EXPORTAR%20%20A%20MARRUECOS.pdf",
+                    "summary": "B-Los documentos requeridos para constituir un DUM - Facturas definitivas - Título de transporte - Título de importación - Certificado de Origen - Certificado bancario para el tránsito aduanero de importación - Información sobre el peso y el embalaje - Fichas de imputación para las exportaciones. To"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Guía para exportar a Marruecos: Webinar de DHL Express y claves ...",
+                    "url": "https://empresaexterior.com/art/102071/claves-para-exportar-a-marruecos-dhl-express-analiza-las-oportunidades-estrategicas-para-las-empresas-espanolas",
+                    "summary": "Un reciente webinar liderado por DHL Express detalla las ventajas del acuerdo de libre comercio, el auge de sectores como la automoción y la importancia de la digitalización aduanera para garantizar entregas en menos de 48 horas. La estabilidad política y el crecimiento sostenido del **PIB**, proyec"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Marruecos, economía y oportunidades de negocio de nuestro ...",
+                    "url": "https://www.ceoe.es/es/ceoe-news/internacional/marruecos-economia-y-oportunidades-de-negocio-de-nuestro-primer-socio",
+                    "summary": "Marruecos se caracteriza por una economía en la que conviven sectores tradicionales agrícolas y de servicios de muy baja productividad y con otros sectores industriales más avanzados que incorporan tecnología como resultado de procesos de deslocalización industrial y de la atracción de inversiones e"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Marruecos: un mercado en expansión para el sector de la ... - ieTeam",
+                    "url": "https://ieteam.com/es/ieteam-blog/marruecos-un-mercado-en-expansion-para-el-sector-de-la-construccion",
+                    "summary": "Marruecos se ha consolidado en los últimos años como un destino atractivo para la inversión extranjera en el sector de la construcción."
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Oportunidades del Mercado Marroquí - How2Go",
+                    "url": "https://h2gconsulting.com/how2go-marruecos/oportunidades-del-mercado-marroqui/",
+                    "summary": "* Sector textil (con el foco puesto en inputs y equipamiento para la confección: diseño, hilatura, tejidos técnicos, botonería, etc.). Las oportunidades de inversión pueden aparecer tanto en el marco de la industria orientada a la exportación (automoción, aeronáutica, electrónica, textil, offshoring"
+                }
+            ],
+            "raw_result": {
+                "resumen_ejecutivo": "Marruecos presenta un entorno económico y político complejo, con una economía en crecimiento y un sector de la construcción en expansión. La estabilidad política y la atracción de inversiones extranjeras son factores clave para el desarrollo del país. Sin embargo, la gobernanza y la situación social también plantean desafíos.",
+                "riesgo_politico": "",
+                "riesgo_comercial": "",
+                "estabilidad_economica": "",
+                "oportunidades": [
+                    "Crecimiento del sector de la construcción y la inversión extranjera",
+                    "Oportunidades de negocio en sectores como la automoción y la aeronáutica",
+                    "Expansión del mercado textil y de la industria de la confección"
+                ],
+                "riesgos_clave": [],
+                "recomendacion_final": "",
+                "scores": {
+                    "riesgo_politico": 4,
+                    "riesgo_comercial": 5,
+                    "estabilidad_economica": 8
+                },
+                "justificacion_scores": {
+                    "riesgo_politico": [
+                        "También hay señales de estabilidad, lo que modera parcialmente el riesgo."
+                    ],
+                    "riesgo_comercial": [
+                        "Existen requisitos regulatorios que elevan la complejidad de entrada.",
+                        "La existencia de oportunidades de mercado modera ligeramente el riesgo comercial."
+                    ],
+                    "estabilidad_economica": [
+                        "Se detectan señales de crecimiento económico.",
+                        "La inversión aparece como señal favorable para la estabilidad.",
+                        "Las oportunidades detectadas mejoran ligeramente la percepción de estabilidad económica."
+                    ]
+                },
+                "fuentes": [
+                    {
+                        "categoria": "politico",
+                        "titulo": "The 3 gaps WITH MOROCCO that are worrying for Spain. - YouTube",
+                        "url": "https://www.youtube.com/watch?v=SDsy5EOzVnc",
+                        "resumen": "... Marruecos? Durante décadas, la estabilidad en el Estrecho dependía de una métrica incuestionable: la hegemonía militar española. Hoy, los"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "[PDF] Marruecos",
+                        "url": "https://www.exteriores.gob.es/documents/fichaspais/marruecos_ficha%20pais.pdf",
+                        "resumen": "Visita del Presidente del Gobierno, Pedro Sán­ chez, presidiendo la delegación española asistente a la XII RAN en la que participaron igualmente Vicepresidenta primera del Gobierno y ministra de Asuntos Económicos y Transformación Digital, Sra. Nadia Calviño, Vicepresidenta tercera del Gobierno y mi"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Marruecos. Gobernanza a la deriva en medio de una tormenta social",
+                        "url": "https://orientxxi.info/marruecos-gobernanza-a-la-deriva-en-medio-de-una-tormenta-social,5930",
+                        "resumen": "La prensa francesa cercana al palacio rebosa de argumentos para “explicar” la originalidad e incluso la “pertinencia” de este curioso “exilio” de M6 en el corazón de la ciudad luz y hace mención tanto a la enfermedad de su madre como a un estilo de gobierno que le sería propio y, por ende, innovador"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Economía de Marruecos: PIB, Inflación y Tasas - Focus Economics",
+                        "url": "https://www.focus-economics.com/es/countries/marruecos/",
+                        "resumen": "Marruecos Datos económicos ; Crecimiento económico (PIB nominal, var. anual), -7.0, 10.8 ; Reservas internacionales (meses de importaciones), 11.0, 8.3 ; Inversión"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Indicadores de Marruecos - Economía - TradingView",
+                        "url": "https://es.tradingview.com/markets/world-economy/countries/morocco/",
+                        "resumen": "Indicadores de Marruecos · Crecimiento del PIB · Tipo de interés · Tasa de inflación · Tasa de desempleo · Balanza comercial · Deuda pública/PIB."
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "MARRUECOS - INDICADORES ECONÓMICOS",
+                        "url": "https://es.tradingeconomics.com/morocco/indicators",
+                        "resumen": "| PIB - Tasa de crecimiento anual | 4.1 | 4 | 14.3 | -14.9 | Por Ciento | 2025-12 |. | PIB - Precios constantes | 343863 | 339324 | 343863 | 187096 | Mad Millones | 2025-12 |. | Pib De Agricultura | 26991 | 27032 | 30549 | 15879 | Mad Millones | 2025-12 |. | Pib De La Construcción | 17451 | 17457 | "
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Requisitos para exportar a Marruecos: Trámites aduaneros y logísticos",
+                        "url": "https://bolipesk.es/exportar-a-marruecos-tramites-aduaneros-y-logisticos/",
+                        "resumen": "Factura comercial y declaración aduanera adaptada a las regulaciones locales marroquíes. Certificados fitosanitarios o sanitarios si la"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "[PDF] Exportar a Marruecos",
+                        "url": "https://emarr.cancilleria.gob.ar/userfiles/EXPORTAR%20%20A%20MARRUECOS.pdf",
+                        "resumen": "B-Los documentos requeridos para constituir un DUM - Facturas definitivas - Título de transporte - Título de importación - Certificado de Origen - Certificado bancario para el tránsito aduanero de importación - Información sobre el peso y el embalaje - Fichas de imputación para las exportaciones. To"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Guía para exportar a Marruecos: Webinar de DHL Express y claves ...",
+                        "url": "https://empresaexterior.com/art/102071/claves-para-exportar-a-marruecos-dhl-express-analiza-las-oportunidades-estrategicas-para-las-empresas-espanolas",
+                        "resumen": "Un reciente webinar liderado por DHL Express detalla las ventajas del acuerdo de libre comercio, el auge de sectores como la automoción y la importancia de la digitalización aduanera para garantizar entregas en menos de 48 horas. La estabilidad política y el crecimiento sostenido del **PIB**, proyec"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Marruecos, economía y oportunidades de negocio de nuestro ...",
+                        "url": "https://www.ceoe.es/es/ceoe-news/internacional/marruecos-economia-y-oportunidades-de-negocio-de-nuestro-primer-socio",
+                        "resumen": "Marruecos se caracteriza por una economía en la que conviven sectores tradicionales agrícolas y de servicios de muy baja productividad y con otros sectores industriales más avanzados que incorporan tecnología como resultado de procesos de deslocalización industrial y de la atracción de inversiones e"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Marruecos: un mercado en expansión para el sector de la ... - ieTeam",
+                        "url": "https://ieteam.com/es/ieteam-blog/marruecos-un-mercado-en-expansion-para-el-sector-de-la-construccion",
+                        "resumen": "Marruecos se ha consolidado en los últimos años como un destino atractivo para la inversión extranjera en el sector de la construcción."
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Oportunidades del Mercado Marroquí - How2Go",
+                        "url": "https://h2gconsulting.com/how2go-marruecos/oportunidades-del-mercado-marroqui/",
+                        "resumen": "* Sector textil (con el foco puesto en inputs y equipamiento para la confección: diseño, hilatura, tejidos técnicos, botonería, etc.). Las oportunidades de inversión pueden aparecer tanto en el marco de la industria orientada a la exportación (automoción, aeronáutica, electrónica, textil, offshoring"
+                    }
+                ],
+                "explicacion_sistema": {
+                    "metodologia": "El sistema combina recuperación web por dimensiones, scoring heurístico determinista y generación narrativa con LLM.",
+                    "limitaciones": "Los scores actuales se basan en reglas heurísticas sobre texto recuperado. No sustituyen un modelo cuantitativo completo ni una due diligence especializada."
+                },
+                "_debug_contexto": {
+                    "politico": "- Título: The 3 gaps WITH MOROCCO that are worrying for Spain. - YouTube\n  Resumen: ... Marruecos? Durante décadas, la estabilidad en el Estrecho dependía de una métrica incuestionable: la hegemonía militar española. Hoy, los\n  URL: https://www.youtube.com/watch?v=SDsy5EOzVnc\n- Título: [PDF] Marruecos\n  Resumen: Visita del Presidente del Gobierno, Pedro Sán­ chez, presidiendo la delegación española asistente a la XII RAN en la que participaron igualmente Vicepresidenta primera del Gobierno y ministra de Asuntos Económicos y Transformación Digital, Sra. Nadia Calviño, Vicepresidenta tercera del Gobierno y mi\n  URL: https://www.exteriores.gob.es/documents/fichaspais/marruecos_ficha%20pais.pdf\n- Título: Marruecos. Gobernanza a la deriva en medio de una tormenta social\n  Resumen: La prensa francesa cercana al palacio rebosa de argumentos para “explicar” la originalidad e incluso la “pertinencia” de este curioso “exilio” de M6 en el corazón de la ciudad luz y hace mención tanto a la enfermedad de su madre como a un estilo de gobierno que le sería propio y, por ende, innovador\n  URL: https://orientxxi.info/marruecos-gobernanza-a-la-deriva-en-medio-de-una-tormenta-social,5930",
+                    "economico": "- Título: Economía de Marruecos: PIB, Inflación y Tasas - Focus Economics\n  Resumen: Marruecos Datos económicos ; Crecimiento económico (PIB nominal, var. anual), -7.0, 10.8 ; Reservas internacionales (meses de importaciones), 11.0, 8.3 ; Inversión\n  URL: https://www.focus-economics.com/es/countries/marruecos/\n- Título: Indicadores de Marruecos - Economía - TradingView\n  Resumen: Indicadores de Marruecos · Crecimiento del PIB · Tipo de interés · Tasa de inflación · Tasa de desempleo · Balanza comercial · Deuda pública/PIB.\n  URL: https://es.tradingview.com/markets/world-economy/countries/morocco/\n- Título: MARRUECOS - INDICADORES ECONÓMICOS\n  Resumen: | PIB - Tasa de crecimiento anual | 4.1 | 4 | 14.3 | -14.9 | Por Ciento | 2025-12 |. | PIB - Precios constantes | 343863 | 339324 | 343863 | 187096 | Mad Millones | 2025-12 |. | Pib De Agricultura | 26991 | 27032 | 30549 | 15879 | Mad Millones | 2025-12 |. | Pib De La Construcción | 17451 | 17457 | \n  URL: https://es.tradingeconomics.com/morocco/indicators",
+                    "regulatorio": "- Título: Requisitos para exportar a Marruecos: Trámites aduaneros y logísticos\n  Resumen: Factura comercial y declaración aduanera adaptada a las regulaciones locales marroquíes. Certificados fitosanitarios o sanitarios si la\n  URL: https://bolipesk.es/exportar-a-marruecos-tramites-aduaneros-y-logisticos/\n- Título: [PDF] Exportar a Marruecos\n  Resumen: B-Los documentos requeridos para constituir un DUM - Facturas definitivas - Título de transporte - Título de importación - Certificado de Origen - Certificado bancario para el tránsito aduanero de importación - Información sobre el peso y el embalaje - Fichas de imputación para las exportaciones. To\n  URL: https://emarr.cancilleria.gob.ar/userfiles/EXPORTAR%20%20A%20MARRUECOS.pdf\n- Título: Guía para exportar a Marruecos: Webinar de DHL Express y claves ...\n  Resumen: Un reciente webinar liderado por DHL Express detalla las ventajas del acuerdo de libre comercio, el auge de sectores como la automoción y la importancia de la digitalización aduanera para garantizar entregas en menos de 48 horas. La estabilidad política y el crecimiento sostenido del **PIB**, proyec\n  URL: https://empresaexterior.com/art/102071/claves-para-exportar-a-marruecos-dhl-express-analiza-las-oportunidades-estrategicas-para-las-empresas-espanolas",
+                    "oportunidades": "- Título: Marruecos, economía y oportunidades de negocio de nuestro ...\n  Resumen: Marruecos se caracteriza por una economía en la que conviven sectores tradicionales agrícolas y de servicios de muy baja productividad y con otros sectores industriales más avanzados que incorporan tecnología como resultado de procesos de deslocalización industrial y de la atracción de inversiones e\n  URL: https://www.ceoe.es/es/ceoe-news/internacional/marruecos-economia-y-oportunidades-de-negocio-de-nuestro-primer-socio\n- Título: Marruecos: un mercado en expansión para el sector de la ... - ieTeam\n  Resumen: Marruecos se ha consolidado en los últimos años como un destino atractivo para la inversión extranjera en el sector de la construcción.\n  URL: https://ieteam.com/es/ieteam-blog/marruecos-un-mercado-en-expansion-para-el-sector-de-la-construccion\n- Título: Oportunidades del Mercado Marroquí - How2Go\n  Resumen: * Sector textil (con el foco puesto en inputs y equipamiento para la confección: diseño, hilatura, tejidos técnicos, botonería, etc.). Las oportunidades de inversión pueden aparecer tanto en el marco de la industria orientada a la exportación (automoción, aeronáutica, electrónica, textil, offshoring\n  URL: https://h2gconsulting.com/how2go-marruecos/oportunidades-del-mercado-marroqui/"
+                },
+                "_debug_raw_model_output": "{\n  \"pais\": \"Marruecos\",\n  \"resumen_ejecutivo\": \"Marruecos presenta un entorno económico y político complejo, con una economía en crecimiento y un sector de la construcción en expansión. La estabilidad política y la atracción de inversiones extranjeras son factores clave para el desarrollo del país. Sin embargo, la gobernanza y la situación social también plantean desafíos.\",\n  \"alertas\": [\n    \"Inestabilidad política y social en el país\",\n    \"Riesgos asociados a la regulación aduanera y logística\",\n    \"Dependencia de la economía marroquí de factores externos\"\n  ],\n  \"oportunidades\": [\n    \"Crecimiento del sector de la construcción y la inversión extranjera\",\n    \"Oportunidades de negocio en sectores como la automoción y la aeronáutica\",\n    \"Expansión del mercado textil y de la industria de la confección\"\n  ]\n}"
+            }
+        },
+        {
+            "position": 2,
+            "country": "Colombia",
+            "score_total": 17.0,
+            "dimension_scores": {
+                "riesgo_politico": 6.0,
+                "riesgo_comercial": 6.0,
+                "estabilidad_economica": 7.0
+            },
+            "executive_summary": "Colombia presenta un contexto político inestable con crisis de credibilidad en el gobierno y presión sobre la Junta Directiva. La economía colombiana ha experimentado un crecimiento económico moderado, con un PIB que ha crecido un 2,7% en el primer semestre de 2025. El sector de la construcción puede ser afectado por la inestabilidad política y la incertidumbre económica.",
+            "sources": [
+                {
+                    "category": "politico",
+                    "title": "La estabilidad política colombiana | www.casamerica.es",
+                    "url": "https://www.casamerica.es/politica/la-estabilidad-politica-colombiana",
+                    "summary": "Los últimos 20 minutos quedan ... del gobierno con la guerrilla, la lucha contra el narcotráfico y Pablo Escobar, la economía colombiana y los desplazados debido a la violencia. Presenta José Lladó Fernández-Urrutia, presidente del Institto Nacional de Cuestiones Internacionales y Política exterior,"
+                },
+                {
+                    "category": "politico",
+                    "title": "Crisis política en Colombia | Opinión | EL PAÍS",
+                    "url": "https://elpais.com/opinion/2023-06-09/crisis-politica-en-colombia.html",
+                    "summary": "June 9, 2023 - La caída de credibilidad del Gobierno de Gustavo Petro pone en riesgo una agenda reformista necesaria"
+                },
+                {
+                    "category": "politico",
+                    "title": "Gobierno Colombia en EL PAÍS",
+                    "url": "https://elpais.com/noticias/gobierno-republica-colombia/",
+                    "summary": "2 weeks ago - Los escándalos judiciales del presidente de la petrolera estatal extienden la presión a la Junta Directiva, donde el Gobierno tiene mayorías ... Naciones Unidas califica los 410 asesinatos ocurridos entre 2022 y 2025 como un hecho “inaceptable”, aunque reconoce algunos avances ... La l"
+                },
+                {
+                    "category": "economico",
+                    "title": "COLOMBIA - INDICADORES ECONÓMICOS",
+                    "url": "https://es.tradingeconomics.com/colombia/indicators",
+                    "summary": "| PIB - Tasa de crecimiento trimestral | 0.1 | 1.2 | 9.9 | -16.4 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 2.3 | 3.6 | 18.6 | -16.8 | Por Ciento | 2025-12 |. | Tasa De Inflación | 5.29 | 5.35 | 41.65 | -0.87 | Por Ciento | 2026-02 |. | PIB - Tasa de crecimiento trimestral | 0.1 |"
+                },
+                {
+                    "category": "economico",
+                    "title": "Economía de Colombia: PIB, Inflación y Tasas - Focus Economics",
+                    "url": "https://www.focus-economics.com/es/countries/colombia/",
+                    "summary": "Crecimento económico. La economía registró un crecimiento medio anual del 3,0% en la década hasta 2023. · Política presupuestaria. El déficit fiscal de Colombia"
+                },
+                {
+                    "category": "economico",
+                    "title": "Indicadores Macroeconómicos Clave en Colombia - UNIR",
+                    "url": "https://colombia.unir.net/actualidad-unir/indicadores-macroeconomicos/",
+                    "summary": "Según las cifras del DANE, en el primer semestre del 2025 el PIB en Colombia ha crecido un 2,7% en comparación con el mismo periodo del año"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Introducción al comercio internacional en Colombia: importancia y ...",
+                    "url": "https://zonafrancapc.co/introduccion-al-comercio-internacional-en-colombia-importancia-y-oportunidades/",
+                    "summary": "Para exportar se requiere la factura comercial, lista de empaque, carta de instrucciones de despacho, el certificado de origen, la solicitud del DEX al agente de Aduanas y la verificación de los permisos, documentos y pagos respectivos por parte del agente de aduanas. Los beneficios se refieren a la"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Que debemos tener en cuenta para exportar desde Colombia ...",
+                    "url": "https://www.instagram.com/p/DJRwYpFR1m7/",
+                    "summary": "POSICIÓN ARANCELARIA. La base sobre la cual se sostiene el Comercio Internacional. Antes de pensar en importar o exportar, tenemos que ver si la"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "[PDF] Aspectos básicos en la exportación - DIAN",
+                    "url": "https://www.dian.gov.co/aduanas/Regimen-de-Aduanas/Documents/ABC-Aspectos-basicos-Exportacion.pdf",
+                    "summary": "Es la salida de mercancías del territorio aduanero colombiano con destino a otro país, a una zona franca o a un depósito franco con el cumplimiento de los requisitos previstos en la norma. El exportador o declarante, antes de la presentación y aceptación de la SAE, debe solicitar a la DIAN la autori"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Sectores para invertir en Colombia",
+                    "url": "https://investincolombia.com.co/es/sectores",
+                    "summary": "**Bienvenido, usted está en INVEST IN COLOMBIA**. **Bienvenido, usted está en INVEST IN COLOMBIA**. # Sectores para invertir en Colombia. PROCOLOMBIA ha identificado los sectores que representan oportunidades de inversión en el país y que cuentan con el apoyo del Gobierno para su desarrollo. Encuent"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Oportunidades de negocio en Colombia 2023",
+                    "url": "https://www.asturex.org/oportunidades-de-negocio-en-colombia-2023/",
+                    "summary": "Los principales campos de apoyo a la inversión son Energía, Astilleros, Aeronáutica, Agroindustria, Turismo, Hidrógeno, Movilidad Sostenible e"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Nuevos mercados potenciales para el crecimiento de ...",
+                    "url": "https://blog.bancolombia.com/negocios/nuevos-mercados-colombia/",
+                    "summary": "Analdex explica que los sectores con mayores oportunidades para las pymes exportadoras colombianas son los que combinan calidad, diferenciación"
+                }
+            ],
+            "raw_result": {
+                "resumen_ejecutivo": "Colombia presenta un contexto político inestable con crisis de credibilidad en el gobierno y presión sobre la Junta Directiva. La economía colombiana ha experimentado un crecimiento económico moderado, con un PIB que ha crecido un 2,7% en el primer semestre de 2025. El sector de la construcción puede ser afectado por la inestabilidad política y la incertidumbre económica.",
+                "riesgo_politico": "",
+                "riesgo_comercial": "",
+                "estabilidad_economica": "",
+                "oportunidades": [
+                    "Oportunidades de inversión en sectores como la energía, astilleros y aeronáutica",
+                    "Demanda creciente de servicios de construcción en el país",
+                    "Posibilidad de exportar servicios y productos de construcción a mercados internacionales"
+                ],
+                "riesgos_clave": [],
+                "recomendacion_final": "",
+                "scores": {
+                    "riesgo_politico": 6,
+                    "riesgo_comercial": 6,
+                    "estabilidad_economica": 7
+                },
+                "justificacion_scores": {
+                    "riesgo_politico": [
+                        "Se identifican señales de crisis política o institucional.",
+                        "También hay señales de estabilidad, lo que modera parcialmente el riesgo."
+                    ],
+                    "riesgo_comercial": [
+                        "Se detectan referencias a aranceles o costes regulatorios de entrada.",
+                        "Existen requisitos regulatorios que elevan la complejidad de entrada.",
+                        "La existencia de oportunidades de mercado modera ligeramente el riesgo comercial."
+                    ],
+                    "estabilidad_economica": [
+                        "Se detectan señales de crecimiento económico.",
+                        "Las oportunidades detectadas mejoran ligeramente la percepción de estabilidad económica."
+                    ]
+                },
+                "fuentes": [
+                    {
+                        "categoria": "politico",
+                        "titulo": "La estabilidad política colombiana | www.casamerica.es",
+                        "url": "https://www.casamerica.es/politica/la-estabilidad-politica-colombiana",
+                        "resumen": "Los últimos 20 minutos quedan ... del gobierno con la guerrilla, la lucha contra el narcotráfico y Pablo Escobar, la economía colombiana y los desplazados debido a la violencia. Presenta José Lladó Fernández-Urrutia, presidente del Institto Nacional de Cuestiones Internacionales y Política exterior,"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Crisis política en Colombia | Opinión | EL PAÍS",
+                        "url": "https://elpais.com/opinion/2023-06-09/crisis-politica-en-colombia.html",
+                        "resumen": "June 9, 2023 - La caída de credibilidad del Gobierno de Gustavo Petro pone en riesgo una agenda reformista necesaria"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Gobierno Colombia en EL PAÍS",
+                        "url": "https://elpais.com/noticias/gobierno-republica-colombia/",
+                        "resumen": "2 weeks ago - Los escándalos judiciales del presidente de la petrolera estatal extienden la presión a la Junta Directiva, donde el Gobierno tiene mayorías ... Naciones Unidas califica los 410 asesinatos ocurridos entre 2022 y 2025 como un hecho “inaceptable”, aunque reconoce algunos avances ... La l"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "COLOMBIA - INDICADORES ECONÓMICOS",
+                        "url": "https://es.tradingeconomics.com/colombia/indicators",
+                        "resumen": "| PIB - Tasa de crecimiento trimestral | 0.1 | 1.2 | 9.9 | -16.4 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 2.3 | 3.6 | 18.6 | -16.8 | Por Ciento | 2025-12 |. | Tasa De Inflación | 5.29 | 5.35 | 41.65 | -0.87 | Por Ciento | 2026-02 |. | PIB - Tasa de crecimiento trimestral | 0.1 |"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Economía de Colombia: PIB, Inflación y Tasas - Focus Economics",
+                        "url": "https://www.focus-economics.com/es/countries/colombia/",
+                        "resumen": "Crecimento económico. La economía registró un crecimiento medio anual del 3,0% en la década hasta 2023. · Política presupuestaria. El déficit fiscal de Colombia"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Indicadores Macroeconómicos Clave en Colombia - UNIR",
+                        "url": "https://colombia.unir.net/actualidad-unir/indicadores-macroeconomicos/",
+                        "resumen": "Según las cifras del DANE, en el primer semestre del 2025 el PIB en Colombia ha crecido un 2,7% en comparación con el mismo periodo del año"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Introducción al comercio internacional en Colombia: importancia y ...",
+                        "url": "https://zonafrancapc.co/introduccion-al-comercio-internacional-en-colombia-importancia-y-oportunidades/",
+                        "resumen": "Para exportar se requiere la factura comercial, lista de empaque, carta de instrucciones de despacho, el certificado de origen, la solicitud del DEX al agente de Aduanas y la verificación de los permisos, documentos y pagos respectivos por parte del agente de aduanas. Los beneficios se refieren a la"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Que debemos tener en cuenta para exportar desde Colombia ...",
+                        "url": "https://www.instagram.com/p/DJRwYpFR1m7/",
+                        "resumen": "POSICIÓN ARANCELARIA. La base sobre la cual se sostiene el Comercio Internacional. Antes de pensar en importar o exportar, tenemos que ver si la"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "[PDF] Aspectos básicos en la exportación - DIAN",
+                        "url": "https://www.dian.gov.co/aduanas/Regimen-de-Aduanas/Documents/ABC-Aspectos-basicos-Exportacion.pdf",
+                        "resumen": "Es la salida de mercancías del territorio aduanero colombiano con destino a otro país, a una zona franca o a un depósito franco con el cumplimiento de los requisitos previstos en la norma. El exportador o declarante, antes de la presentación y aceptación de la SAE, debe solicitar a la DIAN la autori"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Sectores para invertir en Colombia",
+                        "url": "https://investincolombia.com.co/es/sectores",
+                        "resumen": "**Bienvenido, usted está en INVEST IN COLOMBIA**. **Bienvenido, usted está en INVEST IN COLOMBIA**. # Sectores para invertir en Colombia. PROCOLOMBIA ha identificado los sectores que representan oportunidades de inversión en el país y que cuentan con el apoyo del Gobierno para su desarrollo. Encuent"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Oportunidades de negocio en Colombia 2023",
+                        "url": "https://www.asturex.org/oportunidades-de-negocio-en-colombia-2023/",
+                        "resumen": "Los principales campos de apoyo a la inversión son Energía, Astilleros, Aeronáutica, Agroindustria, Turismo, Hidrógeno, Movilidad Sostenible e"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Nuevos mercados potenciales para el crecimiento de ...",
+                        "url": "https://blog.bancolombia.com/negocios/nuevos-mercados-colombia/",
+                        "resumen": "Analdex explica que los sectores con mayores oportunidades para las pymes exportadoras colombianas son los que combinan calidad, diferenciación"
+                    }
+                ],
+                "explicacion_sistema": {
+                    "metodologia": "El sistema combina recuperación web por dimensiones, scoring heurístico determinista y generación narrativa con LLM.",
+                    "limitaciones": "Los scores actuales se basan en reglas heurísticas sobre texto recuperado. No sustituyen un modelo cuantitativo completo ni una due diligence especializada."
+                },
+                "_debug_contexto": {
+                    "politico": "- Título: La estabilidad política colombiana | www.casamerica.es\n  Resumen: Los últimos 20 minutos quedan ... del gobierno con la guerrilla, la lucha contra el narcotráfico y Pablo Escobar, la economía colombiana y los desplazados debido a la violencia. Presenta José Lladó Fernández-Urrutia, presidente del Institto Nacional de Cuestiones Internacionales y Política exterior,\n  URL: https://www.casamerica.es/politica/la-estabilidad-politica-colombiana\n- Título: Crisis política en Colombia | Opinión | EL PAÍS\n  Resumen: June 9, 2023 - La caída de credibilidad del Gobierno de Gustavo Petro pone en riesgo una agenda reformista necesaria\n  URL: https://elpais.com/opinion/2023-06-09/crisis-politica-en-colombia.html\n- Título: Gobierno Colombia en EL PAÍS\n  Resumen: 2 weeks ago - Los escándalos judiciales del presidente de la petrolera estatal extienden la presión a la Junta Directiva, donde el Gobierno tiene mayorías ... Naciones Unidas califica los 410 asesinatos ocurridos entre 2022 y 2025 como un hecho “inaceptable”, aunque reconoce algunos avances ... La l\n  URL: https://elpais.com/noticias/gobierno-republica-colombia/",
+                    "economico": "- Título: COLOMBIA - INDICADORES ECONÓMICOS\n  Resumen: | PIB - Tasa de crecimiento trimestral | 0.1 | 1.2 | 9.9 | -16.4 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 2.3 | 3.6 | 18.6 | -16.8 | Por Ciento | 2025-12 |. | Tasa De Inflación | 5.29 | 5.35 | 41.65 | -0.87 | Por Ciento | 2026-02 |. | PIB - Tasa de crecimiento trimestral | 0.1 |\n  URL: https://es.tradingeconomics.com/colombia/indicators\n- Título: Economía de Colombia: PIB, Inflación y Tasas - Focus Economics\n  Resumen: Crecimento económico. La economía registró un crecimiento medio anual del 3,0% en la década hasta 2023. · Política presupuestaria. El déficit fiscal de Colombia\n  URL: https://www.focus-economics.com/es/countries/colombia/\n- Título: Indicadores Macroeconómicos Clave en Colombia - UNIR\n  Resumen: Según las cifras del DANE, en el primer semestre del 2025 el PIB en Colombia ha crecido un 2,7% en comparación con el mismo periodo del año\n  URL: https://colombia.unir.net/actualidad-unir/indicadores-macroeconomicos/",
+                    "regulatorio": "- Título: Introducción al comercio internacional en Colombia: importancia y ...\n  Resumen: Para exportar se requiere la factura comercial, lista de empaque, carta de instrucciones de despacho, el certificado de origen, la solicitud del DEX al agente de Aduanas y la verificación de los permisos, documentos y pagos respectivos por parte del agente de aduanas. Los beneficios se refieren a la\n  URL: https://zonafrancapc.co/introduccion-al-comercio-internacional-en-colombia-importancia-y-oportunidades/\n- Título: Que debemos tener en cuenta para exportar desde Colombia ...\n  Resumen: POSICIÓN ARANCELARIA. La base sobre la cual se sostiene el Comercio Internacional. Antes de pensar en importar o exportar, tenemos que ver si la\n  URL: https://www.instagram.com/p/DJRwYpFR1m7/\n- Título: [PDF] Aspectos básicos en la exportación - DIAN\n  Resumen: Es la salida de mercancías del territorio aduanero colombiano con destino a otro país, a una zona franca o a un depósito franco con el cumplimiento de los requisitos previstos en la norma. El exportador o declarante, antes de la presentación y aceptación de la SAE, debe solicitar a la DIAN la autori\n  URL: https://www.dian.gov.co/aduanas/Regimen-de-Aduanas/Documents/ABC-Aspectos-basicos-Exportacion.pdf",
+                    "oportunidades": "- Título: Sectores para invertir en Colombia\n  Resumen: **Bienvenido, usted está en INVEST IN COLOMBIA**. **Bienvenido, usted está en INVEST IN COLOMBIA**. # Sectores para invertir en Colombia. PROCOLOMBIA ha identificado los sectores que representan oportunidades de inversión en el país y que cuentan con el apoyo del Gobierno para su desarrollo. Encuent\n  URL: https://investincolombia.com.co/es/sectores\n- Título: Oportunidades de negocio en Colombia 2023\n  Resumen: Los principales campos de apoyo a la inversión son Energía, Astilleros, Aeronáutica, Agroindustria, Turismo, Hidrógeno, Movilidad Sostenible e\n  URL: https://www.asturex.org/oportunidades-de-negocio-en-colombia-2023/\n- Título: Nuevos mercados potenciales para el crecimiento de ...\n  Resumen: Analdex explica que los sectores con mayores oportunidades para las pymes exportadoras colombianas son los que combinan calidad, diferenciación\n  URL: https://blog.bancolombia.com/negocios/nuevos-mercados-colombia/"
+                },
+                "_debug_raw_model_output": "{\n  \"pais\": \"Colombia\",\n  \"resumen_ejecutivo\": \"Colombia presenta un contexto político inestable con crisis de credibilidad en el gobierno y presión sobre la Junta Directiva. La economía colombiana ha experimentado un crecimiento económico moderado, con un PIB que ha crecido un 2,7% en el primer semestre de 2025. El sector de la construcción puede ser afectado por la inestabilidad política y la incertidumbre económica.\",\n  \"alertas\": [\n    \"Inestabilidad política y crisis de credibilidad en el gobierno\",\n    \"Riesgo de inseguridad y violencia en algunas regiones del país\",\n    \"Posibles cambios regulatorios y burocráticos que pueden afectar la exportación\"\n  ],\n  \"oportunidades\": [\n    \"Oportunidades de inversión en sectores como la energía, astilleros y aeronáutica\",\n    \"Demanda creciente de servicios de construcción en el país\",\n    \"Posibilidad de exportar servicios y productos de construcción a mercados internacionales\"\n  ]\n}"
+            }
+        },
+        {
+            "position": 3,
+            "country": "México",
+            "score_total": 14.0,
+            "dimension_scores": {
+                "riesgo_politico": 9.0,
+                "riesgo_comercial": 5.0,
+                "estabilidad_economica": 6.0
+            },
+            "executive_summary": "El entorno político y económico de México presenta desafíos y oportunidades para las empresas del sector de la construcción. La inestabilidad política y la desaceleración económica pueden afectar la inversión y el crecimiento en el sector. Sin embargo, el país sigue siendo un destino atractivo para la inversión y el comercio, especialmente en sectores como la construcción, que puede beneficiarse de la demanda de infraestructura y desarrollo urbano.",
+            "sources": [
+                {
+                    "category": "politico",
+                    "title": "Inestabilidad aumenta riesgo político en México según AtlasIntel",
+                    "url": "https://dinero.hn/inestabilidad-aumenta-riesgo-politico-en-mexico-segun-atlasintel/",
+                    "summary": "El índice, que evalúa el riesgo político en una escala de 0 a 100 (siendo 100 el máximo riesgo y un posible colapso), toma en cuenta factores como la inestabilidad institucional, el conflicto social, la delincuencia y la corrupción. En la capital mexicana, el pasado mes fue escenario de una gran pro"
+                },
+                {
+                    "category": "politico",
+                    "title": "El riesgo político de México seReduce a niveles mínimos históricos ...",
+                    "url": "https://www.alm.com/press_release/alm-intelligence-updates-verdictsearch/?s-news-16155582-2025-12-02-el-riesgo-politico-de-mexico-disminuye-a-niveles-minimos-historicos",
+                    "summary": "En contraste con percepciones previas, el riesgo político en México ha disminuido notablemente en los últimos meses, alcanzando niveles que"
+                },
+                {
+                    "category": "politico",
+                    "title": "Advierten 10 riesgos políticos en México para 2026: concentración ...",
+                    "url": "https://www.yucatan.com.mx/mexico/2026/01/08/advierten-10-riesgos-politicos-en-mexico-para-2026-concentracion-del-poder-y-debil-economia-los-primeros.html",
+                    "summary": "Integralia identifica diez riesgos políticos y económicos que definirán el 2026 en México, con efectos en inversión, empresas y estabilidad."
+                },
+                {
+                    "category": "economico",
+                    "title": "Economía de México: PIB, Inflación y Tasas de Interés",
+                    "url": "https://www.focus-economics.com/es/countries/mexico/",
+                    "summary": "PIB nominal de 1,795 billones de USD en 2023. PIB per cápita de 14.024 USD, frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 1,5% en"
+                },
+                {
+                    "category": "economico",
+                    "title": "México - Producto Interior Bruto (PIB), desempleo, inflación, datos ...",
+                    "url": "https://www.epdata.es/datos/mexico-datos-macroeconomicos-datos-graficos/656",
+                    "summary": "**El Producto Interior Bruto (PIB) de México creció un 1,2% en 2024**, según el dato publicado por el Instituto Nacional de Estadística y Geografía (Inegi). El **Producto Interior Bruto (PIB) de México** avanzó un 0,8% en el cuarto trimestre con respecto al mismo periodo del año pasado, según la est"
+                },
+                {
+                    "category": "economico",
+                    "title": "Política y economía México - Santandertrade.com",
+                    "url": "https://santandertrade.com/es/portal/analizar-mercados/mexico/politica-y-economia",
+                    "summary": "Se espera que el crecimiento se ralentice aún más en 2025 (hasta el 1,4%) debido a la retirada del estímulo fiscal y a una desaceleración en EE.UU. Se espera que vuelva al objetivo del 3% a finales de 2025; sin embargo, los riesgos para la inflación siguen siendo al alza, principalmente por una infl"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Trámites legales para que tu nueva empresa pueda exportar desde ...",
+                    "url": "https://cicde.mx/tramites-legales-nueva-empresa-pueda-exportar-desde-mexico/",
+                    "summary": "Si estás considerando exportar productos desde México, es fundamental que tu empresa cumpla con todos los trámites legales requeridos para evitar sanciones y facilitar la logística de exportación. En este artículo, exploraremos los pasos clave que tu empresa debe seguir para realizar una exportación"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Aranceles México 2026: Guía para Exportadores [Actualizada]",
+                    "url": "https://www.whyloyalty.com/es/blog/aranceles-en-mexico-guia-2026-para-exportadores/",
+                    "summary": "En el dinámico panorama del comercio exterior, mantenerse actualizado sobre los aranceles y regulaciones comerciales es fundamental para el éxito de cualquier operación de exportación. La economía depende significativamente de las relaciones comerciales con los socios del T-MEC, y los aranceles de i"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Documentación para importar o exportar a México en 2025",
+                    "url": "https://www.kensalogistics.com/documentacion-importante-considerar-exportar-mexico-2025",
+                    "summary": "* **Contar con un sistema automatizado de inventarios en el comercio exterior.** Este tipo de herramientas permite gestionar de manera eficiente los registros de las mercancías que entran o salen del país, asegurando que los datos estén siempre actualizados y disponibles para cumplir con los requisi"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "OPORTUNIDADES DE NEGOCIO E INVERSIÓN EN ...",
+                    "url": "https://www.asturex.org/oportunidades-de-negocio-e-inversion-en-mexico-2025/",
+                    "summary": "**Enlaces oficiales:** Secretaría de Energía (SENER) — https://www.gob.mx/sener/ ; Acuerdos y estrategias publicadas en el DOF (consulta en SENER). **Enlace útil:** Proyectos México / Banco Nacional de Obras y Servicios Públicos —  (portal de proyectos y razones para invertir). **Enlaces oficiales r"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Oportunidades de Negocio",
+                    "url": "http://www.ccpci.economia.gob.mx/swb/swb/montevideo/Oportunidades_de_Negocio",
+                    "summary": "Contiene información relevante de los avances en el proceso de integración en el marco de la ALADI, así como de las medidas de política comercial aplicadas por los países miembros de la Asociación, que puedan tener alguna implicación en las relaciones comerciales entre ellos. La Representación de Mé"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Sectores de oportunidad en México ante la nueva ...",
+                    "url": "https://h2gconsulting.com/how2go-mexico/sectores-oportunidad-mexico-nueva-situacion-politica/",
+                    "summary": "México es un destino de inversión muy atractivo. Según DOING BUSINESS México es el país iberoamericano más fácil para emprender negocios. Se estima que para"
+                }
+            ],
+            "raw_result": {
+                "resumen_ejecutivo": "El entorno político y económico de México presenta desafíos y oportunidades para las empresas del sector de la construcción. La inestabilidad política y la desaceleración económica pueden afectar la inversión y el crecimiento en el sector. Sin embargo, el país sigue siendo un destino atractivo para la inversión y el comercio, especialmente en sectores como la construcción, que puede beneficiarse de la demanda de infraestructura y desarrollo urbano.",
+                "riesgo_politico": "",
+                "riesgo_comercial": "",
+                "estabilidad_economica": "",
+                "oportunidades": [
+                    "Demanda de infraestructura y desarrollo urbano en el sector de la construcción",
+                    "Oportunidades de negocio y inversión en proyectos de energía y servicios públicos",
+                    "Acceso a mercados y socios comerciales a través de acuerdos como el T-MEC"
+                ],
+                "riesgos_clave": [],
+                "recomendacion_final": "",
+                "scores": {
+                    "riesgo_politico": 9,
+                    "riesgo_comercial": 5,
+                    "estabilidad_economica": 6
+                },
+                "justificacion_scores": {
+                    "riesgo_politico": [
+                        "Se detectó inestabilidad en el contexto político.",
+                        "Aparecen referencias a conflicto o tensión política.",
+                        "Se menciona corrupción, lo que aumenta el riesgo político.",
+                        "También hay señales de estabilidad, lo que modera parcialmente el riesgo."
+                    ],
+                    "riesgo_comercial": [
+                        "Se detectan referencias a aranceles o costes regulatorios de entrada.",
+                        "La existencia de oportunidades de mercado modera ligeramente el riesgo comercial."
+                    ],
+                    "estabilidad_economica": [
+                        "Se detectan señales de crecimiento económico.",
+                        "La desaceleración económica reduce la percepción de estabilidad.",
+                        "Las oportunidades detectadas mejoran ligeramente la percepción de estabilidad económica."
+                    ]
+                },
+                "fuentes": [
+                    {
+                        "categoria": "politico",
+                        "titulo": "Inestabilidad aumenta riesgo político en México según AtlasIntel",
+                        "url": "https://dinero.hn/inestabilidad-aumenta-riesgo-politico-en-mexico-segun-atlasintel/",
+                        "resumen": "El índice, que evalúa el riesgo político en una escala de 0 a 100 (siendo 100 el máximo riesgo y un posible colapso), toma en cuenta factores como la inestabilidad institucional, el conflicto social, la delincuencia y la corrupción. En la capital mexicana, el pasado mes fue escenario de una gran pro"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "El riesgo político de México seReduce a niveles mínimos históricos ...",
+                        "url": "https://www.alm.com/press_release/alm-intelligence-updates-verdictsearch/?s-news-16155582-2025-12-02-el-riesgo-politico-de-mexico-disminuye-a-niveles-minimos-historicos",
+                        "resumen": "En contraste con percepciones previas, el riesgo político en México ha disminuido notablemente en los últimos meses, alcanzando niveles que"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Advierten 10 riesgos políticos en México para 2026: concentración ...",
+                        "url": "https://www.yucatan.com.mx/mexico/2026/01/08/advierten-10-riesgos-politicos-en-mexico-para-2026-concentracion-del-poder-y-debil-economia-los-primeros.html",
+                        "resumen": "Integralia identifica diez riesgos políticos y económicos que definirán el 2026 en México, con efectos en inversión, empresas y estabilidad."
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Economía de México: PIB, Inflación y Tasas de Interés",
+                        "url": "https://www.focus-economics.com/es/countries/mexico/",
+                        "resumen": "PIB nominal de 1,795 billones de USD en 2023. PIB per cápita de 14.024 USD, frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 1,5% en"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "México - Producto Interior Bruto (PIB), desempleo, inflación, datos ...",
+                        "url": "https://www.epdata.es/datos/mexico-datos-macroeconomicos-datos-graficos/656",
+                        "resumen": "**El Producto Interior Bruto (PIB) de México creció un 1,2% en 2024**, según el dato publicado por el Instituto Nacional de Estadística y Geografía (Inegi). El **Producto Interior Bruto (PIB) de México** avanzó un 0,8% en el cuarto trimestre con respecto al mismo periodo del año pasado, según la est"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Política y economía México - Santandertrade.com",
+                        "url": "https://santandertrade.com/es/portal/analizar-mercados/mexico/politica-y-economia",
+                        "resumen": "Se espera que el crecimiento se ralentice aún más en 2025 (hasta el 1,4%) debido a la retirada del estímulo fiscal y a una desaceleración en EE.UU. Se espera que vuelva al objetivo del 3% a finales de 2025; sin embargo, los riesgos para la inflación siguen siendo al alza, principalmente por una infl"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Trámites legales para que tu nueva empresa pueda exportar desde ...",
+                        "url": "https://cicde.mx/tramites-legales-nueva-empresa-pueda-exportar-desde-mexico/",
+                        "resumen": "Si estás considerando exportar productos desde México, es fundamental que tu empresa cumpla con todos los trámites legales requeridos para evitar sanciones y facilitar la logística de exportación. En este artículo, exploraremos los pasos clave que tu empresa debe seguir para realizar una exportación"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Aranceles México 2026: Guía para Exportadores [Actualizada]",
+                        "url": "https://www.whyloyalty.com/es/blog/aranceles-en-mexico-guia-2026-para-exportadores/",
+                        "resumen": "En el dinámico panorama del comercio exterior, mantenerse actualizado sobre los aranceles y regulaciones comerciales es fundamental para el éxito de cualquier operación de exportación. La economía depende significativamente de las relaciones comerciales con los socios del T-MEC, y los aranceles de i"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Documentación para importar o exportar a México en 2025",
+                        "url": "https://www.kensalogistics.com/documentacion-importante-considerar-exportar-mexico-2025",
+                        "resumen": "* **Contar con un sistema automatizado de inventarios en el comercio exterior.** Este tipo de herramientas permite gestionar de manera eficiente los registros de las mercancías que entran o salen del país, asegurando que los datos estén siempre actualizados y disponibles para cumplir con los requisi"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "OPORTUNIDADES DE NEGOCIO E INVERSIÓN EN ...",
+                        "url": "https://www.asturex.org/oportunidades-de-negocio-e-inversion-en-mexico-2025/",
+                        "resumen": "**Enlaces oficiales:** Secretaría de Energía (SENER) — https://www.gob.mx/sener/ ; Acuerdos y estrategias publicadas en el DOF (consulta en SENER). **Enlace útil:** Proyectos México / Banco Nacional de Obras y Servicios Públicos —  (portal de proyectos y razones para invertir). **Enlaces oficiales r"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Oportunidades de Negocio",
+                        "url": "http://www.ccpci.economia.gob.mx/swb/swb/montevideo/Oportunidades_de_Negocio",
+                        "resumen": "Contiene información relevante de los avances en el proceso de integración en el marco de la ALADI, así como de las medidas de política comercial aplicadas por los países miembros de la Asociación, que puedan tener alguna implicación en las relaciones comerciales entre ellos. La Representación de Mé"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Sectores de oportunidad en México ante la nueva ...",
+                        "url": "https://h2gconsulting.com/how2go-mexico/sectores-oportunidad-mexico-nueva-situacion-politica/",
+                        "resumen": "México es un destino de inversión muy atractivo. Según DOING BUSINESS México es el país iberoamericano más fácil para emprender negocios. Se estima que para"
+                    }
+                ],
+                "explicacion_sistema": {
+                    "metodologia": "El sistema combina recuperación web por dimensiones, scoring heurístico determinista y generación narrativa con LLM.",
+                    "limitaciones": "Los scores actuales se basan en reglas heurísticas sobre texto recuperado. No sustituyen un modelo cuantitativo completo ni una due diligence especializada."
+                },
+                "_debug_contexto": {
+                    "politico": "- Título: Inestabilidad aumenta riesgo político en México según AtlasIntel\n  Resumen: El índice, que evalúa el riesgo político en una escala de 0 a 100 (siendo 100 el máximo riesgo y un posible colapso), toma en cuenta factores como la inestabilidad institucional, el conflicto social, la delincuencia y la corrupción. En la capital mexicana, el pasado mes fue escenario de una gran pro\n  URL: https://dinero.hn/inestabilidad-aumenta-riesgo-politico-en-mexico-segun-atlasintel/\n- Título: El riesgo político de México seReduce a niveles mínimos históricos ...\n  Resumen: En contraste con percepciones previas, el riesgo político en México ha disminuido notablemente en los últimos meses, alcanzando niveles que\n  URL: https://www.alm.com/press_release/alm-intelligence-updates-verdictsearch/?s-news-16155582-2025-12-02-el-riesgo-politico-de-mexico-disminuye-a-niveles-minimos-historicos\n- Título: Advierten 10 riesgos políticos en México para 2026: concentración ...\n  Resumen: Integralia identifica diez riesgos políticos y económicos que definirán el 2026 en México, con efectos en inversión, empresas y estabilidad.\n  URL: https://www.yucatan.com.mx/mexico/2026/01/08/advierten-10-riesgos-politicos-en-mexico-para-2026-concentracion-del-poder-y-debil-economia-los-primeros.html",
+                    "economico": "- Título: Economía de México: PIB, Inflación y Tasas de Interés\n  Resumen: PIB nominal de 1,795 billones de USD en 2023. PIB per cápita de 14.024 USD, frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 1,5% en\n  URL: https://www.focus-economics.com/es/countries/mexico/\n- Título: México - Producto Interior Bruto (PIB), desempleo, inflación, datos ...\n  Resumen: **El Producto Interior Bruto (PIB) de México creció un 1,2% en 2024**, según el dato publicado por el Instituto Nacional de Estadística y Geografía (Inegi). El **Producto Interior Bruto (PIB) de México** avanzó un 0,8% en el cuarto trimestre con respecto al mismo periodo del año pasado, según la est\n  URL: https://www.epdata.es/datos/mexico-datos-macroeconomicos-datos-graficos/656\n- Título: Política y economía México - Santandertrade.com\n  Resumen: Se espera que el crecimiento se ralentice aún más en 2025 (hasta el 1,4%) debido a la retirada del estímulo fiscal y a una desaceleración en EE.UU. Se espera que vuelva al objetivo del 3% a finales de 2025; sin embargo, los riesgos para la inflación siguen siendo al alza, principalmente por una infl\n  URL: https://santandertrade.com/es/portal/analizar-mercados/mexico/politica-y-economia",
+                    "regulatorio": "- Título: Trámites legales para que tu nueva empresa pueda exportar desde ...\n  Resumen: Si estás considerando exportar productos desde México, es fundamental que tu empresa cumpla con todos los trámites legales requeridos para evitar sanciones y facilitar la logística de exportación. En este artículo, exploraremos los pasos clave que tu empresa debe seguir para realizar una exportación\n  URL: https://cicde.mx/tramites-legales-nueva-empresa-pueda-exportar-desde-mexico/\n- Título: Aranceles México 2026: Guía para Exportadores [Actualizada]\n  Resumen: En el dinámico panorama del comercio exterior, mantenerse actualizado sobre los aranceles y regulaciones comerciales es fundamental para el éxito de cualquier operación de exportación. La economía depende significativamente de las relaciones comerciales con los socios del T-MEC, y los aranceles de i\n  URL: https://www.whyloyalty.com/es/blog/aranceles-en-mexico-guia-2026-para-exportadores/\n- Título: Documentación para importar o exportar a México en 2025\n  Resumen: * **Contar con un sistema automatizado de inventarios en el comercio exterior.** Este tipo de herramientas permite gestionar de manera eficiente los registros de las mercancías que entran o salen del país, asegurando que los datos estén siempre actualizados y disponibles para cumplir con los requisi\n  URL: https://www.kensalogistics.com/documentacion-importante-considerar-exportar-mexico-2025",
+                    "oportunidades": "- Título: OPORTUNIDADES DE NEGOCIO E INVERSIÓN EN ...\n  Resumen: **Enlaces oficiales:** Secretaría de Energía (SENER) — https://www.gob.mx/sener/ ; Acuerdos y estrategias publicadas en el DOF (consulta en SENER). **Enlace útil:** Proyectos México / Banco Nacional de Obras y Servicios Públicos —  (portal de proyectos y razones para invertir). **Enlaces oficiales r\n  URL: https://www.asturex.org/oportunidades-de-negocio-e-inversion-en-mexico-2025/\n- Título: Oportunidades de Negocio\n  Resumen: Contiene información relevante de los avances en el proceso de integración en el marco de la ALADI, así como de las medidas de política comercial aplicadas por los países miembros de la Asociación, que puedan tener alguna implicación en las relaciones comerciales entre ellos. La Representación de Mé\n  URL: http://www.ccpci.economia.gob.mx/swb/swb/montevideo/Oportunidades_de_Negocio\n- Título: Sectores de oportunidad en México ante la nueva ...\n  Resumen: México es un destino de inversión muy atractivo. Según DOING BUSINESS México es el país iberoamericano más fácil para emprender negocios. Se estima que para\n  URL: https://h2gconsulting.com/how2go-mexico/sectores-oportunidad-mexico-nueva-situacion-politica/"
+                },
+                "_debug_raw_model_output": "{\n  \"pais\": \"México\",\n  \"resumen_ejecutivo\": \"El entorno político y económico de México presenta desafíos y oportunidades para las empresas del sector de la construcción. La inestabilidad política y la desaceleración económica pueden afectar la inversión y el crecimiento en el sector. Sin embargo, el país sigue siendo un destino atractivo para la inversión y el comercio, especialmente en sectores como la construcción, que puede beneficiarse de la demanda de infraestructura y desarrollo urbano.\",\n  \"alertas\": [\n    \"Inestabilidad política y riesgo de conflicto social\",\n    \"Desaceleración económica y posible impacto en la inversión\",\n    \"Cambios regulatorios y aranceles que pueden afectar la exportación\"\n  ],\n  \"oportunidades\": [\n    \"Demanda de infraestructura y desarrollo urbano en el sector de la construcción\",\n    \"Oportunidades de negocio y inversión en proyectos de energía y servicios públicos\",\n    \"Acceso a mercados y socios comerciales a través de acuerdos como el T-MEC\"\n  ]\n}"
+            }
+        }
+    ]
+}

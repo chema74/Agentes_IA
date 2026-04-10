@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "id": "sesion_20260407_185655_general",
+    "fecha_creacion": "2026-04-07T18:57:06.135342",
+    "nombre_pdf": "",
+    "total_mensajes": 2
+  },
+  "chat": [
+    {
+      "role": "user",
+      "content": "dime el tiempo en sevilla"
+    },
+    {
+      "role": "assistant",
+      "content": "Lo siento, pero no puedo proporcionar información en tiempo real. Sin embargo, puedo sugerirte algunas fuentes donde puedes encontrar la información actualizada sobre el tiempo en Sevilla:\n\n1. **AEMET (Agencia Estatal de Meteorología)**: Es la fuente oficial de información meteorológica en España. Puedes visitar su sitio web o descargar su aplicación móvil para obtener el pronóstico del tiempo actualizado.\n2. **El Tiempo**: Es un sitio web y aplicación móvil que proporciona información meteorológica para España y otros países. Ofrece pronósticos detallados, radar y alertas de tiempo.\n3. **AccuWeather**: Es una aplicación móvil y sitio web que proporciona pronósticos del tiempo para todo el mundo, incluyendo Sevilla.\n4. **Google**: Puedes buscar \"tiempo en Sevilla\" en Google para obtener información actualizada sobre el clima en la ciudad.\n\nRecuerda que la información meteorológica puede cambiar rápidamente, por lo que es importante verificar las fuentes actualizadas para obtener la información más reciente."
+    }
+  ]
+}

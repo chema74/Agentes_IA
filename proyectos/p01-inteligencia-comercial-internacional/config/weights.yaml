@@ -1,0 +1,43 @@
+# =============================================================================
+# weights.yaml — Pesos de scoring configurables
+# Fase 18: Configuración desacoplada
+#
+# Propósito:
+#   Permite ajustar los pesos de cada dimensión de riesgo sin tocar código
+#   Python. Edita este archivo y reinicia la app para aplicar los cambios.
+#
+# Reglas:
+#   - Los pesos de scoring_weights DEBEN sumar exactamente 1.00
+#   - Los pesos de country_vs_sector_weights DEBEN sumar exactamente 1.00
+#   - Los valores deben ser números decimales entre 0.0 y 1.0
+#
+# Autor: Txema Ríos — CC BY-SA 4.0
+# =============================================================================
+
+# ------------------------------------------------------------
+# 1. PESOS POR DIMENSIÓN DE RIESGO (deben sumar 1.00)
+# ------------------------------------------------------------
+scoring_weights:
+  riesgo_politico:       0.20   # Estabilidad institucional, conflictos, corrupción
+  estabilidad_economica: 0.20   # PIB, inflación, crecimiento, volatilidad
+  riesgo_regulatorio:    0.15   # Aranceles, barreras, requisitos de entrada
+  riesgo_comercial:      0.15   # Acceso al mercado, competencia, barreras no arancelarias
+  riesgo_geopolitico:    0.10   # Tensiones regionales, sanciones, alianzas
+  riesgo_operativo:      0.10   # Burocracia, infraestructura, facilidad de negocio
+  ajuste_sectorial:      0.05   # Encaje del sector objetivo en el mercado
+  oportunidad_sectorial: 0.05   # Potencial de crecimiento del sector en el país
+
+# ------------------------------------------------------------
+# 2. PESO RELATIVO PAÍS VS. SECTOR (deben sumar 1.00)
+# ------------------------------------------------------------
+country_vs_sector_weights:
+  score_riesgo_pais:      0.80   # Peso del score de riesgo país en el score total
+  score_riesgo_sectorial: 0.20   # Peso del score sectorial en el score total
+
+# ------------------------------------------------------------
+# 3. MODO DE OPERACIÓN
+#    Valores: "production" | "demo"
+#    - production: usa APIs reales (Groq + Tavily)
+#    - demo:       datos precalculados, sin coste de API, ideal para presentaciones
+# ------------------------------------------------------------
+app_mode: "production"

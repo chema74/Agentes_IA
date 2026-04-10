@@ -1,0 +1,247 @@
+{
+    "pais_a": {
+        "resumen_ejecutivo": "México presenta un entorno político y económico con desafíos y oportunidades. La inestabilidad política y la corrupción pueden afectar la confianza de los inversores, mientras que la economía del país muestra un crecimiento lento. Sin embargo, el país ofrece oportunidades de exportación y crecimiento en sectores específicos.",
+        "riesgo_politico": "",
+        "riesgo_comercial": "",
+        "estabilidad_economica": "",
+        "oportunidades": [
+            "Oportunidades de exportación en sectores como la manufactura y la agricultura",
+            "Crecimiento en la demanda de productos y servicios en el mercado mexicano",
+            "Inversión en infraestructura y proyectos de energía renovable"
+        ],
+        "riesgos_clave": [],
+        "recomendacion_final": "",
+        "scores": {
+            "riesgo_politico": 9,
+            "riesgo_comercial": 5,
+            "estabilidad_economica": 6
+        },
+        "justificacion_scores": {
+            "riesgo_politico": [
+                "Se detectó inestabilidad en el contexto político.",
+                "Aparecen referencias a conflicto o tensión política.",
+                "Se menciona corrupción, lo que aumenta el riesgo político.",
+                "También hay señales de estabilidad, lo que modera parcialmente el riesgo."
+            ],
+            "riesgo_comercial": [
+                "Se detectan referencias a aranceles o costes regulatorios de entrada.",
+                "La existencia de oportunidades de mercado modera ligeramente el riesgo comercial."
+            ],
+            "estabilidad_economica": [
+                "Se detectan señales de crecimiento económico.",
+                "La desaceleración económica reduce la percepción de estabilidad.",
+                "Las oportunidades detectadas mejoran ligeramente la percepción de estabilidad económica."
+            ]
+        },
+        "fuentes": [
+            {
+                "categoria": "politico",
+                "titulo": "Inestabilidad aumenta riesgo político en México según AtlasIntel",
+                "url": "https://dinero.hn/inestabilidad-aumenta-riesgo-politico-en-mexico-segun-atlasintel/",
+                "resumen": "El índice, que evalúa el riesgo político en una escala de 0 a 100 (siendo 100 el máximo riesgo y un posible colapso), toma en cuenta factores como la inestabilidad institucional, el conflicto social, la delincuencia y la corrupción. En la capital mexicana, el pasado mes fue escenario de una gran pro"
+            },
+            {
+                "categoria": "politico",
+                "titulo": "El riesgo político de México seReduce a niveles mínimos históricos ...",
+                "url": "https://www.alm.com/press_release/alm-intelligence-updates-verdictsearch/?s-news-16155582-2025-12-02-el-riesgo-politico-de-mexico-disminuye-a-niveles-minimos-historicos",
+                "resumen": "En contraste con percepciones previas, el riesgo político en México ha disminuido notablemente en los últimos meses, alcanzando niveles que"
+            },
+            {
+                "categoria": "politico",
+                "titulo": "Advierten 10 riesgos políticos en México para 2026: concentración ...",
+                "url": "https://www.yucatan.com.mx/mexico/2026/01/08/advierten-10-riesgos-politicos-en-mexico-para-2026-concentracion-del-poder-y-debil-economia-los-primeros.html",
+                "resumen": "Integralia identifica diez riesgos políticos y económicos que definirán el 2026 en México, con efectos en inversión, empresas y estabilidad."
+            },
+            {
+                "categoria": "economico",
+                "titulo": "Economía de México: PIB, Inflación y Tasas de Interés",
+                "url": "https://www.focus-economics.com/es/countries/mexico/",
+                "resumen": "PIB nominal de 1,795 billones de USD en 2023. PIB per cápita de 14.024 USD, frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 1,5% en"
+            },
+            {
+                "categoria": "economico",
+                "titulo": "México - Producto Interior Bruto (PIB), desempleo, inflación, datos ...",
+                "url": "https://www.epdata.es/datos/mexico-datos-macroeconomicos-datos-graficos/656",
+                "resumen": "**El Producto Interior Bruto (PIB) de México creció un 1,2% en 2024**, según el dato publicado por el Instituto Nacional de Estadística y Geografía (Inegi). El **Producto Interior Bruto (PIB) de México** avanzó un 0,8% en el cuarto trimestre con respecto al mismo periodo del año pasado, según la est"
+            },
+            {
+                "categoria": "economico",
+                "titulo": "Política y economía México - Santandertrade.com",
+                "url": "https://santandertrade.com/es/portal/analizar-mercados/mexico/politica-y-economia",
+                "resumen": "Se espera que el crecimiento se ralentice aún más en 2025 (hasta el 1,4%) debido a la retirada del estímulo fiscal y a una desaceleración en EE.UU. Se espera que vuelva al objetivo del 3% a finales de 2025; sin embargo, los riesgos para la inflación siguen siendo al alza, principalmente por una infl"
+            },
+            {
+                "categoria": "regulatorio",
+                "titulo": "Trámites legales para que tu nueva empresa pueda exportar desde ...",
+                "url": "https://cicde.mx/tramites-legales-nueva-empresa-pueda-exportar-desde-mexico/",
+                "resumen": "Si estás considerando exportar productos desde México, es fundamental que tu empresa cumpla con todos los trámites legales requeridos para evitar sanciones y facilitar la logística de exportación. En este artículo, exploraremos los pasos clave que tu empresa debe seguir para realizar una exportación"
+            },
+            {
+                "categoria": "regulatorio",
+                "titulo": "Aranceles México 2026: Guía para Exportadores [Actualizada]",
+                "url": "https://www.whyloyalty.com/es/blog/aranceles-en-mexico-guia-2026-para-exportadores/",
+                "resumen": "En el dinámico panorama del comercio exterior, mantenerse actualizado sobre los aranceles y regulaciones comerciales es fundamental para el éxito de cualquier operación de exportación. La economía depende significativamente de las relaciones comerciales con los socios del T-MEC, y los aranceles de i"
+            },
+            {
+                "categoria": "regulatorio",
+                "titulo": "Documentación para importar o exportar a México en 2025",
+                "url": "https://www.kensalogistics.com/documentacion-importante-considerar-exportar-mexico-2025",
+                "resumen": "* **Contar con un sistema automatizado de inventarios en el comercio exterior.** Este tipo de herramientas permite gestionar de manera eficiente los registros de las mercancías que entran o salen del país, asegurando que los datos estén siempre actualizados y disponibles para cumplir con los requisi"
+            },
+            {
+                "categoria": "oportunidades",
+                "titulo": "Oportunidades de mercado y estrategias de exportación en México",
+                "url": "https://grow.exim.gov/es/mercados/mexico",
+                "resumen": "Con 324.3 mil millones de dólares en ventas de exportación, México fue uno de los principales mercados para los exportadores estadounidenses en 2022. ¿Se ha"
+            },
+            {
+                "categoria": "oportunidades",
+                "titulo": "Ven oportunidades de negocio por 180 mil mdd para México",
+                "url": "https://forbes.com.mx/ven-oportunidades-de-negocio-por-180-mil-mdd-para-mexico/",
+                "resumen": "Hoy las empresas prefieren manufacturar los insumos materiales, subensambles y productos en México por la reconstrucción de las cadenas de suministro y los aranceles impuestos por Donald Trump y ahora el gobierno de Claudia Sheinbaum, dice el cofundador de InvestMx, una empresa que se encarga de atr"
+            },
+            {
+                "categoria": "oportunidades",
+                "titulo": "OPORTUNIDADES DE NEGOCIO E INVERSIÓN EN MÉXICO 2025",
+                "url": "https://www.asturex.org/oportunidades-de-negocio-e-inversion-en-mexico-2025/",
+                "resumen": "**Enlaces oficiales:** Secretaría de Energía (SENER) — https://www.gob.mx/sener/ ; Acuerdos y estrategias publicadas en el DOF (consulta en SENER). **Enlace útil:** Proyectos México / Banco Nacional de Obras y Servicios Públicos —  (portal de proyectos y razones para invertir). **Enlaces oficiales r"
+            }
+        ],
+        "explicacion_sistema": {
+            "metodologia": "El sistema combina recuperación web por dimensiones, scoring heurístico determinista y generación narrativa con LLM.",
+            "limitaciones": "Los scores actuales se basan en reglas heurísticas sobre texto recuperado. No sustituyen un modelo cuantitativo completo ni una due diligence especializada."
+        },
+        "_debug_contexto": {
+            "politico": "- Título: Inestabilidad aumenta riesgo político en México según AtlasIntel\n  Resumen: El índice, que evalúa el riesgo político en una escala de 0 a 100 (siendo 100 el máximo riesgo y un posible colapso), toma en cuenta factores como la inestabilidad institucional, el conflicto social, la delincuencia y la corrupción. En la capital mexicana, el pasado mes fue escenario de una gran pro\n  URL: https://dinero.hn/inestabilidad-aumenta-riesgo-politico-en-mexico-segun-atlasintel/\n- Título: El riesgo político de México seReduce a niveles mínimos históricos ...\n  Resumen: En contraste con percepciones previas, el riesgo político en México ha disminuido notablemente en los últimos meses, alcanzando niveles que\n  URL: https://www.alm.com/press_release/alm-intelligence-updates-verdictsearch/?s-news-16155582-2025-12-02-el-riesgo-politico-de-mexico-disminuye-a-niveles-minimos-historicos\n- Título: Advierten 10 riesgos políticos en México para 2026: concentración ...\n  Resumen: Integralia identifica diez riesgos políticos y económicos que definirán el 2026 en México, con efectos en inversión, empresas y estabilidad.\n  URL: https://www.yucatan.com.mx/mexico/2026/01/08/advierten-10-riesgos-politicos-en-mexico-para-2026-concentracion-del-poder-y-debil-economia-los-primeros.html",
+            "economico": "- Título: Economía de México: PIB, Inflación y Tasas de Interés\n  Resumen: PIB nominal de 1,795 billones de USD en 2023. PIB per cápita de 14.024 USD, frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 1,5% en\n  URL: https://www.focus-economics.com/es/countries/mexico/\n- Título: México - Producto Interior Bruto (PIB), desempleo, inflación, datos ...\n  Resumen: **El Producto Interior Bruto (PIB) de México creció un 1,2% en 2024**, según el dato publicado por el Instituto Nacional de Estadística y Geografía (Inegi). El **Producto Interior Bruto (PIB) de México** avanzó un 0,8% en el cuarto trimestre con respecto al mismo periodo del año pasado, según la est\n  URL: https://www.epdata.es/datos/mexico-datos-macroeconomicos-datos-graficos/656\n- Título: Política y economía México - Santandertrade.com\n  Resumen: Se espera que el crecimiento se ralentice aún más en 2025 (hasta el 1,4%) debido a la retirada del estímulo fiscal y a una desaceleración en EE.UU. Se espera que vuelva al objetivo del 3% a finales de 2025; sin embargo, los riesgos para la inflación siguen siendo al alza, principalmente por una infl\n  URL: https://santandertrade.com/es/portal/analizar-mercados/mexico/politica-y-economia",
+            "regulatorio": "- Título: Trámites legales para que tu nueva empresa pueda exportar desde ...\n  Resumen: Si estás considerando exportar productos desde México, es fundamental que tu empresa cumpla con todos los trámites legales requeridos para evitar sanciones y facilitar la logística de exportación. En este artículo, exploraremos los pasos clave que tu empresa debe seguir para realizar una exportación\n  URL: https://cicde.mx/tramites-legales-nueva-empresa-pueda-exportar-desde-mexico/\n- Título: Aranceles México 2026: Guía para Exportadores [Actualizada]\n  Resumen: En el dinámico panorama del comercio exterior, mantenerse actualizado sobre los aranceles y regulaciones comerciales es fundamental para el éxito de cualquier operación de exportación. La economía depende significativamente de las relaciones comerciales con los socios del T-MEC, y los aranceles de i\n  URL: https://www.whyloyalty.com/es/blog/aranceles-en-mexico-guia-2026-para-exportadores/\n- Título: Documentación para importar o exportar a México en 2025\n  Resumen: * **Contar con un sistema automatizado de inventarios en el comercio exterior.** Este tipo de herramientas permite gestionar de manera eficiente los registros de las mercancías que entran o salen del país, asegurando que los datos estén siempre actualizados y disponibles para cumplir con los requisi\n  URL: https://www.kensalogistics.com/documentacion-importante-considerar-exportar-mexico-2025",
+            "oportunidades": "- Título: Oportunidades de mercado y estrategias de exportación en México\n  Resumen: Con 324.3 mil millones de dólares en ventas de exportación, México fue uno de los principales mercados para los exportadores estadounidenses en 2022. ¿Se ha\n  URL: https://grow.exim.gov/es/mercados/mexico\n- Título: Ven oportunidades de negocio por 180 mil mdd para México\n  Resumen: Hoy las empresas prefieren manufacturar los insumos materiales, subensambles y productos en México por la reconstrucción de las cadenas de suministro y los aranceles impuestos por Donald Trump y ahora el gobierno de Claudia Sheinbaum, dice el cofundador de InvestMx, una empresa que se encarga de atr\n  URL: https://forbes.com.mx/ven-oportunidades-de-negocio-por-180-mil-mdd-para-mexico/\n- Título: OPORTUNIDADES DE NEGOCIO E INVERSIÓN EN MÉXICO 2025\n  Resumen: **Enlaces oficiales:** Secretaría de Energía (SENER) — https://www.gob.mx/sener/ ; Acuerdos y estrategias publicadas en el DOF (consulta en SENER). **Enlace útil:** Proyectos México / Banco Nacional de Obras y Servicios Públicos —  (portal de proyectos y razones para invertir). **Enlaces oficiales r\n  URL: https://www.asturex.org/oportunidades-de-negocio-e-inversion-en-mexico-2025/"
+        },
+        "_debug_raw_model_output": "{\n  \"pais\": \"México\",\n  \"resumen_ejecutivo\": \"México presenta un entorno político y económico con desafíos y oportunidades. La inestabilidad política y la corrupción pueden afectar la confianza de los inversores, mientras que la economía del país muestra un crecimiento lento. Sin embargo, el país ofrece oportunidades de exportación y crecimiento en sectores específicos.\",\n  \"alertas\": [\n    \"Inestabilidad política y corrupción que pueden afectar la confianza de los inversores\",\n    \"Riesgos económicos debido a la desaceleración del crecimiento y la inflación\",\n    \"Cambios regulatorios y aranceles que pueden impactar la logística de exportación\"\n  ],\n  \"oportunidades\": [\n    \"Oportunidades de exportación en sectores como la manufactura y la agricultura\",\n    \"Crecimiento en la demanda de productos y servicios en el mercado mexicano\",\n    \"Inversión en infraestructura y proyectos de energía renovable\"\n  ]\n}"
+    },
+    "pais_b": {
+        "resumen_ejecutivo": "Marruecos presenta un contexto político y económico complejo, con una estabilidad política que depende de factores como la hegemonía militar española y una economía que muestra signos de crecimiento, pero también enfrenta desafíos como la inflación y el desempleo. El país ofrece oportunidades de inversión en sectores como la automoción, la aeronáutica y la energía solar. Sin embargo, es importante considerar los riesgos y desafíos que plantea el entorno regulatorio y político.",
+        "riesgo_politico": "",
+        "riesgo_comercial": "",
+        "estabilidad_economica": "",
+        "oportunidades": [
+            "Inversión en sectores como la automoción y la aeronáutica",
+            "Oportunidades de negocio en el sector de la energía solar y eólica",
+            "Exportación de productos textiles y de confección a Marruecos"
+        ],
+        "riesgos_clave": [],
+        "recomendacion_final": "",
+        "scores": {
+            "riesgo_politico": 4,
+            "riesgo_comercial": 5,
+            "estabilidad_economica": 8
+        },
+        "justificacion_scores": {
+            "riesgo_politico": [
+                "También hay señales de estabilidad, lo que modera parcialmente el riesgo."
+            ],
+            "riesgo_comercial": [
+                "Existen requisitos regulatorios que elevan la complejidad de entrada.",
+                "La existencia de oportunidades de mercado modera ligeramente el riesgo comercial."
+            ],
+            "estabilidad_economica": [
+                "Se detectan señales de crecimiento económico.",
+                "La inversión aparece como señal favorable para la estabilidad.",
+                "Las oportunidades detectadas mejoran ligeramente la percepción de estabilidad económica."
+            ]
+        },
+        "fuentes": [
+            {
+                "categoria": "politico",
+                "titulo": "The 3 gaps WITH MOROCCO that are worrying for Spain. - YouTube",
+                "url": "https://www.youtube.com/watch?v=SDsy5EOzVnc",
+                "resumen": "... Marruecos? Durante décadas, la estabilidad en el Estrecho dependía de una métrica incuestionable: la hegemonía militar española. Hoy, los"
+            },
+            {
+                "categoria": "politico",
+                "titulo": "[PDF] Marruecos",
+                "url": "https://www.exteriores.gob.es/documents/fichaspais/marruecos_ficha%20pais.pdf",
+                "resumen": "Visita del Presidente del Gobierno, Pedro Sán­ chez, presidiendo la delegación española asistente a la XII RAN en la que participaron igualmente Vicepresidenta primera del Gobierno y ministra de Asuntos Económicos y Transformación Digital, Sra. Nadia Calviño, Vicepresidenta tercera del Gobierno y mi"
+            },
+            {
+                "categoria": "politico",
+                "titulo": "Marruecos. Gobernanza a la deriva en medio de una tormenta social",
+                "url": "https://orientxxi.info/marruecos-gobernanza-a-la-deriva-en-medio-de-una-tormenta-social,5930",
+                "resumen": "La prensa francesa cercana al palacio rebosa de argumentos para “explicar” la originalidad e incluso la “pertinencia” de este curioso “exilio” de M6 en el corazón de la ciudad luz y hace mención tanto a la enfermedad de su madre como a un estilo de gobierno que le sería propio y, por ende, innovador"
+            },
+            {
+                "categoria": "economico",
+                "titulo": "Economía de Marruecos: PIB, Inflación y Tasas - Focus Economics",
+                "url": "https://www.focus-economics.com/es/countries/marruecos/",
+                "resumen": "Marruecos Datos económicos ; Crecimiento económico (PIB nominal, var. anual), -7.0, 10.8 ; Reservas internacionales (meses de importaciones), 11.0, 8.3 ; Inversión"
+            },
+            {
+                "categoria": "economico",
+                "titulo": "Indicadores de Marruecos - Economía - TradingView",
+                "url": "https://es.tradingview.com/markets/world-economy/countries/morocco/",
+                "resumen": "Indicadores de Marruecos · Crecimiento del PIB · Tipo de interés · Tasa de inflación · Tasa de desempleo · Balanza comercial · Deuda pública/PIB."
+            },
+            {
+                "categoria": "economico",
+                "titulo": "MARRUECOS - INDICADORES ECONÓMICOS",
+                "url": "https://es.tradingeconomics.com/morocco/indicators",
+                "resumen": "| PIB - Tasa de crecimiento anual | 4.1 | 4 | 14.3 | -14.9 | Por Ciento | 2025-12 |. | PIB - Precios constantes | 343863 | 339324 | 343863 | 187096 | Mad Millones | 2025-12 |. | Pib De Agricultura | 26991 | 27032 | 30549 | 15879 | Mad Millones | 2025-12 |. | Pib De La Construcción | 17451 | 17457 | "
+            },
+            {
+                "categoria": "regulatorio",
+                "titulo": "Requisitos para exportar a Marruecos: Trámites aduaneros y logísticos",
+                "url": "https://bolipesk.es/exportar-a-marruecos-tramites-aduaneros-y-logisticos/",
+                "resumen": "Factura comercial y declaración aduanera adaptada a las regulaciones locales marroquíes. Certificados fitosanitarios o sanitarios si la"
+            },
+            {
+                "categoria": "regulatorio",
+                "titulo": "[PDF] Exportar a Marruecos",
+                "url": "https://emarr.cancilleria.gob.ar/userfiles/EXPORTAR%20%20A%20MARRUECOS.pdf",
+                "resumen": "B-Los documentos requeridos para constituir un DUM - Facturas definitivas - Título de transporte - Título de importación - Certificado de Origen - Certificado bancario para el tránsito aduanero de importación - Información sobre el peso y el embalaje - Fichas de imputación para las exportaciones. To"
+            },
+            {
+                "categoria": "regulatorio",
+                "titulo": "Guía para exportar a Marruecos: Webinar de DHL Express y claves ...",
+                "url": "https://empresaexterior.com/art/102071/claves-para-exportar-a-marruecos-dhl-express-analiza-las-oportunidades-estrategicas-para-las-empresas-espanolas",
+                "resumen": "Un reciente webinar liderado por DHL Express detalla las ventajas del acuerdo de libre comercio, el auge de sectores como la automoción y la importancia de la digitalización aduanera para garantizar entregas en menos de 48 horas. La estabilidad política y el crecimiento sostenido del **PIB**, proyec"
+            },
+            {
+                "categoria": "oportunidades",
+                "titulo": "Oportunidades del Mercado Marroquí - How2Go",
+                "url": "https://h2gconsulting.com/how2go-marruecos/oportunidades-del-mercado-marroqui/",
+                "resumen": "* Sector textil (con el foco puesto en inputs y equipamiento para la confección: diseño, hilatura, tejidos técnicos, botonería, etc.). Las oportunidades de inversión pueden aparecer tanto en el marco de la industria orientada a la exportación (automoción, aeronáutica, electrónica, textil, offshoring"
+            },
+            {
+                "categoria": "oportunidades",
+                "titulo": "Marruecos, economía y oportunidades de negocio de nuestro ...",
+                "url": "https://www.ceoe.es/es/ceoe-news/internacional/marruecos-economia-y-oportunidades-de-negocio-de-nuestro-primer-socio",
+                "resumen": "Marruecos se caracteriza por una economía en la que conviven sectores tradicionales agrícolas y de servicios de muy baja productividad y con otros sectores industriales más avanzados que incorporan tecnología como resultado de procesos de deslocalización industrial y de la atracción de inversiones e"
+            },
+            {
+                "categoria": "oportunidades",
+                "titulo": "Inversiones extranjeras en Marruecos: Oportunidades y ventajas ...",
+                "url": "https://www.invertirmarruecos.com/blog/invertir-en-marruecos-oportunidades-y-ventajas-para-inversores-extranjeros",
+                "resumen": "Proyectos como la planta solar **Noor** en Ouarzazate, una de las más grandes del mundo, destacan el compromiso de Marruecos con la energía solar y eólica, ofreciendo oportunidades interesantes para los inversores en este sector. El sector de bienes raíces en Marruecos es una opción atractiva para l"
+            }
+        ],
+        "explicacion_sistema": {
+            "metodologia": "El sistema combina recuperación web por dimensiones, scoring heurístico determinista y generación narrativa con LLM.",
+            "limitaciones": "Los scores actuales se basan en reglas heurísticas sobre texto recuperado. No sustituyen un modelo cuantitativo completo ni una due diligence especializada."
+        },
+        "_debug_contexto": {
+            "politico": "- Título: The 3 gaps WITH MOROCCO that are worrying for Spain. - YouTube\n  Resumen: ... Marruecos? Durante décadas, la estabilidad en el Estrecho dependía de una métrica incuestionable: la hegemonía militar española. Hoy, los\n  URL: https://www.youtube.com/watch?v=SDsy5EOzVnc\n- Título: [PDF] Marruecos\n  Resumen: Visita del Presidente del Gobierno, Pedro Sán­ chez, presidiendo la delegación española asistente a la XII RAN en la que participaron igualmente Vicepresidenta primera del Gobierno y ministra de Asuntos Económicos y Transformación Digital, Sra. Nadia Calviño, Vicepresidenta tercera del Gobierno y mi\n  URL: https://www.exteriores.gob.es/documents/fichaspais/marruecos_ficha%20pais.pdf\n- Título: Marruecos. Gobernanza a la deriva en medio de una tormenta social\n  Resumen: La prensa francesa cercana al palacio rebosa de argumentos para “explicar” la originalidad e incluso la “pertinencia” de este curioso “exilio” de M6 en el corazón de la ciudad luz y hace mención tanto a la enfermedad de su madre como a un estilo de gobierno que le sería propio y, por ende, innovador\n  URL: https://orientxxi.info/marruecos-gobernanza-a-la-deriva-en-medio-de-una-tormenta-social,5930",
+            "economico": "- Título: Economía de Marruecos: PIB, Inflación y Tasas - Focus Economics\n  Resumen: Marruecos Datos económicos ; Crecimiento económico (PIB nominal, var. anual), -7.0, 10.8 ; Reservas internacionales (meses de importaciones), 11.0, 8.3 ; Inversión\n  URL: https://www.focus-economics.com/es/countries/marruecos/\n- Título: Indicadores de Marruecos - Economía - TradingView\n  Resumen: Indicadores de Marruecos · Crecimiento del PIB · Tipo de interés · Tasa de inflación · Tasa de desempleo · Balanza comercial · Deuda pública/PIB.\n  URL: https://es.tradingview.com/markets/world-economy/countries/morocco/\n- Título: MARRUECOS - INDICADORES ECONÓMICOS\n  Resumen: | PIB - Tasa de crecimiento anual | 4.1 | 4 | 14.3 | -14.9 | Por Ciento | 2025-12 |. | PIB - Precios constantes | 343863 | 339324 | 343863 | 187096 | Mad Millones | 2025-12 |. | Pib De Agricultura | 26991 | 27032 | 30549 | 15879 | Mad Millones | 2025-12 |. | Pib De La Construcción | 17451 | 17457 | \n  URL: https://es.tradingeconomics.com/morocco/indicators",
+            "regulatorio": "- Título: Requisitos para exportar a Marruecos: Trámites aduaneros y logísticos\n  Resumen: Factura comercial y declaración aduanera adaptada a las regulaciones locales marroquíes. Certificados fitosanitarios o sanitarios si la\n  URL: https://bolipesk.es/exportar-a-marruecos-tramites-aduaneros-y-logisticos/\n- Título: [PDF] Exportar a Marruecos\n  Resumen: B-Los documentos requeridos para constituir un DUM - Facturas definitivas - Título de transporte - Título de importación - Certificado de Origen - Certificado bancario para el tránsito aduanero de importación - Información sobre el peso y el embalaje - Fichas de imputación para las exportaciones. To\n  URL: https://emarr.cancilleria.gob.ar/userfiles/EXPORTAR%20%20A%20MARRUECOS.pdf\n- Título: Guía para exportar a Marruecos: Webinar de DHL Express y claves ...\n  Resumen: Un reciente webinar liderado por DHL Express detalla las ventajas del acuerdo de libre comercio, el auge de sectores como la automoción y la importancia de la digitalización aduanera para garantizar entregas en menos de 48 horas. La estabilidad política y el crecimiento sostenido del **PIB**, proyec\n  URL: https://empresaexterior.com/art/102071/claves-para-exportar-a-marruecos-dhl-express-analiza-las-oportunidades-estrategicas-para-las-empresas-espanolas",
+            "oportunidades": "- Título: Oportunidades del Mercado Marroquí - How2Go\n  Resumen: * Sector textil (con el foco puesto en inputs y equipamiento para la confección: diseño, hilatura, tejidos técnicos, botonería, etc.). Las oportunidades de inversión pueden aparecer tanto en el marco de la industria orientada a la exportación (automoción, aeronáutica, electrónica, textil, offshoring\n  URL: https://h2gconsulting.com/how2go-marruecos/oportunidades-del-mercado-marroqui/\n- Título: Marruecos, economía y oportunidades de negocio de nuestro ...\n  Resumen: Marruecos se caracteriza por una economía en la que conviven sectores tradicionales agrícolas y de servicios de muy baja productividad y con otros sectores industriales más avanzados que incorporan tecnología como resultado de procesos de deslocalización industrial y de la atracción de inversiones e\n  URL: https://www.ceoe.es/es/ceoe-news/internacional/marruecos-economia-y-oportunidades-de-negocio-de-nuestro-primer-socio\n- Título: Inversiones extranjeras en Marruecos: Oportunidades y ventajas ...\n  Resumen: Proyectos como la planta solar **Noor** en Ouarzazate, una de las más grandes del mundo, destacan el compromiso de Marruecos con la energía solar y eólica, ofreciendo oportunidades interesantes para los inversores en este sector. El sector de bienes raíces en Marruecos es una opción atractiva para l\n  URL: https://www.invertirmarruecos.com/blog/invertir-en-marruecos-oportunidades-y-ventajas-para-inversores-extranjeros"
+        },
+        "_debug_raw_model_output": "{\n  \"pais\": \"Marruecos\",\n  \"resumen_ejecutivo\": \"Marruecos presenta un contexto político y económico complejo, con una estabilidad política que depende de factores como la hegemonía militar española y una economía que muestra signos de crecimiento, pero también enfrenta desafíos como la inflación y el desempleo. El país ofrece oportunidades de inversión en sectores como la automoción, la aeronáutica y la energía solar. Sin embargo, es importante considerar los riesgos y desafíos que plantea el entorno regulatorio y político.\",\n  \"alertas\": [\n    \"Inestabilidad política y social en el país\",\n    \"Riesgos asociados con la regulación aduanera y logística\",\n    \"Dependencia de la economía marroquí de factores externos como la inversión extranjera\"\n  ],\n  \"oportunidades\": [\n    \"Inversión en sectores como la automoción y la aeronáutica\",\n    \"Oportunidades de negocio en el sector de la energía solar y eólica\",\n    \"Exportación de productos textiles y de confección a Marruecos\"\n  ]\n}"
+    },
+    "comparativa_scores": {
+        "mejor_riesgo_politico": "Marruecos",
+        "mejor_riesgo_comercial": "Empate",
+        "mejor_estabilidad_economica": "Marruecos"
+    },
+    "comparacion_narrativa": "Comparación de México y Marruecos para una PYME exportadora:\n\n**Riesgo político**: México presenta un mayor riesgo político (score 9) debido a la inestabilidad y corrupción, mientras que Marruecos tiene un riesgo político menor (score 4).\n\n**Riesgo comercial**: Ambos países tienen un riesgo comercial similar (México score 5, Marruecos score 5), con requisitos regulatorios y aranceles que pueden afectar la logística de exportación.\n\n**Estabilidad económica**: Marruecos muestra una mayor estabilidad económica (score 8) con signos de crecimiento, mientras que México tiene una estabilidad económica moderada (score 6) con un crecimiento lento.\n\n**Oportunidades**: Ambos países ofrecen oportunidades de inversión y exportación, especialmente en sectores como la manufactura, la agricultura y la energía renovable.\n\nRecomendación: Marruecos parece ser un mejor candidato para una PYME exportadora, debido a su mayor estabilidad económica y menor riesgo político. Sin embargo, es importante considerar las condiciones regulatorias y logísticas antes de tomar una decisión. Se recomienda realizar una evaluación exhaustiva de los requisitos y costos asociados con la exportación a Marruecos.",
+    "sector": "General",
+    "tipo_empresa": "PYME exportadora"
+}

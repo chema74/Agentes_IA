@@ -1,0 +1,1035 @@
+{
+    "metadata": {
+        "run_id": "2026-04-06_111245",
+        "generated_at": "2026-04-06T11:12:45",
+        "sector": "General",
+        "company_type": "PYME exportadora",
+        "countries_requested": [
+            "México",
+            "Marruecos",
+            "Vietnam",
+            "Colombia",
+            "Turquía"
+        ],
+        "total_countries": 5,
+        "version": "fase_9b"
+    },
+    "ranking": [
+        {
+            "position": 1,
+            "country": "Marruecos",
+            "score_total": 21.0,
+            "dimension_scores": {
+                "riesgo_politico": 4.0,
+                "riesgo_comercial": 5.0,
+                "estabilidad_economica": 8.0
+            },
+            "executive_summary": "Marruecos presenta un contexto político y económico complejo, con una estabilidad política que depende de factores como la hegemonía militar española y una economía que muestra signos de crecimiento, pero también enfrenta desafíos como la inflación y el desempleo. El país ofrece oportunidades de inversión en sectores como la automoción, la aeronáutica y la energía solar. Sin embargo, es importante considerar los riesgos y desafíos que plantea el entorno regulatorio y político.",
+            "sources": [
+                {
+                    "category": "politico",
+                    "title": "The 3 gaps WITH MOROCCO that are worrying for Spain. - YouTube",
+                    "url": "https://www.youtube.com/watch?v=SDsy5EOzVnc",
+                    "summary": "... Marruecos? Durante décadas, la estabilidad en el Estrecho dependía de una métrica incuestionable: la hegemonía militar española. Hoy, los"
+                },
+                {
+                    "category": "politico",
+                    "title": "[PDF] Marruecos",
+                    "url": "https://www.exteriores.gob.es/documents/fichaspais/marruecos_ficha%20pais.pdf",
+                    "summary": "Visita del Presidente del Gobierno, Pedro Sán­ chez, presidiendo la delegación española asistente a la XII RAN en la que participaron igualmente Vicepresidenta primera del Gobierno y ministra de Asuntos Económicos y Transformación Digital, Sra. Nadia Calviño, Vicepresidenta tercera del Gobierno y mi"
+                },
+                {
+                    "category": "politico",
+                    "title": "Marruecos. Gobernanza a la deriva en medio de una tormenta social",
+                    "url": "https://orientxxi.info/marruecos-gobernanza-a-la-deriva-en-medio-de-una-tormenta-social,5930",
+                    "summary": "La prensa francesa cercana al palacio rebosa de argumentos para “explicar” la originalidad e incluso la “pertinencia” de este curioso “exilio” de M6 en el corazón de la ciudad luz y hace mención tanto a la enfermedad de su madre como a un estilo de gobierno que le sería propio y, por ende, innovador"
+                },
+                {
+                    "category": "economico",
+                    "title": "Economía de Marruecos: PIB, Inflación y Tasas - Focus Economics",
+                    "url": "https://www.focus-economics.com/es/countries/marruecos/",
+                    "summary": "Marruecos Datos económicos ; Crecimiento económico (PIB nominal, var. anual), -7.0, 10.8 ; Reservas internacionales (meses de importaciones), 11.0, 8.3 ; Inversión"
+                },
+                {
+                    "category": "economico",
+                    "title": "Indicadores de Marruecos - Economía - TradingView",
+                    "url": "https://es.tradingview.com/markets/world-economy/countries/morocco/",
+                    "summary": "Indicadores de Marruecos · Crecimiento del PIB · Tipo de interés · Tasa de inflación · Tasa de desempleo · Balanza comercial · Deuda pública/PIB."
+                },
+                {
+                    "category": "economico",
+                    "title": "MARRUECOS - INDICADORES ECONÓMICOS",
+                    "url": "https://es.tradingeconomics.com/morocco/indicators",
+                    "summary": "| PIB - Tasa de crecimiento anual | 4.1 | 4 | 14.3 | -14.9 | Por Ciento | 2025-12 |. | PIB - Precios constantes | 343863 | 339324 | 343863 | 187096 | Mad Millones | 2025-12 |. | Pib De Agricultura | 26991 | 27032 | 30549 | 15879 | Mad Millones | 2025-12 |. | Pib De La Construcción | 17451 | 17457 | "
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Requisitos para exportar a Marruecos: Trámites aduaneros y logísticos",
+                    "url": "https://bolipesk.es/exportar-a-marruecos-tramites-aduaneros-y-logisticos/",
+                    "summary": "Factura comercial y declaración aduanera adaptada a las regulaciones locales marroquíes. Certificados fitosanitarios o sanitarios si la"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "[PDF] Exportar a Marruecos",
+                    "url": "https://emarr.cancilleria.gob.ar/userfiles/EXPORTAR%20%20A%20MARRUECOS.pdf",
+                    "summary": "B-Los documentos requeridos para constituir un DUM - Facturas definitivas - Título de transporte - Título de importación - Certificado de Origen - Certificado bancario para el tránsito aduanero de importación - Información sobre el peso y el embalaje - Fichas de imputación para las exportaciones. To"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Guía para exportar a Marruecos: Webinar de DHL Express y claves ...",
+                    "url": "https://empresaexterior.com/art/102071/claves-para-exportar-a-marruecos-dhl-express-analiza-las-oportunidades-estrategicas-para-las-empresas-espanolas",
+                    "summary": "Un reciente webinar liderado por DHL Express detalla las ventajas del acuerdo de libre comercio, el auge de sectores como la automoción y la importancia de la digitalización aduanera para garantizar entregas en menos de 48 horas. La estabilidad política y el crecimiento sostenido del **PIB**, proyec"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Oportunidades del Mercado Marroquí - How2Go",
+                    "url": "https://h2gconsulting.com/how2go-marruecos/oportunidades-del-mercado-marroqui/",
+                    "summary": "* Sector textil (con el foco puesto en inputs y equipamiento para la confección: diseño, hilatura, tejidos técnicos, botonería, etc.). Las oportunidades de inversión pueden aparecer tanto en el marco de la industria orientada a la exportación (automoción, aeronáutica, electrónica, textil, offshoring"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Marruecos, economía y oportunidades de negocio de nuestro ...",
+                    "url": "https://www.ceoe.es/es/ceoe-news/internacional/marruecos-economia-y-oportunidades-de-negocio-de-nuestro-primer-socio",
+                    "summary": "Marruecos se caracteriza por una economía en la que conviven sectores tradicionales agrícolas y de servicios de muy baja productividad y con otros sectores industriales más avanzados que incorporan tecnología como resultado de procesos de deslocalización industrial y de la atracción de inversiones e"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Inversiones extranjeras en Marruecos: Oportunidades y ventajas ...",
+                    "url": "https://www.invertirmarruecos.com/blog/invertir-en-marruecos-oportunidades-y-ventajas-para-inversores-extranjeros",
+                    "summary": "Proyectos como la planta solar **Noor** en Ouarzazate, una de las más grandes del mundo, destacan el compromiso de Marruecos con la energía solar y eólica, ofreciendo oportunidades interesantes para los inversores en este sector. El sector de bienes raíces en Marruecos es una opción atractiva para l"
+                }
+            ],
+            "raw_result": {
+                "resumen_ejecutivo": "Marruecos presenta un contexto político y económico complejo, con una estabilidad política que depende de factores como la hegemonía militar española y una economía que muestra signos de crecimiento, pero también enfrenta desafíos como la inflación y el desempleo. El país ofrece oportunidades de inversión en sectores como la automoción, la aeronáutica y la energía solar. Sin embargo, es importante considerar los riesgos y desafíos que plantea el entorno regulatorio y político.",
+                "riesgo_politico": "",
+                "riesgo_comercial": "",
+                "estabilidad_economica": "",
+                "oportunidades": [
+                    "Inversión en sectores como la automoción y la aeronáutica",
+                    "Oportunidades en el sector de la energía solar y eólica",
+                    "Desarrollo de la industria textil y de confección"
+                ],
+                "riesgos_clave": [],
+                "recomendacion_final": "",
+                "scores": {
+                    "riesgo_politico": 4,
+                    "riesgo_comercial": 5,
+                    "estabilidad_economica": 8
+                },
+                "justificacion_scores": {
+                    "riesgo_politico": [
+                        "También hay señales de estabilidad, lo que modera parcialmente el riesgo."
+                    ],
+                    "riesgo_comercial": [
+                        "Existen requisitos regulatorios que elevan la complejidad de entrada.",
+                        "La existencia de oportunidades de mercado modera ligeramente el riesgo comercial."
+                    ],
+                    "estabilidad_economica": [
+                        "Se detectan señales de crecimiento económico.",
+                        "La inversión aparece como señal favorable para la estabilidad.",
+                        "Las oportunidades detectadas mejoran ligeramente la percepción de estabilidad económica."
+                    ]
+                },
+                "fuentes": [
+                    {
+                        "categoria": "politico",
+                        "titulo": "The 3 gaps WITH MOROCCO that are worrying for Spain. - YouTube",
+                        "url": "https://www.youtube.com/watch?v=SDsy5EOzVnc",
+                        "resumen": "... Marruecos? Durante décadas, la estabilidad en el Estrecho dependía de una métrica incuestionable: la hegemonía militar española. Hoy, los"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "[PDF] Marruecos",
+                        "url": "https://www.exteriores.gob.es/documents/fichaspais/marruecos_ficha%20pais.pdf",
+                        "resumen": "Visita del Presidente del Gobierno, Pedro Sán­ chez, presidiendo la delegación española asistente a la XII RAN en la que participaron igualmente Vicepresidenta primera del Gobierno y ministra de Asuntos Económicos y Transformación Digital, Sra. Nadia Calviño, Vicepresidenta tercera del Gobierno y mi"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Marruecos. Gobernanza a la deriva en medio de una tormenta social",
+                        "url": "https://orientxxi.info/marruecos-gobernanza-a-la-deriva-en-medio-de-una-tormenta-social,5930",
+                        "resumen": "La prensa francesa cercana al palacio rebosa de argumentos para “explicar” la originalidad e incluso la “pertinencia” de este curioso “exilio” de M6 en el corazón de la ciudad luz y hace mención tanto a la enfermedad de su madre como a un estilo de gobierno que le sería propio y, por ende, innovador"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Economía de Marruecos: PIB, Inflación y Tasas - Focus Economics",
+                        "url": "https://www.focus-economics.com/es/countries/marruecos/",
+                        "resumen": "Marruecos Datos económicos ; Crecimiento económico (PIB nominal, var. anual), -7.0, 10.8 ; Reservas internacionales (meses de importaciones), 11.0, 8.3 ; Inversión"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Indicadores de Marruecos - Economía - TradingView",
+                        "url": "https://es.tradingview.com/markets/world-economy/countries/morocco/",
+                        "resumen": "Indicadores de Marruecos · Crecimiento del PIB · Tipo de interés · Tasa de inflación · Tasa de desempleo · Balanza comercial · Deuda pública/PIB."
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "MARRUECOS - INDICADORES ECONÓMICOS",
+                        "url": "https://es.tradingeconomics.com/morocco/indicators",
+                        "resumen": "| PIB - Tasa de crecimiento anual | 4.1 | 4 | 14.3 | -14.9 | Por Ciento | 2025-12 |. | PIB - Precios constantes | 343863 | 339324 | 343863 | 187096 | Mad Millones | 2025-12 |. | Pib De Agricultura | 26991 | 27032 | 30549 | 15879 | Mad Millones | 2025-12 |. | Pib De La Construcción | 17451 | 17457 | "
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Requisitos para exportar a Marruecos: Trámites aduaneros y logísticos",
+                        "url": "https://bolipesk.es/exportar-a-marruecos-tramites-aduaneros-y-logisticos/",
+                        "resumen": "Factura comercial y declaración aduanera adaptada a las regulaciones locales marroquíes. Certificados fitosanitarios o sanitarios si la"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "[PDF] Exportar a Marruecos",
+                        "url": "https://emarr.cancilleria.gob.ar/userfiles/EXPORTAR%20%20A%20MARRUECOS.pdf",
+                        "resumen": "B-Los documentos requeridos para constituir un DUM - Facturas definitivas - Título de transporte - Título de importación - Certificado de Origen - Certificado bancario para el tránsito aduanero de importación - Información sobre el peso y el embalaje - Fichas de imputación para las exportaciones. To"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Guía para exportar a Marruecos: Webinar de DHL Express y claves ...",
+                        "url": "https://empresaexterior.com/art/102071/claves-para-exportar-a-marruecos-dhl-express-analiza-las-oportunidades-estrategicas-para-las-empresas-espanolas",
+                        "resumen": "Un reciente webinar liderado por DHL Express detalla las ventajas del acuerdo de libre comercio, el auge de sectores como la automoción y la importancia de la digitalización aduanera para garantizar entregas en menos de 48 horas. La estabilidad política y el crecimiento sostenido del **PIB**, proyec"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Oportunidades del Mercado Marroquí - How2Go",
+                        "url": "https://h2gconsulting.com/how2go-marruecos/oportunidades-del-mercado-marroqui/",
+                        "resumen": "* Sector textil (con el foco puesto en inputs y equipamiento para la confección: diseño, hilatura, tejidos técnicos, botonería, etc.). Las oportunidades de inversión pueden aparecer tanto en el marco de la industria orientada a la exportación (automoción, aeronáutica, electrónica, textil, offshoring"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Marruecos, economía y oportunidades de negocio de nuestro ...",
+                        "url": "https://www.ceoe.es/es/ceoe-news/internacional/marruecos-economia-y-oportunidades-de-negocio-de-nuestro-primer-socio",
+                        "resumen": "Marruecos se caracteriza por una economía en la que conviven sectores tradicionales agrícolas y de servicios de muy baja productividad y con otros sectores industriales más avanzados que incorporan tecnología como resultado de procesos de deslocalización industrial y de la atracción de inversiones e"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Inversiones extranjeras en Marruecos: Oportunidades y ventajas ...",
+                        "url": "https://www.invertirmarruecos.com/blog/invertir-en-marruecos-oportunidades-y-ventajas-para-inversores-extranjeros",
+                        "resumen": "Proyectos como la planta solar **Noor** en Ouarzazate, una de las más grandes del mundo, destacan el compromiso de Marruecos con la energía solar y eólica, ofreciendo oportunidades interesantes para los inversores en este sector. El sector de bienes raíces en Marruecos es una opción atractiva para l"
+                    }
+                ],
+                "explicacion_sistema": {
+                    "metodologia": "El sistema combina recuperación web por dimensiones, scoring heurístico determinista y generación narrativa con LLM.",
+                    "limitaciones": "Los scores actuales se basan en reglas heurísticas sobre texto recuperado. No sustituyen un modelo cuantitativo completo ni una due diligence especializada."
+                },
+                "_debug_contexto": {
+                    "politico": "- Título: The 3 gaps WITH MOROCCO that are worrying for Spain. - YouTube\n  Resumen: ... Marruecos? Durante décadas, la estabilidad en el Estrecho dependía de una métrica incuestionable: la hegemonía militar española. Hoy, los\n  URL: https://www.youtube.com/watch?v=SDsy5EOzVnc\n- Título: [PDF] Marruecos\n  Resumen: Visita del Presidente del Gobierno, Pedro Sán­ chez, presidiendo la delegación española asistente a la XII RAN en la que participaron igualmente Vicepresidenta primera del Gobierno y ministra de Asuntos Económicos y Transformación Digital, Sra. Nadia Calviño, Vicepresidenta tercera del Gobierno y mi\n  URL: https://www.exteriores.gob.es/documents/fichaspais/marruecos_ficha%20pais.pdf\n- Título: Marruecos. Gobernanza a la deriva en medio de una tormenta social\n  Resumen: La prensa francesa cercana al palacio rebosa de argumentos para “explicar” la originalidad e incluso la “pertinencia” de este curioso “exilio” de M6 en el corazón de la ciudad luz y hace mención tanto a la enfermedad de su madre como a un estilo de gobierno que le sería propio y, por ende, innovador\n  URL: https://orientxxi.info/marruecos-gobernanza-a-la-deriva-en-medio-de-una-tormenta-social,5930",
+                    "economico": "- Título: Economía de Marruecos: PIB, Inflación y Tasas - Focus Economics\n  Resumen: Marruecos Datos económicos ; Crecimiento económico (PIB nominal, var. anual), -7.0, 10.8 ; Reservas internacionales (meses de importaciones), 11.0, 8.3 ; Inversión\n  URL: https://www.focus-economics.com/es/countries/marruecos/\n- Título: Indicadores de Marruecos - Economía - TradingView\n  Resumen: Indicadores de Marruecos · Crecimiento del PIB · Tipo de interés · Tasa de inflación · Tasa de desempleo · Balanza comercial · Deuda pública/PIB.\n  URL: https://es.tradingview.com/markets/world-economy/countries/morocco/\n- Título: MARRUECOS - INDICADORES ECONÓMICOS\n  Resumen: | PIB - Tasa de crecimiento anual | 4.1 | 4 | 14.3 | -14.9 | Por Ciento | 2025-12 |. | PIB - Precios constantes | 343863 | 339324 | 343863 | 187096 | Mad Millones | 2025-12 |. | Pib De Agricultura | 26991 | 27032 | 30549 | 15879 | Mad Millones | 2025-12 |. | Pib De La Construcción | 17451 | 17457 | \n  URL: https://es.tradingeconomics.com/morocco/indicators",
+                    "regulatorio": "- Título: Requisitos para exportar a Marruecos: Trámites aduaneros y logísticos\n  Resumen: Factura comercial y declaración aduanera adaptada a las regulaciones locales marroquíes. Certificados fitosanitarios o sanitarios si la\n  URL: https://bolipesk.es/exportar-a-marruecos-tramites-aduaneros-y-logisticos/\n- Título: [PDF] Exportar a Marruecos\n  Resumen: B-Los documentos requeridos para constituir un DUM - Facturas definitivas - Título de transporte - Título de importación - Certificado de Origen - Certificado bancario para el tránsito aduanero de importación - Información sobre el peso y el embalaje - Fichas de imputación para las exportaciones. To\n  URL: https://emarr.cancilleria.gob.ar/userfiles/EXPORTAR%20%20A%20MARRUECOS.pdf\n- Título: Guía para exportar a Marruecos: Webinar de DHL Express y claves ...\n  Resumen: Un reciente webinar liderado por DHL Express detalla las ventajas del acuerdo de libre comercio, el auge de sectores como la automoción y la importancia de la digitalización aduanera para garantizar entregas en menos de 48 horas. La estabilidad política y el crecimiento sostenido del **PIB**, proyec\n  URL: https://empresaexterior.com/art/102071/claves-para-exportar-a-marruecos-dhl-express-analiza-las-oportunidades-estrategicas-para-las-empresas-espanolas",
+                    "oportunidades": "- Título: Oportunidades del Mercado Marroquí - How2Go\n  Resumen: * Sector textil (con el foco puesto en inputs y equipamiento para la confección: diseño, hilatura, tejidos técnicos, botonería, etc.). Las oportunidades de inversión pueden aparecer tanto en el marco de la industria orientada a la exportación (automoción, aeronáutica, electrónica, textil, offshoring\n  URL: https://h2gconsulting.com/how2go-marruecos/oportunidades-del-mercado-marroqui/\n- Título: Marruecos, economía y oportunidades de negocio de nuestro ...\n  Resumen: Marruecos se caracteriza por una economía en la que conviven sectores tradicionales agrícolas y de servicios de muy baja productividad y con otros sectores industriales más avanzados que incorporan tecnología como resultado de procesos de deslocalización industrial y de la atracción de inversiones e\n  URL: https://www.ceoe.es/es/ceoe-news/internacional/marruecos-economia-y-oportunidades-de-negocio-de-nuestro-primer-socio\n- Título: Inversiones extranjeras en Marruecos: Oportunidades y ventajas ...\n  Resumen: Proyectos como la planta solar **Noor** en Ouarzazate, una de las más grandes del mundo, destacan el compromiso de Marruecos con la energía solar y eólica, ofreciendo oportunidades interesantes para los inversores en este sector. El sector de bienes raíces en Marruecos es una opción atractiva para l\n  URL: https://www.invertirmarruecos.com/blog/invertir-en-marruecos-oportunidades-y-ventajas-para-inversores-extranjeros"
+                },
+                "_debug_raw_model_output": "{\n  \"pais\": \"Marruecos\",\n  \"resumen_ejecutivo\": \"Marruecos presenta un contexto político y económico complejo, con una estabilidad política que depende de factores como la hegemonía militar española y una economía que muestra signos de crecimiento, pero también enfrenta desafíos como la inflación y el desempleo. El país ofrece oportunidades de inversión en sectores como la automoción, la aeronáutica y la energía solar. Sin embargo, es importante considerar los riesgos y desafíos que plantea el entorno regulatorio y político.\",\n  \"alertas\": [\n    \"Inestabilidad política y gobernanza a la deriva\",\n    \"Riesgos económicos como la inflación y el desempleo\",\n    \"Complejidad en el entorno regulatorio para la exportación\"\n  ],\n  \"oportunidades\": [\n    \"Inversión en sectores como la automoción y la aeronáutica\",\n    \"Oportunidades en el sector de la energía solar y eólica\",\n    \"Desarrollo de la industria textil y de confección\"\n  ]\n}"
+            }
+        },
+        {
+            "position": 2,
+            "country": "Vietnam",
+            "score_total": 20.0,
+            "dimension_scores": {
+                "riesgo_politico": 4.0,
+                "riesgo_comercial": 4.0,
+                "estabilidad_economica": 6.0
+            },
+            "executive_summary": "Vietnam ha demostrado una gestión efectiva de la pandemia y ha mantenido un crecimiento económico alto, con un PIB per cápita de 4.531 USD. Sin embargo, el país enfrenta desafíos como la desaceleración del crecimiento económico y la implementación de nuevas regulaciones fiscales y de importación. El gobierno de Vietnam busca mantener un entorno de paz y estabilidad, y aspira a un crecimiento económico del 10% para 2026.",
+            "sources": [
+                {
+                    "category": "politico",
+                    "title": "[PDF] VIETNAM - Cesce",
+                    "url": "https://www.cesce.es/documents/20122/9731855/INFORME+VIETNAM++-+16+febrero+2022.pdf/75f5e335-bca6-efcb-8d0d-9fd046621ee3?t=1660911044856",
+                    "summary": "Tras superar 2020 como un ejemplo internacional en la gestión de la pandemia, y alcanzar una tasa de crecimiento del PIB entre las más altas del mundo (2,9%), el pasado año se vio afectado por una intensa ola de contagios que provocaron una aguda contracción en el tercer trimestre del año y han obli"
+                },
+                {
+                    "category": "politico",
+                    "title": "Integración internacional y respuesta rápida a los cambios globales.",
+                    "url": "https://www.vietnam.vn/es/hoi-nhap-quoc-te-phan-ung-nhanh-truoc-nhung-bien-dong-toan-cau",
+                    "summary": "Tras analizar y prever la situación en el próximo periodo, el Primer Ministro declaró que podría afectar a Vietnam en términos de estabilidad"
+                },
+                {
+                    "category": "politico",
+                    "title": "Vietnam revisa el mandato y plantea expectativas para el próximo ...",
+                    "url": "https://es.vietnamplus.vn/primer-ministro-de-vietnam-revisa-el-mandato-y-plantea-expectativas-para-el-proximo-periodo-post234091.vnp",
+                    "summary": "***El XIV Congreso Nacional del Partido ha fijado como objetivos y exigencias para el período 2026-2030 mantener un entorno de paz y estabilidad, impulsar un desarrollo rápido y sostenible del país y defender firmemente la Patria socialista de Vietnam;*** aspirar a un crecimiento económico de dos dí"
+                },
+                {
+                    "category": "economico",
+                    "title": "Economía de Vietnam: PIB, Inflación y Tasas - Focus Economics",
+                    "url": "https://www.focus-economics.com/es/countries/vietnam/",
+                    "summary": "PIB per cápita de 4.531 USD frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 6,2% en la última década. Porcentaje de la población de"
+                },
+                {
+                    "category": "economico",
+                    "title": "Vietnam se marca un objetivo un crecimiento del 10 % de PIB para ...",
+                    "url": "https://www.swissinfo.ch/spa/vietnam-se-marca-un-objetivo-un-crecimiento-del-10-%25-de-pib-para-2026/90193196",
+                    "summary": "Bangkok, 20 oct (EFE).- El primer ministro de Vietnam, Pham Minh Chinh, dijo este lunes que el país se ha marcado un objetivo de crecimiento del 10 % en su Producto Interior Bruto (PIB) para 2026, mientras estima en el 8 % el crecimiento de este año, pese a los reveses de la guerra comercial. «La ec"
+                },
+                {
+                    "category": "economico",
+                    "title": "La economía de Vietnam desacelera su crecimiento ante el impacto ...",
+                    "url": "https://es-us.finanzas.yahoo.com/noticias/econom%C3%ADa-vietnam-desacelera-crecimiento-impacto-103447214.html",
+                    "summary": "Bangkok, 7 abr (EFE).- El producto interno bruto (PIB) de Vietnam creció un 6,93 % en el primer trimestre del año, una desaceleración frente"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Cómo exportar a Vietnam desde España - TIBA Group",
+                    "url": "https://www.tibagroup.com/es/comercio-internacional/exportar/exportar-vietnam",
+                    "summary": "Nguyen Ngoc Binh, así como de diferentes profesionales que ofrecieron una radiografía de la operativa, dificultades y soluciones para los negocios en Vietnam. Los principales puertos de destino para la exportación a Vietnam son Haiphong, Da Nang, Qui Nhon, Ho Chi Minh City y Vüng Tau, en la mayoría "
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Exportar a Vietnam: Tu guía detallada | DHL Spain",
+                    "url": "https://www.dhl.com/discover/es-es/asesoramiento-e-commerce/guias-e-commerce-por-pais/exportar-a-vietnam",
+                    "summary": "El gobierno de Vietnam ha implementado recientemente nuevos procesos destinados a endurecer las regulaciones fiscales y de importación y garantizar que se paguen todos los impuestos responsables, en particular para las compras online. El sitio web del MOIT ofrece información completa sobre las leyes"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "[PDF] Guia basica para todo interesado - Embajada en Vietnam",
+                    "url": "https://eviet.cancilleria.gob.ar/userfiles/Guia%20Basica.pdf",
+                    "summary": "Embajada de la República Argentina ante la Repúblicas Socialista de Vietnam GUIA BASICA PARA TODO INTERESADO EN EXPORTAR A VIETNAM • Es indispensable para el exportador argentino que quiera acceder al mercado vietnamita que envíe en primer lugar una propuesta concreta de trabajo en idioma inglés, mu"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "GLOBAL CV | Oportunidades de negocio en Vietnam - YouTube",
+                    "url": "https://www.youtube.com/watch?v=pGM-OsUhCu8",
+                    "summary": "Vietnam, reconocido por su rica herencia cultural y su dinámica economía en expansión, ofrece un entorno favorable para el desarrollo"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Vietnam: Oportunidades Empresariales 2026 - Empresa Exterior",
+                    "url": "https://empresaexterior.com/art/102084/vietnam-oportunidades-empresariales-2026",
+                    "summary": "A estos incentivos cabe añadir otros, igualmente diseñados para impulsar la inversión extranjera directa, ya sean arancelarios: exenciones por la importación de máquinas, equipos y componentes que no sean fabricados localmente; arrendaticios: exenciones o reducciones de rentas y gravàmenes por el ar"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Comercio de Vietnam sigue siendo motor clave del crecimiento ...",
+                    "url": "https://es.vietnamplus.vn/comercio-de-vietnam-sigue-siendo-motor-clave-del-crecimiento-economico-post218006.vnp",
+                    "summary": "Hanoi (VNA)- El sector comercial de Vietnam sigue siendo un motor clave del crecimiento económico, alcanzando un volumen total de importaciones y exportaciones de 163 mil millones de dólares desde inicios de años hasta el 15 de marzo, lo que representa un aumento interanual del 12%. A pesar de los d"
+                }
+            ],
+            "raw_result": {
+                "resumen_ejecutivo": "Vietnam ha demostrado una gestión efectiva de la pandemia y ha mantenido un crecimiento económico alto, con un PIB per cápita de 4.531 USD. Sin embargo, el país enfrenta desafíos como la desaceleración del crecimiento económico y la implementación de nuevas regulaciones fiscales y de importación. El gobierno de Vietnam busca mantener un entorno de paz y estabilidad, y aspira a un crecimiento económico del 10% para 2026.",
+                "riesgo_politico": "",
+                "riesgo_comercial": "",
+                "estabilidad_economica": "",
+                "oportunidades": [
+                    "Creciente demanda de productos y servicios en un mercado en expansión",
+                    "Incentivos para la inversión extranjera directa, como exenciones arancelarias y reducciones de rentas y gravámenes",
+                    "Oportunidades de negocio en sectores como el comercio, la industria y la tecnología, debido al dinamismo económico de Vietnam"
+                ],
+                "riesgos_clave": [],
+                "recomendacion_final": "",
+                "scores": {
+                    "riesgo_politico": 4,
+                    "riesgo_comercial": 4,
+                    "estabilidad_economica": 6
+                },
+                "justificacion_scores": {
+                    "riesgo_politico": [
+                        "También hay señales de estabilidad, lo que modera parcialmente el riesgo."
+                    ],
+                    "riesgo_comercial": [
+                        "La existencia de oportunidades de mercado modera ligeramente el riesgo comercial."
+                    ],
+                    "estabilidad_economica": [
+                        "Se detectan señales de crecimiento económico.",
+                        "La desaceleración económica reduce la percepción de estabilidad.",
+                        "Las oportunidades detectadas mejoran ligeramente la percepción de estabilidad económica."
+                    ]
+                },
+                "fuentes": [
+                    {
+                        "categoria": "politico",
+                        "titulo": "[PDF] VIETNAM - Cesce",
+                        "url": "https://www.cesce.es/documents/20122/9731855/INFORME+VIETNAM++-+16+febrero+2022.pdf/75f5e335-bca6-efcb-8d0d-9fd046621ee3?t=1660911044856",
+                        "resumen": "Tras superar 2020 como un ejemplo internacional en la gestión de la pandemia, y alcanzar una tasa de crecimiento del PIB entre las más altas del mundo (2,9%), el pasado año se vio afectado por una intensa ola de contagios que provocaron una aguda contracción en el tercer trimestre del año y han obli"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Integración internacional y respuesta rápida a los cambios globales.",
+                        "url": "https://www.vietnam.vn/es/hoi-nhap-quoc-te-phan-ung-nhanh-truoc-nhung-bien-dong-toan-cau",
+                        "resumen": "Tras analizar y prever la situación en el próximo periodo, el Primer Ministro declaró que podría afectar a Vietnam en términos de estabilidad"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Vietnam revisa el mandato y plantea expectativas para el próximo ...",
+                        "url": "https://es.vietnamplus.vn/primer-ministro-de-vietnam-revisa-el-mandato-y-plantea-expectativas-para-el-proximo-periodo-post234091.vnp",
+                        "resumen": "***El XIV Congreso Nacional del Partido ha fijado como objetivos y exigencias para el período 2026-2030 mantener un entorno de paz y estabilidad, impulsar un desarrollo rápido y sostenible del país y defender firmemente la Patria socialista de Vietnam;*** aspirar a un crecimiento económico de dos dí"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Economía de Vietnam: PIB, Inflación y Tasas - Focus Economics",
+                        "url": "https://www.focus-economics.com/es/countries/vietnam/",
+                        "resumen": "PIB per cápita de 4.531 USD frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 6,2% en la última década. Porcentaje de la población de"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Vietnam se marca un objetivo un crecimiento del 10 % de PIB para ...",
+                        "url": "https://www.swissinfo.ch/spa/vietnam-se-marca-un-objetivo-un-crecimiento-del-10-%25-de-pib-para-2026/90193196",
+                        "resumen": "Bangkok, 20 oct (EFE).- El primer ministro de Vietnam, Pham Minh Chinh, dijo este lunes que el país se ha marcado un objetivo de crecimiento del 10 % en su Producto Interior Bruto (PIB) para 2026, mientras estima en el 8 % el crecimiento de este año, pese a los reveses de la guerra comercial. «La ec"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "La economía de Vietnam desacelera su crecimiento ante el impacto ...",
+                        "url": "https://es-us.finanzas.yahoo.com/noticias/econom%C3%ADa-vietnam-desacelera-crecimiento-impacto-103447214.html",
+                        "resumen": "Bangkok, 7 abr (EFE).- El producto interno bruto (PIB) de Vietnam creció un 6,93 % en el primer trimestre del año, una desaceleración frente"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Cómo exportar a Vietnam desde España - TIBA Group",
+                        "url": "https://www.tibagroup.com/es/comercio-internacional/exportar/exportar-vietnam",
+                        "resumen": "Nguyen Ngoc Binh, así como de diferentes profesionales que ofrecieron una radiografía de la operativa, dificultades y soluciones para los negocios en Vietnam. Los principales puertos de destino para la exportación a Vietnam son Haiphong, Da Nang, Qui Nhon, Ho Chi Minh City y Vüng Tau, en la mayoría "
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Exportar a Vietnam: Tu guía detallada | DHL Spain",
+                        "url": "https://www.dhl.com/discover/es-es/asesoramiento-e-commerce/guias-e-commerce-por-pais/exportar-a-vietnam",
+                        "resumen": "El gobierno de Vietnam ha implementado recientemente nuevos procesos destinados a endurecer las regulaciones fiscales y de importación y garantizar que se paguen todos los impuestos responsables, en particular para las compras online. El sitio web del MOIT ofrece información completa sobre las leyes"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "[PDF] Guia basica para todo interesado - Embajada en Vietnam",
+                        "url": "https://eviet.cancilleria.gob.ar/userfiles/Guia%20Basica.pdf",
+                        "resumen": "Embajada de la República Argentina ante la Repúblicas Socialista de Vietnam GUIA BASICA PARA TODO INTERESADO EN EXPORTAR A VIETNAM • Es indispensable para el exportador argentino que quiera acceder al mercado vietnamita que envíe en primer lugar una propuesta concreta de trabajo en idioma inglés, mu"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "GLOBAL CV | Oportunidades de negocio en Vietnam - YouTube",
+                        "url": "https://www.youtube.com/watch?v=pGM-OsUhCu8",
+                        "resumen": "Vietnam, reconocido por su rica herencia cultural y su dinámica economía en expansión, ofrece un entorno favorable para el desarrollo"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Vietnam: Oportunidades Empresariales 2026 - Empresa Exterior",
+                        "url": "https://empresaexterior.com/art/102084/vietnam-oportunidades-empresariales-2026",
+                        "resumen": "A estos incentivos cabe añadir otros, igualmente diseñados para impulsar la inversión extranjera directa, ya sean arancelarios: exenciones por la importación de máquinas, equipos y componentes que no sean fabricados localmente; arrendaticios: exenciones o reducciones de rentas y gravàmenes por el ar"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Comercio de Vietnam sigue siendo motor clave del crecimiento ...",
+                        "url": "https://es.vietnamplus.vn/comercio-de-vietnam-sigue-siendo-motor-clave-del-crecimiento-economico-post218006.vnp",
+                        "resumen": "Hanoi (VNA)- El sector comercial de Vietnam sigue siendo un motor clave del crecimiento económico, alcanzando un volumen total de importaciones y exportaciones de 163 mil millones de dólares desde inicios de años hasta el 15 de marzo, lo que representa un aumento interanual del 12%. A pesar de los d"
+                    }
+                ],
+                "explicacion_sistema": {
+                    "metodologia": "El sistema combina recuperación web por dimensiones, scoring heurístico determinista y generación narrativa con LLM.",
+                    "limitaciones": "Los scores actuales se basan en reglas heurísticas sobre texto recuperado. No sustituyen un modelo cuantitativo completo ni una due diligence especializada."
+                },
+                "_debug_contexto": {
+                    "politico": "- Título: [PDF] VIETNAM - Cesce\n  Resumen: Tras superar 2020 como un ejemplo internacional en la gestión de la pandemia, y alcanzar una tasa de crecimiento del PIB entre las más altas del mundo (2,9%), el pasado año se vio afectado por una intensa ola de contagios que provocaron una aguda contracción en el tercer trimestre del año y han obli\n  URL: https://www.cesce.es/documents/20122/9731855/INFORME+VIETNAM++-+16+febrero+2022.pdf/75f5e335-bca6-efcb-8d0d-9fd046621ee3?t=1660911044856\n- Título: Integración internacional y respuesta rápida a los cambios globales.\n  Resumen: Tras analizar y prever la situación en el próximo periodo, el Primer Ministro declaró que podría afectar a Vietnam en términos de estabilidad\n  URL: https://www.vietnam.vn/es/hoi-nhap-quoc-te-phan-ung-nhanh-truoc-nhung-bien-dong-toan-cau\n- Título: Vietnam revisa el mandato y plantea expectativas para el próximo ...\n  Resumen: ***El XIV Congreso Nacional del Partido ha fijado como objetivos y exigencias para el período 2026-2030 mantener un entorno de paz y estabilidad, impulsar un desarrollo rápido y sostenible del país y defender firmemente la Patria socialista de Vietnam;*** aspirar a un crecimiento económico de dos dí\n  URL: https://es.vietnamplus.vn/primer-ministro-de-vietnam-revisa-el-mandato-y-plantea-expectativas-para-el-proximo-periodo-post234091.vnp",
+                    "economico": "- Título: Economía de Vietnam: PIB, Inflación y Tasas - Focus Economics\n  Resumen: PIB per cápita de 4.531 USD frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 6,2% en la última década. Porcentaje de la población de\n  URL: https://www.focus-economics.com/es/countries/vietnam/\n- Título: Vietnam se marca un objetivo un crecimiento del 10 % de PIB para ...\n  Resumen: Bangkok, 20 oct (EFE).- El primer ministro de Vietnam, Pham Minh Chinh, dijo este lunes que el país se ha marcado un objetivo de crecimiento del 10 % en su Producto Interior Bruto (PIB) para 2026, mientras estima en el 8 % el crecimiento de este año, pese a los reveses de la guerra comercial. «La ec\n  URL: https://www.swissinfo.ch/spa/vietnam-se-marca-un-objetivo-un-crecimiento-del-10-%25-de-pib-para-2026/90193196\n- Título: La economía de Vietnam desacelera su crecimiento ante el impacto ...\n  Resumen: Bangkok, 7 abr (EFE).- El producto interno bruto (PIB) de Vietnam creció un 6,93 % en el primer trimestre del año, una desaceleración frente\n  URL: https://es-us.finanzas.yahoo.com/noticias/econom%C3%ADa-vietnam-desacelera-crecimiento-impacto-103447214.html",
+                    "regulatorio": "- Título: Cómo exportar a Vietnam desde España - TIBA Group\n  Resumen: Nguyen Ngoc Binh, así como de diferentes profesionales que ofrecieron una radiografía de la operativa, dificultades y soluciones para los negocios en Vietnam. Los principales puertos de destino para la exportación a Vietnam son Haiphong, Da Nang, Qui Nhon, Ho Chi Minh City y Vüng Tau, en la mayoría \n  URL: https://www.tibagroup.com/es/comercio-internacional/exportar/exportar-vietnam\n- Título: Exportar a Vietnam: Tu guía detallada | DHL Spain\n  Resumen: El gobierno de Vietnam ha implementado recientemente nuevos procesos destinados a endurecer las regulaciones fiscales y de importación y garantizar que se paguen todos los impuestos responsables, en particular para las compras online. El sitio web del MOIT ofrece información completa sobre las leyes\n  URL: https://www.dhl.com/discover/es-es/asesoramiento-e-commerce/guias-e-commerce-por-pais/exportar-a-vietnam\n- Título: [PDF] Guia basica para todo interesado - Embajada en Vietnam\n  Resumen: Embajada de la República Argentina ante la Repúblicas Socialista de Vietnam GUIA BASICA PARA TODO INTERESADO EN EXPORTAR A VIETNAM • Es indispensable para el exportador argentino que quiera acceder al mercado vietnamita que envíe en primer lugar una propuesta concreta de trabajo en idioma inglés, mu\n  URL: https://eviet.cancilleria.gob.ar/userfiles/Guia%20Basica.pdf",
+                    "oportunidades": "- Título: GLOBAL CV | Oportunidades de negocio en Vietnam - YouTube\n  Resumen: Vietnam, reconocido por su rica herencia cultural y su dinámica economía en expansión, ofrece un entorno favorable para el desarrollo\n  URL: https://www.youtube.com/watch?v=pGM-OsUhCu8\n- Título: Vietnam: Oportunidades Empresariales 2026 - Empresa Exterior\n  Resumen: A estos incentivos cabe añadir otros, igualmente diseñados para impulsar la inversión extranjera directa, ya sean arancelarios: exenciones por la importación de máquinas, equipos y componentes que no sean fabricados localmente; arrendaticios: exenciones o reducciones de rentas y gravàmenes por el ar\n  URL: https://empresaexterior.com/art/102084/vietnam-oportunidades-empresariales-2026\n- Título: Comercio de Vietnam sigue siendo motor clave del crecimiento ...\n  Resumen: Hanoi (VNA)- El sector comercial de Vietnam sigue siendo un motor clave del crecimiento económico, alcanzando un volumen total de importaciones y exportaciones de 163 mil millones de dólares desde inicios de años hasta el 15 de marzo, lo que representa un aumento interanual del 12%. A pesar de los d\n  URL: https://es.vietnamplus.vn/comercio-de-vietnam-sigue-siendo-motor-clave-del-crecimiento-economico-post218006.vnp"
+                },
+                "_debug_raw_model_output": "{\n  \"pais\": \"Vietnam\",\n  \"resumen_ejecutivo\": \"Vietnam ha demostrado una gestión efectiva de la pandemia y ha mantenido un crecimiento económico alto, con un PIB per cápita de 4.531 USD. Sin embargo, el país enfrenta desafíos como la desaceleración del crecimiento económico y la implementación de nuevas regulaciones fiscales y de importación. El gobierno de Vietnam busca mantener un entorno de paz y estabilidad, y aspira a un crecimiento económico del 10% para 2026.\",\n  \"alertas\": [\n    \"Desaceleración del crecimiento económico debido a factores externos\",\n    \"Implementación de nuevas regulaciones fiscales y de importación que pueden afectar las exportaciones\",\n    \"Riesgos políticos y de estabilidad en la región que pueden impactar la economía de Vietnam\"\n  ],\n  \"oportunidades\": [\n    \"Creciente demanda de productos y servicios en un mercado en expansión\",\n    \"Incentivos para la inversión extranjera directa, como exenciones arancelarias y reducciones de rentas y gravámenes\",\n    \"Oportunidades de negocio en sectores como el comercio, la industria y la tecnología, debido al dinamismo económico de Vietnam\"\n  ]\n}"
+            }
+        },
+        {
+            "position": 3,
+            "country": "Colombia",
+            "score_total": 17.0,
+            "dimension_scores": {
+                "riesgo_politico": 6.0,
+                "riesgo_comercial": 6.0,
+                "estabilidad_economica": 7.0
+            },
+            "executive_summary": "Colombia presenta un entorno político y económico con desafíos, como la crisis política y la inestabilidad económica. Sin embargo, el país ofrece oportunidades de inversión en sectores como manufacturas y textiles. La estabilidad política y la situación económica son factores clave a considerar para las empresas que buscan exportar o invertir en el país.",
+            "sources": [
+                {
+                    "category": "politico",
+                    "title": "La estabilidad política colombiana | www.casamerica.es",
+                    "url": "https://www.casamerica.es/politica/la-estabilidad-politica-colombiana",
+                    "summary": "Los últimos 20 minutos quedan ... del gobierno con la guerrilla, la lucha contra el narcotráfico y Pablo Escobar, la economía colombiana y los desplazados debido a la violencia. Presenta José Lladó Fernández-Urrutia, presidente del Institto Nacional de Cuestiones Internacionales y Política exterior,"
+                },
+                {
+                    "category": "politico",
+                    "title": "Crisis política en Colombia | Opinión | EL PAÍS",
+                    "url": "https://elpais.com/opinion/2023-06-09/crisis-politica-en-colombia.html",
+                    "summary": "June 9, 2023 - La caída de credibilidad del Gobierno de Gustavo Petro pone en riesgo una agenda reformista necesaria"
+                },
+                {
+                    "category": "politico",
+                    "title": "Gobierno Colombia en EL PAÍS",
+                    "url": "https://elpais.com/noticias/gobierno-republica-colombia/",
+                    "summary": "2 weeks ago - Los escándalos judiciales del presidente de la petrolera estatal extienden la presión a la Junta Directiva, donde el Gobierno tiene mayorías ... Naciones Unidas califica los 410 asesinatos ocurridos entre 2022 y 2025 como un hecho “inaceptable”, aunque reconoce algunos avances ... La l"
+                },
+                {
+                    "category": "economico",
+                    "title": "COLOMBIA - INDICADORES ECONÓMICOS",
+                    "url": "https://es.tradingeconomics.com/colombia/indicators",
+                    "summary": "| PIB - Tasa de crecimiento trimestral | 0.1 | 1.2 | 9.9 | -16.4 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 2.3 | 3.6 | 18.6 | -16.8 | Por Ciento | 2025-12 |. | Tasa De Inflación | 5.29 | 5.35 | 41.65 | -0.87 | Por Ciento | 2026-02 |. | PIB - Tasa de crecimiento trimestral | 0.1 |"
+                },
+                {
+                    "category": "economico",
+                    "title": "Economía de Colombia: PIB, Inflación y Tasas - Focus Economics",
+                    "url": "https://www.focus-economics.com/es/countries/colombia/",
+                    "summary": "Crecimento económico. La economía registró un crecimiento medio anual del 3,0% en la década hasta 2023. · Política presupuestaria. El déficit fiscal de Colombia"
+                },
+                {
+                    "category": "economico",
+                    "title": "Indicadores Macroeconómicos Clave en Colombia - UNIR",
+                    "url": "https://colombia.unir.net/actualidad-unir/indicadores-macroeconomicos/",
+                    "summary": "Según las cifras del DANE, en el primer semestre del 2025 el PIB en Colombia ha crecido un 2,7% en comparación con el mismo periodo del año"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Introducción al comercio internacional en Colombia: importancia y ...",
+                    "url": "https://zonafrancapc.co/introduccion-al-comercio-internacional-en-colombia-importancia-y-oportunidades/",
+                    "summary": "Para exportar se requiere la factura comercial, lista de empaque, carta de instrucciones de despacho, el certificado de origen, la solicitud del DEX al agente de Aduanas y la verificación de los permisos, documentos y pagos respectivos por parte del agente de aduanas. Los beneficios se refieren a la"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Que debemos tener en cuenta para exportar desde Colombia ...",
+                    "url": "https://www.instagram.com/p/DJRwYpFR1m7/",
+                    "summary": "POSICIÓN ARANCELARIA. La base sobre la cual se sostiene el Comercio Internacional. Antes de pensar en importar o exportar, tenemos que ver si la"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "[PDF] Aspectos básicos en la exportación - DIAN",
+                    "url": "https://www.dian.gov.co/aduanas/Regimen-de-Aduanas/Documents/ABC-Aspectos-basicos-Exportacion.pdf",
+                    "summary": "Es la salida de mercancías del territorio aduanero colombiano con destino a otro país, a una zona franca o a un depósito franco con el cumplimiento de los requisitos previstos en la norma. El exportador o declarante, antes de la presentación y aceptación de la SAE, debe solicitar a la DIAN la autori"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Sectores Para Invertir - Marca País Colombia",
+                    "url": "https://colombia.co/extranjeros/negocios-en-colombia/inversion/sectores-para-invertir",
+                    "summary": "Colombia ofrece grandes oportunidades de inversión en divisiones del sector de manufacturas como el automotriz y el textil. Este último cuenta hoy en día con un"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "¿Cuáles son los 10 negocios del futuro para Colombia? - Martín Ibarra",
+                    "url": "https://www.youtube.com/watch?v=_pEH9dabyd4",
+                    "summary": "... exportador en Colombia 26:19 La estrategia de China para atraer inversión extranjera 33:08 El funcionamiento técnico de las zonas francas 36"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Sectores para invertir en Colombia",
+                    "url": "https://investincolombia.com.co/es/sectores",
+                    "summary": "**Bienvenido, usted está en INVEST IN COLOMBIA**. **Bienvenido, usted está en INVEST IN COLOMBIA**. # Sectores para invertir en Colombia. PROCOLOMBIA ha identificado los sectores que representan oportunidades de inversión en el país y que cuentan con el apoyo del Gobierno para su desarrollo. Encuent"
+                }
+            ],
+            "raw_result": {
+                "resumen_ejecutivo": "Colombia presenta un entorno político y económico con desafíos, como la crisis política y la inestabilidad económica. Sin embargo, el país ofrece oportunidades de inversión en sectores como manufacturas y textiles. La estabilidad política y la situación económica son factores clave a considerar para las empresas que buscan exportar o invertir en el país.",
+                "riesgo_politico": "",
+                "riesgo_comercial": "",
+                "estabilidad_economica": "",
+                "oportunidades": [
+                    "Inversión en sectores de manufacturas como el automotriz y el textil",
+                    "Oportunidades de exportación a nuevos mercados",
+                    "Desarrollo de zonas francas y depósitos francos para la exportación"
+                ],
+                "riesgos_clave": [],
+                "recomendacion_final": "",
+                "scores": {
+                    "riesgo_politico": 6,
+                    "riesgo_comercial": 6,
+                    "estabilidad_economica": 7
+                },
+                "justificacion_scores": {
+                    "riesgo_politico": [
+                        "Se identifican señales de crisis política o institucional.",
+                        "También hay señales de estabilidad, lo que modera parcialmente el riesgo."
+                    ],
+                    "riesgo_comercial": [
+                        "Se detectan referencias a aranceles o costes regulatorios de entrada.",
+                        "Existen requisitos regulatorios que elevan la complejidad de entrada.",
+                        "La existencia de oportunidades de mercado modera ligeramente el riesgo comercial."
+                    ],
+                    "estabilidad_economica": [
+                        "Se detectan señales de crecimiento económico.",
+                        "Las oportunidades detectadas mejoran ligeramente la percepción de estabilidad económica."
+                    ]
+                },
+                "fuentes": [
+                    {
+                        "categoria": "politico",
+                        "titulo": "La estabilidad política colombiana | www.casamerica.es",
+                        "url": "https://www.casamerica.es/politica/la-estabilidad-politica-colombiana",
+                        "resumen": "Los últimos 20 minutos quedan ... del gobierno con la guerrilla, la lucha contra el narcotráfico y Pablo Escobar, la economía colombiana y los desplazados debido a la violencia. Presenta José Lladó Fernández-Urrutia, presidente del Institto Nacional de Cuestiones Internacionales y Política exterior,"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Crisis política en Colombia | Opinión | EL PAÍS",
+                        "url": "https://elpais.com/opinion/2023-06-09/crisis-politica-en-colombia.html",
+                        "resumen": "June 9, 2023 - La caída de credibilidad del Gobierno de Gustavo Petro pone en riesgo una agenda reformista necesaria"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Gobierno Colombia en EL PAÍS",
+                        "url": "https://elpais.com/noticias/gobierno-republica-colombia/",
+                        "resumen": "2 weeks ago - Los escándalos judiciales del presidente de la petrolera estatal extienden la presión a la Junta Directiva, donde el Gobierno tiene mayorías ... Naciones Unidas califica los 410 asesinatos ocurridos entre 2022 y 2025 como un hecho “inaceptable”, aunque reconoce algunos avances ... La l"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "COLOMBIA - INDICADORES ECONÓMICOS",
+                        "url": "https://es.tradingeconomics.com/colombia/indicators",
+                        "resumen": "| PIB - Tasa de crecimiento trimestral | 0.1 | 1.2 | 9.9 | -16.4 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 2.3 | 3.6 | 18.6 | -16.8 | Por Ciento | 2025-12 |. | Tasa De Inflación | 5.29 | 5.35 | 41.65 | -0.87 | Por Ciento | 2026-02 |. | PIB - Tasa de crecimiento trimestral | 0.1 |"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Economía de Colombia: PIB, Inflación y Tasas - Focus Economics",
+                        "url": "https://www.focus-economics.com/es/countries/colombia/",
+                        "resumen": "Crecimento económico. La economía registró un crecimiento medio anual del 3,0% en la década hasta 2023. · Política presupuestaria. El déficit fiscal de Colombia"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Indicadores Macroeconómicos Clave en Colombia - UNIR",
+                        "url": "https://colombia.unir.net/actualidad-unir/indicadores-macroeconomicos/",
+                        "resumen": "Según las cifras del DANE, en el primer semestre del 2025 el PIB en Colombia ha crecido un 2,7% en comparación con el mismo periodo del año"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Introducción al comercio internacional en Colombia: importancia y ...",
+                        "url": "https://zonafrancapc.co/introduccion-al-comercio-internacional-en-colombia-importancia-y-oportunidades/",
+                        "resumen": "Para exportar se requiere la factura comercial, lista de empaque, carta de instrucciones de despacho, el certificado de origen, la solicitud del DEX al agente de Aduanas y la verificación de los permisos, documentos y pagos respectivos por parte del agente de aduanas. Los beneficios se refieren a la"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Que debemos tener en cuenta para exportar desde Colombia ...",
+                        "url": "https://www.instagram.com/p/DJRwYpFR1m7/",
+                        "resumen": "POSICIÓN ARANCELARIA. La base sobre la cual se sostiene el Comercio Internacional. Antes de pensar en importar o exportar, tenemos que ver si la"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "[PDF] Aspectos básicos en la exportación - DIAN",
+                        "url": "https://www.dian.gov.co/aduanas/Regimen-de-Aduanas/Documents/ABC-Aspectos-basicos-Exportacion.pdf",
+                        "resumen": "Es la salida de mercancías del territorio aduanero colombiano con destino a otro país, a una zona franca o a un depósito franco con el cumplimiento de los requisitos previstos en la norma. El exportador o declarante, antes de la presentación y aceptación de la SAE, debe solicitar a la DIAN la autori"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Sectores Para Invertir - Marca País Colombia",
+                        "url": "https://colombia.co/extranjeros/negocios-en-colombia/inversion/sectores-para-invertir",
+                        "resumen": "Colombia ofrece grandes oportunidades de inversión en divisiones del sector de manufacturas como el automotriz y el textil. Este último cuenta hoy en día con un"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "¿Cuáles son los 10 negocios del futuro para Colombia? - Martín Ibarra",
+                        "url": "https://www.youtube.com/watch?v=_pEH9dabyd4",
+                        "resumen": "... exportador en Colombia 26:19 La estrategia de China para atraer inversión extranjera 33:08 El funcionamiento técnico de las zonas francas 36"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Sectores para invertir en Colombia",
+                        "url": "https://investincolombia.com.co/es/sectores",
+                        "resumen": "**Bienvenido, usted está en INVEST IN COLOMBIA**. **Bienvenido, usted está en INVEST IN COLOMBIA**. # Sectores para invertir en Colombia. PROCOLOMBIA ha identificado los sectores que representan oportunidades de inversión en el país y que cuentan con el apoyo del Gobierno para su desarrollo. Encuent"
+                    }
+                ],
+                "explicacion_sistema": {
+                    "metodologia": "El sistema combina recuperación web por dimensiones, scoring heurístico determinista y generación narrativa con LLM.",
+                    "limitaciones": "Los scores actuales se basan en reglas heurísticas sobre texto recuperado. No sustituyen un modelo cuantitativo completo ni una due diligence especializada."
+                },
+                "_debug_contexto": {
+                    "politico": "- Título: La estabilidad política colombiana | www.casamerica.es\n  Resumen: Los últimos 20 minutos quedan ... del gobierno con la guerrilla, la lucha contra el narcotráfico y Pablo Escobar, la economía colombiana y los desplazados debido a la violencia. Presenta José Lladó Fernández-Urrutia, presidente del Institto Nacional de Cuestiones Internacionales y Política exterior,\n  URL: https://www.casamerica.es/politica/la-estabilidad-politica-colombiana\n- Título: Crisis política en Colombia | Opinión | EL PAÍS\n  Resumen: June 9, 2023 - La caída de credibilidad del Gobierno de Gustavo Petro pone en riesgo una agenda reformista necesaria\n  URL: https://elpais.com/opinion/2023-06-09/crisis-politica-en-colombia.html\n- Título: Gobierno Colombia en EL PAÍS\n  Resumen: 2 weeks ago - Los escándalos judiciales del presidente de la petrolera estatal extienden la presión a la Junta Directiva, donde el Gobierno tiene mayorías ... Naciones Unidas califica los 410 asesinatos ocurridos entre 2022 y 2025 como un hecho “inaceptable”, aunque reconoce algunos avances ... La l\n  URL: https://elpais.com/noticias/gobierno-republica-colombia/",
+                    "economico": "- Título: COLOMBIA - INDICADORES ECONÓMICOS\n  Resumen: | PIB - Tasa de crecimiento trimestral | 0.1 | 1.2 | 9.9 | -16.4 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 2.3 | 3.6 | 18.6 | -16.8 | Por Ciento | 2025-12 |. | Tasa De Inflación | 5.29 | 5.35 | 41.65 | -0.87 | Por Ciento | 2026-02 |. | PIB - Tasa de crecimiento trimestral | 0.1 |\n  URL: https://es.tradingeconomics.com/colombia/indicators\n- Título: Economía de Colombia: PIB, Inflación y Tasas - Focus Economics\n  Resumen: Crecimento económico. La economía registró un crecimiento medio anual del 3,0% en la década hasta 2023. · Política presupuestaria. El déficit fiscal de Colombia\n  URL: https://www.focus-economics.com/es/countries/colombia/\n- Título: Indicadores Macroeconómicos Clave en Colombia - UNIR\n  Resumen: Según las cifras del DANE, en el primer semestre del 2025 el PIB en Colombia ha crecido un 2,7% en comparación con el mismo periodo del año\n  URL: https://colombia.unir.net/actualidad-unir/indicadores-macroeconomicos/",
+                    "regulatorio": "- Título: Introducción al comercio internacional en Colombia: importancia y ...\n  Resumen: Para exportar se requiere la factura comercial, lista de empaque, carta de instrucciones de despacho, el certificado de origen, la solicitud del DEX al agente de Aduanas y la verificación de los permisos, documentos y pagos respectivos por parte del agente de aduanas. Los beneficios se refieren a la\n  URL: https://zonafrancapc.co/introduccion-al-comercio-internacional-en-colombia-importancia-y-oportunidades/\n- Título: Que debemos tener en cuenta para exportar desde Colombia ...\n  Resumen: POSICIÓN ARANCELARIA. La base sobre la cual se sostiene el Comercio Internacional. Antes de pensar en importar o exportar, tenemos que ver si la\n  URL: https://www.instagram.com/p/DJRwYpFR1m7/\n- Título: [PDF] Aspectos básicos en la exportación - DIAN\n  Resumen: Es la salida de mercancías del territorio aduanero colombiano con destino a otro país, a una zona franca o a un depósito franco con el cumplimiento de los requisitos previstos en la norma. El exportador o declarante, antes de la presentación y aceptación de la SAE, debe solicitar a la DIAN la autori\n  URL: https://www.dian.gov.co/aduanas/Regimen-de-Aduanas/Documents/ABC-Aspectos-basicos-Exportacion.pdf",
+                    "oportunidades": "- Título: Sectores Para Invertir - Marca País Colombia\n  Resumen: Colombia ofrece grandes oportunidades de inversión en divisiones del sector de manufacturas como el automotriz y el textil. Este último cuenta hoy en día con un\n  URL: https://colombia.co/extranjeros/negocios-en-colombia/inversion/sectores-para-invertir\n- Título: ¿Cuáles son los 10 negocios del futuro para Colombia? - Martín Ibarra\n  Resumen: ... exportador en Colombia 26:19 La estrategia de China para atraer inversión extranjera 33:08 El funcionamiento técnico de las zonas francas 36\n  URL: https://www.youtube.com/watch?v=_pEH9dabyd4\n- Título: Sectores para invertir en Colombia\n  Resumen: **Bienvenido, usted está en INVEST IN COLOMBIA**. **Bienvenido, usted está en INVEST IN COLOMBIA**. # Sectores para invertir en Colombia. PROCOLOMBIA ha identificado los sectores que representan oportunidades de inversión en el país y que cuentan con el apoyo del Gobierno para su desarrollo. Encuent\n  URL: https://investincolombia.com.co/es/sectores"
+                },
+                "_debug_raw_model_output": "{\n  \"pais\": \"Colombia\",\n  \"resumen_ejecutivo\": \"Colombia presenta un entorno político y económico con desafíos, como la crisis política y la inestabilidad económica. Sin embargo, el país ofrece oportunidades de inversión en sectores como manufacturas y textiles. La estabilidad política y la situación económica son factores clave a considerar para las empresas que buscan exportar o invertir en el país.\",\n  \"alertas\": [\n    \"Inestabilidad política y crisis de gobierno\",\n    \"Riesgos económicos debido a la inflación y el déficit fiscal\",\n    \"Desafíos regulatorios para la exportación y la importación\"\n  ],\n  \"oportunidades\": [\n    \"Inversión en sectores de manufacturas como el automotriz y el textil\",\n    \"Oportunidades de exportación a nuevos mercados\",\n    \"Desarrollo de zonas francas y depósitos francos para la exportación\"\n  ]\n}"
+            }
+        },
+        {
+            "position": 4,
+            "country": "México",
+            "score_total": 14.0,
+            "dimension_scores": {
+                "riesgo_politico": 9.0,
+                "riesgo_comercial": 5.0,
+                "estabilidad_economica": 6.0
+            },
+            "executive_summary": "México presenta un entorno político y económico con desafíos y oportunidades. La inestabilidad política y la delincuencia pueden afectar la seguridad y la confianza en el país, mientras que la economía muestra un crecimiento lento pero estable. Es importante considerar estos factores al evaluar oportunidades de exportación e internacionalización.",
+            "sources": [
+                {
+                    "category": "politico",
+                    "title": "Inestabilidad aumenta riesgo político en México según AtlasIntel",
+                    "url": "https://dinero.hn/inestabilidad-aumenta-riesgo-politico-en-mexico-segun-atlasintel/",
+                    "summary": "El índice, que evalúa el riesgo político en una escala de 0 a 100 (siendo 100 el máximo riesgo y un posible colapso), toma en cuenta factores como la inestabilidad institucional, el conflicto social, la delincuencia y la corrupción. En la capital mexicana, el pasado mes fue escenario de una gran pro"
+                },
+                {
+                    "category": "politico",
+                    "title": "El riesgo político de México seReduce a niveles mínimos históricos ...",
+                    "url": "https://www.alm.com/press_release/alm-intelligence-updates-verdictsearch/?s-news-16155582-2025-12-02-el-riesgo-politico-de-mexico-disminuye-a-niveles-minimos-historicos",
+                    "summary": "En contraste con percepciones previas, el riesgo político en México ha disminuido notablemente en los últimos meses, alcanzando niveles que"
+                },
+                {
+                    "category": "politico",
+                    "title": "Advierten 10 riesgos políticos en México para 2026: concentración ...",
+                    "url": "https://www.yucatan.com.mx/mexico/2026/01/08/advierten-10-riesgos-politicos-en-mexico-para-2026-concentracion-del-poder-y-debil-economia-los-primeros.html",
+                    "summary": "Integralia identifica diez riesgos políticos y económicos que definirán el 2026 en México, con efectos en inversión, empresas y estabilidad."
+                },
+                {
+                    "category": "economico",
+                    "title": "Economía de México: PIB, Inflación y Tasas de Interés",
+                    "url": "https://www.focus-economics.com/es/countries/mexico/",
+                    "summary": "PIB nominal de 1,795 billones de USD en 2023. PIB per cápita de 14.024 USD, frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 1,5% en"
+                },
+                {
+                    "category": "economico",
+                    "title": "México - Producto Interior Bruto (PIB), desempleo, inflación, datos ...",
+                    "url": "https://www.epdata.es/datos/mexico-datos-macroeconomicos-datos-graficos/656",
+                    "summary": "**El Producto Interior Bruto (PIB) de México creció un 1,2% en 2024**, según el dato publicado por el Instituto Nacional de Estadística y Geografía (Inegi). El **Producto Interior Bruto (PIB) de México** avanzó un 0,8% en el cuarto trimestre con respecto al mismo periodo del año pasado, según la est"
+                },
+                {
+                    "category": "economico",
+                    "title": "Política y economía México - Santandertrade.com",
+                    "url": "https://santandertrade.com/es/portal/analizar-mercados/mexico/politica-y-economia",
+                    "summary": "Se espera que el crecimiento se ralentice aún más en 2025 (hasta el 1,4%) debido a la retirada del estímulo fiscal y a una desaceleración en EE.UU. Se espera que vuelva al objetivo del 3% a finales de 2025; sin embargo, los riesgos para la inflación siguen siendo al alza, principalmente por una infl"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Trámites legales para que tu nueva empresa pueda exportar desde ...",
+                    "url": "https://cicde.mx/tramites-legales-nueva-empresa-pueda-exportar-desde-mexico/",
+                    "summary": "Si estás considerando exportar productos desde México, es fundamental que tu empresa cumpla con todos los trámites legales requeridos para evitar sanciones y facilitar la logística de exportación. En este artículo, exploraremos los pasos clave que tu empresa debe seguir para realizar una exportación"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Aranceles México 2026: Guía para Exportadores [Actualizada]",
+                    "url": "https://www.whyloyalty.com/es/blog/aranceles-en-mexico-guia-2026-para-exportadores/",
+                    "summary": "En el dinámico panorama del comercio exterior, mantenerse actualizado sobre los aranceles y regulaciones comerciales es fundamental para el éxito de cualquier operación de exportación. La economía depende significativamente de las relaciones comerciales con los socios del T-MEC, y los aranceles de i"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Documentación para importar o exportar a México en 2025",
+                    "url": "https://www.kensalogistics.com/documentacion-importante-considerar-exportar-mexico-2025",
+                    "summary": "* **Contar con un sistema automatizado de inventarios en el comercio exterior.** Este tipo de herramientas permite gestionar de manera eficiente los registros de las mercancías que entran o salen del país, asegurando que los datos estén siempre actualizados y disponibles para cumplir con los requisi"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Oportunidades de mercado y estrategias de exportación en México",
+                    "url": "https://grow.exim.gov/es/mercados/mexico",
+                    "summary": "Con 324.3 mil millones de dólares en ventas de exportación, México fue uno de los principales mercados para los exportadores estadounidenses en 2022. ¿Se ha"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Ven oportunidades de negocio por 180 mil mdd para México",
+                    "url": "https://forbes.com.mx/ven-oportunidades-de-negocio-por-180-mil-mdd-para-mexico/",
+                    "summary": "Hoy las empresas prefieren manufacturar los insumos materiales, subensambles y productos en México por la reconstrucción de las cadenas de suministro y los aranceles impuestos por Donald Trump y ahora el gobierno de Claudia Sheinbaum, dice el cofundador de InvestMx, una empresa que se encarga de atr"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "OPORTUNIDADES DE NEGOCIO E INVERSIÓN EN MÉXICO 2025",
+                    "url": "https://www.asturex.org/oportunidades-de-negocio-e-inversion-en-mexico-2025/",
+                    "summary": "**Enlaces oficiales:** Secretaría de Energía (SENER) — https://www.gob.mx/sener/ ; Acuerdos y estrategias publicadas en el DOF (consulta en SENER). **Enlace útil:** Proyectos México / Banco Nacional de Obras y Servicios Públicos —  (portal de proyectos y razones para invertir). **Enlaces oficiales r"
+                }
+            ],
+            "raw_result": {
+                "resumen_ejecutivo": "México presenta un entorno político y económico con desafíos y oportunidades. La inestabilidad política y la delincuencia pueden afectar la seguridad y la confianza en el país, mientras que la economía muestra un crecimiento lento pero estable. Es importante considerar estos factores al evaluar oportunidades de exportación e internacionalización.",
+                "riesgo_politico": "",
+                "riesgo_comercial": "",
+                "estabilidad_economica": "",
+                "oportunidades": [
+                    "Oportunidades de mercado para exportadores debido a la posición geográfica y los acuerdos comerciales del país",
+                    "Demanda creciente de productos y servicios en sectores como la manufactura y la energía",
+                    "Inversión en infraestructura y proyectos de desarrollo que pueden generar oportunidades de negocio y crecimiento"
+                ],
+                "riesgos_clave": [],
+                "recomendacion_final": "",
+                "scores": {
+                    "riesgo_politico": 9,
+                    "riesgo_comercial": 5,
+                    "estabilidad_economica": 6
+                },
+                "justificacion_scores": {
+                    "riesgo_politico": [
+                        "Se detectó inestabilidad en el contexto político.",
+                        "Aparecen referencias a conflicto o tensión política.",
+                        "Se menciona corrupción, lo que aumenta el riesgo político.",
+                        "También hay señales de estabilidad, lo que modera parcialmente el riesgo."
+                    ],
+                    "riesgo_comercial": [
+                        "Se detectan referencias a aranceles o costes regulatorios de entrada.",
+                        "La existencia de oportunidades de mercado modera ligeramente el riesgo comercial."
+                    ],
+                    "estabilidad_economica": [
+                        "Se detectan señales de crecimiento económico.",
+                        "La desaceleración económica reduce la percepción de estabilidad.",
+                        "Las oportunidades detectadas mejoran ligeramente la percepción de estabilidad económica."
+                    ]
+                },
+                "fuentes": [
+                    {
+                        "categoria": "politico",
+                        "titulo": "Inestabilidad aumenta riesgo político en México según AtlasIntel",
+                        "url": "https://dinero.hn/inestabilidad-aumenta-riesgo-politico-en-mexico-segun-atlasintel/",
+                        "resumen": "El índice, que evalúa el riesgo político en una escala de 0 a 100 (siendo 100 el máximo riesgo y un posible colapso), toma en cuenta factores como la inestabilidad institucional, el conflicto social, la delincuencia y la corrupción. En la capital mexicana, el pasado mes fue escenario de una gran pro"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "El riesgo político de México seReduce a niveles mínimos históricos ...",
+                        "url": "https://www.alm.com/press_release/alm-intelligence-updates-verdictsearch/?s-news-16155582-2025-12-02-el-riesgo-politico-de-mexico-disminuye-a-niveles-minimos-historicos",
+                        "resumen": "En contraste con percepciones previas, el riesgo político en México ha disminuido notablemente en los últimos meses, alcanzando niveles que"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Advierten 10 riesgos políticos en México para 2026: concentración ...",
+                        "url": "https://www.yucatan.com.mx/mexico/2026/01/08/advierten-10-riesgos-politicos-en-mexico-para-2026-concentracion-del-poder-y-debil-economia-los-primeros.html",
+                        "resumen": "Integralia identifica diez riesgos políticos y económicos que definirán el 2026 en México, con efectos en inversión, empresas y estabilidad."
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Economía de México: PIB, Inflación y Tasas de Interés",
+                        "url": "https://www.focus-economics.com/es/countries/mexico/",
+                        "resumen": "PIB nominal de 1,795 billones de USD en 2023. PIB per cápita de 14.024 USD, frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 1,5% en"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "México - Producto Interior Bruto (PIB), desempleo, inflación, datos ...",
+                        "url": "https://www.epdata.es/datos/mexico-datos-macroeconomicos-datos-graficos/656",
+                        "resumen": "**El Producto Interior Bruto (PIB) de México creció un 1,2% en 2024**, según el dato publicado por el Instituto Nacional de Estadística y Geografía (Inegi). El **Producto Interior Bruto (PIB) de México** avanzó un 0,8% en el cuarto trimestre con respecto al mismo periodo del año pasado, según la est"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Política y economía México - Santandertrade.com",
+                        "url": "https://santandertrade.com/es/portal/analizar-mercados/mexico/politica-y-economia",
+                        "resumen": "Se espera que el crecimiento se ralentice aún más en 2025 (hasta el 1,4%) debido a la retirada del estímulo fiscal y a una desaceleración en EE.UU. Se espera que vuelva al objetivo del 3% a finales de 2025; sin embargo, los riesgos para la inflación siguen siendo al alza, principalmente por una infl"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Trámites legales para que tu nueva empresa pueda exportar desde ...",
+                        "url": "https://cicde.mx/tramites-legales-nueva-empresa-pueda-exportar-desde-mexico/",
+                        "resumen": "Si estás considerando exportar productos desde México, es fundamental que tu empresa cumpla con todos los trámites legales requeridos para evitar sanciones y facilitar la logística de exportación. En este artículo, exploraremos los pasos clave que tu empresa debe seguir para realizar una exportación"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Aranceles México 2026: Guía para Exportadores [Actualizada]",
+                        "url": "https://www.whyloyalty.com/es/blog/aranceles-en-mexico-guia-2026-para-exportadores/",
+                        "resumen": "En el dinámico panorama del comercio exterior, mantenerse actualizado sobre los aranceles y regulaciones comerciales es fundamental para el éxito de cualquier operación de exportación. La economía depende significativamente de las relaciones comerciales con los socios del T-MEC, y los aranceles de i"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Documentación para importar o exportar a México en 2025",
+                        "url": "https://www.kensalogistics.com/documentacion-importante-considerar-exportar-mexico-2025",
+                        "resumen": "* **Contar con un sistema automatizado de inventarios en el comercio exterior.** Este tipo de herramientas permite gestionar de manera eficiente los registros de las mercancías que entran o salen del país, asegurando que los datos estén siempre actualizados y disponibles para cumplir con los requisi"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Oportunidades de mercado y estrategias de exportación en México",
+                        "url": "https://grow.exim.gov/es/mercados/mexico",
+                        "resumen": "Con 324.3 mil millones de dólares en ventas de exportación, México fue uno de los principales mercados para los exportadores estadounidenses en 2022. ¿Se ha"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Ven oportunidades de negocio por 180 mil mdd para México",
+                        "url": "https://forbes.com.mx/ven-oportunidades-de-negocio-por-180-mil-mdd-para-mexico/",
+                        "resumen": "Hoy las empresas prefieren manufacturar los insumos materiales, subensambles y productos en México por la reconstrucción de las cadenas de suministro y los aranceles impuestos por Donald Trump y ahora el gobierno de Claudia Sheinbaum, dice el cofundador de InvestMx, una empresa que se encarga de atr"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "OPORTUNIDADES DE NEGOCIO E INVERSIÓN EN MÉXICO 2025",
+                        "url": "https://www.asturex.org/oportunidades-de-negocio-e-inversion-en-mexico-2025/",
+                        "resumen": "**Enlaces oficiales:** Secretaría de Energía (SENER) — https://www.gob.mx/sener/ ; Acuerdos y estrategias publicadas en el DOF (consulta en SENER). **Enlace útil:** Proyectos México / Banco Nacional de Obras y Servicios Públicos —  (portal de proyectos y razones para invertir). **Enlaces oficiales r"
+                    }
+                ],
+                "explicacion_sistema": {
+                    "metodologia": "El sistema combina recuperación web por dimensiones, scoring heurístico determinista y generación narrativa con LLM.",
+                    "limitaciones": "Los scores actuales se basan en reglas heurísticas sobre texto recuperado. No sustituyen un modelo cuantitativo completo ni una due diligence especializada."
+                },
+                "_debug_contexto": {
+                    "politico": "- Título: Inestabilidad aumenta riesgo político en México según AtlasIntel\n  Resumen: El índice, que evalúa el riesgo político en una escala de 0 a 100 (siendo 100 el máximo riesgo y un posible colapso), toma en cuenta factores como la inestabilidad institucional, el conflicto social, la delincuencia y la corrupción. En la capital mexicana, el pasado mes fue escenario de una gran pro\n  URL: https://dinero.hn/inestabilidad-aumenta-riesgo-politico-en-mexico-segun-atlasintel/\n- Título: El riesgo político de México seReduce a niveles mínimos históricos ...\n  Resumen: En contraste con percepciones previas, el riesgo político en México ha disminuido notablemente en los últimos meses, alcanzando niveles que\n  URL: https://www.alm.com/press_release/alm-intelligence-updates-verdictsearch/?s-news-16155582-2025-12-02-el-riesgo-politico-de-mexico-disminuye-a-niveles-minimos-historicos\n- Título: Advierten 10 riesgos políticos en México para 2026: concentración ...\n  Resumen: Integralia identifica diez riesgos políticos y económicos que definirán el 2026 en México, con efectos en inversión, empresas y estabilidad.\n  URL: https://www.yucatan.com.mx/mexico/2026/01/08/advierten-10-riesgos-politicos-en-mexico-para-2026-concentracion-del-poder-y-debil-economia-los-primeros.html",
+                    "economico": "- Título: Economía de México: PIB, Inflación y Tasas de Interés\n  Resumen: PIB nominal de 1,795 billones de USD en 2023. PIB per cápita de 14.024 USD, frente a la media mundial de 10.589 USD. Crecimiento medio del PIB real del 1,5% en\n  URL: https://www.focus-economics.com/es/countries/mexico/\n- Título: México - Producto Interior Bruto (PIB), desempleo, inflación, datos ...\n  Resumen: **El Producto Interior Bruto (PIB) de México creció un 1,2% en 2024**, según el dato publicado por el Instituto Nacional de Estadística y Geografía (Inegi). El **Producto Interior Bruto (PIB) de México** avanzó un 0,8% en el cuarto trimestre con respecto al mismo periodo del año pasado, según la est\n  URL: https://www.epdata.es/datos/mexico-datos-macroeconomicos-datos-graficos/656\n- Título: Política y economía México - Santandertrade.com\n  Resumen: Se espera que el crecimiento se ralentice aún más en 2025 (hasta el 1,4%) debido a la retirada del estímulo fiscal y a una desaceleración en EE.UU. Se espera que vuelva al objetivo del 3% a finales de 2025; sin embargo, los riesgos para la inflación siguen siendo al alza, principalmente por una infl\n  URL: https://santandertrade.com/es/portal/analizar-mercados/mexico/politica-y-economia",
+                    "regulatorio": "- Título: Trámites legales para que tu nueva empresa pueda exportar desde ...\n  Resumen: Si estás considerando exportar productos desde México, es fundamental que tu empresa cumpla con todos los trámites legales requeridos para evitar sanciones y facilitar la logística de exportación. En este artículo, exploraremos los pasos clave que tu empresa debe seguir para realizar una exportación\n  URL: https://cicde.mx/tramites-legales-nueva-empresa-pueda-exportar-desde-mexico/\n- Título: Aranceles México 2026: Guía para Exportadores [Actualizada]\n  Resumen: En el dinámico panorama del comercio exterior, mantenerse actualizado sobre los aranceles y regulaciones comerciales es fundamental para el éxito de cualquier operación de exportación. La economía depende significativamente de las relaciones comerciales con los socios del T-MEC, y los aranceles de i\n  URL: https://www.whyloyalty.com/es/blog/aranceles-en-mexico-guia-2026-para-exportadores/\n- Título: Documentación para importar o exportar a México en 2025\n  Resumen: * **Contar con un sistema automatizado de inventarios en el comercio exterior.** Este tipo de herramientas permite gestionar de manera eficiente los registros de las mercancías que entran o salen del país, asegurando que los datos estén siempre actualizados y disponibles para cumplir con los requisi\n  URL: https://www.kensalogistics.com/documentacion-importante-considerar-exportar-mexico-2025",
+                    "oportunidades": "- Título: Oportunidades de mercado y estrategias de exportación en México\n  Resumen: Con 324.3 mil millones de dólares en ventas de exportación, México fue uno de los principales mercados para los exportadores estadounidenses en 2022. ¿Se ha\n  URL: https://grow.exim.gov/es/mercados/mexico\n- Título: Ven oportunidades de negocio por 180 mil mdd para México\n  Resumen: Hoy las empresas prefieren manufacturar los insumos materiales, subensambles y productos en México por la reconstrucción de las cadenas de suministro y los aranceles impuestos por Donald Trump y ahora el gobierno de Claudia Sheinbaum, dice el cofundador de InvestMx, una empresa que se encarga de atr\n  URL: https://forbes.com.mx/ven-oportunidades-de-negocio-por-180-mil-mdd-para-mexico/\n- Título: OPORTUNIDADES DE NEGOCIO E INVERSIÓN EN MÉXICO 2025\n  Resumen: **Enlaces oficiales:** Secretaría de Energía (SENER) — https://www.gob.mx/sener/ ; Acuerdos y estrategias publicadas en el DOF (consulta en SENER). **Enlace útil:** Proyectos México / Banco Nacional de Obras y Servicios Públicos —  (portal de proyectos y razones para invertir). **Enlaces oficiales r\n  URL: https://www.asturex.org/oportunidades-de-negocio-e-inversion-en-mexico-2025/"
+                },
+                "_debug_raw_model_output": "{\n  \"pais\": \"México\",\n  \"resumen_ejecutivo\": \"México presenta un entorno político y económico con desafíos y oportunidades. La inestabilidad política y la delincuencia pueden afectar la seguridad y la confianza en el país, mientras que la economía muestra un crecimiento lento pero estable. Es importante considerar estos factores al evaluar oportunidades de exportación e internacionalización.\",\n  \"alertas\": [\n    \"Inestabilidad política y delincuencia que pueden afectar la seguridad y la confianza en el país\",\n    \"Riesgos económicos como la desaceleración del crecimiento y la inflación\",\n    \"Cambios regulatorios y aranceles que pueden impactar la logística de exportación\"\n  ],\n  \"oportunidades\": [\n    \"Oportunidades de mercado para exportadores debido a la posición geográfica y los acuerdos comerciales del país\",\n    \"Demanda creciente de productos y servicios en sectores como la manufactura y la energía\",\n    \"Inversión en infraestructura y proyectos de desarrollo que pueden generar oportunidades de negocio y crecimiento\"\n  ]\n}"
+            }
+        },
+        {
+            "position": 5,
+            "country": "Turquía",
+            "score_total": 14.0,
+            "dimension_scores": {
+                "riesgo_politico": 8.0,
+                "riesgo_comercial": 7.0,
+                "estabilidad_economica": 7.0
+            },
+            "executive_summary": "Turquía se encuentra en un momento de inestabilidad política, con un régimen autoritario y una crisis de la democracia. La economía del país ha experimentado un crecimiento reciente, pero también enfrenta desafíos como la inflación y la volatilidad económica. La posición geográfica estratégica de Turquía y su integración en la economía global ofrecen oportunidades para las empresas que buscan expandirse en el mercado internacional.",
+            "sources": [
+                {
+                    "category": "politico",
+                    "title": "¿Turquía como modelo para las transiciones árabes? (ARI)",
+                    "url": "https://www.realinstitutoelcano.org/analisis/turquia-como-modelo-para-las-transiciones-arabes-ari/",
+                    "summary": "En estos momentos de inestabilidad política, Turquía se encuentra ante el dilema de apoyar o bien a los líderes de regímenes autoritarios o bien a las"
+                },
+                {
+                    "category": "politico",
+                    "title": "Lucha de poder en Turquía, ¿se acerca el fin del régimen ... - YouTube",
+                    "url": "https://www.youtube.com/watch?v=dUCbdWhBjwY",
+                    "summary": "El presidente de Turquía, Recep Erdogan, responsabilizó a la oposición por las protestas masivas desatadas tras el arresto del alcalde de"
+                },
+                {
+                    "category": "politico",
+                    "title": "La crisis de la democracia en Turquía: religión, poder y represión ...",
+                    "url": "https://theconversation.com/la-crisis-de-la-democracia-en-turquia-religion-poder-y-represion-politica-253077",
+                    "summary": "El islam, en lugar de ocupar un espacio privado o espiritual, se ha integrado cada vez más en la narrativa oficial del Estado, utilizándose como herramienta de cohesión política y legitimidad moral. En el caso turco, se han documentado prácticas, como la cooptación del poder judicial, el control de "
+                },
+                {
+                    "category": "economico",
+                    "title": "TURQUÍA - INDICADORES ECONÓMICOS",
+                    "url": "https://es.tradingeconomics.com/turkey/indicators",
+                    "summary": "| PIB - Tasa de crecimiento trimestral | 0.4 | 1 | 15.7 | -10.4 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 3.4 | 3.8 | 22.4 | -14.7 | Por Ciento | 2025-12 |. | Tasa De Inflación | 30.87 | 31.53 | 139 | -4.01 | Por Ciento | 2026-03 |. | PIB - Tasa de crecimiento trimestral | 0.4 | "
+                },
+                {
+                    "category": "economico",
+                    "title": "Economía de Turquía: PIB, Inflación y Tasas - Focus Economics",
+                    "url": "https://www.focus-economics.com/es/countries/turquia/",
+                    "summary": "Rápido crecimiento reciente: · PIB nominal de 1,321 billones de USD en 2024. · PIB per cápita de 13.062 USD, frente a la media mundial de 10.589 USD. · Crecimiento"
+                },
+                {
+                    "category": "economico",
+                    "title": "Datos económicos Turquía - Negocios en Turquia",
+                    "url": "https://negociosenturquia.com/inicio/datos-economicos-turquia/",
+                    "summary": "* Fue en el 2002 cuando, con el propósito de integrar la economía turca en el mundo globalizado, se creo una eficaz estrategia macroeconómica combinada con una política fiscal prudente y grandes reformas estructurales. * Estos cambios tienen como objetivo incrementar el papel del sector privado en l"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Requisitos y Aranceles para Exportar a Turquía | PDF - Scribd",
+                    "url": "https://es.scribd.com/document/466840846/Turquia",
+                    "summary": "1) El documento describe el régimen arancelario y de regulación de Turquía, incluyendo sus tratados comerciales, aranceles, y barreras no arancelarias."
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Exportar a Turquía - Co.Mark",
+                    "url": "https://www.comark.es/exportar-a-turquia/",
+                    "summary": "En el caso de algunos productos, para poder exportarlos y venderlos en Turquía, las aduanas turcas exigen licencias, certificaciones y/o autorizaciones de las autoridades. Turquía es miembro de la Oficina Europea de Patentes (EPO) y signataria del Acuerdo sobre los Aspectos de los Derechos de Propie"
+                },
+                {
+                    "category": "regulatorio",
+                    "title": "Turquía | Ministerio de Relaciones Exteriores, Comercio ...",
+                    "url": "https://www.cancilleria.gob.ar/es/turquia",
+                    "summary": "| Condiciones de acceso | Aranceles:  0811.90.11.00.00 - 0811.90.95.00.19: 15,4% - 37% 1% de IVA para estos productos  Tramites/Formalidades Relacionados:  Carta de Conformidad del Ministerio de Agricultura y Bosques/ Sistema de Ventanilla Única - Gobierno Electrónico (Anexo 2 de Seguridad e Inspecc"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "IPEX - El Mercado de Turquía situación y sectores de oportunidad",
+                    "url": "https://www.youtube.com/watch?v=SXMnbCjiKfk",
+                    "summary": "Go to channel Moris Dieck | Finanzas e Inversiones · Arturo Elías Ayub: Lecciones de Negocios, Dinero y Éxito | Dimes y Billetes #318. Moris"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Turquía: una oportunidad de negocio internacional - BBVA",
+                    "url": "https://www.bbva.com/es/turquia-oportunidad-negocio-internacional/",
+                    "summary": "Turquía se ha convertido en la sexta economía más grande de Europa con un PIB que ha crecido de forma sostenida durante los últimos 14 años. Turquía se encuentra en una **posición geográfica estratégica** que ha sabido aprovechar mediante acuerdos de unión aduanera con la **Unión Europea** y fomenta"
+                },
+                {
+                    "category": "oportunidades",
+                    "title": "Turquía, un mercado pujante con oportunidades para las empresas ...",
+                    "url": "https://empresaexterior.com/art/92747/turquia-un-mercado-pujante-con-oportunidades-para-las-empresas-espanolas",
+                    "summary": "Demos Global Group es una consultora especializada en asesoramiento estratégico y operativo para la expansión empresarial.leer más... Aresbank es el banco de referencia para las operations financieras y de comercio exterior entre España y la región MENA.leer más... Operador líder del seguro de crédi"
+                }
+            ],
+            "raw_result": {
+                "resumen_ejecutivo": "Turquía se encuentra en un momento de inestabilidad política, con un régimen autoritario y una crisis de la democracia. La economía del país ha experimentado un crecimiento reciente, pero también enfrenta desafíos como la inflación y la volatilidad económica. La posición geográfica estratégica de Turquía y su integración en la economía global ofrecen oportunidades para las empresas que buscan expandirse en el mercado internacional.",
+                "riesgo_politico": "",
+                "riesgo_comercial": "",
+                "estabilidad_economica": "",
+                "oportunidades": [
+                    "Posición geográfica estratégica y acceso a mercados emergentes",
+                    "Crecimiento económico reciente y potencial de expansión",
+                    "Oportunidades de negocio en sectores como la industria y el comercio"
+                ],
+                "riesgos_clave": [],
+                "recomendacion_final": "",
+                "scores": {
+                    "riesgo_politico": 8,
+                    "riesgo_comercial": 7,
+                    "estabilidad_economica": 7
+                },
+                "justificacion_scores": {
+                    "riesgo_politico": [
+                        "Se detectó inestabilidad en el contexto político.",
+                        "Se identifican señales de crisis política o institucional.",
+                        "También hay señales de estabilidad, lo que modera parcialmente el riesgo."
+                    ],
+                    "riesgo_comercial": [
+                        "Se detectan referencias a aranceles o costes regulatorios de entrada.",
+                        "Se mencionan barreras regulatorias o comerciales.",
+                        "Existen requisitos regulatorios que elevan la complejidad de entrada.",
+                        "La existencia de oportunidades de mercado modera ligeramente el riesgo comercial."
+                    ],
+                    "estabilidad_economica": [
+                        "Se detectan señales de crecimiento económico.",
+                        "Las oportunidades detectadas mejoran ligeramente la percepción de estabilidad económica."
+                    ]
+                },
+                "fuentes": [
+                    {
+                        "categoria": "politico",
+                        "titulo": "¿Turquía como modelo para las transiciones árabes? (ARI)",
+                        "url": "https://www.realinstitutoelcano.org/analisis/turquia-como-modelo-para-las-transiciones-arabes-ari/",
+                        "resumen": "En estos momentos de inestabilidad política, Turquía se encuentra ante el dilema de apoyar o bien a los líderes de regímenes autoritarios o bien a las"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "Lucha de poder en Turquía, ¿se acerca el fin del régimen ... - YouTube",
+                        "url": "https://www.youtube.com/watch?v=dUCbdWhBjwY",
+                        "resumen": "El presidente de Turquía, Recep Erdogan, responsabilizó a la oposición por las protestas masivas desatadas tras el arresto del alcalde de"
+                    },
+                    {
+                        "categoria": "politico",
+                        "titulo": "La crisis de la democracia en Turquía: religión, poder y represión ...",
+                        "url": "https://theconversation.com/la-crisis-de-la-democracia-en-turquia-religion-poder-y-represion-politica-253077",
+                        "resumen": "El islam, en lugar de ocupar un espacio privado o espiritual, se ha integrado cada vez más en la narrativa oficial del Estado, utilizándose como herramienta de cohesión política y legitimidad moral. En el caso turco, se han documentado prácticas, como la cooptación del poder judicial, el control de "
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "TURQUÍA - INDICADORES ECONÓMICOS",
+                        "url": "https://es.tradingeconomics.com/turkey/indicators",
+                        "resumen": "| PIB - Tasa de crecimiento trimestral | 0.4 | 1 | 15.7 | -10.4 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 3.4 | 3.8 | 22.4 | -14.7 | Por Ciento | 2025-12 |. | Tasa De Inflación | 30.87 | 31.53 | 139 | -4.01 | Por Ciento | 2026-03 |. | PIB - Tasa de crecimiento trimestral | 0.4 | "
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Economía de Turquía: PIB, Inflación y Tasas - Focus Economics",
+                        "url": "https://www.focus-economics.com/es/countries/turquia/",
+                        "resumen": "Rápido crecimiento reciente: · PIB nominal de 1,321 billones de USD en 2024. · PIB per cápita de 13.062 USD, frente a la media mundial de 10.589 USD. · Crecimiento"
+                    },
+                    {
+                        "categoria": "economico",
+                        "titulo": "Datos económicos Turquía - Negocios en Turquia",
+                        "url": "https://negociosenturquia.com/inicio/datos-economicos-turquia/",
+                        "resumen": "* Fue en el 2002 cuando, con el propósito de integrar la economía turca en el mundo globalizado, se creo una eficaz estrategia macroeconómica combinada con una política fiscal prudente y grandes reformas estructurales. * Estos cambios tienen como objetivo incrementar el papel del sector privado en l"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Requisitos y Aranceles para Exportar a Turquía | PDF - Scribd",
+                        "url": "https://es.scribd.com/document/466840846/Turquia",
+                        "resumen": "1) El documento describe el régimen arancelario y de regulación de Turquía, incluyendo sus tratados comerciales, aranceles, y barreras no arancelarias."
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Exportar a Turquía - Co.Mark",
+                        "url": "https://www.comark.es/exportar-a-turquia/",
+                        "resumen": "En el caso de algunos productos, para poder exportarlos y venderlos en Turquía, las aduanas turcas exigen licencias, certificaciones y/o autorizaciones de las autoridades. Turquía es miembro de la Oficina Europea de Patentes (EPO) y signataria del Acuerdo sobre los Aspectos de los Derechos de Propie"
+                    },
+                    {
+                        "categoria": "regulatorio",
+                        "titulo": "Turquía | Ministerio de Relaciones Exteriores, Comercio ...",
+                        "url": "https://www.cancilleria.gob.ar/es/turquia",
+                        "resumen": "| Condiciones de acceso | Aranceles:  0811.90.11.00.00 - 0811.90.95.00.19: 15,4% - 37% 1% de IVA para estos productos  Tramites/Formalidades Relacionados:  Carta de Conformidad del Ministerio de Agricultura y Bosques/ Sistema de Ventanilla Única - Gobierno Electrónico (Anexo 2 de Seguridad e Inspecc"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "IPEX - El Mercado de Turquía situación y sectores de oportunidad",
+                        "url": "https://www.youtube.com/watch?v=SXMnbCjiKfk",
+                        "resumen": "Go to channel Moris Dieck | Finanzas e Inversiones · Arturo Elías Ayub: Lecciones de Negocios, Dinero y Éxito | Dimes y Billetes #318. Moris"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Turquía: una oportunidad de negocio internacional - BBVA",
+                        "url": "https://www.bbva.com/es/turquia-oportunidad-negocio-internacional/",
+                        "resumen": "Turquía se ha convertido en la sexta economía más grande de Europa con un PIB que ha crecido de forma sostenida durante los últimos 14 años. Turquía se encuentra en una **posición geográfica estratégica** que ha sabido aprovechar mediante acuerdos de unión aduanera con la **Unión Europea** y fomenta"
+                    },
+                    {
+                        "categoria": "oportunidades",
+                        "titulo": "Turquía, un mercado pujante con oportunidades para las empresas ...",
+                        "url": "https://empresaexterior.com/art/92747/turquia-un-mercado-pujante-con-oportunidades-para-las-empresas-espanolas",
+                        "resumen": "Demos Global Group es una consultora especializada en asesoramiento estratégico y operativo para la expansión empresarial.leer más... Aresbank es el banco de referencia para las operations financieras y de comercio exterior entre España y la región MENA.leer más... Operador líder del seguro de crédi"
+                    }
+                ],
+                "explicacion_sistema": {
+                    "metodologia": "El sistema combina recuperación web por dimensiones, scoring heurístico determinista y generación narrativa con LLM.",
+                    "limitaciones": "Los scores actuales se basan en reglas heurísticas sobre texto recuperado. No sustituyen un modelo cuantitativo completo ni una due diligence especializada."
+                },
+                "_debug_contexto": {
+                    "politico": "- Título: ¿Turquía como modelo para las transiciones árabes? (ARI)\n  Resumen: En estos momentos de inestabilidad política, Turquía se encuentra ante el dilema de apoyar o bien a los líderes de regímenes autoritarios o bien a las\n  URL: https://www.realinstitutoelcano.org/analisis/turquia-como-modelo-para-las-transiciones-arabes-ari/\n- Título: Lucha de poder en Turquía, ¿se acerca el fin del régimen ... - YouTube\n  Resumen: El presidente de Turquía, Recep Erdogan, responsabilizó a la oposición por las protestas masivas desatadas tras el arresto del alcalde de\n  URL: https://www.youtube.com/watch?v=dUCbdWhBjwY\n- Título: La crisis de la democracia en Turquía: religión, poder y represión ...\n  Resumen: El islam, en lugar de ocupar un espacio privado o espiritual, se ha integrado cada vez más en la narrativa oficial del Estado, utilizándose como herramienta de cohesión política y legitimidad moral. En el caso turco, se han documentado prácticas, como la cooptación del poder judicial, el control de \n  URL: https://theconversation.com/la-crisis-de-la-democracia-en-turquia-religion-poder-y-represion-politica-253077",
+                    "economico": "- Título: TURQUÍA - INDICADORES ECONÓMICOS\n  Resumen: | PIB - Tasa de crecimiento trimestral | 0.4 | 1 | 15.7 | -10.4 | Por Ciento | 2025-12 |. | PIB - Tasa de crecimiento anual | 3.4 | 3.8 | 22.4 | -14.7 | Por Ciento | 2025-12 |. | Tasa De Inflación | 30.87 | 31.53 | 139 | -4.01 | Por Ciento | 2026-03 |. | PIB - Tasa de crecimiento trimestral | 0.4 | \n  URL: https://es.tradingeconomics.com/turkey/indicators\n- Título: Economía de Turquía: PIB, Inflación y Tasas - Focus Economics\n  Resumen: Rápido crecimiento reciente: · PIB nominal de 1,321 billones de USD en 2024. · PIB per cápita de 13.062 USD, frente a la media mundial de 10.589 USD. · Crecimiento\n  URL: https://www.focus-economics.com/es/countries/turquia/\n- Título: Datos económicos Turquía - Negocios en Turquia\n  Resumen: * Fue en el 2002 cuando, con el propósito de integrar la economía turca en el mundo globalizado, se creo una eficaz estrategia macroeconómica combinada con una política fiscal prudente y grandes reformas estructurales. * Estos cambios tienen como objetivo incrementar el papel del sector privado en l\n  URL: https://negociosenturquia.com/inicio/datos-economicos-turquia/",
+                    "regulatorio": "- Título: Requisitos y Aranceles para Exportar a Turquía | PDF - Scribd\n  Resumen: 1) El documento describe el régimen arancelario y de regulación de Turquía, incluyendo sus tratados comerciales, aranceles, y barreras no arancelarias.\n  URL: https://es.scribd.com/document/466840846/Turquia\n- Título: Exportar a Turquía - Co.Mark\n  Resumen: En el caso de algunos productos, para poder exportarlos y venderlos en Turquía, las aduanas turcas exigen licencias, certificaciones y/o autorizaciones de las autoridades. Turquía es miembro de la Oficina Europea de Patentes (EPO) y signataria del Acuerdo sobre los Aspectos de los Derechos de Propie\n  URL: https://www.comark.es/exportar-a-turquia/\n- Título: Turquía | Ministerio de Relaciones Exteriores, Comercio ...\n  Resumen: | Condiciones de acceso | Aranceles:  0811.90.11.00.00 - 0811.90.95.00.19: 15,4% - 37% 1% de IVA para estos productos  Tramites/Formalidades Relacionados:  Carta de Conformidad del Ministerio de Agricultura y Bosques/ Sistema de Ventanilla Única - Gobierno Electrónico (Anexo 2 de Seguridad e Inspecc\n  URL: https://www.cancilleria.gob.ar/es/turquia",
+                    "oportunidades": "- Título: IPEX - El Mercado de Turquía situación y sectores de oportunidad\n  Resumen: Go to channel Moris Dieck | Finanzas e Inversiones · Arturo Elías Ayub: Lecciones de Negocios, Dinero y Éxito | Dimes y Billetes #318. Moris\n  URL: https://www.youtube.com/watch?v=SXMnbCjiKfk\n- Título: Turquía: una oportunidad de negocio internacional - BBVA\n  Resumen: Turquía se ha convertido en la sexta economía más grande de Europa con un PIB que ha crecido de forma sostenida durante los últimos 14 años. Turquía se encuentra en una **posición geográfica estratégica** que ha sabido aprovechar mediante acuerdos de unión aduanera con la **Unión Europea** y fomenta\n  URL: https://www.bbva.com/es/turquia-oportunidad-negocio-internacional/\n- Título: Turquía, un mercado pujante con oportunidades para las empresas ...\n  Resumen: Demos Global Group es una consultora especializada en asesoramiento estratégico y operativo para la expansión empresarial.leer más... Aresbank es el banco de referencia para las operations financieras y de comercio exterior entre España y la región MENA.leer más... Operador líder del seguro de crédi\n  URL: https://empresaexterior.com/art/92747/turquia-un-mercado-pujante-con-oportunidades-para-las-empresas-espanolas"
+                },
+                "_debug_raw_model_output": "{\n  \"pais\": \"Turquía\",\n  \"resumen_ejecutivo\": \"Turquía se encuentra en un momento de inestabilidad política, con un régimen autoritario y una crisis de la democracia. La economía del país ha experimentado un crecimiento reciente, pero también enfrenta desafíos como la inflación y la volatilidad económica. La posición geográfica estratégica de Turquía y su integración en la economía global ofrecen oportunidades para las empresas que buscan expandirse en el mercado internacional.\",\n  \"alertas\": [\n    \"Inestabilidad política y riesgo de represión\",\n    \"Volatilidad económica y riesgo de inflación\",\n    \"Barreras regulatorias y aranceles para la exportación\"\n  ],\n  \"oportunidades\": [\n    \"Posición geográfica estratégica y acceso a mercados emergentes\",\n    \"Crecimiento económico reciente y potencial de expansión\",\n    \"Oportunidades de negocio en sectores como la industria y el comercio\"\n  ]\n}"
+            }
+        }
+    ]
+}
