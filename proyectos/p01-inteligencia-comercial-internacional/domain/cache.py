@@ -6,8 +6,9 @@ import unicodedata
 from pathlib import Path
 from typing import Any, Dict
 
+from config.settings import CACHE_BASE_DIR as SETTINGS_CACHE_BASE_DIR
 
-CACHE_BASE_DIR = Path("outputs") / "cache" / "country_analysis"
+CACHE_BASE_DIR = Path(SETTINGS_CACHE_BASE_DIR)
 
 
 def ensure_cache_dir() -> Path:
@@ -71,17 +72,23 @@ def load_country_analysis_from_cache(
     """
     Carga un análisis desde caché si existe.
     """
-    cache_file = get_cache_file_path(
-        pais=pais,
-        sector=sector,
-        tipo_empresa=tipo_empresa,
-    )
+    try:
+        cache_file = get_cache_file_path(
+            pais=pais,
+            sector=sector,
+            tipo_empresa=tipo_empresa,
+        )
+    except OSError:
+        return None
 
     if not cache_file.exists():
         return None
 
-    with open(cache_file, "r", encoding="utf-8") as f:
-        data = json.load(f)
+    try:
+        with open(cache_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return None
 
     return data
 
@@ -91,15 +98,18 @@ def save_country_analysis_to_cache(
     sector: str,
     tipo_empresa: str,
     data: Dict[str, Any],
-) -> Path:
+) -> Path | None:
     """
     Guarda un análisis de país en caché.
     """
-    cache_file = get_cache_file_path(
-        pais=pais,
-        sector=sector,
-        tipo_empresa=tipo_empresa,
-    )
+    try:
+        cache_file = get_cache_file_path(
+            pais=pais,
+            sector=sector,
+            tipo_empresa=tipo_empresa,
+        )
+    except OSError:
+        return None
 
     payload = {
         "metadata": {
@@ -111,8 +121,11 @@ def save_country_analysis_to_cache(
         "result": data,
     }
 
-    with open(cache_file, "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=4)
+    try:
+        with open(cache_file, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=4)
+    except OSError:
+        return None
 
     return cache_file
 
@@ -121,7 +134,10 @@ def clear_country_analysis_cache() -> int:
     """
     Borra todos los archivos de caché y devuelve cuántos se eliminaron.
     """
-    ensure_cache_dir()
+    try:
+        ensure_cache_dir()
+    except OSError:
+        return 0
 
     deleted = 0
     for file_path in CACHE_BASE_DIR.glob("*.json"):
@@ -135,7 +151,13 @@ def get_cache_stats() -> Dict[str, Any]:
     """
     Devuelve estadísticas simples de caché.
     """
-    ensure_cache_dir()
+    try:
+        ensure_cache_dir()
+    except OSError:
+        return {
+            "cache_dir": str(CACHE_BASE_DIR),
+            "total_files": 0,
+        }
     files = list(CACHE_BASE_DIR.glob("*.json"))
 
     return {

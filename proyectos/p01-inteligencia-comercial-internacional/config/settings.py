@@ -82,16 +82,28 @@ def _to_float(value: Any, default: float) -> float:
 
 def _read_env(name: str, default: Any = None) -> Any:
     """
-    Lee una variable de entorno con valor por defecto.
+    Lee una variable de entorno con fallback opcional a `st.secrets`.
     """
-    return os.getenv(name, default)
+    env_value = os.getenv(name)
+    if env_value is not None:
+        return env_value
+
+    try:
+        import streamlit as st
+
+        if name in st.secrets:
+            return st.secrets[name]
+    except Exception:
+        pass
+
+    return default
 
 
 def _require_env(name: str) -> str:
     """
     Exige que exista una variable de entorno no vacía.
     """
-    value = os.getenv(name)
+    value = _read_env(name)
     if value is None or not str(value).strip():
         raise RuntimeError(
             f"Falta la variable de entorno obligatoria '{name}' en modo production."
@@ -176,8 +188,20 @@ IS_PRODUCTION = APP_MODE == "production"
 APP_TITLE = str(
     _read_env("APP_TITLE", "Inteligencia Comercial Internacional")
 ).strip()
+APP_STORAGE_DIR = Path(
+    str(_read_env("APP_STORAGE_DIR", BASE_DIR))
+).resolve()
+HISTORY_BASE_DIR = Path(
+    str(_read_env("HISTORY_BASE_DIR", APP_STORAGE_DIR / "history"))
+).resolve()
 HISTORY_DB_PATH = Path(
-    str(_read_env("HISTORY_DB_PATH", DATA_DIR / "p01_history.sqlite3"))
+    str(_read_env("HISTORY_DB_PATH", APP_STORAGE_DIR / "data" / "p01_history.sqlite3"))
+).resolve()
+LOGS_DIR = Path(
+    str(_read_env("LOGS_DIR", APP_STORAGE_DIR / "logs"))
+).resolve()
+CACHE_BASE_DIR = Path(
+    str(_read_env("CACHE_BASE_DIR", APP_STORAGE_DIR / "outputs" / "cache" / "country_analysis"))
 ).resolve()
 
 DEBUG_MODE = _to_bool(_read_env("DEBUG_MODE", "true" if IS_DEMO else "false"))
@@ -601,9 +625,13 @@ __all__ = [
     "BASE_DIR",
     "CONFIG_DIR",
     "DATA_DIR",
+    "APP_STORAGE_DIR",
     "ENV_FILE",
     "WEIGHTS_FILE",
+    "HISTORY_BASE_DIR",
     "HISTORY_DB_PATH",
+    "LOGS_DIR",
+    "CACHE_BASE_DIR",
     "DEBUG_MODE",
     "LOG_LEVEL",
     "DEFAULT_COUNTRY",

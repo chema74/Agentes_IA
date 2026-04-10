@@ -168,6 +168,21 @@ TAVILY_API_KEY=tvly-...
 - Si el YAML falta o es invalido, la app usa defaults seguros compatibles con la version actual.
 - El modo `demo` no depende de APIs reales; `production` valida las claves necesarias al arrancar.
 
+## Deploy minimo en Streamlit Cloud
+
+- Entry point: `proyectos/p01-inteligencia-comercial-internacional/app/streamlit_app.py`
+- Requirements file: `proyectos/p01-inteligencia-comercial-internacional/requirements.txt`
+- Secrets recomendados:
+
+```toml
+APP_MODE="production"
+GROQ_API_KEY="gsk_..."
+TAVILY_API_KEY="tvly-..."
+APP_STORAGE_DIR="/tmp/p01-inteligencia-comercial-internacional"
+```
+
+- `APP_STORAGE_DIR` mueve cache, logs e historico a un filesystem efimero y escribible en Cloud.
+
 ---
 
 ## Por que encaja en el portfolio final
