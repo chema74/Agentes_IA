@@ -41,6 +41,30 @@ No se presenta como un sistema formal de rating pais, una due diligence completa
 
 ---
 
+## Interpretacion del score orientativo
+
+El indicador principal visible al usuario es un **indice orientativo de riesgo** (internamente `score_total`):
+
+- mide una estimacion comparativa de senales de riesgo y oportunidad en escala 1-10,
+- **menor score = mejor posicion relativa** para priorizacion comparativa,
+- no es un rating certificado ni un veredicto de entrada a mercado.
+
+Uso apropiado:
+
+- priorizar mercados de forma exploratoria,
+- ordenar candidatos para analisis posterior.
+
+Uso no apropiado:
+
+- sustituir due diligence legal, regulatoria o de cumplimiento,
+- tomar decisiones finales de inversion o entrada sin validacion profesional adicional.
+
+Advertencia metodologica:
+
+- si cambian pesos, dimensiones o metodologia, la comparabilidad historica puede verse afectada.
+
+---
+
 ## Alcance del modo demo
 
 El modo demo valida que:

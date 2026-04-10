@@ -75,7 +75,7 @@ SCORE_POR_DEFECTO = 5.0
 
 # Contrato oficial visible al usuario
 OFFICIAL_SCORE_KEY = "score_total"
-OFFICIAL_SCORE_LABEL = "score oficial de riesgo"
+OFFICIAL_SCORE_LABEL = "indice orientativo de riesgo"
 OFFICIAL_SCORE_BEST_DIRECTION = "lower_is_better"
 
 
