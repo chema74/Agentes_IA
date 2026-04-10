@@ -59,6 +59,7 @@ from config.settings import (
     THROTTLING_DELAY,
     SCORING_WEIGHTS,
     COUNTRY_VS_SECTOR_WEIGHTS,
+    validar_configuracion_api as validar_configuracion_api_config,
 )
 
 
@@ -66,19 +67,8 @@ PAISES_DEMO = get_demo_supported_countries()
 
 
 def validar_configuracion_api() -> None:
-    """Valida las claves necesarias segun el modo activo."""
-    faltantes = []
-    if not os.getenv("GROQ_API_KEY", "").strip():
-        faltantes.append("GROQ_API_KEY")
-    if APP_MODE == "production" and not os.getenv("TAVILY_API_KEY", "").strip():
-        faltantes.append("TAVILY_API_KEY")
-
-    if faltantes:
-        raise RuntimeError(
-            "Faltan claves de entorno: "
-            + ", ".join(faltantes)
-            + ". Copia .env.example a .env y anade las credenciales necesarias."
-        )
+    """Compatibilidad hacia atrás: delega la validación centralizada."""
+    validar_configuracion_api_config()
 
 
 def calcular_score_total(resultado: Dict[str, Any]) -> float:

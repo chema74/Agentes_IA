@@ -383,6 +383,48 @@ def _cargar_weights_yaml() -> Dict[str, Any]:
     return resultado
 
 
+def validar_configuracion_runtime() -> List[str]:
+    """
+    Devuelve las claves API obligatorias que faltan según el modo activo.
+
+    Regla simple:
+    - en demo no bloquea el arranque por ausencia de claves
+    - en producción exige Groq y Tavily
+
+    Se apoya en el entorno actual para mantener el chequeo útil incluso si
+    el proceso cambia variables sin reiniciar el intérprete.
+    """
+    modo = str(_read_env("APP_MODE", APP_MODE)).strip().lower()
+    if modo not in {"demo", "production"}:
+        modo = APP_MODE
+
+    if modo != "production":
+        return []
+
+    faltantes: List[str] = []
+    if not str(_read_env("GROQ_API_KEY", "")).strip():
+        faltantes.append("GROQ_API_KEY")
+    if not str(_read_env("TAVILY_API_KEY", "")).strip():
+        faltantes.append("TAVILY_API_KEY")
+
+    return faltantes
+
+
+def validar_configuracion_api() -> None:
+    """
+    Mantiene la compatibilidad con la validación histórica de la app.
+
+    Si faltan claves en producción, falla con un mensaje explícito.
+    """
+    faltantes = validar_configuracion_runtime()
+    if faltantes:
+        raise RuntimeError(
+            "Faltan claves de entorno: "
+            + ", ".join(faltantes)
+            + ". Copia .env.example a .env y anade las credenciales necesarias."
+        )
+
+
 def _infer_country_score_dimensions() -> List[str]:
     """
     Reconstruye las dimensiones de riesgo país desde el YAML si existen,
@@ -593,6 +635,8 @@ __all__ = [
     "COUNTRY_VS_SECTOR_WEIGHTS",
     "THROTTLING_DELAY",
     "MIN_RATE_LIMIT_DELAY",
+    "validar_configuracion_runtime",
+    "validar_configuracion_api",
     "_DEFAULT_SCORING_WEIGHTS",
     "_DEFAULT_COUNTRY_VS_SECTOR_WEIGHTS",
     "_cargar_weights_yaml",
