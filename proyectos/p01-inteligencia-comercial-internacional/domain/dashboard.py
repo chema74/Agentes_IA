@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 from collections import Counter, defaultdict
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import pandas as pd
@@ -34,7 +35,18 @@ def load_historical_rankings() -> List[Dict[str, Any]]:
     results = []
     runs = history.list_ranking_runs()
     for run in runs:
-        run_id = run["run_id"]
+        run_id = str(run.get("run_id", "")).strip()
+        if not run_id:
+            artifacts = run.get("artifacts", {})
+            if isinstance(artifacts, dict):
+                for artifact_path in artifacts.values():
+                    run_id = Path(str(artifact_path)).parent.name
+                    if run_id:
+                        break
+
+        if not run_id:
+            continue
+
         ranking_path = history.HISTORY_BASE_DIR / run_id / "ranking.json"
         if ranking_path.exists():
             with open(ranking_path, "r", encoding="utf-8") as f:
@@ -64,12 +76,29 @@ def build_dashboard_rows(
         metadata = ranking_data.get("metadata", {})
         generated_at = metadata.get("generated_at") or manifest.get("generated_at", "")
         sector = metadata.get("sector") or manifest.get("sector", "")
-        company_type = metadata.get("company_type") or manifest.get("company_type", "")
+        company_type = (
+            metadata.get("company_type")
+            or metadata.get("tipo_empresa")
+            or manifest.get("company_type", "")
+            or manifest.get("tipo_empresa", "")
+        )
         run_id = metadata.get("run_id") or manifest.get("run_id", "")
 
-        for item in ranking_data.get("ranking", []):
+        if not run_id:
+            run_id = str(manifest.get("generated_at", "")).strip() or "run_legacy"
+
+        ranking_items = ranking_data.get("ranking")
+        if not isinstance(ranking_items, list):
+            ranking_items = ranking_data.get("items", [])
+
+        for item in ranking_items:
             num_sources = len(item.get("sources", []))
             dimension_scores = item.get("dimension_scores", {})
+
+            if not num_sources:
+                resultado_completo = item.get("resultado_completo", {})
+                if isinstance(resultado_completo, dict):
+                    num_sources = len(resultado_completo.get("fuentes", []))
 
             row: Dict[str, Any] = {
                 "run_id": run_id,

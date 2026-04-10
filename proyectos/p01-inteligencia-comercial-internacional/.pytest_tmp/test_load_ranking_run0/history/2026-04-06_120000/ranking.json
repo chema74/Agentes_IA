@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "run_id": "2026-04-06_120000",
+    "generated_at": "2026-04-06T12:00:00",
+    "sector": "Tecnología",
+    "company_type": "PYME exportadora",
+    "countries_requested": [
+      "México",
+      "Colombia"
+    ],
+    "total_countries": 2,
+    "version": "test"
+  },
+  "ranking": [
+    {
+      "position": 1,
+      "country": "México",
+      "score_total": 21.0,
+      "dimension_scores": {
+        "riesgo_politico": 4.0,
+        "riesgo_comercial": 5.0,
+        "estabilidad_economica": 9.0
+      },
+      "executive_summary": "Resumen México",
+      "sources": [
+        {
+          "category": "politico",
+          "title": "Fuente México",
+          "url": "https://example.com/mx",
+          "summary": "Resumen fuente mx"
+        }
+      ],
+      "raw_result": {
+        "pais": "México"
+      }
+    },
+    {
+      "position": 2,
+      "country": "Colombia",
+      "score_total": 18.0,
+      "dimension_scores": {
+        "riesgo_politico": 5.0,
+        "riesgo_comercial": 6.0,
+        "estabilidad_economica": 8.0
+      },
+      "executive_summary": "Resumen Colombia",
+      "sources": [],
+      "raw_result": {
+        "pais": "Colombia"
+      }
+    }
+  ]
+}
