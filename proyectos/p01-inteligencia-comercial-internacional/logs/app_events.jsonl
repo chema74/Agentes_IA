@@ -651,3 +651,12 @@
 {"timestamp": "2026-04-10T10:24:59", "event_type": "demo_result_served", "payload": {"pais": "Alemania", "sector": "Industrial"}}
 {"timestamp": "2026-04-10T10:26:00", "event_type": "demo_result_served", "payload": {"pais": "Colombia", "sector": "General"}}
 {"timestamp": "2026-04-10T10:26:00", "event_type": "demo_result_served", "payload": {"pais": "Alemania", "sector": "General"}}
+{"timestamp": "2026-04-10T10:32:35", "event_type": "demo_result_served", "payload": {"pais": "Vietnam", "sector": "Agroalimentario"}}
+{"timestamp": "2026-04-10T10:32:35", "event_type": "demo_result_served", "payload": {"pais": "Colombia", "sector": "Agroalimentario"}}
+{"timestamp": "2026-04-10T10:33:35", "event_type": "demo_result_served", "payload": {"pais": "México", "sector": "Agroalimentario"}}
+{"timestamp": "2026-04-10T10:33:35", "event_type": "demo_result_served", "payload": {"pais": "Vietnam", "sector": "Agroalimentario"}}
+{"timestamp": "2026-04-10T10:33:35", "event_type": "demo_result_served", "payload": {"pais": "Marruecos", "sector": "Agroalimentario"}}
+{"timestamp": "2026-04-10T10:33:53", "event_type": "demo_result_served", "payload": {"pais": "México", "sector": "Agroalimentario"}}
+{"timestamp": "2026-04-10T10:33:53", "event_type": "demo_result_served", "payload": {"pais": "Vietnam", "sector": "Agroalimentario"}}
+{"timestamp": "2026-04-10T10:33:53", "event_type": "demo_result_served", "payload": {"pais": "Marruecos", "sector": "Agroalimentario"}}
+{"timestamp": "2026-04-10T10:33:53", "event_type": "demo_result_served", "payload": {"pais": "Colombia", "sector": "Agroalimentario"}}
