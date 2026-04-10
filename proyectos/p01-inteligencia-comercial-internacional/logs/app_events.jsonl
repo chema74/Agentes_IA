@@ -539,3 +539,23 @@
 {"timestamp": "2026-04-10T10:07:17", "event_type": "scoring_no_groq_client", "payload": {}}
 {"timestamp": "2026-04-10T10:07:17", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
 {"timestamp": "2026-04-10T10:07:17", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:08:45", "event_type": "demo_result_served", "payload": {"pais": "México", "sector": "General"}}
+{"timestamp": "2026-04-10T10:08:45", "event_type": "demo_result_served", "payload": {"pais": "Brasil", "sector": "General"}}
+{"timestamp": "2026-04-10T10:08:58", "event_type": "demo_result_served", "payload": {"pais": "Marruecos", "sector": "General"}}
+{"timestamp": "2026-04-10T10:08:58", "event_type": "demo_result_served", "payload": {"pais": "Brasil", "sector": "General"}}
+{"timestamp": "2026-04-10T10:09:27", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Espana"}}
+{"timestamp": "2026-04-10T10:09:27", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Francia"}}
+{"timestamp": "2026-04-10T10:09:27", "event_type": "demo_result_served", "payload": {"pais": "Alemania", "sector": "Agroalimentario"}}
+{"timestamp": "2026-04-10T10:09:27", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Argentina"}}
+{"timestamp": "2026-04-10T10:09:27", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Uruguay"}}
+{"timestamp": "2026-04-10T10:10:38", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Argentina"}}
+{"timestamp": "2026-04-10T10:10:38", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Uruguay"}}
+{"timestamp": "2026-04-10T10:10:38", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Francia"}}
+{"timestamp": "2026-04-10T10:11:42", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Argentina"}}
+{"timestamp": "2026-04-10T10:11:42", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Uruguay"}}
+{"timestamp": "2026-04-10T10:11:42", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Francia"}}
+{"timestamp": "2026-04-10T10:12:01", "event_type": "demo_result_served", "payload": {"pais": "Alemania", "sector": "General"}}
+{"timestamp": "2026-04-10T10:12:01", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Francia"}}
+{"timestamp": "2026-04-10T10:12:01", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Argentina"}}
+{"timestamp": "2026-04-10T10:12:14", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Francia"}}
+{"timestamp": "2026-04-10T10:12:14", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Argentina"}}
