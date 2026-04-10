@@ -182,8 +182,6 @@ def _save_ranking_history(
                 "tipo_empresa": tipo_empresa,
             },
         )
-        if DEBUG_MODE:
-            print(traceback.format_exc())
         return None
 
 
@@ -196,24 +194,35 @@ def construir_resultado_pais(
     lang: str,
     force_refresh: bool = False,
 ) -> Optional[Dict[str, Any]]:
-    """Construye el analisis de un pais en modo demo o produccion."""
+    """Construye el análisis de un país en modo demo o producción."""
+
     if APP_MODE == "demo":
         try:
             resultado_demo = get_demo_result(pais, sector, tipo_empresa)
             if resultado_demo is not None:
+                if not isinstance(resultado_demo, dict):
+                    raise ValueError(
+                        f"get_demo_result devolvió un tipo no válido: {type(resultado_demo)!r}"
+                    )
                 resultado_demo["_demo_mode"] = True
                 log_event("demo_result_served", {"pais": pais, "sector": sector})
                 return resultado_demo
         except Exception as exc:
-            log_event("demo_result_error", {"pais": pais, "sector": sector, "error": str(exc)})
-            if DEBUG_MODE:
-                print(traceback.format_exc())
+            log_event(
+                "demo_result_error",
+                {"pais": pais, "sector": sector, "error": str(exc)},
+            )
             return None
+
         log_event("demo_pais_no_disponible", {"pais": pais})
         return None
 
     if not force_refresh:
-        cached = load_country_analysis_from_cache(pais=pais, sector=sector, tipo_empresa=tipo_empresa)
+        cached = load_country_analysis_from_cache(
+            pais=pais,
+            sector=sector,
+            tipo_empresa=tipo_empresa,
+        )
         if cached:
             res = cached.get("result", {})
             if isinstance(res, dict):
@@ -224,23 +233,26 @@ def construir_resultado_pais(
     try:
         busqueda = with_retry(lambda: buscar_info(tavily, pais, sector), label=f"Tavily:{pais}")
         if not isinstance(busqueda, dict):
-            raise ValueError("La busqueda no devolvio un resultado valido.")
+            raise ValueError("La búsqueda no devolvió un resultado válido.")
 
         contexto = busqueda.get("contexto", {})
         fuentes = busqueda.get("fuentes", [])
         if not isinstance(contexto, dict):
-            raise ValueError("El contexto recuperado no tiene un formato valido.")
+            raise ValueError("El contexto recuperado no tiene un formato válido.")
         if not isinstance(fuentes, list):
             fuentes = []
 
         scoring = with_retry(lambda: calcular_scores(contexto, groq=groq), label=f"Scoring:{pais}")
+        if not isinstance(scoring, dict):
+            raise ValueError("El scoring no devolvió un dict válido.")
+
         raw_narrativa = with_retry(
             lambda: analizar_pais(groq, pais, sector, tipo_empresa, contexto),
             label=f"LLM:{pais}",
         )
         data = clean_json(raw_narrativa)
         if not isinstance(data, dict):
-            raise ValueError("El analisis narrativo no devolvio un bloque estructurado valido.")
+            raise ValueError("El análisis narrativo no devolvió un bloque estructurado válido.")
 
         data.update(
             {
@@ -259,6 +271,7 @@ def construir_resultado_pais(
         )
 
         save_country_analysis_to_cache(pais, sector, tipo_empresa, data)
+
         log_event(
             "analysis_completed",
             {
@@ -269,8 +282,8 @@ def construir_resultado_pais(
             },
         )
         return data
+
     except Exception as exc:
-        tb = traceback.format_exc()
         log_event(
             "analysis_failed",
             {
@@ -278,13 +291,10 @@ def construir_resultado_pais(
                 "sector": sector,
                 "tipo_empresa": tipo_empresa,
                 "error": str(exc),
-                "traceback": tb if DEBUG_MODE else "",
+                "traceback": traceback.format_exc() if DEBUG_MODE else "",
             },
         )
-        if DEBUG_MODE:
-            print(tb)
         return None
-
 
 def mostrar_resultado_pais(titulo: str, resultado: Dict[str, Any], lang: str) -> None:
     """Presentacion de resultados de un pais."""
@@ -695,3 +705,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
