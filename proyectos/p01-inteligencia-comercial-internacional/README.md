@@ -172,7 +172,7 @@ TAVILY_API_KEY=tvly-...
 
 - Entry point: `proyectos/p01-inteligencia-comercial-internacional/app/streamlit_app.py`
 - Requirements file: `proyectos/p01-inteligencia-comercial-internacional/requirements.txt`
-- Secrets recomendados:
+- Secrets recomendados: mismo contenido que en `.streamlit/secrets.toml.example`
 
 ```toml
 APP_MODE="production"
@@ -182,6 +182,7 @@ APP_STORAGE_DIR="/tmp/p01-inteligencia-comercial-internacional"
 ```
 
 - `APP_STORAGE_DIR` mueve cache, logs e historico a un filesystem efimero y escribible en Cloud.
+- En local, si quieres simular el deploy, copia ese contenido a `.streamlit/secrets.toml`.
 
 ---
 
