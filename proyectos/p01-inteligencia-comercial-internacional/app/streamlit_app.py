@@ -317,7 +317,7 @@ def mostrar_resultado_pais(titulo: str, resultado: Dict[str, Any], lang: str) ->
         st.dataframe(df_display, use_container_width=True, hide_index=True)
         st.caption(
             "Las senales mostradas son orientativas y sirven como apoyo a la comparacion, "
-            "no como rating formal de riesgo pais."
+            "no como rating formal de riesgo pais. En el indice orientativo de riesgo, menor score implica mejor posicion relativa."
         )
 
 
@@ -411,7 +411,10 @@ def modo_comparacion(lang: str) -> None:
         st.subheader(get_text("comparative_analysis", lang=lang))
         st.caption(
             "Comparacion orientativa basada en senales recuperadas y analisis asistido por modelo. "
-            "No sustituye due diligence comercial, regulatoria o juridica."
+            "Menor score implica mejor posicion relativa. No sustituye due diligence comercial, regulatoria o juridica."
+        )
+        st.caption(
+            "El indice orientativo de riesgo es una estimacion exploratoria y no un rating certificado."
         )
 
         score_a = get_official_score(st.session_state.resultado_a)
@@ -436,7 +439,7 @@ def modo_ranking(lang: str) -> None:
     st.subheader(get_text("menu_ranking", lang=lang))
     st.caption(
         "Este ranking es una ayuda para priorizar mercados de forma comparativa. "
-        "No equivale a un rating formal ni a una evaluacion exhaustiva de entrada a pais."
+        "Menor score implica mejor posicion relativa. No equivale a un rating formal ni a una evaluacion exhaustiva de entrada a pais."
     )
 
     with st.expander("Configuracion del ranking", expanded=True):
@@ -543,7 +546,10 @@ def mostrar_dashboard_panel(lang: str) -> None:
     st.subheader(get_text("menu_dashboard", lang=lang))
     st.caption(
         "Panel historico para revisar resultados previos guardados por la aplicacion. "
-        "Usalo como apoyo analitico interno, no como cuadro formal de riesgo pais."
+        "Usalo como apoyo analitico interno. Menor score implica mejor posicion relativa."
+    )
+    st.caption(
+        "Si cambia la metodologia o los pesos, la comparabilidad historica puede verse afectada."
     )
 
     try:
@@ -665,7 +671,8 @@ def main() -> None:
     )
     st.info(
         "Los resultados son orientativos y se apoyan en busqueda web y analisis asistido por modelo. "
-        "No equivalen a un rating formal, una due diligence completa ni asesoria juridica o regulatoria."
+        "El indice orientativo de riesgo usa una escala 1-10 donde menor score implica mejor posicion relativa. "
+        "No equivale a un rating certificado ni sustituye due diligence, asesoria juridica o analisis profesional."
     )
 
     inicializar_estado_sesion()
