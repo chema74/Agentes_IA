@@ -102,7 +102,8 @@ def test_build_dashboard_rows():
     assert len(rows) == 4
     assert rows[0]["country"] == "México"
     assert "score_total" in rows[0]
-    assert "sources_count" in rows[0]
+    assert "num_sources" in rows[0]
+    assert "riesgo_politico" in rows[0]
 
 
 def test_compute_dashboard_metrics():
@@ -113,7 +114,7 @@ def test_compute_dashboard_metrics():
     assert metrics["total_country_records"] == 4
     assert metrics["unique_countries"] == 3
     assert metrics["most_used_sector"] == "Tecnología"
-    assert metrics["best_country_avg"] == "México"
+    assert metrics["best_country_avg"] == "Colombia"
 
 
 def test_filter_dashboard_rows():

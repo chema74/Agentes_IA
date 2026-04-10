@@ -57,7 +57,21 @@ def test_clean_json_preserves_expected_contract_keys():
     result = clean_json(raw)
 
     expected_keys = {"pais", "resumen_ejecutivo", "alertas", "oportunidades"}
-    assert expected_keys.issubset(set(result.keys()))
+    assert expected_keys == set(result.keys())
+
+
+def test_clean_json_rejects_incomplete_lists():
+    raw = """
+    {
+      "pais": "Chile",
+      "resumen_ejecutivo": "Entorno relativamente estable.",
+      "alertas": ["Dependencia externa", "Volatilidad sectorial"],
+      "oportunidades": ["Minería", "Tecnología", "Servicios especializados"]
+    }
+    """
+
+    with pytest.raises(Exception):
+        clean_json(raw)
 
 
 def test_clean_json_raises_on_invalid_json():

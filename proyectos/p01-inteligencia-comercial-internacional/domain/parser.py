@@ -3,14 +3,14 @@ parser.py
 
 Responsabilidad:
 - limpiar la salida textual del LLM
-- extraer el JSON útil
-- validarlo contra el esquema esperado
-
-En esta fase validamos la salida narrativa del modelo,
-NO el resultado final con scores.
+- extraer el JSON util
+- validarlo contra el contrato narrativo canonico
 """
 
+from __future__ import annotations
+
 import json
+
 from domain.schemas import AnalisisNarrativoLLM
 
 
@@ -20,53 +20,53 @@ def clean_json(raw: str) -> dict:
     """
 
     # ---------------------------------------------------------------
-    # 1. VALIDACIÓN BÁSICA DE ENTRADA
+    # 1. Validacion basica de entrada
     # ---------------------------------------------------------------
     if raw is None:
-        raise ValueError("Respuesta del modelo vacía")
+        raise ValueError("Respuesta del modelo vacia.")
 
     if not isinstance(raw, str):
-        raise ValueError("La respuesta del modelo no es texto")
+        raise ValueError("La respuesta del modelo no es texto.")
 
     raw = raw.strip()
 
     if not raw:
-        raise ValueError("La respuesta del modelo está vacía")
+        raise ValueError("La respuesta del modelo esta vacia.")
 
     # ---------------------------------------------------------------
-    # 2. ELIMINAR POSIBLES BLOQUES MARKDOWN
+    # 2. Eliminar posibles bloques Markdown
     # ---------------------------------------------------------------
     if "```" in raw:
         for part in raw.split("```"):
-            fragmento = part.strip()
+            fragment = part.strip()
 
-            if fragmento.lower().startswith("json"):
-                fragmento = fragmento[4:].strip()
+            if fragment.lower().startswith("json"):
+                fragment = fragment[4:].strip()
 
-            if fragmento.startswith("{"):
-                raw = fragmento
+            if fragment.startswith("{"):
+                raw = fragment
                 break
 
     # ---------------------------------------------------------------
-    # 3. EXTRAER DESDE EL PRIMER { HASTA EL ÚLTIMO }
+    # 3. Extraer el bloque JSON principal
     # ---------------------------------------------------------------
     start = raw.find("{")
     end = raw.rfind("}")
 
     if start != -1 and end != -1 and end > start:
-        raw = raw[start:end + 1]
+        raw = raw[start : end + 1]
 
     # ---------------------------------------------------------------
-    # 4. PARSEAR JSON
+    # 4. Parsear JSON bruto
     # ---------------------------------------------------------------
     data = json.loads(raw)
 
     # ---------------------------------------------------------------
-    # 5. VALIDACIÓN FUERTE CON PYDANTIC
+    # 5. Validar contra el contrato narrativo canonico
     # ---------------------------------------------------------------
-    validated = AnalisisNarrativoLLM(**data)
+    validated = AnalisisNarrativoLLM.model_validate(data)
 
     # ---------------------------------------------------------------
-    # 6. DEVOLVER COMO DICCIONARIO PYTHON
+    # 6. Devolver un dict canonico consumible por la app
     # ---------------------------------------------------------------
-    return validated.dict()
+    return validated.model_dump()

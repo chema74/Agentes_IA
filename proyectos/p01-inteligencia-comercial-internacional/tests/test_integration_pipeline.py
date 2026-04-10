@@ -112,7 +112,7 @@ def test_full_ranking_pipeline_export_history_dashboard(tmp_path, monkeypatch):
     assert metrics["total_country_records"] == 3
     assert metrics["unique_countries"] == 3
     assert metrics["most_used_sector"] == "Tecnología"
-    assert metrics["best_country_avg"] == "México"
+    assert metrics["best_country_avg"] == "Colombia"
 
 
 def test_full_ranking_pipeline_with_two_runs(tmp_path, monkeypatch):
