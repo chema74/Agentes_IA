@@ -559,3 +559,95 @@
 {"timestamp": "2026-04-10T10:12:01", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Argentina"}}
 {"timestamp": "2026-04-10T10:12:14", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Francia"}}
 {"timestamp": "2026-04-10T10:12:14", "event_type": "demo_pais_no_disponible", "payload": {"pais": "Argentina"}}
+{"timestamp": "2026-04-10T10:14:02", "event_type": "demo_result_served", "payload": {"pais": "México", "sector": "General"}}
+{"timestamp": "2026-04-10T10:14:02", "event_type": "demo_result_served", "payload": {"pais": "Vietnam", "sector": "General"}}
+{"timestamp": "2026-04-10T10:14:02", "event_type": "demo_result_served", "payload": {"pais": "Marruecos", "sector": "General"}}
+{"timestamp": "2026-04-10T10:14:02", "event_type": "demo_result_served", "payload": {"pais": "Colombia", "sector": "General"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_call_started", "payload": {"operation_name": "analizar_pais", "models_to_try": ["modelo-principal", "modelo-fallback"], "max_tokens": 1800, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "attempt_index": 1, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_call_succeeded", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "attempt_index": 1, "used_fallback": false, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_call_started", "payload": {"operation_name": "analizar_pais", "models_to_try": ["modelo-principal", "modelo-fallback"], "max_tokens": 1800, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "attempt_index": 1, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_rate_limit_error", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "error": "rate limit on primary", "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-fallback", "attempt_index": 2, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_call_succeeded", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-fallback", "attempt_index": 2, "used_fallback": true, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_call_started", "payload": {"operation_name": "analizar_pais", "models_to_try": ["modelo-principal", "modelo-fallback"], "max_tokens": 1800, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "attempt_index": 1, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_authentication_error", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "error": "invalid api key", "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_call_started", "payload": {"operation_name": "analizar_pais", "models_to_try": ["modelo-principal", "modelo-fallback"], "max_tokens": 1800, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "attempt_index": 1, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_rate_limit_error", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "error": "primary rate limit", "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-fallback", "attempt_index": 2, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_rate_limit_error", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-fallback", "error": "fallback rate limit", "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_call_started", "payload": {"operation_name": "comparar_paises", "models_to_try": ["modelo-principal", "modelo-fallback"], "max_tokens": 600, "country_a": "México", "country_b": "Colombia", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_model_attempt", "payload": {"operation_name": "comparar_paises", "model_name": "modelo-principal", "attempt_index": 1, "country_a": "México", "country_b": "Colombia", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:19", "event_type": "llm_call_succeeded", "payload": {"operation_name": "comparar_paises", "model_name": "modelo-principal", "attempt_index": 1, "used_fallback": false, "country_a": "México", "country_b": "Colombia", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:21", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:22", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_call_started", "payload": {"operation_name": "analizar_pais", "models_to_try": ["modelo-principal", "modelo-fallback"], "max_tokens": 1800, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "attempt_index": 1, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_call_succeeded", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "attempt_index": 1, "used_fallback": false, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_call_started", "payload": {"operation_name": "analizar_pais", "models_to_try": ["modelo-principal", "modelo-fallback"], "max_tokens": 1800, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "attempt_index": 1, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_rate_limit_error", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "error": "rate limit on primary", "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-fallback", "attempt_index": 2, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_call_succeeded", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-fallback", "attempt_index": 2, "used_fallback": true, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_call_started", "payload": {"operation_name": "analizar_pais", "models_to_try": ["modelo-principal", "modelo-fallback"], "max_tokens": 1800, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "attempt_index": 1, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_authentication_error", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "error": "invalid api key", "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_call_started", "payload": {"operation_name": "analizar_pais", "models_to_try": ["modelo-principal", "modelo-fallback"], "max_tokens": 1800, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "attempt_index": 1, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_rate_limit_error", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-principal", "error": "primary rate limit", "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_model_attempt", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-fallback", "attempt_index": 2, "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_rate_limit_error", "payload": {"operation_name": "analizar_pais", "model_name": "modelo-fallback", "error": "fallback rate limit", "country": "México", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_call_started", "payload": {"operation_name": "comparar_paises", "models_to_try": ["modelo-principal", "modelo-fallback"], "max_tokens": 600, "country_a": "México", "country_b": "Colombia", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_model_attempt", "payload": {"operation_name": "comparar_paises", "model_name": "modelo-principal", "attempt_index": 1, "country_a": "México", "country_b": "Colombia", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:47", "event_type": "llm_call_succeeded", "payload": {"operation_name": "comparar_paises", "model_name": "modelo-principal", "attempt_index": 1, "used_fallback": false, "country_a": "México", "country_b": "Colombia", "sector": "Tecnología", "company_type": "PYME exportadora"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_started", "payload": {"mode": "fallback_directo"}}
+{"timestamp": "2026-04-10T10:22:48", "event_type": "scoring_no_groq_client", "payload": {}}
+{"timestamp": "2026-04-10T10:24:27", "event_type": "demo_result_served", "payload": {"pais": "México", "sector": "General"}}
+{"timestamp": "2026-04-10T10:24:27", "event_type": "demo_result_served", "payload": {"pais": "Marruecos", "sector": "General"}}
+{"timestamp": "2026-04-10T10:24:35", "event_type": "demo_result_served", "payload": {"pais": "India", "sector": "General"}}
+{"timestamp": "2026-04-10T10:24:35", "event_type": "demo_result_served", "payload": {"pais": "Alemania", "sector": "General"}}
+{"timestamp": "2026-04-10T10:24:51", "event_type": "demo_result_served", "payload": {"pais": "India", "sector": "General"}}
+{"timestamp": "2026-04-10T10:24:51", "event_type": "demo_result_served", "payload": {"pais": "Alemania", "sector": "General"}}
+{"timestamp": "2026-04-10T10:24:59", "event_type": "demo_result_served", "payload": {"pais": "India", "sector": "Industrial"}}
+{"timestamp": "2026-04-10T10:24:59", "event_type": "demo_result_served", "payload": {"pais": "Alemania", "sector": "Industrial"}}
+{"timestamp": "2026-04-10T10:26:00", "event_type": "demo_result_served", "payload": {"pais": "Colombia", "sector": "General"}}
+{"timestamp": "2026-04-10T10:26:00", "event_type": "demo_result_served", "payload": {"pais": "Alemania", "sector": "General"}}
