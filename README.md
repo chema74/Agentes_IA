@@ -62,8 +62,10 @@ Ayuda a priorizar candidaturas a partir de criterios definidos, con foco en sele
 Agente orientado a simulación, práctica y entrenamiento de habilidades de gestión y liderazgo.
 
 ### 7) Agente de inteligencia comercial internacional
+**Base pública actual:** P01  
 **Fusión estratégica de:** P01 + P15 + P18 + P19 + P20  
-Integra análisis de mercado, contexto país, variables geopolíticas y apoyo a decisiones comerciales en entornos internacionales.
+**Estado:** Validado técnicamente y publicable  
+Integra análisis de mercado, contexto país, variables geopolíticas y apoyo a decisiones comerciales en entornos internacionales. La versión pública actual ya cubre comparación de mercados, ranking orientativo e histórico básico con validación técnica cerrada.
 
 ### 8) Motor RAG corporativo multi-dominio
 **Fusión estratégica de:** P06 + P08 + P09 + P21  
@@ -92,3 +94,4 @@ portfolio-ia-aplicada/
 ├── contacto.html
 ├── assets/
 └── proyectos/
+```
