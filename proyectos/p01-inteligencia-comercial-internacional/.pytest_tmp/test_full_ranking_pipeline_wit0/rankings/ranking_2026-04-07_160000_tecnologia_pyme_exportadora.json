@@ -1,0 +1,69 @@
+{
+    "metadata": {
+        "run_id": "2026-04-07_160000",
+        "generated_at": "2026-04-06T15:00:00",
+        "sector": "Tecnología",
+        "company_type": "PYME exportadora",
+        "countries_requested": [
+            "México",
+            "Colombia",
+            "Chile"
+        ],
+        "total_countries": 3,
+        "version": "integration-test"
+    },
+    "ranking": [
+        {
+            "position": 1,
+            "country": "México",
+            "score_total": 22.0,
+            "dimension_scores": {
+                "riesgo_politico": 4.0,
+                "riesgo_comercial": 5.0,
+                "estabilidad_economica": 10.0
+            },
+            "executive_summary": "México destaca por equilibrio entre oportunidad y riesgo.",
+            "sources": [
+                {
+                    "category": "economico",
+                    "title": "Fuente México",
+                    "url": "https://example.com/mx",
+                    "summary": "Resumen México"
+                }
+            ],
+            "raw_result": {
+                "pais": "México"
+            }
+        },
+        {
+            "position": 2,
+            "country": "Chile",
+            "score_total": 20.0,
+            "dimension_scores": {
+                "riesgo_politico": 4.0,
+                "riesgo_comercial": 6.0,
+                "estabilidad_economica": 9.0
+            },
+            "executive_summary": "Chile presenta estabilidad relativa.",
+            "sources": [],
+            "raw_result": {
+                "pais": "Chile"
+            }
+        },
+        {
+            "position": 3,
+            "country": "Colombia",
+            "score_total": 18.0,
+            "dimension_scores": {
+                "riesgo_politico": 5.0,
+                "riesgo_comercial": 6.0,
+                "estabilidad_economica": 8.0
+            },
+            "executive_summary": "Colombia ofrece potencial con cautelas.",
+            "sources": [],
+            "raw_result": {
+                "pais": "Colombia"
+            }
+        }
+    ]
+}

@@ -96,6 +96,39 @@ def build_sample_history_payload():
     ]
 
 
+def build_legacy_history_payload():
+    return [
+        {
+            "manifest": {
+                "generated_at": "2026-04-07 13:56:13",
+                "sector": "General",
+                "tipo_empresa": "PYME",
+            },
+            "ranking_data": {
+                "metadata": {
+                    "generated_at": "2026-04-07 13:56:13",
+                    "sector": "General",
+                    "tipo_empresa": "PYME",
+                },
+                "items": [
+                    {
+                        "position": 1,
+                        "country": "Vietnam",
+                        "score_total": 6.875,
+                        "dimension_scores": {
+                            "riesgo_politico": 6.5,
+                            "estabilidad_economica": 4.2,
+                        },
+                        "resultado_completo": {
+                            "fuentes": [{"titulo": "Fuente legacy"}],
+                        },
+                    }
+                ],
+            },
+        }
+    ]
+
+
 def test_build_dashboard_rows():
     rows = build_dashboard_rows(build_sample_history_payload())
 
@@ -149,3 +182,12 @@ def test_get_country_timeseries():
     assert timeseries[0]["generated_at"] == "2026-04-06T10:00:00"
     assert timeseries[1]["generated_at"] == "2026-04-07T10:00:00"
     assert timeseries[1]["score_total"] == 23
+
+
+def test_build_dashboard_rows_accepts_legacy_history_format():
+    rows = build_dashboard_rows(build_legacy_history_payload())
+
+    assert len(rows) == 1
+    assert rows[0]["country"] == "Vietnam"
+    assert rows[0]["company_type"] == "PYME"
+    assert rows[0]["num_sources"] == 1
