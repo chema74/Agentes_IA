@@ -26,7 +26,11 @@ from domain.analysis import analizar_pais
 from domain.parser import clean_json
 from domain.scoring import OFFICIAL_SCORE_LABEL, calcular_scores, get_official_score
 from domain.i18n import get_text
-from domain.demo_data import get_demo_result, PAISES_DEMO
+from domain.demo_data import (
+    get_demo_result,
+    get_demo_supported_countries,
+    split_demo_supported_countries,
+)
 from domain.dashboard import (
     build_dashboard_rows,
     DIMENSIONES_DASHBOARD,
@@ -40,6 +44,7 @@ from domain.cache import (
 )
 from domain.logger import log_event
 from domain.validators import (
+    parse_and_validate_ranking_countries,
     validate_comparison_inputs,
     validate_sector_input,
     validate_tipo_empresa_input,
@@ -52,6 +57,9 @@ from config.settings import (
     SCORING_WEIGHTS,
     COUNTRY_VS_SECTOR_WEIGHTS,
 )
+
+
+PAISES_DEMO = get_demo_supported_countries()
 
 
 def validar_configuracion_api() -> None:
@@ -78,6 +86,43 @@ def calcular_score_total(resultado: Dict[str, Any]) -> float:
     Paso 2: evita mantener formulas paralelas en la UI.
     """
     return get_official_score(resultado)
+
+
+def _build_demo_unavailable_message(paises: list[str]) -> str:
+    """
+    Construye un mensaje claro para países no soportados en modo demo.
+    """
+    paises_txt = ", ".join(paises)
+    return (
+        f"Estos países no están disponibles en modo demo: {paises_txt}. "
+        "Usa uno de los países soportados o cambia a modo producción."
+    )
+
+
+def _build_demo_internal_error_message(paises: list[str]) -> str:
+    """
+    Construye un mensaje específico para fallos internos del modo demo.
+    """
+    paises_txt = ", ".join(paises)
+    return (
+        f"Se produjo un error interno al generar los datos demo para: {paises_txt}. "
+        "Revisa los fixtures demo o el pipeline local."
+    )
+
+
+def _get_demo_catalog_text() -> str:
+    """
+    Devuelve el catálogo demo en texto legible para mostrarlo en la UI.
+    """
+    return ", ".join(PAISES_DEMO)
+
+
+def _parse_ranking_countries_input(raw_text: str) -> tuple[list[str], list[str]]:
+    """
+    Normaliza el input del ranking para aceptar saltos de línea o comas.
+    """
+    texto_normalizado = raw_text.replace("\r\n", "\n").replace("\n", ",")
+    return parse_and_validate_ranking_countries(texto_normalizado)
 
 
 def construir_resultado_pais(
@@ -184,7 +229,7 @@ def mostrar_resultado_pais(titulo: str, resultado: Dict[str, Any], lang: str) ->
     st.subheader(titulo)
 
     if resultado.get("_demo_mode"):
-        st.info("Modo demo: datos precalculados sin llamadas a APIs.")
+        st.info("Modo demo: datos precalculados sin llamadas a APIs reales.")
     elif resultado.get("_cache_used"):
         st.caption(f"Resultados recuperados de cache. {get_text('cache_hit_msg', lang=lang)}")
 
@@ -212,6 +257,7 @@ def modo_comparacion(lang: str) -> None:
         c1, c2 = st.columns(2)
 
         if APP_MODE == "demo":
+            st.caption(f"Países soportados en demo: {_get_demo_catalog_text()}")
             default_idx_b = min(2, len(PAISES_DEMO) - 1) if len(PAISES_DEMO) > 1 else 0
             pais_a_raw = c1.selectbox(f"{get_text('country_label', lang=lang)} A", PAISES_DEMO, index=0)
             pais_b_raw = c2.selectbox(f"{get_text('country_label', lang=lang)} B", PAISES_DEMO, index=default_idx_b)
@@ -234,6 +280,13 @@ def modo_comparacion(lang: str) -> None:
             for err in all_errs:
                 st.error(err)
             return
+
+        if APP_MODE == "demo":
+            paises_demo_validos, paises_demo_no_disponibles = split_demo_supported_countries([p_a, p_b])
+            if paises_demo_no_disponibles:
+                st.error(_build_demo_unavailable_message(paises_demo_no_disponibles))
+                return
+            p_a, p_b = paises_demo_validos
 
         try:
             validar_configuracion_api()
@@ -260,13 +313,19 @@ def modo_comparacion(lang: str) -> None:
             st.rerun()
         else:
             if not res_a:
-                st.error(
-                    f"No se pudo completar el analisis de {p_a}. Revisa el pais, el sector o las claves API y vuelve a intentarlo."
-                )
+                if APP_MODE == "demo":
+                    st.error(_build_demo_internal_error_message([p_a]))
+                else:
+                    st.error(
+                        f"No se pudo completar el analisis de {p_a}. Revisa el pais, el sector o las claves API y vuelve a intentarlo."
+                    )
             if not res_b:
-                st.error(
-                    f"No se pudo completar el analisis de {p_b}. Revisa el pais, el sector o las claves API y vuelve a intentarlo."
-                )
+                if APP_MODE == "demo":
+                    st.error(_build_demo_internal_error_message([p_b]))
+                else:
+                    st.error(
+                        f"No se pudo completar el analisis de {p_b}. Revisa el pais, el sector o las claves API y vuelve a intentarlo."
+                    )
 
     if st.session_state.get("resultado_a") and st.session_state.get("resultado_b"):
         st.markdown("---")
@@ -310,16 +369,30 @@ def modo_ranking(lang: str) -> None:
 
     with st.expander("Configuracion del ranking", expanded=True):
         countries_input = st.text_area("Introduce paises (uno por linea)", value="Espana\nFrancia\nAlemania", height=100)
+        if APP_MODE == "demo":
+            st.caption(f"Catálogo demo soportado: {_get_demo_catalog_text()}")
         sectores = get_text("sectors", section="domain", lang=lang)
         sector_sel = st.selectbox("Sector", sectores)
         tipos = get_text("company_types", section="domain", lang=lang)
         tipo_sel = st.selectbox("Tipo de empresa", tipos)
 
         if st.button("Generar ranking", use_container_width=True):
-            countries = [c.strip() for c in countries_input.split("\n") if c.strip()]
-            if len(countries) < 2:
-                st.error("Introduce al menos dos paises para poder compararlos.")
+            countries, errores_paises = _parse_ranking_countries_input(countries_input)
+            if errores_paises:
+                for error in errores_paises:
+                    st.error(error)
                 return
+
+            paises_demo_no_disponibles: list[str] = []
+            if APP_MODE == "demo":
+                countries, paises_demo_no_disponibles = split_demo_supported_countries(countries)
+                if paises_demo_no_disponibles:
+                    st.warning(_build_demo_unavailable_message(paises_demo_no_disponibles))
+                if len(countries) < 2:
+                    st.error(
+                        "En modo demo necesitas al menos dos países soportados para generar ranking."
+                    )
+                    return
 
             try:
                 validar_configuracion_api()
@@ -333,6 +406,8 @@ def modo_ranking(lang: str) -> None:
 
             with st.spinner("Analizando paises..."):
                 resultados = []
+                errores_internos_demo = []
+                fallos_pipeline = []
                 for i, pais in enumerate(countries):
                     resultado = construir_resultado_pais(tavily, groq, pais, sector_sel, tipo_sel, lang, force_refresh=False)
                     if resultado:
@@ -343,6 +418,11 @@ def modo_ranking(lang: str) -> None:
                                 "resultado": resultado,
                             }
                         )
+                    else:
+                        if APP_MODE == "demo":
+                            errores_internos_demo.append(pais)
+                        else:
+                            fallos_pipeline.append(pais)
                     if APP_MODE == "production" and THROTTLING_DELAY > 0 and i < len(countries) - 1:
                         time.sleep(THROTTLING_DELAY)
 
@@ -357,8 +437,23 @@ def modo_ranking(lang: str) -> None:
                 )
                 st.dataframe(df_ranking, use_container_width=True, hide_index=True)
                 st.success(f"Ranking generado con {len(resultados_ordenados)} paises.")
+                if paises_demo_no_disponibles:
+                    st.info(
+                        "Se omitieron países no soportados por el catálogo demo y se continuó con los disponibles."
+                    )
+                if errores_internos_demo:
+                    st.error(_build_demo_internal_error_message(errores_internos_demo))
             else:
-                st.error("No se pudo completar el analisis de los paises indicados.")
+                if APP_MODE == "demo" and paises_demo_no_disponibles and not errores_internos_demo:
+                    st.error(_build_demo_unavailable_message(paises_demo_no_disponibles))
+                elif APP_MODE == "demo" and errores_internos_demo:
+                    st.error(_build_demo_internal_error_message(errores_internos_demo))
+                elif fallos_pipeline:
+                    st.error(
+                        f"No se pudo completar el análisis de estos países: {', '.join(fallos_pipeline)}."
+                    )
+                else:
+                    st.error("No se pudo completar el analisis de los paises indicados.")
 
 
 def mostrar_dashboard_panel(lang: str) -> None:
@@ -433,7 +528,8 @@ def mostrar_panel_configuracion() -> None:
         color_modo = "🟡" if APP_MODE == "demo" else "🟢"
         st.markdown(f"**Modo:** {color_modo} {modo_label}")
         if APP_MODE == "demo":
-            st.caption(f"Paises disponibles: {', '.join(PAISES_DEMO[:4])} y mas.")
+            st.caption("Modo demo: solo usa datos precalculados del catálogo interno.")
+            st.caption(f"Países demo soportados: {_get_demo_catalog_text()}")
 
         st.markdown("---")
         st.markdown("**Pesos por dimension** *(desde weights.yaml)*")

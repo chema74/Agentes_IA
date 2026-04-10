@@ -21,7 +21,8 @@ Autor: Txema Ríos — CC BY-SA 4.0
 
 from __future__ import annotations
 
-from typing import Any, Dict, Optional
+import unicodedata
+from typing import Any, Dict, List, Optional, Tuple
 
 # -------------------------------------------------------------------
 # 1. PAÍSES DISPONIBLES EN MODO DEMO
@@ -293,11 +294,52 @@ def _normalizar_pais(pais: str) -> Optional[str]:
     a mayúsculas y tildes básicas.
     Devuelve el nombre canónico o None si no se encuentra.
     """
-    pais_lower = pais.strip().lower()
+    pais_lower = "".join(
+        ch for ch in unicodedata.normalize("NFKD", pais.strip().lower())
+        if not unicodedata.combining(ch)
+    )
     for nombre_canon in _DEMO_SCORES:
-        if nombre_canon.lower() == pais_lower:
+        nombre_normalizado = "".join(
+            ch for ch in unicodedata.normalize("NFKD", nombre_canon.lower())
+            if not unicodedata.combining(ch)
+        )
+        if nombre_normalizado == pais_lower:
             return nombre_canon
     return None
+
+
+def get_demo_supported_countries() -> List[str]:
+    """
+    Devuelve el catálogo oficial de países disponibles en modo demo.
+
+    Paso 1: expone una única fuente de verdad para la UI.
+    Paso 2: evita duplicar o reconstruir el catálogo en la app.
+    """
+    return list(PAISES_DEMO)
+
+
+def split_demo_supported_countries(paises: List[str]) -> Tuple[List[str], List[str]]:
+    """
+    Separa países soportados y no soportados por el catálogo demo.
+
+    Paso 1: normaliza países soportados para usar el nombre canónico.
+    Paso 2: conserva el texto introducido en los no soportados para mensajes claros.
+    """
+    soportados: List[str] = []
+    no_soportados: List[str] = []
+
+    for pais in paises:
+        pais_limpio = str(pais).strip()
+        if not pais_limpio:
+            continue
+
+        pais_canonico = _normalizar_pais(pais_limpio)
+        if pais_canonico is None:
+            no_soportados.append(pais_limpio)
+        else:
+            soportados.append(pais_canonico)
+
+    return soportados, no_soportados
 
 
 def pais_disponible_en_demo(pais: str) -> bool:
