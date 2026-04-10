@@ -5,9 +5,16 @@
 .venv/
 venv/
 
-# Caché de Python
+# Cache de Python y pytest
 __pycache__/
 *.pyc
+.pytest_cache/
+.pytest_tmp/
+
+# Artefactos de ejecucion local
+logs/
+history/
+outputs/
 
 # Archivos del sistema / editor
 .vscode/
