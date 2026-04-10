@@ -19,7 +19,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-from domain.history import load_ranking_run, list_ranking_runs
+from domain.history import list_ranking_runs, load_ranking_payload
 from domain.logger import log_event
 
 
@@ -37,7 +37,7 @@ UMBRAL_CAMBIO_SIGNIFICATIVO = 0.5
 
 def cargar_scores_de_run(run_id: str) -> Dict[str, Any]:
     """
-    Carga el manifest y el JSON de ranking de un run concreto.
+    Carga el manifest y el ranking de un run concreto.
 
     Devuelve un diccionario con:
     - run_id
@@ -46,20 +46,14 @@ def cargar_scores_de_run(run_id: str) -> Dict[str, Any]:
     - company_type
     - paises: dict {nombre_pais: {score_total, dimension_scores}}
     """
-    from pathlib import Path
-    import json
-
-    manifest = load_ranking_run(run_id)
-    artifacts = manifest.get("artifacts", {})
-    json_path = artifacts.get("json")
-
-    if not json_path or not Path(json_path).exists():
+    payload = load_ranking_payload(run_id)
+    if payload is None:
         raise FileNotFoundError(
-            f"No se encontró el archivo JSON del ranking para run_id={run_id}"
+            f"No se encontró el historial del ranking para run_id={run_id}"
         )
 
-    with open(json_path, "r", encoding="utf-8") as f:
-        ranking_data = json.load(f)
+    manifest = payload.get("manifest", {})
+    ranking_data = payload.get("ranking_data", {})
 
     paises: Dict[str, Dict[str, Any]] = {}
 
