@@ -1,22 +1,62 @@
-# Variables de entorno
-.env
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.python-version
 
 # Entornos virtuales
 .venv/
 venv/
+env/
+ENV/
 
-# Cache de Python y pytest
-__pycache__/
-*.pyc
+# =========================
+# Pytest / cobertura / temporales
+# =========================
 .pytest_cache/
 .pytest_tmp/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
 
-# Artefactos de ejecucion local
+# =========================
+# Logs y artefactos locales
+# =========================
 logs/
+*.log
+
+# =========================
+# Salidas y persistencia local
+# =========================
 history/
 outputs/
 
-# Archivos del sistema / editor
-.vscode/
+# =========================
+# Streamlit
+# =========================
+.streamlit/secrets.toml
 
-.claude/
+# =========================
+# Claude / herramientas locales
+# =========================
+.claude/worktrees/
+.claude/tmp/
+.claude/cache/
+
+# =========================
+# IDE / editor
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Sistema operativo
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
