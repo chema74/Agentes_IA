@@ -18,3 +18,5 @@ outputs/
 
 # Archivos del sistema / editor
 .vscode/
+
+.claude/
