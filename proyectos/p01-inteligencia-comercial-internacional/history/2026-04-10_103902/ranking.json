@@ -1,0 +1,305 @@
+{
+  "metadata": {
+    "run_id": "2026-04-10_103902",
+    "generated_at": "2026-04-10 10:39:02",
+    "sector": "General",
+    "company_type": "PYME",
+    "countries_requested": [
+      "Alemania",
+      "Colombia",
+      "Marruecos"
+    ],
+    "total_countries": 3,
+    "version": "streamlit-app"
+  },
+  "ranking": [
+    {
+      "position": 1,
+      "country": "Alemania",
+      "score_total": 2.92,
+      "dimension_scores": {
+        "riesgo_politico": 2.0,
+        "estabilidad_economica": 3.0,
+        "riesgo_regulatorio": 3.0,
+        "riesgo_comercial": 3.0,
+        "riesgo_geopolitico": 3.5,
+        "riesgo_operativo": 2.5,
+        "ajuste_sectorial": 3.0,
+        "oportunidad_sectorial": 4.0
+      },
+      "executive_summary": "Alemania es el mercado más grande de la UE, con infraestructura excelente y marco legal muy predecible. La competencia es intensa y los costes operativos son elevados. Las transiciones energética e industrial generan oportunidades para proveedores especializados, especialmente en tecnología y servicios B2B.",
+      "sources": [],
+      "raw_result": {
+        "resumen_ejecutivo": "Alemania es el mercado más grande de la UE, con infraestructura excelente y marco legal muy predecible. La competencia es intensa y los costes operativos son elevados. Las transiciones energética e industrial generan oportunidades para proveedores especializados, especialmente en tecnología y servicios B2B.",
+        "alertas": [
+          "Alta competencia local establecida",
+          "Costes laborales elevados"
+        ],
+        "oportunidades": [
+          "Software B2B",
+          "Automoción sostenible",
+          "Ingeniería de precisión"
+        ],
+        "scores": {
+          "riesgo_politico": 2.0,
+          "estabilidad_economica": 3.0,
+          "riesgo_regulatorio": 3.0,
+          "riesgo_comercial": 3.0,
+          "riesgo_geopolitico": 3.5,
+          "riesgo_operativo": 2.5,
+          "ajuste_sectorial": 3.0,
+          "oportunidad_sectorial": 4.0
+        },
+        "scores_agregados": {
+          "score_riesgo_pais": 2.78,
+          "score_riesgo_sectorial": 3.5,
+          "score_total": 2.92
+        },
+        "justificacion_scores": {
+          "riesgo_politico": [
+            "[DEMO] Score precalculado: 2.0/10"
+          ],
+          "estabilidad_economica": [
+            "[DEMO] Score precalculado: 3.0/10"
+          ],
+          "riesgo_regulatorio": [
+            "[DEMO] Score precalculado: 3.0/10"
+          ],
+          "riesgo_comercial": [
+            "[DEMO] Score precalculado: 3.0/10"
+          ],
+          "riesgo_geopolitico": [
+            "[DEMO] Score precalculado: 3.5/10"
+          ],
+          "riesgo_operativo": [
+            "[DEMO] Score precalculado: 2.5/10"
+          ],
+          "ajuste_sectorial": [
+            "[DEMO] Score precalculado: 3.0/10"
+          ],
+          "oportunidad_sectorial": [
+            "[DEMO] Score precalculado: 4.0/10"
+          ]
+        },
+        "cobertura_evidencia": {
+          "riesgo_politico": 2,
+          "estabilidad_economica": 2,
+          "riesgo_regulatorio": 2,
+          "riesgo_comercial": 2,
+          "riesgo_geopolitico": 2,
+          "riesgo_operativo": 2,
+          "ajuste_sectorial": 2,
+          "oportunidad_sectorial": 2
+        },
+        "bandas_confianza": {
+          "riesgo_politico": "media",
+          "estabilidad_economica": "media",
+          "riesgo_regulatorio": "media",
+          "riesgo_comercial": "media",
+          "riesgo_geopolitico": "media",
+          "riesgo_operativo": "media",
+          "ajuste_sectorial": "media",
+          "oportunidad_sectorial": "media"
+        },
+        "fuentes": [],
+        "sector": "General",
+        "tipo_empresa": "PYME",
+        "_cache_used": false,
+        "_demo_mode": true,
+        "_scoring_fallback": false
+      }
+    },
+    {
+      "position": 2,
+      "country": "Marruecos",
+      "score_total": 4.45,
+      "dimension_scores": {
+        "riesgo_politico": 4.0,
+        "estabilidad_economica": 5.0,
+        "riesgo_regulatorio": 4.5,
+        "riesgo_comercial": 4.5,
+        "riesgo_geopolitico": 4.0,
+        "riesgo_operativo": 5.5,
+        "ajuste_sectorial": 4.0,
+        "oportunidad_sectorial": 4.0
+      },
+      "executive_summary": "Marruecos es la puerta de entrada natural al mercado africano para empresas europeas y españolas. El Acuerdo de Asociación con la UE facilita el comercio. La reforma regulatoria en curso mejora el clima de inversión, aunque la burocracia sigue siendo un obstáculo operativo relevante.",
+      "sources": [],
+      "raw_result": {
+        "resumen_ejecutivo": "Marruecos es la puerta de entrada natural al mercado africano para empresas europeas y españolas. El Acuerdo de Asociación con la UE facilita el comercio. La reforma regulatoria en curso mejora el clima de inversión, aunque la burocracia sigue siendo un obstáculo operativo relevante.",
+        "alertas": [
+          "Burocracia aduanera",
+          "Dependencia de lluvias en sector agrícola"
+        ],
+        "oportunidades": [
+          "Agroalimentación",
+          "Turismo",
+          "Energías renovables (solar)"
+        ],
+        "scores": {
+          "riesgo_politico": 4.0,
+          "estabilidad_economica": 5.0,
+          "riesgo_regulatorio": 4.5,
+          "riesgo_comercial": 4.5,
+          "riesgo_geopolitico": 4.0,
+          "riesgo_operativo": 5.5,
+          "ajuste_sectorial": 4.0,
+          "oportunidad_sectorial": 4.0
+        },
+        "scores_agregados": {
+          "score_riesgo_pais": 4.56,
+          "score_riesgo_sectorial": 4.0,
+          "score_total": 4.45
+        },
+        "justificacion_scores": {
+          "riesgo_politico": [
+            "[DEMO] Score precalculado: 4.0/10"
+          ],
+          "estabilidad_economica": [
+            "[DEMO] Score precalculado: 5.0/10"
+          ],
+          "riesgo_regulatorio": [
+            "[DEMO] Score precalculado: 4.5/10"
+          ],
+          "riesgo_comercial": [
+            "[DEMO] Score precalculado: 4.5/10"
+          ],
+          "riesgo_geopolitico": [
+            "[DEMO] Score precalculado: 4.0/10"
+          ],
+          "riesgo_operativo": [
+            "[DEMO] Score precalculado: 5.5/10"
+          ],
+          "ajuste_sectorial": [
+            "[DEMO] Score precalculado: 4.0/10"
+          ],
+          "oportunidad_sectorial": [
+            "[DEMO] Score precalculado: 4.0/10"
+          ]
+        },
+        "cobertura_evidencia": {
+          "riesgo_politico": 2,
+          "estabilidad_economica": 2,
+          "riesgo_regulatorio": 2,
+          "riesgo_comercial": 2,
+          "riesgo_geopolitico": 2,
+          "riesgo_operativo": 2,
+          "ajuste_sectorial": 2,
+          "oportunidad_sectorial": 2
+        },
+        "bandas_confianza": {
+          "riesgo_politico": "media",
+          "estabilidad_economica": "media",
+          "riesgo_regulatorio": "media",
+          "riesgo_comercial": "media",
+          "riesgo_geopolitico": "media",
+          "riesgo_operativo": "media",
+          "ajuste_sectorial": "media",
+          "oportunidad_sectorial": "media"
+        },
+        "fuentes": [],
+        "sector": "General",
+        "tipo_empresa": "PYME",
+        "_cache_used": false,
+        "_demo_mode": true,
+        "_scoring_fallback": false
+      }
+    },
+    {
+      "position": 3,
+      "country": "Colombia",
+      "score_total": 5.14,
+      "dimension_scores": {
+        "riesgo_politico": 5.0,
+        "estabilidad_economica": 5.5,
+        "riesgo_regulatorio": 5.0,
+        "riesgo_comercial": 5.0,
+        "riesgo_geopolitico": 5.0,
+        "riesgo_operativo": 5.5,
+        "ajuste_sectorial": 5.0,
+        "oportunidad_sectorial": 5.0
+      },
+      "executive_summary": "Colombia presenta una economía diversificada con TLC activos con EE.UU. y la UE. La mejora de la seguridad en zonas urbanas ha dinamizado la inversión. Los riesgos principales son la incertidumbre regulatoria reciente y la persistente brecha de infraestructura en regiones interiores.",
+      "sources": [],
+      "raw_result": {
+        "resumen_ejecutivo": "Colombia presenta una economía diversificada con TLC activos con EE.UU. y la UE. La mejora de la seguridad en zonas urbanas ha dinamizado la inversión. Los riesgos principales son la incertidumbre regulatoria reciente y la persistente brecha de infraestructura en regiones interiores.",
+        "alertas": [
+          "Incertidumbre en política fiscal",
+          "Infraestructura de transporte limitada"
+        ],
+        "oportunidades": [
+          "Agroexportación",
+          "Tecnología fintech",
+          "Infraestructura"
+        ],
+        "scores": {
+          "riesgo_politico": 5.0,
+          "estabilidad_economica": 5.5,
+          "riesgo_regulatorio": 5.0,
+          "riesgo_comercial": 5.0,
+          "riesgo_geopolitico": 5.0,
+          "riesgo_operativo": 5.5,
+          "ajuste_sectorial": 5.0,
+          "oportunidad_sectorial": 5.0
+        },
+        "scores_agregados": {
+          "score_riesgo_pais": 5.17,
+          "score_riesgo_sectorial": 5.0,
+          "score_total": 5.14
+        },
+        "justificacion_scores": {
+          "riesgo_politico": [
+            "[DEMO] Score precalculado: 5.0/10"
+          ],
+          "estabilidad_economica": [
+            "[DEMO] Score precalculado: 5.5/10"
+          ],
+          "riesgo_regulatorio": [
+            "[DEMO] Score precalculado: 5.0/10"
+          ],
+          "riesgo_comercial": [
+            "[DEMO] Score precalculado: 5.0/10"
+          ],
+          "riesgo_geopolitico": [
+            "[DEMO] Score precalculado: 5.0/10"
+          ],
+          "riesgo_operativo": [
+            "[DEMO] Score precalculado: 5.5/10"
+          ],
+          "ajuste_sectorial": [
+            "[DEMO] Score precalculado: 5.0/10"
+          ],
+          "oportunidad_sectorial": [
+            "[DEMO] Score precalculado: 5.0/10"
+          ]
+        },
+        "cobertura_evidencia": {
+          "riesgo_politico": 2,
+          "estabilidad_economica": 2,
+          "riesgo_regulatorio": 2,
+          "riesgo_comercial": 2,
+          "riesgo_geopolitico": 2,
+          "riesgo_operativo": 2,
+          "ajuste_sectorial": 2,
+          "oportunidad_sectorial": 2
+        },
+        "bandas_confianza": {
+          "riesgo_politico": "media",
+          "estabilidad_economica": "media",
+          "riesgo_regulatorio": "media",
+          "riesgo_comercial": "media",
+          "riesgo_geopolitico": "media",
+          "riesgo_operativo": "media",
+          "ajuste_sectorial": "media",
+          "oportunidad_sectorial": "media"
+        },
+        "fuentes": [],
+        "sector": "General",
+        "tipo_empresa": "PYME",
+        "_cache_used": false,
+        "_demo_mode": true,
+        "_scoring_fallback": false
+      }
+    }
+  ]
+}

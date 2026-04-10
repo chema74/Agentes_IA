@@ -12,6 +12,7 @@ import os
 import sys
 import time
 import traceback
+from datetime import datetime
 from typing import Any, Dict, Optional
 
 import pandas as pd
@@ -37,12 +38,14 @@ from domain.dashboard import (
     compute_ranking_medio_por_pais,
     compute_dispersion_scores,
 )
+from domain import history
 from domain.cache import (
     load_country_analysis_from_cache,
     save_country_analysis_to_cache,
     clear_country_analysis_cache,
 )
 from domain.logger import log_event
+from domain.schemas import RankingItem, RankingMetadata, RankingResult, SourceItem
 from domain.validators import (
     parse_and_validate_ranking_countries,
     validate_comparison_inputs,
@@ -123,6 +126,75 @@ def _parse_ranking_countries_input(raw_text: str) -> tuple[list[str], list[str]]
     """
     texto_normalizado = raw_text.replace("\r\n", "\n").replace("\n", ",")
     return parse_and_validate_ranking_countries(texto_normalizado)
+
+
+def _save_ranking_history(
+    resultados_ordenados: list[dict[str, Any]],
+    sector: str,
+    tipo_empresa: str,
+    countries_requested: list[str],
+) -> Optional[str]:
+    """
+    Persiste un ranking generado para que el dashboard pueda leer historial.
+
+    Paso 1: construir un RankingResult mínimo y compatible con history.py.
+    Paso 2: guardar el run en `history/` con su `ranking.json` y `manifest.json`.
+    """
+    try:
+        run_id = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+        metadata = RankingMetadata(
+            run_id=run_id,
+            generated_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            sector=sector,
+            company_type=tipo_empresa,
+            countries_requested=countries_requested,
+            total_countries=len(resultados_ordenados),
+            version="streamlit-app",
+        )
+
+        ranking_items: list[RankingItem] = []
+        for idx, entry in enumerate(resultados_ordenados, start=1):
+            resultado = entry.get("resultado", {}) if isinstance(entry, dict) else {}
+            fuentes_raw = resultado.get("fuentes", []) if isinstance(resultado, dict) else []
+
+            fuentes = [
+                SourceItem(
+                    category=str(f.get("categoria", "")),
+                    title=str(f.get("titulo", "")),
+                    url=str(f.get("url", "")),
+                    summary=str(f.get("resumen", "")),
+                )
+                for f in fuentes_raw
+                if isinstance(f, dict)
+            ]
+
+            ranking_items.append(
+                RankingItem(
+                    position=idx,
+                    country=str(entry.get("pais", "")),
+                    score_total=float(entry.get("score", 0.0)),
+                    dimension_scores=resultado.get("scores", {}) if isinstance(resultado, dict) else {},
+                    executive_summary=str(resultado.get("resumen_ejecutivo", "")) if isinstance(resultado, dict) else "",
+                    sources=fuentes,
+                    raw_result=resultado if isinstance(resultado, dict) else {},
+                )
+            )
+
+        ranking_result = RankingResult(metadata=metadata, ranking=ranking_items)
+        history.save_ranking_run(ranking_result=ranking_result, artifact_paths={})
+        return run_id
+    except Exception as exc:
+        log_event(
+            "ranking_history_save_failed",
+            {
+                "error": str(exc),
+                "sector": sector,
+                "tipo_empresa": tipo_empresa,
+            },
+        )
+        if DEBUG_MODE:
+            print(traceback.format_exc())
+        return None
 
 
 def construir_resultado_pais(
@@ -429,6 +501,12 @@ def modo_ranking(lang: str) -> None:
             if resultados:
                 resultados_ordenados = sorted(resultados, key=lambda x: x["score"])
                 st.session_state.ranking_resultados = resultados_ordenados
+                run_id = _save_ranking_history(
+                    resultados_ordenados=resultados_ordenados,
+                    sector=sector_sel,
+                    tipo_empresa=tipo_sel,
+                    countries_requested=countries,
+                )
                 df_ranking = pd.DataFrame(
                     [
                         {"Posicion": i + 1, "Pais": r["pais"], OFFICIAL_SCORE_LABEL.title(): f"{r['score']:.2f}/10"}
@@ -437,6 +515,10 @@ def modo_ranking(lang: str) -> None:
                 )
                 st.dataframe(df_ranking, use_container_width=True, hide_index=True)
                 st.success(f"Ranking generado con {len(resultados_ordenados)} paises.")
+                if run_id:
+                    st.caption(f"Histórico guardado con run_id: {run_id}")
+                else:
+                    st.warning("No se pudo guardar este ranking en el histórico local.")
                 if paises_demo_no_disponibles:
                     st.info(
                         "Se omitieron países no soportados por el catálogo demo y se continuó con los disponibles."
@@ -473,7 +555,10 @@ def mostrar_dashboard_panel(lang: str) -> None:
         return
 
     if not rows:
-        st.warning(get_text("no_data_msg", lang=lang))
+        st.warning("Todavía no hay análisis guardados en esta instalación.")
+        st.info(
+            "Genera primero un ranking desde la app para poblar el histórico que consume este dashboard."
+        )
         return
 
     df = pd.DataFrame(rows)
