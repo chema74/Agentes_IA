@@ -42,6 +42,7 @@ from domain.errors import (
     ProviderResponseError,
 )
 from domain.logger import log_event
+from domain.schemas import get_narrative_json_contract
 
 
 def _get_models_to_try() -> List[str]:
@@ -294,12 +295,7 @@ INSTRUCCIONES:
 
 El JSON debe tener exactamente esta estructura:
 
-{{
-  "pais": "string",
-  "resumen_ejecutivo": "string",
-  "alertas": ["string", "string", "string"],
-  "oportunidades": ["string", "string", "string"]
-}}
+{get_narrative_json_contract()}
 
 REGLAS:
 - 'resumen_ejecutivo' debe tener entre 2 y 4 frases

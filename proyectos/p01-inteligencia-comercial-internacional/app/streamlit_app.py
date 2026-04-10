@@ -24,7 +24,7 @@ from infrastructure.retry import with_retry
 from domain.search import buscar_info
 from domain.analysis import analizar_pais
 from domain.parser import clean_json
-from domain.scoring import calcular_scores
+from domain.scoring import OFFICIAL_SCORE_LABEL, calcular_scores, get_official_score
 from domain.i18n import get_text
 from domain.demo_data import get_demo_result, PAISES_DEMO
 from domain.dashboard import (
@@ -71,16 +71,13 @@ def validar_configuracion_api() -> None:
 
 
 def calcular_score_total(resultado: Dict[str, Any]) -> float:
-    """Calcula un indice orientativo de oportunidad para comparar mercados."""
-    scores = resultado.get("scores", {})
-    if not scores:
-        return 0.0
+    """
+    Alias de compatibilidad hacia atras.
 
-    valid_v = [v for v in scores.values() if isinstance(v, (int, float))]
-    if not valid_v:
-        return 0.0
-
-    return sum(11 - v for v in valid_v) / len(valid_v)
+    Paso 1: reutiliza el helper oficial del dominio.
+    Paso 2: evita mantener formulas paralelas en la UI.
+    """
+    return get_official_score(resultado)
 
 
 def construir_resultado_pais(
@@ -141,10 +138,15 @@ def construir_resultado_pais(
         data.update(
             {
                 "scores": scoring.get("scores", {}),
+                "scores_agregados": scoring.get("scores_agregados", {}),
                 "justificacion_scores": scoring.get("justificacion_scores", {}),
+                "cobertura_evidencia": scoring.get("cobertura_evidencia", {}),
+                "bandas_confianza": scoring.get("bandas_confianza", {}),
                 "fuentes": fuentes,
                 "sector": sector,
                 "tipo_empresa": tipo_empresa,
+                "_scoring_fallback": scoring.get("_scoring_fallback", False),
+                "_scoring_error": scoring.get("_scoring_error"),
                 "_cache_used": False,
             }
         )
@@ -281,11 +283,21 @@ def modo_comparacion(lang: str) -> None:
             "No sustituye due diligence comercial, regulatoria o juridica."
         )
 
-        score_a = calcular_score_total(st.session_state.resultado_a)
-        score_b = calcular_score_total(st.session_state.resultado_b)
+        score_a = get_official_score(st.session_state.resultado_a)
+        score_b = get_official_score(st.session_state.resultado_b)
         col_v1, col_v2 = st.columns(2)
-        col_v1.metric(st.session_state.p_a, f"{score_a:.1f}/10", delta=f"{score_a - score_b:+.1f}" if score_b != 0 else None, delta_color="off" if score_a > score_b else "inverse")
-        col_v2.metric(st.session_state.p_b, f"{score_b:.1f}/10", delta=f"{score_b - score_a:+.1f}" if score_a != 0 else None, delta_color="off" if score_b > score_a else "inverse")
+        col_v1.metric(
+            f"{st.session_state.p_a} · {OFFICIAL_SCORE_LABEL}",
+            f"{score_a:.1f}/10",
+            delta=f"{score_a - score_b:+.1f}" if score_b != 0 else None,
+            delta_color="inverse",
+        )
+        col_v2.metric(
+            f"{st.session_state.p_b} · {OFFICIAL_SCORE_LABEL}",
+            f"{score_b:.1f}/10",
+            delta=f"{score_b - score_a:+.1f}" if score_a != 0 else None,
+            delta_color="inverse",
+        )
 
 
 def modo_ranking(lang: str) -> None:
@@ -324,16 +336,22 @@ def modo_ranking(lang: str) -> None:
                 for i, pais in enumerate(countries):
                     resultado = construir_resultado_pais(tavily, groq, pais, sector_sel, tipo_sel, lang, force_refresh=False)
                     if resultado:
-                        resultados.append({"pais": pais, "score": calcular_score_total(resultado), "resultado": resultado})
+                        resultados.append(
+                            {
+                                "pais": pais,
+                                "score": get_official_score(resultado),
+                                "resultado": resultado,
+                            }
+                        )
                     if APP_MODE == "production" and THROTTLING_DELAY > 0 and i < len(countries) - 1:
                         time.sleep(THROTTLING_DELAY)
 
             if resultados:
-                resultados_ordenados = sorted(resultados, key=lambda x: x["score"], reverse=True)
+                resultados_ordenados = sorted(resultados, key=lambda x: x["score"])
                 st.session_state.ranking_resultados = resultados_ordenados
                 df_ranking = pd.DataFrame(
                     [
-                        {"Posicion": i + 1, "Pais": r["pais"], "Indice orientativo": f"{r['score']:.2f}/10"}
+                        {"Posicion": i + 1, "Pais": r["pais"], OFFICIAL_SCORE_LABEL.title(): f"{r['score']:.2f}/10"}
                         for i, r in enumerate(resultados_ordenados)
                     ]
                 )
@@ -375,7 +393,7 @@ def mostrar_dashboard_panel(lang: str) -> None:
     )
 
     with tab_evol:
-        st.markdown("### Evolucion del indice orientativo")
+        st.markdown(f"### Evolucion del {OFFICIAL_SCORE_LABEL}")
         if {"score_total", "country", "generated_at"}.issubset(df.columns):
             chart_data = df.pivot_table(index="generated_at", columns="country", values="score_total", aggfunc="mean")
             st.line_chart(chart_data)

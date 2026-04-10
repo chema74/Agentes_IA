@@ -73,6 +73,11 @@ DIMENSIONES_ESPERADAS = [
 # Score por defecto cuando el LLM no tiene evidencia suficiente
 SCORE_POR_DEFECTO = 5.0
 
+# Contrato oficial visible al usuario
+OFFICIAL_SCORE_KEY = "score_total"
+OFFICIAL_SCORE_LABEL = "score oficial de riesgo"
+OFFICIAL_SCORE_BEST_DIRECTION = "lower_is_better"
+
 
 # -------------------------------------------------------------------
 # 2. PROMPT DE SCORING
@@ -477,6 +482,31 @@ def _calcular_scores_agregados(
         "score_riesgo_sectorial": score_riesgo_sectorial,
         "score_total": score_total,
     }
+
+
+def get_official_score(resultado: Dict[str, Any]) -> float:
+    """
+    Devuelve el unico indicador oficial que debe ver y reutilizar la app.
+
+    Regla:
+    - Paso 1: usar `scores_agregados.score_total` cuando exista.
+    - Paso 2: si no existe, recalcularlo desde `scores` para compatibilidad.
+    - Paso 3: si faltan datos, devolver 0.0 como valor nulo controlado.
+    """
+    if not isinstance(resultado, dict):
+        return 0.0
+
+    agregados = resultado.get("scores_agregados", {})
+    if isinstance(agregados, dict):
+        valor = agregados.get(OFFICIAL_SCORE_KEY)
+        if isinstance(valor, (int, float)):
+            return _round_score(float(valor))
+
+    scores = resultado.get("scores", {})
+    if isinstance(scores, dict) and scores:
+        return _calcular_scores_agregados(scores).get(OFFICIAL_SCORE_KEY, 0.0)
+
+    return 0.0
 
 
 # -------------------------------------------------------------------

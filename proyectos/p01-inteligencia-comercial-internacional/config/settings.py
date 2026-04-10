@@ -16,6 +16,7 @@ IMPORTANTE:
 from __future__ import annotations
 
 import os
+import warnings
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -229,6 +230,9 @@ RETRY_JITTER_SECONDS = _to_float(_read_env("RETRY_JITTER_SECONDS", 0.3), 0.3)
 # Delay suave entre operaciones para evitar ráfagas contra proveedores
 THROTTLING_DELAY = _to_float(_read_env("THROTTLING_DELAY", 0.8), 0.8)
 
+# Alias de compatibilidad para retry.py y tests heredados
+MIN_RATE_LIMIT_DELAY = THROTTLING_DELAY
+
 
 # ============================================================
 # 9. CONFIGURACIÓN DE CACHÉ
@@ -275,6 +279,108 @@ DEFAULT_SECTOR_SCORE_DIMENSIONS = [
     "ajuste_sectorial",
     "oportunidad_sectorial",
 ]
+
+_DEFAULT_SCORING_WEIGHTS = {
+    "riesgo_politico": 0.20,
+    "estabilidad_economica": 0.20,
+    "riesgo_regulatorio": 0.15,
+    "riesgo_comercial": 0.15,
+    "riesgo_geopolitico": 0.10,
+    "riesgo_operativo": 0.10,
+    "ajuste_sectorial": 0.05,
+    "oportunidad_sectorial": 0.05,
+}
+
+_DEFAULT_COUNTRY_VS_SECTOR_WEIGHTS = {
+    "score_riesgo_pais": 0.80,
+    "score_riesgo_sectorial": 0.20,
+}
+
+
+def _cargar_weights_yaml() -> Dict[str, Any]:
+    """
+    Compatibilidad con el cargador desacoplado usado por la suite.
+
+    Devuelve un payload resumido con:
+    - `scoring`
+    - `country_vs_sector`
+    - `app_mode`
+    """
+    resultado = {
+        "scoring": dict(_DEFAULT_SCORING_WEIGHTS),
+        "country_vs_sector": dict(_DEFAULT_COUNTRY_VS_SECTOR_WEIGHTS),
+        "app_mode": "production",
+    }
+
+    if not WEIGHTS_FILE.exists():
+        return resultado
+
+    try:
+        data = _load_yaml_file(WEIGHTS_FILE)
+    except Exception as exc:
+        warnings.warn(
+            f"No se pudo cargar weights.yaml: {exc}. Se usan defaults y un diccionario válido.",
+            RuntimeWarning,
+        )
+        return resultado
+
+    if not isinstance(data, dict):
+        warnings.warn(
+            "weights.yaml no contiene un diccionario válido. Se usan defaults.",
+            RuntimeWarning,
+        )
+        return resultado
+
+    scoring = _as_float_dict(data.get("scoring_weights"))
+    if scoring:
+        merged_scoring = {
+            dim: float(scoring.get(dim, peso_default))
+            for dim, peso_default in _DEFAULT_SCORING_WEIGHTS.items()
+        }
+        total = sum(merged_scoring.values())
+        if abs(total - 1.0) < 1e-9:
+            resultado["scoring"] = merged_scoring
+        else:
+            warnings.warn(
+                "scoring_weights no suma 1.0. Se usan defaults.",
+                RuntimeWarning,
+            )
+
+    country_vs_sector = _as_float_dict(data.get("country_vs_sector_weights"))
+    if country_vs_sector:
+        merged_country_vs_sector = {
+            "score_riesgo_pais": float(
+                country_vs_sector.get(
+                    "score_riesgo_pais",
+                    _DEFAULT_COUNTRY_VS_SECTOR_WEIGHTS["score_riesgo_pais"],
+                )
+            ),
+            "score_riesgo_sectorial": float(
+                country_vs_sector.get(
+                    "score_riesgo_sectorial",
+                    _DEFAULT_COUNTRY_VS_SECTOR_WEIGHTS["score_riesgo_sectorial"],
+                )
+            ),
+        }
+        total = sum(merged_country_vs_sector.values())
+        if abs(total - 1.0) < 1e-9:
+            resultado["country_vs_sector"] = merged_country_vs_sector
+        else:
+            warnings.warn(
+                "country_vs_sector_weights no suma 1.0. Se usan defaults.",
+                RuntimeWarning,
+            )
+
+    app_mode = str(data.get("app_mode", "production")).strip().lower()
+    if app_mode in {"demo", "production"}:
+        resultado["app_mode"] = app_mode
+    elif app_mode:
+        warnings.warn(
+            f"app_mode '{app_mode}' no es válido. Se usa 'production'.",
+            RuntimeWarning,
+        )
+
+    return resultado
 
 
 def _infer_country_score_dimensions() -> List[str]:
@@ -351,7 +457,10 @@ def _infer_scoring_weights() -> Dict[str, float]:
                 merged[dim] = float(weights.get(dim, 1.0))
             return merged
 
-    return {dim: 1.0 for dim in all_dimensions}
+    return {
+        dim: _DEFAULT_SCORING_WEIGHTS.get(dim, 1.0)
+        for dim in all_dimensions
+    }
 
 
 SCORING_WEIGHTS = _infer_scoring_weights()
@@ -400,10 +509,7 @@ def _infer_country_vs_sector_weights() -> Dict[str, float]:
             ):
                 return normalized
 
-    return {
-        "score_riesgo_pais": 0.6,
-        "score_riesgo_sectorial": 0.4,
-    }
+    return dict(_DEFAULT_COUNTRY_VS_SECTOR_WEIGHTS)
 
 
 COUNTRY_VS_SECTOR_WEIGHTS = _infer_country_vs_sector_weights()
@@ -486,4 +592,8 @@ __all__ = [
     "COUNTRY_DIMENSIONS",
     "COUNTRY_VS_SECTOR_WEIGHTS",
     "THROTTLING_DELAY",
+    "MIN_RATE_LIMIT_DELAY",
+    "_DEFAULT_SCORING_WEIGHTS",
+    "_DEFAULT_COUNTRY_VS_SECTOR_WEIGHTS",
+    "_cargar_weights_yaml",
 ]

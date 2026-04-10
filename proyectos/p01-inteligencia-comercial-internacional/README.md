@@ -68,6 +68,7 @@ Ese posicionamiento es consistente con el estado actual del proyecto. No convien
 
 ```bash
 cd proyectos/p01-inteligencia-comercial-internacional
+pyenv local 3.11.9
 python -m venv venv
 
 # Windows
@@ -81,6 +82,18 @@ copy .env.example .env
 # Edita .env con tus claves API
 streamlit run app/streamlit_app.py
 ```
+
+---
+
+## Ejecucion de tests
+
+```bash
+cd proyectos/p01-inteligencia-comercial-internacional
+pyenv local 3.11.9
+pytest -q
+```
+
+La suite usa `pytest.ini` para fijar `--basetemp=.pytest_tmp` y evitar problemas de permisos con el directorio temporal global de Windows.
 
 ---
 

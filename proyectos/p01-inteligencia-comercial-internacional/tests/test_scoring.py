@@ -1,4 +1,4 @@
-from domain.scoring import calcular_scores
+from domain.scoring import OFFICIAL_SCORE_KEY, calcular_scores, get_official_score
 
 
 def build_contexto_rico():
@@ -65,6 +65,19 @@ def test_calcular_scores_returns_expected_aggregate_keys():
         "score_riesgo_sectorial",
         "score_total",
     }
+
+
+def test_get_official_score_uses_canonical_aggregate_key():
+    result = calcular_scores(build_contexto_rico())
+
+    assert get_official_score(result) == result["scores_agregados"][OFFICIAL_SCORE_KEY]
+
+
+def test_get_official_score_recomputes_when_aggregates_are_missing():
+    result = calcular_scores(build_contexto_rico())
+    fallback_result = {"scores": result["scores"]}
+
+    assert get_official_score(fallback_result) == result["scores_agregados"][OFFICIAL_SCORE_KEY]
 
 
 def test_calcular_scores_score_values_are_numeric_and_reasonable():
