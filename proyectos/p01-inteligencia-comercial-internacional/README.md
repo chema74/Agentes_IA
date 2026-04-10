@@ -45,7 +45,7 @@ No se presenta como un sistema formal de rating pais, una due diligence completa
 
 El indicador principal visible al usuario es un **indice orientativo de riesgo** (internamente `score_total`):
 
-- mide una estimacion comparativa de senales de riesgo y oportunidad en escala 1-10,
+- mide una estimacion comparativa de senales de riesgo y oportunidad sin presentarse como una escala fija o certificada,
 - **menor score = mejor posicion relativa** para priorizacion comparativa,
 - no es un rating certificado ni un veredicto de entrada a mercado.
 
