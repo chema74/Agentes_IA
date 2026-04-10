@@ -15,10 +15,14 @@ import sqlite3
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from config.settings import APP_MODE, HISTORY_DB_PATH as SETTINGS_HISTORY_DB_PATH
+from config.settings import (
+    APP_MODE,
+    HISTORY_BASE_DIR as SETTINGS_HISTORY_BASE_DIR,
+    HISTORY_DB_PATH as SETTINGS_HISTORY_DB_PATH,
+)
 from domain.schemas import RankingResult
 
-HISTORY_BASE_DIR = pathlib.Path("history")
+HISTORY_BASE_DIR = pathlib.Path(SETTINGS_HISTORY_BASE_DIR)
 HISTORY_DB_PATH = pathlib.Path(SETTINGS_HISTORY_DB_PATH)
 
 
