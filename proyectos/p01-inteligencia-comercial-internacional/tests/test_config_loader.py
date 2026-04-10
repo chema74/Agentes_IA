@@ -203,6 +203,34 @@ class TestDefaultWeights:
 
 
 # ---------------------------------------------------------------------------
+# Tests: validación runtime mínima
+# ---------------------------------------------------------------------------
+
+class TestRuntimeConfiguration:
+    """Verifica que la capa de configuración desacoplada no bloquee demo."""
+
+    def test_demo_no_requiere_claves_api(self, monkeypatch):
+        from config.settings import validar_configuracion_api
+
+        monkeypatch.setenv("APP_MODE", "demo")
+        monkeypatch.delenv("GROQ_API_KEY", raising=False)
+        monkeypatch.delenv("TAVILY_API_KEY", raising=False)
+
+        validar_configuracion_api()
+
+    def test_production_detecta_claves_faltantes(self, monkeypatch):
+        from config.settings import validar_configuracion_runtime
+
+        monkeypatch.setenv("APP_MODE", "production")
+        monkeypatch.delenv("GROQ_API_KEY", raising=False)
+        monkeypatch.delenv("TAVILY_API_KEY", raising=False)
+
+        faltantes = validar_configuracion_runtime()
+
+        assert faltantes == ["GROQ_API_KEY", "TAVILY_API_KEY"]
+
+
+# ---------------------------------------------------------------------------
 # Tests: modo demo — get_demo_result
 # ---------------------------------------------------------------------------
 

@@ -153,12 +153,20 @@ La suite usa `pytest.ini` para fijar `--basetemp=.pytest_tmp` y evitar problemas
 ## Variables de entorno
 
 ```env
+APP_MODE=demo
 GROQ_API_KEY=gsk_...
 TAVILY_API_KEY=tvly-...
 ```
 
+- `APP_MODE`: controla si la app arranca en `demo` o `production`.
 - `GROQ_API_KEY`: analisis y generacion narrativa.
 - `TAVILY_API_KEY`: busqueda web para recuperar contexto reciente.
+
+## Configuracion desacoplada
+
+- Los pesos configurables viven en `config/weights.yaml`.
+- Si el YAML falta o es invalido, la app usa defaults seguros compatibles con la version actual.
+- El modo `demo` no depende de APIs reales; `production` valida las claves necesarias al arrancar.
 
 ---
 
