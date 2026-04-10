@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contacto. Implementación de IA en empresas, formación corporativa y desarrollo de agentes LLM. José María — Sevilla." />
+  <meta name="author" content="José María" />
+  <title>Contacto | Portfolio IA Aplicada — José María</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* ── LAYOUT CONTACTO ── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR INFO ── */
+    .contact-info { position: sticky; top: 7rem; }
+
+    .contact-card {
+      border: 1px solid var(--border-2);
+      padding: 2.5rem;
+      background: var(--bg-card);
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 1.5rem; right: 1.5rem;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    }
+
+    .contact-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: .25rem;
+    }
+    .contact-role {
+      font-family: 'DM Mono', monospace;
+      font-size: .68rem;
+      color: var(--amber);
+      letter-spacing: .1em;
+      margin-bottom: 1.5rem;
+    }
+    .contact-loc {
+      font-size: .85rem;
+      color: var(--text-2);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-links-list {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .contact-link-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: .85rem 1rem;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text-2);
+      font-size: .875rem;
+      transition: all var(--transition);
+      background: var(--bg);
+    }
+    .contact-link-item:hover {
+      border-color: var(--amber-dim);
+      color: var(--amber);
+      background: var(--amber-faint);
+    }
+    .contact-link-icon {
+      font-size: 1.1rem;
+      width: 1.5rem;
+      text-align: center;
+    }
+    .contact-link-label {
+      flex: 1;
+    }
+    .contact-link-arrow {
+      font-family: 'DM Mono', monospace;
+      font-size: .7rem;
+      color: var(--text-3);
+      transition: color var(--transition);
+    }
+    .contact-link-item:hover .contact-link-arrow { color: var(--amber); }
+
+    /* Disponibilidad */
+    .avail-card {
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      background: var(--bg-card);
+    }
+    .avail-title {
+      font-family: 'DM Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--amber-dim);
+      margin-bottom: 1rem;
+    }
+    .avail-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .82rem;
+      color: var(--text-2);
+    }
+    .avail-item:last-child { border-bottom: none; }
+    .avail-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-green { background: #4dd488; box-shadow: 0 0 6px #4dd488; }
+    .dot-amber { background: var(--amber); }
+    .dot-gray  { background: var(--text-3); }
+
+    /* ── FORMULARIO ── */
+    .contact-form-wrap {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      overflow: hidden;
+    }
+    .form-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-soft);
+    }
+    .form-header-title {
+      font-family: 'DM Mono', monospace;
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--amber-dim);
+    }
+    .form-header-sub {
+      font-size: .82rem;
+      color: var(--text-2);
+      margin-top: .3rem;
+    }
+
+    .contact-form {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    .form-group label {
+      font-family: 'DM Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--amber-dim);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg);
+      border: 1px solid var(--border-2);
+      border-radius: 2px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .875rem;
+      padding: .75rem 1rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 2px rgba(212,168,75,.1);
+    }
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a5e28' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    .form-group select option { background: var(--bg-card); }
+    .form-group textarea { resize: vertical; min-height: 130px; line-height: 1.7; }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: .5rem;
+      border-top: 1px solid var(--border);
+      margin-top: .25rem;
+    }
+    .form-note {
+      font-family: 'DM Mono', monospace;
+      font-size: .62rem;
+      color: var(--text-3);
+      line-height: 1.6;
+    }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      padding: 2rem;
+      text-align: center;
+    }
+    .form-success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .form-success h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      margin-bottom: .5rem;
+    }
+    .form-success p { font-size: .9rem; color: var(--text-2); }
+
+    /* ── MOTIVOS DE CONTACTO ── */
+    .motivos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .motivo-card {
+      background: var(--bg-card);
+      padding: 2rem;
+      transition: background var(--transition);
+    }
+    .motivo-card:hover { background: var(--bg-card-h); }
+    .motivo-icon { font-size: 1.75rem; margin-bottom: 1rem; display: block; }
+    .motivo-card h4 {
+      font-family: 'Fraunces', serif;
+      font-size: .95rem;
+      font-weight: 600;
+      margin-bottom: .6rem;
+      color: var(--text);
+    }
+    .motivo-card p { font-size: .82rem; color: var(--text-2); line-height: 1.75; }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-info { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+      .motivos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">IA</span>
+        <span class="logo-text">Portfolio IA Aplicada</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle"
+        aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="formacion-docencia.html">Formación y docencia</a></li>
+          <li><a href="comercio-analisis.html">Comercio y análisis</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" style="padding-bottom:3rem">
+      <div class="container">
+        <div class="reveal" style="max-width:680px">
+          <p class="eyebrow">Contacto</p>
+          <h1>Hablemos de tu <em>proyecto</em></h1>
+          <p class="lead">
+            ¿Quieres implementar IA en tu empresa, necesitas formación para tu equipo
+            o buscas un perfil para tu programa formativo? La primera conversación
+            es para entender lo que necesitas, sin compromisos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTIVOS -->
+    <section class="section reveal" style="padding-top:0">
+      <div class="container">
+        <div class="motivos-grid">
+          <div class="motivo-card">
+            <span class="motivo-icon">🏭</span>
+            <h4>Implementar IA en tu empresa</h4>
+            <p>Diagnóstico, selección de casos de uso, desarrollo e implantación. Desde quick wins en 2-4 semanas hasta proyectos estructurales.</p>
+          </div>
+          <div class="motivo-card">
+            <span class="motivo-icon">🎓</span>
+            <h4>Formación para tu equipo o programa</h4>
+            <p>Talleres corporativos, módulos para másters y postgrados o formación in-company a medida para cualquier nivel técnico.</p>
+          </div>
+          <div class="motivo-card">
+            <span class="motivo-icon">🤝</span>
+            <h4>Colaboración o empleo</h4>
+            <p>Disponible para proyectos freelance, colaboraciones puntuales o incorporación a empresa en roles de IA aplicada o consultoría.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO + INFO -->
+    <section class="section section-soft reveal">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- Info lateral -->
+          <div class="contact-info">
+            <div class="contact-card">
+              <div class="contact-name">José María</div>
+              <div class="contact-role">// ESPECIALISTA IA APLICADA</div>
+              <div class="contact-loc">📍 Sevilla, Andalucía · España</div>
+              <div class="contact-links-list">
+                <a href="mailto:TU-EMAIL@email.com" class="contact-link-item">
+                  <span class="contact-link-icon">✉️</span>
+                  <span class="contact-link-label">TU-EMAIL@email.com</span>
+                  <span class="contact-link-arrow">→</span>
+                </a>
+                <a href="https://linkedin.com/in/TU-PERFIL" target="_blank" class="contact-link-item">
+                  <span class="contact-link-icon">💼</span>
+                  <span class="contact-link-label">LinkedIn</span>
+                  <span class="contact-link-arrow">→</span>
+                </a>
+                <a href="https://github.com/TU-USUARIO/portfolio-ia-aplicada" target="_blank" class="contact-link-item">
+                  <span class="contact-link-icon">💻</span>
+                  <span class="contact-link-label">GitHub · Portfolio</span>
+                  <span class="contact-link-arrow">→</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="avail-card">
+              <p class="avail-title">// disponibilidad</p>
+              <div class="avail-item">
+                <div class="avail-dot dot-green"></div>
+                Proyectos presenciales en Sevilla y Andalucía
+              </div>
+              <div class="avail-item">
+                <div class="avail-dot dot-green"></div>
+                Proyectos remotos en toda España
+              </div>
+              <div class="avail-item">
+                <div class="avail-dot dot-amber"></div>
+                Formación en empresa · consultar agenda
+              </div>
+              <div class="avail-item">
+                <div class="avail-dot dot-green"></div>
+                Módulos para másters y postgrados
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario -->
+          <div class="contact-form-wrap">
+            <div class="form-header">
+              <div class="form-header-title">// Enviar mensaje</div>
+              <div class="form-header-sub">Respondo en menos de 24 horas en días laborables</div>
+            </div>
+
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/TU-FORM-ID" method="POST">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="empresa">Empresa u organización</label>
+                  <input type="text" id="empresa" name="empresa" placeholder="Opcional" />
+                </div>
+                <div class="form-group">
+                  <label for="motivo">Motivo de contacto</label>
+                  <select id="motivo" name="motivo">
+                    <option value="">Selecciona una opción</option>
+                    <option value="implementacion">Implementar IA en mi empresa</option>
+                    <option value="formacion-equipo">Formación para mi equipo</option>
+                    <option value="formacion-master">Módulo para máster o postgrado</option>
+                    <option value="proyecto">Proyecto o colaboración puntual</option>
+                    <option value="empleo">Oportunidad de empleo</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje"
+                  placeholder="Cuéntame brevemente tu situación, qué necesitas y en qué plazo..."
+                  required></textarea>
+              </div>
+
+              <div class="form-submit">
+                <p class="form-note">
+                  Tus datos solo se usan para<br>responder a tu mensaje.
+                </p>
+                <button type="submit" class="btn btn-primary">Enviar mensaje →</button>
+              </div>
+            </form>
+
+            <div class="form-success" id="form-success">
+              <div class="form-success-icon">✅</div>
+              <h3>Mensaje enviado</h3>
+              <p>Gracias por escribir. Respondo en menos de 24 horas en días laborables.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">Portfolio IA Aplicada</p>
+        <p>&copy; <span id="current-year"></span> José María · Sevilla</p>
+      </div>
+      <div><p>IA aplicada · análisis · formación · automatización</p></div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Volver arriba">↑</button>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Mostrar mensaje de éxito al enviar el formulario
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' },
+          });
+          if (res.ok) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+          }
+        } catch (err) {
+          // fallback: submit normal
+          form.submit();
+        }
+      });
+    }
+  </script>
+</body>
+</html>

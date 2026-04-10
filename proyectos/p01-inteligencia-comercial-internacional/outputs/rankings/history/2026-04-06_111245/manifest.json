@@ -1,0 +1,22 @@
+{
+    "run_id": "2026-04-06_111245",
+    "generated_at": "2026-04-06T11:12:45",
+    "sector": "General",
+    "company_type": "PYME exportadora",
+    "countries_requested": [
+        "México",
+        "Marruecos",
+        "Vietnam",
+        "Colombia",
+        "Turquía"
+    ],
+    "total_countries": 5,
+    "version": "fase_9b",
+    "status": "success",
+    "artifacts": {
+        "json": "outputs\\rankings\\history\\2026-04-06_111245\\ranking_2026-04-06_111245_general_pyme_exportadora.json",
+        "csv": "outputs\\rankings\\history\\2026-04-06_111245\\ranking_2026-04-06_111245_general_pyme_exportadora.csv",
+        "markdown": "outputs\\rankings\\history\\2026-04-06_111245\\ranking_2026-04-06_111245_general_pyme_exportadora.md",
+        "docx": "outputs\\rankings\\history\\2026-04-06_111245\\ranking_2026-04-06_111245_general_pyme_exportadora.docx"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "run_id": "2026-04-06_112028",
+    "generated_at": "2026-04-06T11:20:28",
+    "sector": "Construcción",
+    "company_type": "Gran empresa",
+    "countries_requested": [
+        "México",
+        "Marruecos",
+        "Colombia"
+    ],
+    "total_countries": 3,
+    "version": "fase_9c",
+    "status": "success",
+    "artifacts": {
+        "json": "outputs\\rankings\\history\\2026-04-06_112028\\ranking_2026-04-06_112028_construccion_gran_empresa.json",
+        "csv": "outputs\\rankings\\history\\2026-04-06_112028\\ranking_2026-04-06_112028_construccion_gran_empresa.csv",
+        "markdown": "outputs\\rankings\\history\\2026-04-06_112028\\ranking_2026-04-06_112028_construccion_gran_empresa.md",
+        "docx": "outputs\\rankings\\history\\2026-04-06_112028\\ranking_2026-04-06_112028_construccion_gran_empresa.docx"
+    }
+}
