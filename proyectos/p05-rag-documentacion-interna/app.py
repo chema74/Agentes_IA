@@ -19,6 +19,7 @@ import time
 import chromadb
 import fitz
 import streamlit as st
+from chromadb.config import Settings
 from chromadb.utils import embedding_functions
 from dotenv import load_dotenv
 from groq import Groq
@@ -190,7 +191,10 @@ def get_chroma():
     ef = embedding_functions.SentenceTransformerEmbeddingFunction(
         model_name="all-MiniLM-L6-v2"
     )
-    client = chromadb.PersistentClient(path=CHROMA_PATH)
+    client = chromadb.PersistentClient(
+        path=CHROMA_PATH,
+        settings=Settings(anonymized_telemetry=False),
+    )
     collection = client.get_or_create_collection(
         name=COLLECTION,
         embedding_function=ef,
@@ -421,7 +425,10 @@ with st.sidebar:
             st.markdown("<div style='height:.75rem'></div>", unsafe_allow_html=True)
             if st.button("Borrar toda la base", use_container_width=True):
                 try:
-                    client = chromadb.PersistentClient(path=CHROMA_PATH)
+                    client = chromadb.PersistentClient(
+                        path=CHROMA_PATH,
+                        settings=Settings(anonymized_telemetry=False),
+                    )
                     client.delete_collection(COLLECTION)
                 except Exception:
                     pass
