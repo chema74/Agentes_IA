@@ -33,6 +33,15 @@
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-mono:    'DM Mono', 'Courier New', monospace;
   --font-body:    'Instrument Sans', system-ui, sans-serif;
+
+  /* Aliases — keep inline styles in sub-pages working */
+  --amber:        var(--gold);
+  --amber-dim:    var(--gold-dim);
+  --amber-faint:  var(--gold-ghost);
+  --border:       var(--gold-border);
+  --border-2:     var(--gold-border-strong);
+  --bg-card-h:    var(--bg-3);
+  --bg-soft:      var(--bg-2);
 }
 
 /* ── RESET ── */
