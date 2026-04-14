@@ -543,12 +543,13 @@ def _scoring_fallback_determinista(
     if "estabilidad" in politico:   s["riesgo_politico"] -= 1
 
     # Estabilidad económica
-    if "crecimiento" in economico:   s["estabilidad_economica"] += 1
-    if "expansión" in economico:     s["estabilidad_economica"] += 1
-    if "inversión" in economico:     s["estabilidad_economica"] += 1
-    if "inflación alta" in economico: s["estabilidad_economica"] -= 2
-    if "recesión" in economico:      s["estabilidad_economica"] -= 2
-    if "volatilidad" in economico:   s["estabilidad_economica"] -= 1
+    # Escala: 1 = favorable (economía estable), 10 = desfavorable
+    if "crecimiento" in economico:   s["estabilidad_economica"] -= 1
+    if "expansión" in economico:     s["estabilidad_economica"] -= 1
+    if "inversión" in economico:     s["estabilidad_economica"] -= 1
+    if "inflación alta" in economico: s["estabilidad_economica"] += 2
+    if "recesión" in economico:      s["estabilidad_economica"] += 2
+    if "volatilidad" in economico:   s["estabilidad_economica"] += 1
 
     # Riesgo regulatorio
     if "arancel" in regulatorio:     s["riesgo_regulatorio"] += 1
@@ -571,10 +572,11 @@ def _scoring_fallback_determinista(
     if "facilidad" in regulatorio:   s["riesgo_operativo"] -= 1
 
     # Ajuste y oportunidad sectorial
-    if "oportunidad" in oportunidades:  s["oportunidad_sectorial"] += 2
-    if "crecimiento" in economico:      s["oportunidad_sectorial"] += 1
-    if "tecnología" in oportunidades:   s["ajuste_sectorial"] += 1
-    if "servicios" in oportunidades:    s["ajuste_sectorial"] += 1
+    # Escala: 1 = favorable (alta oportunidad/buen ajuste), 10 = desfavorable
+    if "oportunidad" in oportunidades:  s["oportunidad_sectorial"] -= 2
+    if "crecimiento" in economico:      s["oportunidad_sectorial"] -= 1
+    if "tecnología" in oportunidades:   s["ajuste_sectorial"] -= 1
+    if "servicios" in oportunidades:    s["ajuste_sectorial"] -= 1
 
     scores = {d: _round_score(_clamp(v)) for d, v in s.items()}
 
