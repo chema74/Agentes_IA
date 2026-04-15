@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Test and build artifacts
+.pytest-tmp/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Local environments
+.venv/
+venv/
+
+# Local runtime data
+data/
+exports/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
