@@ -1,34 +1,34 @@
-# Demo to Production
+# Ruta a producción
 
-## Demo mode
+## Modo demo
 
-- SQLite for local persistence.
-- Chroma for local retrieval.
-- Local filesystem for exports and sample data.
-- Gradio for the main operator demo.
-- Groq as the default LLM gateway through LiteLLM.
+- SQLite para la persistencia local.
+- Chroma para la recuperación local.
+- Sistema de archivos local para exportes y datos de ejemplo.
+- Gradio como interfaz principal para la demo.
+- Groq como pasarela LLM por defecto a través de LiteLLM.
 
-## Production-ready path
+## Ruta lista para producción
 
-- Replace SQLite with Postgres using the same domain models.
-- Replace local export storage with object storage.
-- Keep the workflow layer unchanged.
-- Swap Chroma for Qdrant without changing business rules.
-- Move FastAPI behind an internal service boundary if needed.
-- Add structured logging, tracing, metrics, and secrets management.
+- Sustituir SQLite por Postgres usando los mismos modelos de dominio.
+- Sustituir el almacenamiento local de exportes por object storage.
+- Mantener intacta la capa de workflows.
+- Cambiar Chroma por Qdrant sin alterar las reglas de negocio.
+- Colocar FastAPI detrás de un servicio interno si hace falta.
+- Añadir logging estructurado, trazas, métricas y gestión de secretos.
 
-## What stays stable
+## Lo que permanece estable
 
-- Domain models.
-- Workflow orchestration.
-- Evidence traceability.
-- Risk and review rules.
-- Export contracts.
+- Los modelos de dominio.
+- La orquestación de workflows.
+- La trazabilidad de evidencias.
+- Las reglas de riesgo y revisión.
+- Los contratos de exportación.
 
-## What changes first
+## Lo primero que cambia
 
-- Database backend.
-- Artifact storage.
-- Observability.
-- Secret management.
-- Deployment topology.
+- El backend de base de datos.
+- El almacenamiento de artefactos.
+- La observabilidad.
+- La gestión de secretos.
+- La topología de despliegue.
