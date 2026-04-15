@@ -1,6 +1,6 @@
 # Datos de ejemplo
 
-Estos fixtures están anonimizados y pensados para la demo local y las pruebas automatizadas.
+Estos archivos de ejemplo estan anonimizados y pensados para la demo local y las pruebas automatizadas.
 
 ## Archivos
 
@@ -11,6 +11,6 @@ Estos fixtures están anonimizados y pensados para la demo local y las pruebas a
 
 ## Uso
 
-- Úsalos para validar el flujo de análisis sin depender de datos reales.
-- Sirven como base para pruebas de extracción, riesgo, recuperación y exportación.
-- Puedes ampliarlos con nuevos documentos mock siempre que no incluyan información sensible.
+- Usalos para validar el flujo de analisis sin depender de datos reales.
+- Sirven como base para pruebas de extraccion, riesgo, recuperacion y exportacion.
+- Puedes ampliarlos con nuevos documentos ficticios siempre que no incluyan informacion sensible.

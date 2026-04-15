@@ -11,7 +11,7 @@ La calculadora es deliberadamente transparente:
 - ahorro por seguimiento
 - estimación de reducción de omisiones
 - ahorro mensual y anual
-- payback estimado
+- periodo de recuperacion estimado
 
 La calculadora expone un desglose para que las hipótesis se puedan auditar:
 
@@ -21,6 +21,6 @@ La calculadora expone un desglose para que las hipótesis se puedan auditar:
 - ahorro por omisiones
 - ahorro mensual total
 - ahorro anual
-- payback en meses
+- periodo de recuperacion en meses
 
 Ejecuta `python -m roi.calculator` desde la raíz del proyecto para imprimir el desglose actual en JSON.

@@ -10,7 +10,7 @@ Sprint 1 - Ingesta y parsing documental
 - Implementar carga de PDF, DOCX y EML.
 - Normalizar texto y metadatos.
 - Anadir validaciones de entrada.
-- Crear fixtures y documentos mock anonimizados.
+- Crear archivos de ejemplo y documentos ficticios anonimizados.
 
 Sprint 2 - Extraccion estructurada y dominio legal-operativo
 - Definir esquemas Pydantic para clausulas, obligaciones, fechas, alertas y dependencias.
@@ -34,7 +34,7 @@ Sprint 5 - Interfaz demo y exportaciones
 - Completar la interfaz Gradio.
 - Anadir vistas de resumen, clausulas, obligaciones y alertas.
 - Implementar exportacion a JSON, Markdown, CSV y DOCX.
-- Validar el flujo end-to-end.
+- Validar el flujo de extremo a extremo.
 
 Sprint 6 - ROI, endurecimiento y pruebas
 - Implementar el modulo ROI editable.

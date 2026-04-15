@@ -56,7 +56,7 @@ Pensada para ejecución local con coste mínimo:
 - SQLite para persistencia
 - Chroma para recuperación semántica
 - Gradio para la interfaz
-- Datos mock anonimizados
+- Datos ficticios anonimizados
 
 ### Ruta a producción
 
@@ -121,7 +121,7 @@ La carpeta [roi/](roi) contiene una calculadora editable con supuestos transpare
 - ahorro por extracción inicial
 - ahorro por seguimiento de obligaciones
 - reducción estimada de omisiones administrativas
-- cifras mensuales, anuales y payback
+- cifras mensuales, anuales y periodo de recuperacion
 
 Consulta [roi/README.md](roi/README.md) para ver el detalle.
 
@@ -145,7 +145,7 @@ El plan de sprints está documentado en [docs/sprints.md](docs/sprints.md):
 
 ## Datos de ejemplo
 
-La carpeta [sample_data/](sample_data) contiene fixtures anonimizados para demo y pruebas:
+La carpeta [sample_data/](sample_data) contiene archivos de ejemplo anonimizados para demo y pruebas:
 
 - contrato de ejemplo
 - correo de renovación
