@@ -1,0 +1,3 @@
+student_id,objective_id,source_type,activity_type,submission_id,artifact_ref,content,draft_count,time_spent_estimate
+stu-001,obj-001,lms,essay,sub-001,artifact-001,"Primera version breve, sin apenas revision.",1,0.15
+stu-001,obj-001,lms,essay,sub-002,artifact-002,"Trabajo revisado con ejemplos, justificacion y proceso visible.",3,1.8
