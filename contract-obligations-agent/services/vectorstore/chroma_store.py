@@ -46,7 +46,15 @@ class ChromaVectorStore:
         self._collection.upsert(
             ids=[chunk.chunk_id for chunk in chunks],
             documents=[chunk.text for chunk in chunks],
-            metadatas=[{"source_label": chunk.source_label, "document_id": document_id} for chunk in chunks],
+            metadatas=[
+                {
+                    "source_label": chunk.source_label,
+                    "document_id": document_id,
+                    "source_start": chunk.start_char,
+                    "source_end": chunk.end_char,
+                }
+                for chunk in chunks
+            ],
         )
 
     def search(self, query: str, top_k: int = 5) -> list[SearchHit]:
@@ -54,12 +62,16 @@ class ChromaVectorStore:
             results = self._collection.query(query_texts=[query], n_results=top_k)
             hits: list[SearchHit] = []
             for idx, chunk_id in enumerate(results.get("ids", [[]])[0]):
+                metadata = results["metadatas"][0][idx]
                 hits.append(
                     SearchHit(
                         chunk_id=chunk_id,
                         text=results["documents"][0][idx],
-                        source_label=results["metadatas"][0][idx].get("source_label", ""),
-                        score=float(results["distances"][0][idx]),
+                        source_label=metadata.get("source_label", ""),
+                        score=1.0 / (1.0 + float(results["distances"][0][idx])),
+                        source_start=int(metadata.get("source_start", 0) or 0),
+                        source_end=int(metadata.get("source_end", 0) or 0),
+                        document_id=metadata.get("document_id", ""),
                     )
                 )
             return hits
@@ -69,6 +81,14 @@ class ChromaVectorStore:
         for chunk in self._chunks:
             score = sum(chunk.text.lower().count(term) for term in terms)
             if score:
-                scored.append(SearchHit(chunk.chunk_id, chunk.text, chunk.source_label, float(score)))
+                scored.append(
+                    SearchHit(
+                        chunk_id=chunk.chunk_id,
+                        text=chunk.text,
+                        source_label=chunk.source_label,
+                        score=float(score),
+                        source_start=chunk.start_char,
+                        source_end=chunk.end_char,
+                    )
+                )
         return sorted(scored, key=lambda item: item.score, reverse=True)[:top_k]
-

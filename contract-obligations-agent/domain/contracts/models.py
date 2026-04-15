@@ -42,6 +42,18 @@ class DateMention(BaseModel):
     evidence: list[EvidenceRef] = Field(default_factory=list)
 
 
+class RetrievalHit(BaseModel):
+    query: str
+    rank: int
+    chunk_id: str
+    source_label: str
+    source_excerpt: str
+    score: float
+    source_start: int = 0
+    source_end: int = 0
+    evidence: list[EvidenceRef] = Field(default_factory=list)
+
+
 class ContractDocument(BaseModel):
     document_id: str
     filename: str
@@ -75,5 +87,5 @@ class ContractAnalysis(BaseModel):
     summary: ExecutiveSummary = Field(default_factory=lambda: ExecutiveSummary(executive_summary=""))
     comparison: dict = Field(default_factory=dict)
     evidences: list[EvidenceRef] = Field(default_factory=list)
-    retrieval_hits: list[dict] = Field(default_factory=list)
+    retrieval_hits: list[RetrievalHit] = Field(default_factory=list)
     extraction_notes: list[str] = Field(default_factory=list)

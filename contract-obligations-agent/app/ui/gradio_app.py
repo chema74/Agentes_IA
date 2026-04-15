@@ -5,14 +5,23 @@ from services.workflows.contract_workflow import analyze_contract_file
 
 def _run_analysis(file_obj, checklist_json: str = ""):
     if file_obj is None:
-        return "Upload a file first.", "", "", ""
+        return "Upload a file first.", "", "", "", "", ""
     path = Path(file_obj.name)
     result = analyze_contract_file(path.name, path.read_bytes(), path.suffix.lower(), checklist_json or None)
     summary = result.summary.executive_summary
     clauses = "\n\n".join(f"- {c.title}: {c.text}" for c in result.clauses)
     obligations = "\n".join(f"- {o.description}" for o in result.obligations)
     alerts = "\n".join(f"- [{a.severity}] {a.title}: {a.message}" for a in result.alerts)
-    return summary, clauses, obligations, alerts
+    evidence = "\n".join(f"- [{hit.rank}] {hit.source_label}: {hit.source_excerpt}" for hit in result.retrieval_hits)
+    comparison = "\n".join(
+        [
+            f"Status: {result.comparison.get('status', '')}",
+            f"Matched: {', '.join(result.comparison.get('matched', []))}",
+            f"Missing: {', '.join(result.comparison.get('missing', []))}",
+            f"Unverifiable: {', '.join(result.comparison.get('unverifiable', []))}",
+        ]
+    )
+    return summary, clauses, obligations, alerts, evidence, comparison
 
 
 def launch_demo() -> None:
@@ -27,5 +36,7 @@ def launch_demo() -> None:
         clauses = gr.Textbox(label="Clauses", lines=12)
         obligations = gr.Textbox(label="Obligations", lines=12)
         alerts = gr.Textbox(label="Alerts", lines=10)
-        run_btn.click(_run_analysis, [file_input, checklist_input], [summary, clauses, obligations, alerts])
+        evidence = gr.Textbox(label="Evidence hits", lines=12)
+        comparison = gr.Textbox(label="Checklist comparison", lines=8)
+        run_btn.click(_run_analysis, [file_input, checklist_input], [summary, clauses, obligations, alerts, evidence, comparison])
     demo.launch()

@@ -21,7 +21,12 @@ def _load_workflow(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
 def test_analyze_contract_extracts_obligations_and_alerts(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     wf = _load_workflow(tmp_path, monkeypatch)
     content = (Path(__file__).resolve().parents[2] / "sample_data" / "contracts" / "sample_contract.txt").read_bytes()
-    result = wf.analyze_contract_file("sample_contract.txt", content, ".txt", checklist_json=json.dumps({"items": ["payment terms", "renewal"]}))
+    result = wf.analyze_contract_file(
+        "sample_contract.txt",
+        content,
+        ".txt",
+        checklist_json=json.dumps({"items": ["payment terms", "renewal", "if applicable"]}),
+    )
     assert result.clauses
     assert result.obligations
     assert result.dates
@@ -29,6 +34,10 @@ def test_analyze_contract_extracts_obligations_and_alerts(tmp_path: Path, monkey
     assert any(obligation.due_date for obligation in result.obligations)
     assert result.summary.executive_summary
     assert result.comparison["status"] == "ok"
+    assert result.comparison["matched"]
+    assert result.comparison["missing"]
+    assert result.comparison["unverifiable"]
+    assert result.retrieval_hits
 
 
 def test_high_risk_language_is_flagged(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

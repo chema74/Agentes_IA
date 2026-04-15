@@ -1,7 +1,11 @@
 {
   "filename": "sample_contract.txt",
   "summary": {
-    "executive_summary": "Summary"
+    "executive_summary": "Summary",
+    "key_points": [
+      "Point 1",
+      "Point 2"
+    ]
   },
   "obligations": [
     {
@@ -9,7 +13,35 @@
       "description": "Pay invoices",
       "responsible_party": "Buyer",
       "due_date": "2026-06-01",
+      "dependency": "subject to approval",
+      "status": "open",
       "confidence": 0.9
     }
-  ]
+  ],
+  "dates": [
+    {
+      "date": "2026-06-01",
+      "context": "Payment due date",
+      "category": "explicit"
+    }
+  ],
+  "retrieval_hits": [
+    {
+      "rank": 1,
+      "source_label": "sample_contract.txt",
+      "source_excerpt": "Payment is due within 30 days."
+    }
+  ],
+  "comparison": {
+    "status": "ok",
+    "matched": [
+      "renewal"
+    ],
+    "missing": [
+      "payment"
+    ],
+    "unverifiable": [
+      "if applicable"
+    ]
+  }
 }

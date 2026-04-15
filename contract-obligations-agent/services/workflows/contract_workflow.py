@@ -9,7 +9,7 @@ from core.config.settings import settings
 from core.logging.logger import configure_logging
 from core.security.redaction import redact_sensitive_text
 from domain.clauses.models import Clause, EvidenceRef
-from domain.contracts.models import ContractAnalysis, DateMention, ExecutiveSummary, ParsedDocument
+from domain.contracts.models import ContractAnalysis, DateMention, ExecutiveSummary, ParsedDocument, RetrievalHit
 from domain.obligations.models import Obligation
 from domain.risk_flags.models import Alert, RiskAssessment, RiskLevel
 from services.llm.gateway import LiteLLMGateway
@@ -39,6 +39,8 @@ RESPONSIBLE_PATTERNS = [
 ]
 DEPENDENCY_RE = re.compile(r"\b(subject to|provided that|unless|if|conditional on|contingent upon)\b([^.;:\n]*)", re.I)
 RELATIVE_DUE_RE = re.compile(r"\b(within|no later than|not later than|at least)\s+([^\.;:\n]+)", re.I)
+UNVERIFIABLE_MARKERS = ("if applicable", "if any", "as needed", "tbd", "to be confirmed", "as required")
+STOPWORDS = {"the", "and", "or", "to", "of", "for", "in", "on", "a", "an", "is", "are", "be", "within", "due", "terms"}
 
 
 def _vectorstore():
@@ -192,9 +194,30 @@ def _validate_findings(doc: ParsedDocument, clauses: list[Clause]) -> RiskAssess
     return RiskAssessment(overall_level=level, alerts=alerts)
 
 
-def _summarize(doc: ParsedDocument, clauses: list[Clause], obligations: list[Obligation], risk: RiskAssessment) -> ExecutiveSummary:
+def _summarize(
+    doc: ParsedDocument,
+    clauses: list[Clause],
+    obligations: list[Obligation],
+    risk: RiskAssessment,
+    retrieval_hits: list[RetrievalHit],
+) -> ExecutiveSummary:
     gw = LiteLLMGateway(settings.litellm_model, settings.litellm_fallback_model)
-    summary = gw.summarize(f"Contract review for {doc.filename}", doc.normalized_text[:4000])
+    evidence_lines = [
+        f"[{hit.rank}] {hit.source_label}: {hit.source_excerpt}"
+        for hit in retrieval_hits[:3]
+    ]
+    summary_input = "\n\n".join(
+        [
+            doc.normalized_text[:2500],
+            "Key evidence:",
+            *evidence_lines,
+            "Key findings:",
+            f"Clauses detected: {len(clauses)}",
+            f"Obligations extracted: {len(obligations)}",
+            f"Overall risk: {risk.overall_level.value}",
+        ]
+    )
+    summary = gw.summarize(f"Contract review for {doc.filename}", summary_input)
     points = [
         f"{len(clauses)} relevant clauses detected",
         f"{len(obligations)} obligations extracted",
@@ -209,19 +232,33 @@ def _summarize(doc: ParsedDocument, clauses: list[Clause], obligations: list[Obl
 
 def _comparison(checklist_json: str | None, text: str) -> dict:
     if not checklist_json:
-        return {"status": "not_provided", "missing": []}
+        return {"status": "not_provided", "missing": [], "matched": [], "unverifiable": []}
     try:
         payload = json.loads(checklist_json)
     except Exception:
-        return {"status": "invalid_json", "missing": []}
+        return {"status": "invalid_json", "missing": [], "matched": [], "unverifiable": []}
     if isinstance(payload, dict):
         items = payload.get("items", [])
     elif isinstance(payload, list):
         items = payload
     else:
         items = []
-    missing = [item for item in items if str(item).lower() not in text.lower()]
-    return {"status": "ok", "missing": missing}
+    matched: list[str] = []
+    missing: list[str] = []
+    unverifiable: list[str] = []
+    lower_text = text.lower()
+    for item in items:
+        item_text = str(item).strip()
+        lower_item = item_text.lower()
+        if any(marker in lower_item for marker in UNVERIFIABLE_MARKERS):
+            unverifiable.append(item_text)
+        else:
+            tokens = [token for token in re.findall(r"[a-z0-9]+", lower_item) if token not in STOPWORDS and len(token) > 2]
+            if lower_item in lower_text or any(token in lower_text for token in tokens):
+                matched.append(item_text)
+            else:
+                missing.append(item_text)
+    return {"status": "ok", "missing": missing, "matched": matched, "unverifiable": unverifiable}
 
 
 def analyze_contract_file(
@@ -238,15 +275,12 @@ def analyze_contract_file(
     store = _vectorstore()
     store.upsert(parsed.document_id, parsed.chunks)
     retriever = EvidenceRetriever(store)
-    retrieval_hits = [
-        hit.__dict__
-        for hit in retriever.search("payment renewal penalty confidentiality obligation", top_k=5)
-    ]
+    retrieval_hits: list[RetrievalHit] = retriever.search("payment renewal penalty confidentiality obligation", top_k=5)
 
     clauses = _extract_clauses(parsed)
     obligations = _extract_obligations(parsed, clauses)
     risk = _validate_findings(parsed, clauses)
-    summary = _summarize(parsed, clauses, obligations, risk)
+    summary = _summarize(parsed, clauses, obligations, risk, retrieval_hits)
     alerts = list(risk.alerts)
     comparison = _comparison(checklist_json, parsed.normalized_text)
     if comparison.get("missing"):
@@ -275,6 +309,7 @@ def analyze_contract_file(
     extraction_notes = [
         "Extraction separates objective clause matches from inferred obligations.",
         "Human review is required for high-risk alerts and ambiguous date or dependency patterns.",
+        f"Retrieved {len(retrieval_hits)} evidence hits for traceability.",
     ]
     return ContractAnalysis(
         document_id=parsed.document_id,
