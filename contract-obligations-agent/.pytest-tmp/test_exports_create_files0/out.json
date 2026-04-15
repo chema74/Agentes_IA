@@ -1,0 +1,15 @@
+{
+  "filename": "sample_contract.txt",
+  "summary": {
+    "executive_summary": "Summary"
+  },
+  "obligations": [
+    {
+      "obligation_id": "1",
+      "description": "Pay invoices",
+      "responsible_party": "Buyer",
+      "due_date": "2026-06-01",
+      "confidence": 0.9
+    }
+  ]
+}

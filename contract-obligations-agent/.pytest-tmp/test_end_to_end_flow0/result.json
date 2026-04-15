@@ -1,0 +1,281 @@
+{
+  "document_id": "49ee723801bc064bc24b397d",
+  "filename": "sample_contract.txt",
+  "document_type": "unknown",
+  "metadata": {
+    "comparison": {
+      "status": "ok",
+      "missing": [
+        "payment terms",
+        "renewal",
+        "confidentiality"
+      ]
+    },
+    "dates": [],
+    "risk_level": "high"
+  },
+  "raw_text": "Master Services Agreement\n\nThe Supplier shall deliver monthly reports by 2026-06-01.\nPayment is due within 30 days of invoice date.\nThe agreement renews automatically unless either party gives 60 days' notice.\nLate payment may incur a penalty fee.\nConfidential information must not be disclosed to third parties.\n\n",
+  "normalized_text": "Master Services Agreement\n\nThe Supplier shall deliver monthly reports by [redacted-phone].\nPayment is due within 30 days of invoice date.\nThe agreement renews automatically unless either party gives 60 days' notice.\nLate payment may incur a penalty fee.\nConfidential information must not be disclosed to third parties.",
+  "chunks": [
+    {
+      "chunk_id": "sample_contract.txt-chunk-1",
+      "text": "Master Services Agreement\n\nThe Supplier shall deliver monthly reports by 2026-06-01.\nPayment is due within 30 days of invoice date.\nThe agreement renews automatically unless either party gives 60 days' notice.\nLate payment may incur a penalty fee.\nConfidential information must not be disclosed to third parties.",
+      "source_label": "sample_contract.txt",
+      "start_char": 0,
+      "end_char": 312
+    }
+  ],
+  "clauses": [
+    {
+      "clause_id": "49ee723801bc064bc24b397d-cl-2",
+      "title": "The Supplier shall deliver monthly reports by [redacted-phone].",
+      "clause_type": "obligation",
+      "text": "The Supplier shall deliver monthly reports by [redacted-phone].",
+      "confidence": 0.66,
+      "evidence": [
+        {
+          "source_id": "49ee723801bc064bc24b397d",
+          "source_label": "sample_contract.txt",
+          "chunk_id": "sample_contract.txt-chunk-1",
+          "source_excerpt": "The Supplier shall deliver monthly reports by [redacted-phone].",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "clause_id": "49ee723801bc064bc24b397d-cl-3",
+      "title": "Payment is due within 30 days of invoice date.",
+      "clause_type": "payment",
+      "text": "Payment is due within 30 days of invoice date.",
+      "confidence": 0.72,
+      "evidence": [
+        {
+          "source_id": "49ee723801bc064bc24b397d",
+          "source_label": "sample_contract.txt",
+          "chunk_id": "sample_contract.txt-chunk-1",
+          "source_excerpt": "Payment is due within 30 days of invoice date.",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "clause_id": "49ee723801bc064bc24b397d-cl-4",
+      "title": "The agreement renews automatically unless either party gives 60 days' notice.",
+      "clause_type": "renewal",
+      "text": "The agreement renews automatically unless either party gives 60 days' notice.",
+      "confidence": 0.72,
+      "evidence": [
+        {
+          "source_id": "49ee723801bc064bc24b397d",
+          "source_label": "sample_contract.txt",
+          "chunk_id": "sample_contract.txt-chunk-1",
+          "source_excerpt": "The agreement renews automatically unless either party gives 60 days' notice.",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "clause_id": "49ee723801bc064bc24b397d-cl-5",
+      "title": "Late payment may incur a penalty fee.",
+      "clause_type": "penalty",
+      "text": "Late payment may incur a penalty fee.",
+      "confidence": 0.72,
+      "evidence": [
+        {
+          "source_id": "49ee723801bc064bc24b397d",
+          "source_label": "sample_contract.txt",
+          "chunk_id": "sample_contract.txt-chunk-1",
+          "source_excerpt": "Late payment may incur a penalty fee.",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "clause_id": "49ee723801bc064bc24b397d-cl-6",
+      "title": "Confidential information must not be disclosed to third parties.",
+      "clause_type": "confidentiality",
+      "text": "Confidential information must not be disclosed to third parties.",
+      "confidence": 0.72,
+      "evidence": [
+        {
+          "source_id": "49ee723801bc064bc24b397d",
+          "source_label": "sample_contract.txt",
+          "chunk_id": "sample_contract.txt-chunk-1",
+          "source_excerpt": "Confidential information must not be disclosed to third parties.",
+          "confidence": 0.72
+        }
+      ]
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "49ee723801bc064bc24b397d-ob-1",
+      "description": "The Supplier shall deliver monthly reports by [redacted-phone].",
+      "responsible_party": null,
+      "due_date": null,
+      "dependency": null,
+      "observations": "Inferred from obligation clause.",
+      "confidence": 0.66,
+      "status": "open",
+      "evidence": [
+        {
+          "source_id": "49ee723801bc064bc24b397d",
+          "source_label": "sample_contract.txt",
+          "chunk_id": "sample_contract.txt-chunk-1",
+          "source_excerpt": "The Supplier shall deliver monthly reports by [redacted-phone].",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "obligation_id": "49ee723801bc064bc24b397d-ob-2",
+      "description": "Payment is due within 30 days of invoice date.",
+      "responsible_party": null,
+      "due_date": null,
+      "dependency": null,
+      "observations": "Inferred from payment clause.",
+      "confidence": 0.72,
+      "status": "open",
+      "evidence": [
+        {
+          "source_id": "49ee723801bc064bc24b397d",
+          "source_label": "sample_contract.txt",
+          "chunk_id": "sample_contract.txt-chunk-1",
+          "source_excerpt": "Payment is due within 30 days of invoice date.",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "obligation_id": "49ee723801bc064bc24b397d-ob-4",
+      "description": "Late payment may incur a penalty fee.",
+      "responsible_party": null,
+      "due_date": null,
+      "dependency": null,
+      "observations": "Inferred from penalty clause.",
+      "confidence": 0.72,
+      "status": "open",
+      "evidence": [
+        {
+          "source_id": "49ee723801bc064bc24b397d",
+          "source_label": "sample_contract.txt",
+          "chunk_id": "sample_contract.txt-chunk-1",
+          "source_excerpt": "Late payment may incur a penalty fee.",
+          "confidence": 0.72
+        }
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "alert_id": "49ee723801bc064bc24b397d-al-2",
+      "title": "Penalty language detected",
+      "message": "Potential penalty or default language found.",
+      "severity": "high",
+      "human_review_required": true,
+      "rationale": "Penalty language can have material legal and operational consequences.",
+      "evidence": [
+        {
+          "source_id": "49ee723801bc064bc24b397d",
+          "source_label": "sample_contract.txt",
+          "chunk_id": "sample_contract.txt-chunk-1",
+          "source_excerpt": "The Supplier shall deliver monthly reports by [redacted-phone].",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "alert_id": "49ee723801bc064bc24b397d-al-checklist",
+      "title": "Checklist gap detected",
+      "message": "Missing items: payment terms, renewal, confidentiality",
+      "severity": "medium",
+      "human_review_required": true,
+      "rationale": "Checklist items may represent expected obligations or clauses.",
+      "evidence": []
+    }
+  ],
+  "risk_assessment": {
+    "overall_level": "high",
+    "alerts": [
+      {
+        "alert_id": "49ee723801bc064bc24b397d-al-2",
+        "title": "Penalty language detected",
+        "message": "Potential penalty or default language found.",
+        "severity": "high",
+        "human_review_required": true,
+        "rationale": "Penalty language can have material legal and operational consequences.",
+        "evidence": [
+          {
+            "source_id": "49ee723801bc064bc24b397d",
+            "source_label": "sample_contract.txt",
+            "chunk_id": "sample_contract.txt-chunk-1",
+            "source_excerpt": "The Supplier shall deliver monthly reports by [redacted-phone].",
+            "confidence": 0.72
+          }
+        ]
+      }
+    ]
+  },
+  "summary": {
+    "executive_summary": "Contract review for sample_contract.txt: Master Services Agreement\n\nThe Supplier shall deliver monthly reports by [redacted-phone]. Payment is due within 30 days of invoice date. The agreement renews automatically unless either party gives 60 days' notice. Late payment may incur a penalty fee. Confidential information must not be disclosed to third parties.",
+    "key_points": [
+      "5 relevant clauses detected",
+      "3 obligations extracted",
+      "Overall risk: high"
+    ],
+    "human_review_note": "Review required for any high-risk alert or ambiguous extraction."
+  },
+  "comparison": {
+    "status": "ok",
+    "missing": [
+      "payment terms",
+      "renewal",
+      "confidentiality"
+    ]
+  },
+  "evidences": [
+    {
+      "source_id": "49ee723801bc064bc24b397d",
+      "source_label": "sample_contract.txt",
+      "chunk_id": "sample_contract.txt-chunk-1",
+      "source_excerpt": "The Supplier shall deliver monthly reports by [redacted-phone].",
+      "confidence": 0.72
+    },
+    {
+      "source_id": "49ee723801bc064bc24b397d",
+      "source_label": "sample_contract.txt",
+      "chunk_id": "sample_contract.txt-chunk-1",
+      "source_excerpt": "Payment is due within 30 days of invoice date.",
+      "confidence": 0.72
+    },
+    {
+      "source_id": "49ee723801bc064bc24b397d",
+      "source_label": "sample_contract.txt",
+      "chunk_id": "sample_contract.txt-chunk-1",
+      "source_excerpt": "The agreement renews automatically unless either party gives 60 days' notice.",
+      "confidence": 0.72
+    },
+    {
+      "source_id": "49ee723801bc064bc24b397d",
+      "source_label": "sample_contract.txt",
+      "chunk_id": "sample_contract.txt-chunk-1",
+      "source_excerpt": "Late payment may incur a penalty fee.",
+      "confidence": 0.72
+    },
+    {
+      "source_id": "49ee723801bc064bc24b397d",
+      "source_label": "sample_contract.txt",
+      "chunk_id": "sample_contract.txt-chunk-1",
+      "source_excerpt": "Confidential information must not be disclosed to third parties.",
+      "confidence": 0.72
+    }
+  ],
+  "retrieval_hits": [
+    {
+      "chunk_id": "sample_contract.txt-chunk-1",
+      "text": "Master Services Agreement\n\nThe Supplier shall deliver monthly reports by 2026-06-01.\nPayment is due within 30 days of invoice date.\nThe agreement renews automatically unless either party gives 60 days' notice.\nLate payment may incur a penalty fee.\nConfidential information must not be disclosed to third parties.",
+      "source_label": "sample_contract.txt",
+      "score": 3.0
+    }
+  ]
+}
