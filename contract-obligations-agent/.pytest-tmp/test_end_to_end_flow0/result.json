@@ -134,7 +134,10 @@
           "source_excerpt": "The Supplier shall deliver monthly reports by [redacted-phone].",
           "confidence": 0.72
         }
-      ]
+      ],
+      "risk_level": "low",
+      "human_review_required": false,
+      "explanation": "This obligation was inferred from explicit duty language."
     },
     {
       "obligation_id": "49ee723801bc064bc24b397d-ob-2",
@@ -153,7 +156,10 @@
           "source_excerpt": "Payment is due within 30 days of invoice date.",
           "confidence": 0.72
         }
-      ]
+      ],
+      "risk_level": "medium",
+      "human_review_required": false,
+      "explanation": "Payment obligations are likely material but often straightforward to verify."
     },
     {
       "obligation_id": "49ee723801bc064bc24b397d-ob-4",
@@ -163,7 +169,7 @@
       "dependency": null,
       "observations": "Inferred from penalty clause.",
       "confidence": 0.72,
-      "status": "open",
+      "status": "pending_review",
       "evidence": [
         {
           "source_id": "49ee723801bc064bc24b397d",
@@ -172,7 +178,10 @@
           "source_excerpt": "Late payment may incur a penalty fee.",
           "confidence": 0.72
         }
-      ]
+      ],
+      "risk_level": "high",
+      "human_review_required": true,
+      "explanation": "Penalty clauses require human validation because they can imply material liability."
     }
   ],
   "dates": [
@@ -208,7 +217,18 @@
           "source_excerpt": "The Supplier shall deliver monthly reports by [redacted-phone].",
           "confidence": 0.72
         }
-      ]
+      ],
+      "explanation": "Penalty language was detected in the contract body and should be reviewed by a human."
+    },
+    {
+      "alert_id": "49ee723801bc064bc24b397d-al-5",
+      "title": "Confidentiality language detected",
+      "message": "Confidentiality language found.",
+      "severity": "medium",
+      "human_review_required": false,
+      "rationale": "Confidentiality clauses are important but usually routine unless exceptions are present.",
+      "evidence": [],
+      "explanation": "Confidentiality language is present and should be cross-checked against internal policy."
     },
     {
       "alert_id": "49ee723801bc064bc24b397d-al-checklist",
@@ -217,7 +237,8 @@
       "severity": "medium",
       "human_review_required": true,
       "rationale": "Checklist items may represent expected obligations or clauses.",
-      "evidence": []
+      "evidence": [],
+      "explanation": ""
     }
   ],
   "risk_assessment": {
@@ -238,16 +259,30 @@
             "source_excerpt": "The Supplier shall deliver monthly reports by [redacted-phone].",
             "confidence": 0.72
           }
-        ]
+        ],
+        "explanation": "Penalty language was detected in the contract body and should be reviewed by a human."
+      },
+      {
+        "alert_id": "49ee723801bc064bc24b397d-al-5",
+        "title": "Confidentiality language detected",
+        "message": "Confidentiality language found.",
+        "severity": "medium",
+        "human_review_required": false,
+        "rationale": "Confidentiality clauses are important but usually routine unless exceptions are present.",
+        "evidence": [],
+        "explanation": "Confidentiality language is present and should be cross-checked against internal policy."
       }
-    ]
+    ],
+    "human_review_required": true,
+    "explanation": "High risk is driven by penalty language."
   },
   "summary": {
     "executive_summary": "Contract review for sample_contract.txt: Master Services Agreement\n\nThe Supplier shall deliver monthly reports by [redacted-phone]. Payment is due within 30 days of invoice date. The agreement renews automatically unless either party gives 60 days' notice. Late payment may incur a penalty fee. Confidential information must not be disclosed to third parties.",
     "key_points": [
       "5 relevant clauses detected",
       "3 obligations extracted",
-      "Overall risk: high"
+      "Overall risk: high",
+      "Human review required: yes"
     ],
     "human_review_note": "Review required for any high-risk alert or ambiguous extraction."
   },
@@ -323,6 +358,7 @@
   "extraction_notes": [
     "Extraction separates objective clause matches from inferred obligations.",
     "Human review is required for high-risk alerts and ambiguous date or dependency patterns.",
-    "Retrieved 1 evidence hits for traceability."
+    "Retrieved 1 evidence hits for traceability.",
+    "Obligation matrix risk: high. Human review: yes."
   ]
 }

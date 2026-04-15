@@ -22,8 +22,12 @@ class Obligation(BaseModel):
     confidence: float = 0.5
     status: ObligationStatus = ObligationStatus.open
     evidence: list[EvidenceRef] = Field(default_factory=list)
+    risk_level: str = "low"
+    human_review_required: bool = False
+    explanation: str = ""
 
 
 class ObligationMatrix(BaseModel):
     obligations: list[Obligation] = Field(default_factory=list)
-
+    overall_risk: str = "low"
+    human_review_required: bool = False

@@ -20,9 +20,11 @@ class Alert(BaseModel):
     human_review_required: bool = False
     rationale: str = ""
     evidence: list[EvidenceRef] = Field(default_factory=list)
+    explanation: str = ""
 
 
 class RiskAssessment(BaseModel):
     overall_level: RiskLevel
     alerts: list[Alert] = Field(default_factory=list)
-
+    human_review_required: bool = False
+    explanation: str = ""

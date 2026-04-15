@@ -10,7 +10,7 @@ from core.logging.logger import configure_logging
 from core.security.redaction import redact_sensitive_text
 from domain.clauses.models import Clause, EvidenceRef
 from domain.contracts.models import ContractAnalysis, DateMention, ExecutiveSummary, ParsedDocument, RetrievalHit
-from domain.obligations.models import Obligation
+from domain.obligations.models import Obligation, ObligationMatrix, ObligationStatus
 from domain.risk_flags.models import Alert, RiskAssessment, RiskLevel
 from services.llm.gateway import LiteLLMGateway
 from services.parsing.parser import parse_loaded_file
@@ -132,19 +132,44 @@ def _extract_obligations(doc: ParsedDocument, clauses: list[Clause]) -> list[Obl
         if clause.clause_type in {"obligation", "payment", "termination", "penalty"}:
             date_hints = _extract_date_hints_from_text(clause.text)
             responsible_party = _extract_responsible_party(clause.text)
+            dependency = _extract_dependency(clause.text)
+            if clause.clause_type == "penalty":
+                risk_level = "high"
+                status = ObligationStatus.pending_review
+                human_review_required = True
+                explanation = "Penalty clauses require human validation because they can imply material liability."
+            elif clause.clause_type == "termination":
+                risk_level = "medium"
+                status = ObligationStatus.pending_review if dependency else ObligationStatus.open
+                human_review_required = bool(dependency)
+                explanation = "Termination clauses are operationally sensitive and need review when dependencies are present."
+            elif clause.clause_type == "payment":
+                risk_level = "medium"
+                status = ObligationStatus.open
+                human_review_required = False
+                explanation = "Payment obligations are likely material but often straightforward to verify."
+            else:
+                risk_level = "low"
+                status = ObligationStatus.open
+                human_review_required = False
+                explanation = "This obligation was inferred from explicit duty language."
             obligations.append(
                 Obligation(
                     obligation_id=f"{doc.document_id}-ob-{idx}",
                     description=clause.text,
                     responsible_party=responsible_party,
                     due_date=_extract_due_date(clause.text, date_hints),
-                    dependency=_extract_dependency(clause.text),
+                    dependency=dependency,
                     observations=(
                         f"Inferred from {clause.clause_type} clause."
                         + (" Responsible party inferred from role language." if responsible_party else "")
                     ),
                     confidence=clause.confidence,
                     evidence=clause.evidence,
+                    risk_level=risk_level,
+                    status=status,
+                    human_review_required=human_review_required,
+                    explanation=explanation,
                 )
             )
     return obligations
@@ -173,9 +198,11 @@ def _validate_findings(doc: ParsedDocument, clauses: list[Clause]) -> RiskAssess
                 human_review_required=True,
                 rationale="Penalty language can have material legal and operational consequences.",
                 evidence=clauses[0].evidence if clauses else [],
+                explanation="Penalty language was detected in the contract body and should be reviewed by a human.",
             )
         )
-    if any(c.clause_type == "renewal" for c in clauses) and not any("notice" in c.text.lower() for c in clauses):
+    renewal_clauses = [c for c in clauses if c.clause_type == "renewal"]
+    if renewal_clauses and not any("notice" in c.text.lower() for c in renewal_clauses):
         alerts.append(
             Alert(
                 alert_id=f"{doc.document_id}-al-3",
@@ -184,6 +211,31 @@ def _validate_findings(doc: ParsedDocument, clauses: list[Clause]) -> RiskAssess
                 severity=RiskLevel.medium,
                 human_review_required=True,
                 rationale="Renewal clauses often require confirmation of notice period and termination conditions.",
+                explanation="The renewal clause does not clearly define a notice window, so human review is required.",
+            )
+        )
+    if any(c.clause_type == "data" for c in clauses):
+        alerts.append(
+            Alert(
+                alert_id=f"{doc.document_id}-al-4",
+                title="Data protection language detected",
+                message="Privacy or data protection language found.",
+                severity=RiskLevel.medium,
+                human_review_required=True,
+                rationale="Data-handling clauses can create compliance obligations and should be confirmed.",
+                explanation="Data protection terms were detected and may need policy or legal review.",
+            )
+        )
+    if any(c.clause_type == "confidentiality" for c in clauses):
+        alerts.append(
+            Alert(
+                alert_id=f"{doc.document_id}-al-5",
+                title="Confidentiality language detected",
+                message="Confidentiality language found.",
+                severity=RiskLevel.medium,
+                human_review_required=False,
+                rationale="Confidentiality clauses are important but usually routine unless exceptions are present.",
+                explanation="Confidentiality language is present and should be cross-checked against internal policy.",
             )
         )
     level = RiskLevel.low
@@ -191,7 +243,15 @@ def _validate_findings(doc: ParsedDocument, clauses: list[Clause]) -> RiskAssess
         level = RiskLevel.high
     elif alerts:
         level = RiskLevel.medium
-    return RiskAssessment(overall_level=level, alerts=alerts)
+    human_review_required = any(alert.human_review_required for alert in alerts) or level == RiskLevel.high
+    explanation = (
+        "High risk is driven by penalty language."
+        if level == RiskLevel.high
+        else "Medium risk is driven by renewal, confidentiality, or data protection language."
+        if level == RiskLevel.medium
+        else "No high-risk alert was detected by the current rule set."
+    )
+    return RiskAssessment(overall_level=level, alerts=alerts, human_review_required=human_review_required, explanation=explanation)
 
 
 def _summarize(
@@ -222,11 +282,16 @@ def _summarize(
         f"{len(clauses)} relevant clauses detected",
         f"{len(obligations)} obligations extracted",
         f"Overall risk: {risk.overall_level.value}",
+        f"Human review required: {'yes' if risk.human_review_required else 'no'}",
     ]
     return ExecutiveSummary(
         executive_summary=summary,
         key_points=points,
-        human_review_note="Review required for any high-risk alert or ambiguous extraction.",
+        human_review_note=(
+            "Review required for any high-risk alert or ambiguous extraction."
+            if risk.human_review_required
+            else "No mandatory human review was triggered by the current rule set."
+        ),
     )
 
 
@@ -306,10 +371,16 @@ def analyze_contract_file(
         for item in dates
     ]
     metadata = {**parsed.metadata, "comparison": comparison, "dates": dates, "risk_level": risk.overall_level.value}
+    matrix = ObligationMatrix(
+        obligations=obligations,
+        overall_risk=risk.overall_level.value,
+        human_review_required=risk.human_review_required,
+    )
     extraction_notes = [
         "Extraction separates objective clause matches from inferred obligations.",
         "Human review is required for high-risk alerts and ambiguous date or dependency patterns.",
         f"Retrieved {len(retrieval_hits)} evidence hits for traceability.",
+        f"Obligation matrix risk: {matrix.overall_risk}. Human review: {'yes' if matrix.human_review_required else 'no'}.",
     ]
     return ContractAnalysis(
         document_id=parsed.document_id,

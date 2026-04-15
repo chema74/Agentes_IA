@@ -45,3 +45,6 @@ def test_high_risk_language_is_flagged(tmp_path: Path, monkeypatch: pytest.Monke
     content = b"Late payment may incur a penalty fee."
     result = wf.analyze_contract_file("risk.txt", content, ".txt", None)
     assert any(alert.severity.value == "high" for alert in result.alerts)
+    assert result.risk_assessment.human_review_required is True
+    assert result.risk_assessment.explanation
+    assert result.summary.human_review_note
