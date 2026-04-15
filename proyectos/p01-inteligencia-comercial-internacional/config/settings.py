@@ -1,18 +1,3 @@
-"""
-config/settings.py
-
-Responsabilidad:
-- centralizar configuración del proyecto
-- cargar variables desde .env
-- cargar variables desde config/weights.yaml
-- exponer constantes seguras y compatibles con módulos heredados
-- aplicar fail-fast en producción cuando falten claves críticas
-
-IMPORTANTE:
-- este archivo no debe importarse a sí mismo
-- este archivo no debe importar Groq, Tavily ni clientes externos
-"""
-
 from __future__ import annotations
 
 import os
@@ -21,7 +6,8 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 import yaml
-from dotenv import load_dotenv
+# from dotenv import load_dotenv # Ya no es necesario aquí
+from core.config import settings as core_settings # Importar las settings centrales
 
 
 # ============================================================
@@ -31,7 +17,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 CONFIG_DIR = BASE_DIR / "config"
 DATA_DIR = BASE_DIR / "data"
-ENV_FILE = BASE_DIR / ".env"
+ENV_FILE = BASE_DIR / ".env" # Mantener para compatibilidad si se usa localmente
 WEIGHTS_FILE = CONFIG_DIR / "weights.yaml"
 
 
@@ -39,77 +25,19 @@ WEIGHTS_FILE = CONFIG_DIR / "weights.yaml"
 # 2. CARGA DEL .env
 # ============================================================
 
-load_dotenv(dotenv_path=ENV_FILE, override=False)
+# load_dotenv(dotenv_path=ENV_FILE, override=False) # La carga se hace en core_settings
 
 
 # ============================================================
 # 3. HELPERS
 # ============================================================
 
-def _to_bool(value: Any, default: bool = False) -> bool:
-    """
-    Convierte distintos formatos habituales a booleano.
-    """
-    if value is None:
-        return default
-
-    if isinstance(value, bool):
-        return value
-
-    text = str(value).strip().lower()
-    return text in {"1", "true", "yes", "y", "on", "si", "sí"}
-
-
-def _to_int(value: Any, default: int) -> int:
-    """
-    Convierte a entero con fallback seguro.
-    """
-    try:
-        return int(value)
-    except (TypeError, ValueError):
-        return default
-
-
-def _to_float(value: Any, default: float) -> float:
-    """
-    Convierte a float con fallback seguro.
-    """
-    try:
-        return float(value)
-    except (TypeError, ValueError):
-        return default
-
-
-def _read_env(name: str, default: Any = None) -> Any:
-    """
-    Lee una variable de entorno con fallback opcional a `st.secrets`.
-    """
-    env_value = os.getenv(name)
-    if env_value is not None:
-        return env_value
-
-    try:
-        import streamlit as st
-
-        if name in st.secrets:
-            return st.secrets[name]
-    except Exception:
-        pass
-
-    return default
-
-
-def _require_env(name: str) -> str:
-    """
-    Exige que exista una variable de entorno no vacía.
-    """
-    value = _read_env(name)
-    if value is None or not str(value).strip():
-        raise RuntimeError(
-            f"Falta la variable de entorno obligatoria '{name}' en modo production."
-        )
-    return value.strip()
-
+# Estos helpers se obtienen de core/config/settings.py
+_to_bool = core_settings._to_bool
+_to_int = core_settings._to_int
+_to_float = core_settings._to_float
+_read_env = core_settings._read_env
+_require_env = core_settings._require_env
 
 def _load_yaml_file(path: Path) -> Dict[str, Any]:
     """
@@ -173,12 +101,10 @@ def _normalize_weights(weights: Dict[str, float]) -> Dict[str, float]:
 # 4. MODO DE EJECUCIÓN
 # ============================================================
 
-APP_MODE = str(_read_env("APP_MODE", "demo")).strip().lower()
-if APP_MODE not in {"demo", "production"}:
-    APP_MODE = "demo"
-
-IS_DEMO = APP_MODE == "demo"
-IS_PRODUCTION = APP_MODE == "production"
+# Ahora se obtiene de las settings centrales
+APP_MODE = core_settings.APP_MODE
+IS_DEMO = core_settings.IS_DEMO
+IS_PRODUCTION = core_settings.IS_PRODUCTION
 
 
 # ============================================================
@@ -218,48 +144,37 @@ DEFAULT_COMPANY_TYPE = str(_read_env("DEFAULT_COMPANY_TYPE", "PYME")).strip()
 # 6. CONFIGURACIÓN DE MODELOS
 # ============================================================
 
-MODEL_NAME = str(_read_env("MODEL_NAME", "llama-3.3-70b-versatile")).strip()
-FALLBACK_MODEL_NAME = str(
-    _read_env("FALLBACK_MODEL_NAME", "llama-3.1-8b-instant")
-).strip()
-
-ENABLE_LLM_FALLBACK = _to_bool(_read_env("ENABLE_LLM_FALLBACK", "true"))
-
-TEMPERATURE = _to_float(_read_env("TEMPERATURE", 0.2), 0.2)
-MAX_TOKENS = _to_int(_read_env("MAX_TOKENS", 1800), 1800)
+# Se obtienen de las settings centrales
+MODEL_NAME = core_settings.MODEL_NAME
+FALLBACK_MODEL_NAME = core_settings.FALLBACK_MODEL_NAME
+ENABLE_LLM_FALLBACK = core_settings.ENABLE_LLM_FALLBACK
+TEMPERATURE = core_settings.TEMPERATURE
+MAX_TOKENS = core_settings.MAX_TOKENS
 
 
 # ============================================================
 # 7. CONFIGURACIÓN DE BÚSQUEDA
 # ============================================================
 
-SEARCH_DEPTH = str(_read_env("SEARCH_DEPTH", "advanced")).strip().lower()
-if SEARCH_DEPTH not in {"basic", "advanced"}:
-    SEARCH_DEPTH = "advanced"
-
-MAX_RESULTS_PER_QUERY = _to_int(_read_env("MAX_RESULTS_PER_QUERY", 5), 5)
+# Se obtienen de las settings centrales
+SEARCH_DEPTH = core_settings.SEARCH_DEPTH
+MAX_RESULTS_PER_QUERY = core_settings.MAX_RESULTS_PER_QUERY
 
 
 # ============================================================
 # 8. CONFIGURACIÓN DE RED / RETRY
 # ============================================================
 
-REQUEST_TIMEOUT_SECONDS = _to_int(_read_env("REQUEST_TIMEOUT_SECONDS", 45), 45)
-
-# Alias de compatibilidad hacia atrás
-REQUEST_TIMEOUT = REQUEST_TIMEOUT_SECONDS
-
-MAX_RETRIES = _to_int(_read_env("MAX_RETRIES", 4), 4)
-INITIAL_BACKOFF_SECONDS = _to_float(_read_env("INITIAL_BACKOFF_SECONDS", 1.5), 1.5)
-BACKOFF_MULTIPLIER = _to_float(_read_env("BACKOFF_MULTIPLIER", 2.0), 2.0)
-MAX_BACKOFF_SECONDS = _to_float(_read_env("MAX_BACKOFF_SECONDS", 20.0), 20.0)
-RETRY_JITTER_SECONDS = _to_float(_read_env("RETRY_JITTER_SECONDS", 0.3), 0.3)
-
-# Delay suave entre operaciones para evitar ráfagas contra proveedores
-THROTTLING_DELAY = _to_float(_read_env("THROTTLING_DELAY", 0.8), 0.8)
-
-# Alias de compatibilidad para retry.py y tests heredados
-MIN_RATE_LIMIT_DELAY = THROTTLING_DELAY
+# Se obtienen de las settings centrales
+REQUEST_TIMEOUT_SECONDS = core_settings.REQUEST_TIMEOUT_SECONDS
+REQUEST_TIMEOUT = core_settings.REQUEST_TIMEOUT_SECONDS # Alias
+MAX_RETRIES = core_settings.MAX_RETRIES
+INITIAL_BACKOFF_SECONDS = core_settings.INITIAL_BACKOFF_SECONDS
+BACKOFF_MULTIPLIER = core_settings.BACKOFF_MULTIPLIER
+MAX_BACKOFF_SECONDS = core_settings.MAX_BACKOFF_SECONDS
+RETRY_JITTER_SECONDS = core_settings.RETRY_JITTER_SECONDS
+THROTTLING_DELAY = core_settings.THROTTLING_DELAY
+MIN_RATE_LIMIT_DELAY = core_settings.THROTTLING_DELAY # Alias
 
 
 # ============================================================
@@ -275,12 +190,9 @@ CACHE_MAX_ENTRIES = _to_int(_read_env("CACHE_MAX_ENTRIES", 256), 256)
 # 10. CLAVES API
 # ============================================================
 
-if IS_PRODUCTION:
-    GROQ_API_KEY = _require_env("GROQ_API_KEY")
-    TAVILY_API_KEY = _require_env("TAVILY_API_KEY")
-else:
-    GROQ_API_KEY = str(_read_env("GROQ_API_KEY", "")).strip()
-    TAVILY_API_KEY = str(_read_env("TAVILY_API_KEY", "")).strip()
+# Ahora se obtienen de las settings centrales
+GROQ_API_KEY = core_settings.GROQ_API_KEY
+TAVILY_API_KEY = core_settings.TAVILY_API_KEY
 
 
 # ============================================================
@@ -412,45 +324,13 @@ def _cargar_weights_yaml() -> Dict[str, Any]:
 
 
 def validar_configuracion_runtime() -> List[str]:
-    """
-    Devuelve las claves API obligatorias que faltan según el modo activo.
-
-    Regla simple:
-    - en demo no bloquea el arranque por ausencia de claves
-    - en producción exige Groq y Tavily
-
-    Se apoya en el entorno actual para mantener el chequeo útil incluso si
-    el proceso cambia variables sin reiniciar el intérprete.
-    """
-    modo = str(_read_env("APP_MODE", APP_MODE)).strip().lower()
-    if modo not in {"demo", "production"}:
-        modo = APP_MODE
-
-    if modo != "production":
-        return []
-
-    faltantes: List[str] = []
-    if not str(_read_env("GROQ_API_KEY", "")).strip():
-        faltantes.append("GROQ_API_KEY")
-    if not str(_read_env("TAVILY_API_KEY", "")).strip():
-        faltantes.append("TAVILY_API_KEY")
-
-    return faltantes
+    # Esta validación ahora se delega a la capa compartida
+    return core_settings.validar_configuracion_runtime()
 
 
 def validar_configuracion_api() -> None:
-    """
-    Mantiene la compatibilidad con la validación histórica de la app.
-
-    Si faltan claves en producción, falla con un mensaje explícito.
-    """
-    faltantes = validar_configuracion_runtime()
-    if faltantes:
-        raise RuntimeError(
-            "Faltan claves de entorno: "
-            + ", ".join(faltantes)
-            + ". Copia .env.example a .env y anade las credenciales necesarias."
-        )
+    # Esta validación ahora se delega a la capa compartida
+    core_settings.validar_configuracion_api()
 
 
 def _infer_country_score_dimensions() -> List[str]:
@@ -503,6 +383,7 @@ COUNTRY_DIMENSIONS = COUNTRY_SCORE_DIMENSIONS
 # 13. PESOS POR DIMENSIÓN PARA SCORING
 # ============================================================
 
+
 def _infer_scoring_weights() -> Dict[str, float]:
     """
     Construye el diccionario SCORING_WEIGHTS compatible con scoring.py.
@@ -545,6 +426,7 @@ DIMENSION_WEIGHTS = WEIGHTS_CONFIG.get("dimension_weights", {})
 # ============================================================
 # 14. PESOS PAÍS VS SECTOR
 # ============================================================
+
 
 def _infer_country_vs_sector_weights() -> Dict[str, float]:
     """
@@ -589,23 +471,8 @@ COUNTRY_VS_SECTOR_WEIGHTS = _infer_country_vs_sector_weights()
 # 15. VALIDACIONES FINALES
 # ============================================================
 
-if not MODEL_NAME:
-    raise RuntimeError("MODEL_NAME no puede estar vacío.")
-
-if ENABLE_LLM_FALLBACK and not FALLBACK_MODEL_NAME:
-    raise RuntimeError(
-        "ENABLE_LLM_FALLBACK=True pero FALLBACK_MODEL_NAME está vacío."
-    )
-
-if MAX_RESULTS_PER_QUERY <= 0:
-    raise RuntimeError("MAX_RESULTS_PER_QUERY debe ser mayor que 0.")
-
-if MAX_TOKENS <= 0:
-    raise RuntimeError("MAX_TOKENS debe ser mayor que 0.")
-
-if REQUEST_TIMEOUT_SECONDS <= 0:
-    raise RuntimeError("REQUEST_TIMEOUT_SECONDS debe ser mayor que 0.")
-
+# Las validaciones generales se realizan en core_settings.py
+# Aquí solo las validaciones específicas de este proyecto
 if not COUNTRY_SCORE_DIMENSIONS:
     raise RuntimeError("COUNTRY_SCORE_DIMENSIONS no puede quedar vacío.")
 
@@ -669,8 +536,8 @@ __all__ = [
     "COUNTRY_VS_SECTOR_WEIGHTS",
     "THROTTLING_DELAY",
     "MIN_RATE_LIMIT_DELAY",
-    "validar_configuracion_runtime",
-    "validar_configuracion_api",
+    # "validar_configuracion_runtime", # Ya no se exporta directamente
+    # "validar_configuracion_api", # Ya no se exporta directamente
     "_DEFAULT_SCORING_WEIGHTS",
     "_DEFAULT_COUNTRY_VS_SECTOR_WEIGHTS",
     "_cargar_weights_yaml",
