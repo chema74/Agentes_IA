@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel"><h2>Paquetes de auditoria</h2><table><thead><tr><th>Nombre</th><th>Scope</th><th>Estado</th><th>Ruta</th><th>Creado por</th></tr></thead><tbody>{% for item in packages %}<tr><td>{{ item.name }}</td><td>{{ item.scope_id }}</td><td>{{ item.status }}</td><td>{{ item.storage_path or "-" }}</td><td>{{ item.created_by }}</td></tr>{% endfor %}</tbody></table></section>
+{% endblock %}

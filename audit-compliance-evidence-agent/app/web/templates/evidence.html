@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel"><h2>Evidencias</h2><table><thead><tr><th>Titulo</th><th>Tipo</th><th>Clasificacion</th><th>Suficiencia</th><th>Origen</th></tr></thead><tbody>{% for item in evidence_items %}<tr><td><a href="/evidence/{{ item.id }}">{{ item.title }}</a></td><td>{{ item.evidence_type }}</td><td>{{ item.classification }}</td><td>{{ item.sufficiency_status }}</td><td>{{ item.source_type }}</td></tr>{% endfor %}</tbody></table></section>
+{% endblock %}

@@ -1,0 +1,12 @@
+hours_preparation_per_audit: 140
+controls_per_audit: 60
+evidence_items_per_audit: 180
+hourly_cost_eur: 55
+time_per_evidence_collection_hours: 0.35
+time_per_review_and_followup_hours: 0.2
+evidence_reuse_rate: 0.3
+monthly_audits: 2
+automation_reduction_preparation_rate: 0.28
+automation_reduction_collection_rate: 0.25
+automation_reduction_followup_rate: 0.2
+implementation_monthly_cost_eur: 1800

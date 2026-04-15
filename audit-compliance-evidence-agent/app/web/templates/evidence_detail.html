@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h2>{{ evidence.title }}</h2>
+  <p><strong>Clasificacion:</strong> {{ evidence.classification }}</p>
+  <p><strong>Fuente:</strong> {{ evidence.source_name }} ({{ evidence.source_type }})</p>
+  <p><strong>Suficiencia:</strong> {{ evidence.sufficiency_status }}</p>
+  <p><strong>Trazabilidad:</strong> {{ evidence.storage_path }}</p>
+  <pre>{{ evidence.normalized_text[:1200] }}</pre>
+</section>
+<section class="panel"><h3>Mappings relacionados</h3><ul>{% for item in mappings %}<li>{{ item.control_id }} - confianza {{ item.confidence }} - {{ item.review_status }}</li>{% endfor %}</ul></section>
+{% endblock %}

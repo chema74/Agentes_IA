@@ -1,0 +1,5 @@
+Politica de revision de accesos privilegiados.
+
+El equipo de operaciones revisa cada trimestre las cuentas con privilegios elevados.
+El responsable del control debe aprobar la lista final y conservar evidencia de la revision.
+Las revocaciones se registran en ticket y se documentan en el repositorio interno.

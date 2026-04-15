@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Acceso{% endblock %}
+{% block content %}
+<section class="panel narrow">
+  <h2>Acceso demo</h2>
+  <p>Herramienta de apoyo a auditoria y compliance. No emite certificaciones ni cierra riesgos criticos automaticamente.</p>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post" action="/login" class="stack">
+    <label>Email<input type="email" name="email" required></label>
+    <label>Contrasena<input type="password" name="password" required></label>
+    <button type="submit">Entrar</button>
+  </form>
+  <div class="hint">
+    <p>Usuarios demo:</p>
+    <ul>{% for item in demo_users %}<li>{{ item.email }} (rol: {{ item.role }}) / clave: demo</li>{% endfor %}</ul>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel"><h2>Catalogo de controles</h2><table><thead><tr><th>Codigo</th><th>Nombre</th><th>Categoria</th><th>Criticidad</th><th>Owner</th><th>Estado</th></tr></thead><tbody>{% for item in controls %}<tr><td>{{ item.code }}</td><td>{{ item.name }}</td><td>{{ item.category }}</td><td>{{ item.criticality }}</td><td>{{ item.owner_user_id or "-" }}</td><td>{{ item.status }}</td></tr>{% endfor %}</tbody></table></section>
+{% endblock %}

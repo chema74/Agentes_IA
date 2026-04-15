@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel"><h2>Hallazgos</h2><table><thead><tr><th>Titulo</th><th>Control</th><th>Severidad</th><th>Estado</th><th>Revision humana</th></tr></thead><tbody>{% for item in findings %}<tr><td>{{ item.title }}</td><td>{{ item.control_id }}</td><td>{{ item.severity }}</td><td>{{ item.status }}</td><td>{{ "si" if item.human_review_required else "no" }}</td></tr>{% endfor %}</tbody></table></section>
+{% endblock %}

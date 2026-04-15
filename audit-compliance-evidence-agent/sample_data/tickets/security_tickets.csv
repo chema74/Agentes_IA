@@ -1,0 +1,4 @@
+ticket_id,status,priority,summary,owner
+INC-1001,open,critical,Orphan admin account detected,demo-owner
+INC-1002,in_progress,high,Missing quarterly approval evidence,demo-owner
+INC-1003,closed,medium,Log retention period reviewed,demo-owner

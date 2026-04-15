@@ -1,0 +1,4 @@
+id,code,name,description,category,criticality,expected_criterion,status,owner_user_id,version
+control-access-001,A.5.15,Revision periodica de accesos privilegiados,Revision y aprobacion periodica de accesos privilegiados,access_management,high,Debe existir owner procedimiento y evidencia de revision,active,demo-owner,1.0
+control-logging-002,A.8.15,Monitorizacion y conservacion de logs,Conservacion y monitorizacion de logs de seguridad,logging,medium,Debe existir export de logs y seguimiento,active,,1.0
+control-ticketing-003,OPS-12,Seguimiento de incidencias criticas,Las incidencias criticas deben quedar registradas y remediadas,incident_management,critical,Debe existir ticket owner y remediacion,active,demo-owner,1.0

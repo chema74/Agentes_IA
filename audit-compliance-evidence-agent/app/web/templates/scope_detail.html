@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h2>{{ scope.name }}</h2>
+  <p>{{ scope.description }}</p>
+  <p><strong>Framework:</strong> {{ scope.framework }} | <strong>Estado:</strong> {{ scope.status }}</p>
+</section>
+<section class="grid two">
+  <article class="panel"><h3>Controles</h3><ul>{% for item in controls %}<li>{{ item.code }} - {{ item.name }} ({{ item.criticality }})</li>{% endfor %}</ul></article>
+  <article class="panel"><h3>Evidencias</h3><ul>{% for item in evidence_items %}<li><a href="/evidence/{{ item.id }}">{{ item.title }}</a> - {{ item.classification }}</li>{% endfor %}</ul></article>
+</section>
+<section class="grid two">
+  <article class="panel"><h3>Hallazgos</h3><ul>{% for item in findings %}<li>{{ item.title }} - {{ item.severity }} - {{ item.status }}</li>{% endfor %}</ul></article>
+  <article class="panel"><h3>Gaps</h3><ul>{% for item in gaps %}<li>{{ item.gap_type }} - {{ item.severity }}</li>{% endfor %}</ul></article>
+</section>
+<section class="panel"><h3>Remediaciones</h3><ul>{% for item in remediations %}<li>{{ item.title }} - {{ item.status }}</li>{% endfor %}</ul></section>
+{% endblock %}

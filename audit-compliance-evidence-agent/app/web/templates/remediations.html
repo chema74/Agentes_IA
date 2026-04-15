@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel"><h2>Remediaciones</h2><table><thead><tr><th>Titulo</th><th>Hallazgo</th><th>Owner</th><th>Estado</th><th>Fecha objetivo</th></tr></thead><tbody>{% for item in remediations %}<tr><td>{{ item.title }}</td><td>{{ item.finding_id }}</td><td>{{ item.owner_user_id or "-" }}</td><td>{{ item.status }}</td><td>{{ item.target_date or "-" }}</td></tr>{% endfor %}</tbody></table></section>
+{% endblock %}

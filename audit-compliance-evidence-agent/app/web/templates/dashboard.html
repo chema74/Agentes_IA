@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="grid metrics">
+  <article class="card"><span>Scopes</span><strong>{{ metrics.scope_count }}</strong></article>
+  <article class="card"><span>Controles</span><strong>{{ metrics.control_count }}</strong></article>
+  <article class="card"><span>Evidencias</span><strong>{{ metrics.evidence_count }}</strong></article>
+  <article class="card"><span>Hallazgos abiertos</span><strong>{{ metrics.open_findings }}</strong></article>
+  <article class="card"><span>Remediaciones pendientes</span><strong>{{ metrics.pending_remediations }}</strong></article>
+  <article class="card"><span>Gaps sin resolver</span><strong>{{ metrics.unresolved_gaps }}</strong></article>
+</section>
+<section class="panel">
+  <h2>Scopes activos</h2>
+  <table>
+    <thead><tr><th>Nombre</th><th>Framework</th><th>Controles</th><th>Evidencias</th><th>Hallazgos</th></tr></thead>
+    <tbody>
+      {% for item in scopes %}
+      <tr><td><a href="/scopes/{{ item.scope.id }}">{{ item.scope.name }}</a></td><td>{{ item.scope.framework }}</td><td>{{ item.controls }}</td><td>{{ item.evidence }}</td><td>{{ item.findings }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

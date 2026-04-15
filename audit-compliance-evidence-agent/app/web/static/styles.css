@@ -1,0 +1,38 @@
+:root {
+  --bg: #f3efe7;
+  --panel: #fffdf8;
+  --ink: #1d2a31;
+  --muted: #66757d;
+  --line: #d8d1c4;
+  --accent: #0d5c63;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top left, rgba(13, 92, 99, 0.08), transparent 30%), linear-gradient(180deg, #faf7f0, var(--bg));
+}
+a { color: var(--accent); text-decoration: none; }
+.topbar { display: flex; justify-content: space-between; gap: 2rem; padding: 1.5rem 2rem; border-bottom: 1px solid var(--line); background: rgba(255, 253, 248, 0.92); }
+.topbar h1 { margin: 0.2rem 0 0; font-size: 1.6rem; }
+.eyebrow { margin: 0; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; color: var(--muted); }
+.topnav { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+.container { max-width: 1180px; margin: 0 auto; padding: 2rem; }
+.panel, .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 1.2rem 1.3rem; box-shadow: 0 12px 30px rgba(29, 42, 49, 0.05); }
+.narrow { max-width: 540px; margin: 3rem auto; }
+.grid { display: grid; gap: 1rem; }
+.grid.metrics { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 1rem; }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.card span { display: block; color: var(--muted); font-size: 0.9rem; }
+.card strong { display: block; margin-top: 0.35rem; font-size: 2rem; }
+.stack { display: grid; gap: 0.8rem; }
+label { display: grid; gap: 0.35rem; }
+input { padding: 0.75rem 0.85rem; border-radius: 12px; border: 1px solid var(--line); background: #fff; }
+button { width: fit-content; padding: 0.75rem 1rem; border: none; border-radius: 999px; background: var(--accent); color: white; cursor: pointer; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 0.75rem 0.5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+pre { overflow: auto; white-space: pre-wrap; padding: 1rem; border-radius: 12px; background: #f6f4ed; border: 1px solid var(--line); }
+.hint { margin-top: 1rem; color: var(--muted); }
+.error { color: #8b1e1e; }
+@media (max-width: 800px) { .topbar { flex-direction: column; } .container { padding: 1rem; } }

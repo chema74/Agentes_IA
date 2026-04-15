@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Audit Compliance Evidence Agent{% endblock %}</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Audit Compliance Evidence Agent</p>
+      <h1>Gobierno documental, controles y trazabilidad</h1>
+    </div>
+    {% if user %}
+    <nav class="topnav">
+      <a href="/">Inicio</a>
+      <a href="/scopes">Scopes</a>
+      <a href="/controls">Controles</a>
+      <a href="/evidence">Evidencias</a>
+      <a href="/gaps">Gaps</a>
+      <a href="/findings">Hallazgos</a>
+      <a href="/remediations">Remediaciones</a>
+      <a href="/packages">Paquetes</a>
+      <a href="/logout">Salir</a>
+    </nav>
+    {% endif %}
+  </header>
+  <main class="container">{% block content %}{% endblock %}</main>
+</body>
+</html>

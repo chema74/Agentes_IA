@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel"><h2>Gaps detectados</h2><table><thead><tr><th>Control</th><th>Tipo</th><th>Severidad</th><th>Revision humana</th></tr></thead><tbody>{% for item in gaps %}<tr><td>{{ item.control_id }}</td><td>{{ item.gap_type }}</td><td>{{ item.severity }}</td><td>{{ "si" if item.human_review_required else "no" }}</td></tr>{% endfor %}</tbody></table></section>
+{% endblock %}

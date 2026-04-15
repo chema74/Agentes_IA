@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h2>Scopes y revisiones</h2>
+  <table>
+    <thead><tr><th>Scope</th><th>Framework</th><th>Estado</th><th>Controles</th><th>Evidencias</th><th>Hallazgos</th></tr></thead>
+    <tbody>
+      {% for item in scopes %}
+      <tr><td><a href="/scopes/{{ item.scope.id }}">{{ item.scope.name }}</a></td><td>{{ item.scope.framework }}</td><td>{{ item.scope.status }}</td><td>{{ item.controls }}</td><td>{{ item.evidence }}</td><td>{{ item.findings }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}
