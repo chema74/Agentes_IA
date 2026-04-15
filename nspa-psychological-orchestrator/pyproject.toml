@@ -1,0 +1,9 @@
+[project]
+name = "nspa-psychological-orchestrator"
+version = "0.1.0"
+description = "Orquestador neuro-simbolico para apoyo emocional con seguridad y continuidad narrativa."
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --basetemp=.pytest-tmp"
