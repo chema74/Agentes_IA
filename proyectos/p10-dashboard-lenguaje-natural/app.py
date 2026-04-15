@@ -1,5 +1,5 @@
 ﻿"""
-P14 · Dashboard con lenguaje natural
+P10 · Dashboard con lenguaje natural
 ===================================
 Autor: José María
 Stack: Groq · pandas · Plotly · Streamlit
@@ -294,7 +294,7 @@ with st.sidebar:
         <span style="color:#d4a84b">●</span> Nota: revisa los resultados antes de usarlos
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
-        P14 · Dashboard con lenguaje natural<br>
+        P10 · Dashboard con lenguaje natural<br>
         <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/proyectos/p10-dashboard-lenguaje-natural" style="color:#7a5e28">Ver proyecto en GitHub →</a>
     </div>""",
         unsafe_allow_html=True,
@@ -304,7 +304,7 @@ with st.sidebar:
 st.markdown(
     """
 <div class="app-header">
-  <div class="app-tag">P14 · Dashboard con lenguaje natural · Portfolio IA Aplicada
+  <div class="app-tag">P10 · Dashboard con lenguaje natural · Portfolio IA Aplicada
     <span class="groq-badge">⚡ Groq · Llama 3.3 70B</span>
   </div>
   <div class="app-title">Explora tus datos con <em>lenguaje natural</em></div>
@@ -505,6 +505,6 @@ elif preguntar and not pregunta.strip():
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    "<div class='app-footer'>P14 · Dashboard con lenguaje natural · Groq + Llama 3.3 70B · Portfolio IA Aplicada · José María · Sevilla</div>",
+    "<div class='app-footer'>P10 · Dashboard con lenguaje natural · Groq + Llama 3.3 70B · Portfolio IA Aplicada · José María · Sevilla</div>",
     unsafe_allow_html=True,
 )
