@@ -1,0 +1,7 @@
+hours_per_contract_manual_review: 2
+contracts_per_month: 10
+cost_per_hour: 50
+hours_saved_initial_extraction: 0.5
+hours_saved_followup_tracking: 0.25
+omission_reduction_rate: 0.1
+monthly_admin_error_cost: 1000

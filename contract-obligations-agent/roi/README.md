@@ -13,3 +13,14 @@ The calculator is intentionally transparent:
 - monthly and annual savings
 - payback estimate
 
+The calculator exposes a breakdown so assumptions can be audited:
+
+- manual review cost baseline
+- extraction savings
+- follow-up tracking savings
+- omission savings
+- total monthly savings
+- annual savings
+- payback in months
+
+Use `python -m roi.calculator` from the project root to print the current ROI breakdown as JSON.

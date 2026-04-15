@@ -24,6 +24,11 @@ class Settings:
     chroma_path: Path = Path(_get("CHROMA_PATH", "./data/chroma")).resolve()
     qdrant_url: str = _get("QDRANT_URL", "http://localhost:6333")
     qdrant_collection: str = _get("QDRANT_COLLECTION", "contract-obligations")
+    postgres_url: str = _get("POSTGRES_URL", "postgresql+psycopg://contract_obligations:contract_obligations@localhost:5432/contract_obligations")
+    object_storage_backend: str = _get("OBJECT_STORAGE_BACKEND", "local")
+    object_storage_endpoint: str = _get("OBJECT_STORAGE_ENDPOINT", "")
+    object_storage_bucket: str = _get("OBJECT_STORAGE_BUCKET", "contract-obligations")
+    object_storage_prefix: str = _get("OBJECT_STORAGE_PREFIX", "analysis")
     litellm_model: str = _get("LITELLM_MODEL", "groq/llama-3.3-70b-versatile")
     litellm_fallback_model: str = _get("LITELLM_FALLBACK_MODEL", "groq/llama-3.1-8b-instant")
     groq_api_key: str = _get("GROQ_API_KEY")
@@ -42,4 +47,3 @@ class Settings:
 
 settings = Settings()
 settings.ensure_dirs()
-

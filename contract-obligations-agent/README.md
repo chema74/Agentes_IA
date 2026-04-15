@@ -17,9 +17,21 @@ copy contract-obligations-agent\.env.example contract-obligations-agent\.env
 python contract-obligations-agent\scripts\run_demo.py
 ```
 
+## ROI
+
+```bash
+python -m roi.calculator
+```
+
+## Docs
+
+- [Architecture](docs/architecture.md)
+- [Production path](docs/production.md)
+- [Sprint plan](docs/sprints.md)
+- [ROI](roi/README.md)
+
 ## Safety
 
 - Not legal advice.
 - Human review required for high-risk cases.
 - Every output must carry evidence.
-

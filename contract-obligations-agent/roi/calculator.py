@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from pathlib import Path
 import json
 
@@ -33,25 +33,41 @@ def _parse_simple_yaml(path: Path) -> dict:
 
 
 @dataclass
-class ROIResult:
-    monthly_savings: float
+class ROIBreakdown:
+    manual_review_cost_monthly: float
+    extraction_savings_monthly: float
+    tracking_savings_monthly: float
+    omission_savings_monthly: float
+    total_monthly_savings: float
     annual_savings: float
     payback_months: float
 
 
-def calculate_roi(assumptions_path: str | Path) -> ROIResult:
+def calculate_roi(assumptions_path: str | Path) -> ROIBreakdown:
     assumptions = _parse_simple_yaml(Path(assumptions_path))
-    monthly = assumptions["contracts_per_month"] * (
-        assumptions["hours_saved_initial_extraction"] + assumptions["hours_saved_followup_tracking"]
-    ) * assumptions["cost_per_hour"]
-    monthly += assumptions["monthly_admin_error_cost"] * assumptions["omission_reduction_rate"]
-    annual = monthly * 12
-    investment = assumptions["hours_per_contract_manual_review"] * assumptions["contracts_per_month"] * assumptions["cost_per_hour"]
-    payback = investment / monthly if monthly else 0.0
-    return ROIResult(monthly_savings=monthly, annual_savings=annual, payback_months=payback)
+    manual_review_cost = assumptions["hours_per_contract_manual_review"] * assumptions["contracts_per_month"] * assumptions["cost_per_hour"]
+    extraction_savings = assumptions["contracts_per_month"] * assumptions["hours_saved_initial_extraction"] * assumptions["cost_per_hour"]
+    tracking_savings = assumptions["contracts_per_month"] * assumptions["hours_saved_followup_tracking"] * assumptions["cost_per_hour"]
+    omission_savings = assumptions["monthly_admin_error_cost"] * assumptions["omission_reduction_rate"]
+    total_monthly_savings = extraction_savings + tracking_savings + omission_savings
+    annual_savings = total_monthly_savings * 12
+    payback_months = manual_review_cost / total_monthly_savings if total_monthly_savings else 0.0
+    return ROIBreakdown(
+        manual_review_cost_monthly=manual_review_cost,
+        extraction_savings_monthly=extraction_savings,
+        tracking_savings_monthly=tracking_savings,
+        omission_savings_monthly=omission_savings,
+        total_monthly_savings=total_monthly_savings,
+        annual_savings=annual_savings,
+        payback_months=payback_months,
+    )
+
+
+def roi_summary(assumptions_path: str | Path) -> dict:
+    result = calculate_roi(assumptions_path)
+    return asdict(result)
 
 
 if __name__ == "__main__":
-    result = calculate_roi(Path(__file__).with_name("assumptions.yaml"))
-    print(json.dumps(result.__dict__, indent=2))
-
+    result = roi_summary(Path(__file__).with_name("assumptions.yaml"))
+    print(json.dumps(result, indent=2, ensure_ascii=False))
