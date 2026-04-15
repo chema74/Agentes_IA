@@ -295,7 +295,7 @@ with st.sidebar:
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
         P14 · Dashboard con lenguaje natural<br>
-        <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/proyectos/p14-dashboard-lenguaje-natural" style="color:#7a5e28">Ver proyecto en GitHub →</a>
+        <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/proyectos/p10-dashboard-lenguaje-natural" style="color:#7a5e28">Ver proyecto en GitHub →</a>
     </div>""",
         unsafe_allow_html=True,
     )

@@ -17,7 +17,7 @@ from config.settings import (
     FALLBACK_MODEL_NAME,
     GROQ_API_KEY,
     MODEL_NAME,
-    REQUEST_TIMEOUT,
+    REQUEST_TIMEOUT_SECONDS,
     TAVILY_API_KEY,
 )
 
@@ -50,7 +50,7 @@ def get_clients() -> Tuple[TavilyClient, Groq]:
     try:
         groq = Groq(
             api_key=GROQ_API_KEY,
-            timeout=REQUEST_TIMEOUT,
+            timeout=REQUEST_TIMEOUT_SECONDS,
         )
     except TypeError:
         # Compatibilidad con versiones antiguas del SDK de Groq

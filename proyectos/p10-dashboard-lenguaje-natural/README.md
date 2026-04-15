@@ -1,4 +1,4 @@
-﻿# P14 · Dashboard con lenguaje natural
+﻿# P10 · Dashboard con lenguaje natural
 
 > **Portfolio IA Aplicada · José María · Sevilla**  
 > Stack: Groq · pandas · Plotly · Streamlit
@@ -31,7 +31,7 @@ No construye un dashboard persistente ni un modelo semántico completo. Su alcan
 ## Instalación
 
 ```bash
-cd proyectos/p14-dashboard-lenguaje-natural
+cd proyectos/p10-dashboard-lenguaje-natural
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
@@ -70,3 +70,4 @@ Resultado: gráfico Plotly / tabla / valor
 ---
 
 *Portfolio IA Aplicada · José María · Sevilla · 2026*
+

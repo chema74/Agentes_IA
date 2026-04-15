@@ -1,34 +1,34 @@
-# P11 · Evaluador de Ideas de Negocio con IA
+﻿# P09 Â· Evaluador de Ideas de Negocio con IA
 
-> **Portfolio IA Aplicada — José María · Sevilla**  
-> Stack: Groq · Tavily · Streamlit  
+> **Portfolio IA Aplicada â€” JosÃ© MarÃ­a Â· Sevilla**  
+> Stack: Groq Â· Tavily Â· Streamlit  
 > Coste: **GRATUITO**
 
 ---
 
-## ¿Qué hace este proyecto?
+## Â¿QuÃ© hace este proyecto?
 
-Describe tu idea de negocio y en 30 segundos recibes un análisis completo:
+Describe tu idea de negocio y en 30 segundos recibes un anÃ¡lisis completo:
 
-- Puntuación global 1-10 con veredicto claro
-- Análisis por 5 dimensiones: mercado, diferenciación, viabilidad, ejecución, timing
+- PuntuaciÃ³n global 1-10 con veredicto claro
+- AnÃ¡lisis por 5 dimensiones: mercado, diferenciaciÃ³n, viabilidad, ejecuciÃ³n, timing
 - DAFO completo: fortalezas, debilidades, oportunidades y amenazas
-- Identificación de competidores clave
-- Modelo de negocio sugerido con estimación de inversión
-- Plan de validación de 5 pasos para probar la idea con el mínimo riesgo
+- IdentificaciÃ³n de competidores clave
+- Modelo de negocio sugerido con estimaciÃ³n de inversiÃ³n
+- Plan de validaciÃ³n de 5 pasos para probar la idea con el mÃ­nimo riesgo
 - Consejo directo del "experto" sin halagos innecesarios
 
 ---
 
-## Instalación
+## InstalaciÃ³n
 
 ```bash
-cd proyectos/p11-evaluador-ideas-negocio
+cd proyectos/p9-evaluador-ideas-negocio
 python -m pip install -r requirements.txt
-copy .env.example .env   # añadir GROQ_API_KEY y TAVILY_API_KEY
+copy .env.example .env   # aÃ±adir GROQ_API_KEY y TAVILY_API_KEY
 python -m streamlit run app.py
 ```
 
 ---
 
-*Portfolio IA Aplicada · José María · Sevilla · 2026*
+*Portfolio IA Aplicada Â· JosÃ© MarÃ­a Â· Sevilla Â· 2026*

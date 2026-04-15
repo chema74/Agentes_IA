@@ -1,4 +1,4 @@
-﻿# P07 · Revisor de contratos legales
+﻿# P06 · Revisor de contratos legales
 
 > **Portfolio IA Aplicada · José María · Sevilla**  
 > Stack: Groq · ChromaDB · sentence-transformers · PyMuPDF · Streamlit  
@@ -26,7 +26,7 @@ Su función es **asistir la revisión documental**, no sustituir la revisión ju
 ## Instalación
 
 ```bash
-cd proyectos/p07-rag-contratos-legales
+cd proyectos/p06-rag-contratos-legales
 pip install -r requirements.txt
 copy .env.example .env
 # Añadir GROQ_API_KEY en el archivo .env
@@ -61,3 +61,4 @@ Se muestra una respuesta asistida con referencia útil al documento
 ---
 
 *Portfolio IA Aplicada · José María · Sevilla · 2026*
+

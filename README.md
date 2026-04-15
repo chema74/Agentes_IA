@@ -46,15 +46,15 @@ Agente orientado a productividad, organización y ejecución de tareas de alto v
 Permite cargar pliegos en PDF, analizarlos y obtener una evaluación de viabilidad con foco en requisitos, riesgos y criterios de adjudicación.
 
 ### 3) Revisor de contratos legales
-**Proyecto público principal:** P07  
+**Proyecto público principal:** P06  
 Agente orientado a revisión documental, lectura crítica de cláusulas y apoyo en análisis contractual.
 
 ### 4) Dashboard con lenguaje natural
-**Proyecto público principal:** P14  
+**Proyecto público principal:** P10  
 Permite consultar información y métricas mediante lenguaje natural, acercando la analítica a perfiles de negocio.
 
 ### 5) Agente de criba de candidatos
-**Proyecto público principal:** P05  
+**Proyecto público principal:** P04  
 Ayuda a priorizar candidaturas a partir de criterios definidos, con foco en selección, filtrado y evaluación inicial.
 
 ### 6) Simulador de habilidades directivas
@@ -76,9 +76,9 @@ Base documental corporativa para recuperación semántica, consulta contextual y
 Conjunto de capacidades orientadas a diagnóstico organizativo, desarrollo de personas, evolución de equipos y apoyo a procesos de cambio.
 
 ### 10) Agente de ventas y estrategia de negocio
-**Base pública actual:** P23  
-**Fusión estratégica de:** P04 + P11 + P16 + P23  
-Genera propuestas comerciales entregables a partir de información de cliente, oferta y contexto comercial. La versión pública actual cubre esa capacidad de forma demostrable y actúa como base visible del agente final.
+**Base pública actual:** pendiente de publicación en esta copia del repositorio  
+**Fusión estratégica de:** P04 + P11 + P16 + P23 (plan de consolidación)  
+Línea estratégica orientada a propuestas comerciales entregables. En esta copia local no existe todavía una base pública dedicada para este agente final.
 
 ---
 

@@ -1,1 +1,54 @@
+# Global Python ignores
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+**/.venv/
+**/venv/
+**/.venv_check/
+
+# Secrets
+.env
+**/.env
+!.env.example
+!**/.env.example
+.streamlit/secrets.toml
+**/.streamlit/secrets.toml
+
+# Runtime/output artifacts
+logs/
+history/
+outputs/
+data/
+*.log
+*.jsonl
+*.sqlite3
+*.bin
+*.docx
+
+# Vector DB and generated stores
+chroma_db/
+chroma_db_*/
+**/chroma_db/
+**/chroma_db_*/
+
+# Local tooling/worktrees
+.claude/
+**/.claude/
 proyectos/p01-inteligencia-comercial-internacional/.claude/worktrees/reverent-heyrovsky/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
