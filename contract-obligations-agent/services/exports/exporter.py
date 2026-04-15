@@ -72,3 +72,13 @@ def export_docx(result: dict, path: Path) -> Path:
             doc.add_paragraph(f"[{hit.get('rank', '?')}] {hit.get('source_label', '')}: {hit.get('source_excerpt', '')}", style="List Bullet")
     doc.save(path)
     return path
+
+
+def export_bundle(result: dict, directory: Path) -> dict[str, Path]:
+    directory.mkdir(parents=True, exist_ok=True)
+    return {
+        "json": export_json(result, directory / "analysis.json"),
+        "markdown": export_markdown(result, directory / "analysis.md"),
+        "csv": export_csv(result, directory / "obligations.csv"),
+        "docx": export_docx(result, directory / "analysis.docx"),
+    }
