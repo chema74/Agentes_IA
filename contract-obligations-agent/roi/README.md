@@ -1,26 +1,26 @@
 # ROI
 
-Editable assumptions live in `assumptions.yaml`.
+Las hipótesis editables viven en `assumptions.yaml`.
 
-The calculator is intentionally transparent:
+La calculadora es deliberadamente transparente:
 
-- hours per contract review
-- contracts per month
-- cost per hour
-- extraction savings
-- follow-up tracking savings
-- omission reduction estimate
-- monthly and annual savings
-- payback estimate
+- horas de revisión por contrato
+- contratos al mes
+- coste por hora
+- ahorro por extracción
+- ahorro por seguimiento
+- estimación de reducción de omisiones
+- ahorro mensual y anual
+- payback estimado
 
-The calculator exposes a breakdown so assumptions can be audited:
+La calculadora expone un desglose para que las hipótesis se puedan auditar:
 
-- manual review cost baseline
-- extraction savings
-- follow-up tracking savings
-- omission savings
-- total monthly savings
-- annual savings
-- payback in months
+- coste base de revisión manual
+- ahorro por extracción
+- ahorro por seguimiento
+- ahorro por omisiones
+- ahorro mensual total
+- ahorro anual
+- payback en meses
 
-Use `python -m roi.calculator` from the project root to print the current ROI breakdown as JSON.
+Ejecuta `python -m roi.calculator` desde la raíz del proyecto para imprimir el desglose actual en JSON.
