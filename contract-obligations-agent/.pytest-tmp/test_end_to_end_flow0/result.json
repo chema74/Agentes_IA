@@ -11,7 +11,13 @@
         "confidentiality"
       ]
     },
-    "dates": [],
+    "dates": [
+      {
+        "date": "within 30 days of invoice date",
+        "context": "rts by [redacted-phone].\nPayment is due within 30 days of invoice date.\nThe agreement renews automatically unl",
+        "category": "relative"
+      }
+    ],
     "risk_level": "high"
   },
   "raw_text": "Master Services Agreement\n\nThe Supplier shall deliver monthly reports by 2026-06-01.\nPayment is due within 30 days of invoice date.\nThe agreement renews automatically unless either party gives 60 days' notice.\nLate payment may incur a penalty fee.\nConfidential information must not be disclosed to third parties.\n\n",
@@ -111,10 +117,10 @@
     {
       "obligation_id": "49ee723801bc064bc24b397d-ob-1",
       "description": "The Supplier shall deliver monthly reports by [redacted-phone].",
-      "responsible_party": null,
+      "responsible_party": "supplier",
       "due_date": null,
       "dependency": null,
-      "observations": "Inferred from obligation clause.",
+      "observations": "Inferred from obligation clause. Responsible party inferred from role language.",
       "confidence": 0.66,
       "status": "open",
       "evidence": [
@@ -131,7 +137,7 @@
       "obligation_id": "49ee723801bc064bc24b397d-ob-2",
       "description": "Payment is due within 30 days of invoice date.",
       "responsible_party": null,
-      "due_date": null,
+      "due_date": "within 30 days of invoice date",
       "dependency": null,
       "observations": "Inferred from payment clause.",
       "confidence": 0.72,
@@ -161,6 +167,23 @@
           "source_label": "sample_contract.txt",
           "chunk_id": "sample_contract.txt-chunk-1",
           "source_excerpt": "Late payment may incur a penalty fee.",
+          "confidence": 0.72
+        }
+      ]
+    }
+  ],
+  "dates": [
+    {
+      "date": "within 30 days of invoice date",
+      "context": "rts by [redacted-phone].\nPayment is due within 30 days of invoice date.\nThe agreement renews automatically unl",
+      "category": "relative",
+      "confidence": 0.55,
+      "evidence": [
+        {
+          "source_id": "49ee723801bc064bc24b397d",
+          "source_label": "sample_contract.txt",
+          "chunk_id": "sample_contract.txt-chunk-1",
+          "source_excerpt": "The Supplier shall deliver monthly reports by [redacted-phone].",
           "confidence": 0.72
         }
       ]
@@ -277,5 +300,9 @@
       "source_label": "sample_contract.txt",
       "score": 3.0
     }
+  ],
+  "extraction_notes": [
+    "Extraction separates objective clause matches from inferred obligations.",
+    "Human review is required for high-risk alerts and ambiguous date or dependency patterns."
   ]
 }

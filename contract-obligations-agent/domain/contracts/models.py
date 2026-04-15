@@ -34,6 +34,14 @@ class ParsedDocument(BaseModel):
     chunks: list[TextChunk] = Field(default_factory=list)
 
 
+class DateMention(BaseModel):
+    date: str
+    context: str = ""
+    category: str = "unknown"
+    confidence: float = 0.5
+    evidence: list[EvidenceRef] = Field(default_factory=list)
+
+
 class ContractDocument(BaseModel):
     document_id: str
     filename: str
@@ -61,9 +69,11 @@ class ContractAnalysis(BaseModel):
     chunks: list[TextChunk] = Field(default_factory=list)
     clauses: list[Clause] = Field(default_factory=list)
     obligations: list[Obligation] = Field(default_factory=list)
+    dates: list[DateMention] = Field(default_factory=list)
     alerts: list[Alert] = Field(default_factory=list)
     risk_assessment: RiskAssessment | None = None
     summary: ExecutiveSummary = Field(default_factory=lambda: ExecutiveSummary(executive_summary=""))
     comparison: dict = Field(default_factory=dict)
     evidences: list[EvidenceRef] = Field(default_factory=list)
     retrieval_hits: list[dict] = Field(default_factory=list)
+    extraction_notes: list[str] = Field(default_factory=list)

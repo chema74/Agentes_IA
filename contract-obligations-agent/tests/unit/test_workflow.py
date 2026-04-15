@@ -24,6 +24,9 @@ def test_analyze_contract_extracts_obligations_and_alerts(tmp_path: Path, monkey
     result = wf.analyze_contract_file("sample_contract.txt", content, ".txt", checklist_json=json.dumps({"items": ["payment terms", "renewal"]}))
     assert result.clauses
     assert result.obligations
+    assert result.dates
+    assert any(obligation.responsible_party for obligation in result.obligations)
+    assert any(obligation.due_date for obligation in result.obligations)
     assert result.summary.executive_summary
     assert result.comparison["status"] == "ok"
 
@@ -33,4 +36,3 @@ def test_high_risk_language_is_flagged(tmp_path: Path, monkeypatch: pytest.Monke
     content = b"Late payment may incur a penalty fee."
     result = wf.analyze_contract_file("risk.txt", content, ".txt", None)
     assert any(alert.severity.value == "high" for alert in result.alerts)
-

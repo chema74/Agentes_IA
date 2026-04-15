@@ -9,7 +9,7 @@ from core.config.settings import settings
 from core.logging.logger import configure_logging
 from core.security.redaction import redact_sensitive_text
 from domain.clauses.models import Clause, EvidenceRef
-from domain.contracts.models import ContractAnalysis, ExecutiveSummary, ParsedDocument
+from domain.contracts.models import ContractAnalysis, DateMention, ExecutiveSummary, ParsedDocument
 from domain.obligations.models import Obligation
 from domain.risk_flags.models import Alert, RiskAssessment, RiskLevel
 from services.llm.gateway import LiteLLMGateway
@@ -32,6 +32,13 @@ CLAUSE_PATTERNS = {
 }
 
 DATE_RE = re.compile(r"\b(\d{1,2}[/-]\d{1,2}[/-]\d{2,4}|\d{4}-\d{2}-\d{2})\b")
+RESPONSIBLE_PATTERNS = [
+    (re.compile(r"\b(supplier|vendor|provider|contractor)\b", re.I), "supplier"),
+    (re.compile(r"\b(customer|client|buyer|recipient)\b", re.I), "customer"),
+    (re.compile(r"\b(shall|must|will|is required to|undertakes to)\b", re.I), "obligated_party"),
+]
+DEPENDENCY_RE = re.compile(r"\b(subject to|provided that|unless|if|conditional on|contingent upon)\b([^.;:\n]*)", re.I)
+RELATIVE_DUE_RE = re.compile(r"\b(within|no later than|not later than|at least)\s+([^\.;:\n]+)", re.I)
 
 
 def _vectorstore():
@@ -73,22 +80,67 @@ def _extract_clauses(doc: ParsedDocument) -> list[Clause]:
 def _extract_dates(doc: ParsedDocument) -> list[dict]:
     items = []
     for match in DATE_RE.finditer(doc.normalized_text):
-        items.append({"date": match.group(1), "context": doc.normalized_text[max(0, match.start() - 40) : match.end() + 40]})
+        context = doc.normalized_text[max(0, match.start() - 40) : match.end() + 40]
+        items.append({"date": match.group(1), "context": context, "category": "explicit"})
+    for match in RELATIVE_DUE_RE.finditer(doc.normalized_text):
+        context = doc.normalized_text[max(0, match.start() - 40) : match.end() + 40]
+        items.append({"date": match.group(0), "context": context, "category": "relative"})
     return items
+
+
+def _extract_date_hints_from_text(text: str) -> list[dict]:
+    items = []
+    for match in DATE_RE.finditer(text):
+        items.append({"date": match.group(1), "context": text, "category": "explicit"})
+    for match in RELATIVE_DUE_RE.finditer(text):
+        items.append({"date": match.group(0), "context": text, "category": "relative"})
+    return items
+
+
+def _extract_responsible_party(text: str) -> str | None:
+    lowered = text.lower()
+    for pattern, label in RESPONSIBLE_PATTERNS:
+        if pattern.search(lowered):
+            return label
+    return None
+
+
+def _extract_dependency(text: str) -> str | None:
+    match = DEPENDENCY_RE.search(text)
+    if match:
+        return match.group(0).strip()
+    return None
+
+
+def _extract_due_date(text: str, dates: list[dict]) -> str | None:
+    explicit_dates = [item["date"] for item in dates if item.get("category") == "explicit"]
+    if explicit_dates:
+        return explicit_dates[0]
+    relative = next((item["date"] for item in dates if item.get("category") == "relative"), None)
+    if relative:
+        return relative
+    if "renew" in text.lower():
+        return "upon renewal notice window"
+    return None
 
 
 def _extract_obligations(doc: ParsedDocument, clauses: list[Clause]) -> list[Obligation]:
     obligations: list[Obligation] = []
     for idx, clause in enumerate(clauses, start=1):
         if clause.clause_type in {"obligation", "payment", "termination", "penalty"}:
+            date_hints = _extract_date_hints_from_text(clause.text)
+            responsible_party = _extract_responsible_party(clause.text)
             obligations.append(
                 Obligation(
                     obligation_id=f"{doc.document_id}-ob-{idx}",
                     description=clause.text,
-                    responsible_party=None,
-                    due_date=None,
-                    dependency=None,
-                    observations=f"Inferred from {clause.clause_type} clause.",
+                    responsible_party=responsible_party,
+                    due_date=_extract_due_date(clause.text, date_hints),
+                    dependency=_extract_dependency(clause.text),
+                    observations=(
+                        f"Inferred from {clause.clause_type} clause."
+                        + (" Responsible party inferred from role language." if responsible_party else "")
+                    ),
                     confidence=clause.confidence,
                     evidence=clause.evidence,
                 )
@@ -119,6 +171,17 @@ def _validate_findings(doc: ParsedDocument, clauses: list[Clause]) -> RiskAssess
                 human_review_required=True,
                 rationale="Penalty language can have material legal and operational consequences.",
                 evidence=clauses[0].evidence if clauses else [],
+            )
+        )
+    if any(c.clause_type == "renewal" for c in clauses) and not any("notice" in c.text.lower() for c in clauses):
+        alerts.append(
+            Alert(
+                alert_id=f"{doc.document_id}-al-3",
+                title="Renewal language needs review",
+                message="Automatic renewal language detected without a clear notice window.",
+                severity=RiskLevel.medium,
+                human_review_required=True,
+                rationale="Renewal clauses often require confirmation of notice period and termination conditions.",
             )
         )
     level = RiskLevel.low
@@ -198,7 +261,21 @@ def analyze_contract_file(
             )
         )
     dates = _extract_dates(parsed)
+    structured_dates = [
+        DateMention(
+            date=item["date"],
+            context=item.get("context", ""),
+            category=item.get("category", "unknown"),
+            confidence=0.7 if item.get("category") == "explicit" else 0.55,
+            evidence=clauses[0].evidence if clauses else [],
+        )
+        for item in dates
+    ]
     metadata = {**parsed.metadata, "comparison": comparison, "dates": dates, "risk_level": risk.overall_level.value}
+    extraction_notes = [
+        "Extraction separates objective clause matches from inferred obligations.",
+        "Human review is required for high-risk alerts and ambiguous date or dependency patterns.",
+    ]
     return ContractAnalysis(
         document_id=parsed.document_id,
         filename=parsed.filename,
@@ -209,10 +286,12 @@ def analyze_contract_file(
         chunks=parsed.chunks,
         clauses=clauses,
         obligations=obligations,
+        dates=structured_dates,
         alerts=alerts,
         risk_assessment=risk,
         summary=summary,
         comparison=comparison,
         evidences=[ref for clause in clauses for ref in clause.evidence],
         retrieval_hits=retrieval_hits,
+        extraction_notes=extraction_notes,
     )
