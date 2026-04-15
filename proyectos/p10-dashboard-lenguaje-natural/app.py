@@ -44,6 +44,10 @@ ALLOWED_BUILTINS = {
     "range": range,
 }
 
+MAX_CODE_CHARS = 4000
+MAX_CODE_LINES = 80
+MAX_AST_NODES = 500
+
 PATRONES_BLOQUEADOS = {
     "import ": "No se permiten importaciones dinámicas.",
     "from ": "No se permiten importaciones dinámicas.",
@@ -64,6 +68,9 @@ PATRONES_BLOQUEADOS = {
     "pathlib": "No se permite operar sobre rutas.",
     "socket": "No se permite acceso de red.",
     "requests": "No se permite acceso HTTP.",
+    "getattr(": "No se permite reflexión dinámica.",
+    "setattr(": "No se permite mutar atributos dinámicamente.",
+    "delattr(": "No se permite borrar atributos dinámicamente.",
 }
 
 NOMBRES_BLOQUEADOS = {
@@ -84,6 +91,38 @@ NOMBRES_BLOQUEADOS = {
     "shutil",
     "socket",
     "requests",
+    "getattr",
+    "setattr",
+    "delattr",
+}
+
+NODOS_BLOQUEADOS = (
+    ast.Try,
+    ast.Raise,
+    ast.With,
+    ast.AsyncWith,
+    ast.FunctionDef,
+    ast.AsyncFunctionDef,
+    ast.ClassDef,
+    ast.Lambda,
+    ast.Delete,
+    ast.Global,
+    ast.Nonlocal,
+    ast.Await,
+    ast.Yield,
+    ast.YieldFrom,
+)
+
+ATRIBUTOS_BLOQUEADOS = {
+    "__class__",
+    "__dict__",
+    "__mro__",
+    "__subclasses__",
+    "to_pickle",
+    "to_parquet",
+    "to_feather",
+    "to_hdf",
+    "to_sql",
 }
 
 
@@ -186,6 +225,11 @@ def validar_codigo_generado(codigo: str) -> str:
     codigo_limpio = limpiar_codigo_llm(codigo)
     codigo_lower = codigo_limpio.lower()
 
+    if len(codigo_limpio) > MAX_CODE_CHARS:
+        raise ValueError("Código bloqueado: respuesta demasiado larga para ejecución segura.")
+    if codigo_limpio.count("\n") + 1 > MAX_CODE_LINES:
+        raise ValueError("Código bloqueado: demasiadas líneas para ejecución segura.")
+
     for patron, mensaje in PATRONES_BLOQUEADOS.items():
         if patron in codigo_lower:
             raise ValueError(f"Código bloqueado: {mensaje}")
@@ -195,11 +239,21 @@ def validar_codigo_generado(codigo: str) -> str:
     except SyntaxError as exc:
         raise ValueError("El modelo devolvió código Python no válido.") from exc
 
-    for nodo in ast.walk(arbol):
+    nodos = list(ast.walk(arbol))
+    if len(nodos) > MAX_AST_NODES:
+        raise ValueError("Código bloqueado: complejidad sintáctica excesiva.")
+
+    for nodo in nodos:
         if isinstance(nodo, (ast.Import, ast.ImportFrom)):
             raise ValueError("Código bloqueado: no se permiten importaciones.")
+        if isinstance(nodo, NODOS_BLOQUEADOS):
+            raise ValueError(
+                f"Código bloqueado: no se permite '{nodo.__class__.__name__}'."
+            )
         if isinstance(nodo, ast.Name) and nodo.id in NOMBRES_BLOQUEADOS:
             raise ValueError(f"Código bloqueado: uso no permitido de '{nodo.id}'.")
+        if isinstance(nodo, ast.Attribute) and nodo.attr in ATRIBUTOS_BLOQUEADOS:
+            raise ValueError(f"Código bloqueado: atributo no permitido '{nodo.attr}'.")
         if isinstance(nodo, ast.Call):
             if isinstance(nodo.func, ast.Name) and nodo.func.id in NOMBRES_BLOQUEADOS:
                 raise ValueError(f"Código bloqueado: llamada no permitida a '{nodo.func.id}'.")
@@ -267,7 +321,20 @@ def ejecutar_codigo(codigo: str, df: pd.DataFrame):
         "figura": None,
     }
     exec(codigo, entorno, entorno)
-    return entorno.get("resultado"), entorno.get("figura")
+    resultado = entorno.get("resultado")
+    figura = entorno.get("figura")
+
+    if figura is not None and not isinstance(figure := figura, go.Figure):
+        raise ValueError("La variable 'figura' debe ser un objeto Plotly válido.")
+
+    tipos_permitidos = (pd.DataFrame, pd.Series, str, int, float, bool, list, dict, tuple, type(None))
+    if not isinstance(resultado, tipos_permitidos):
+        raise ValueError("La variable 'resultado' tiene un tipo no permitido.")
+
+    if isinstance(resultado, pd.DataFrame) and resultado.shape[0] > 20000:
+        raise ValueError("La salida tabular es demasiado grande para mostrarse de forma segura.")
+
+    return resultado, figure if figura is not None else None
 
 
 with st.sidebar:
