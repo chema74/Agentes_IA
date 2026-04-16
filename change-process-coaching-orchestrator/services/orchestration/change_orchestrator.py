@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from uuid import uuid4
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from agents.friction_analyzer import analyze_friction
 from agents.intervention_planner import build_intervention_plan
@@ -11,7 +11,9 @@ from agents.stakeholder_mapper import map_stakeholders
 from agents.supervision_governor import supervision_decision
 from core.audit.events import make_audit_event
 from core.safety.change_breaker import evaluate_change_breaker
-from domain.cases.models import ChangeCase, Recommendation
+from domain.cases.models import ChangeCase, ChangeSessionNote, ChangeTaskRecord, IntakeSourceRef, Recommendation, SurveySignalInput
+from domain.signals.models import ChangeSignal
+from domain.stakeholders.models import StakeholderEntry
 from services.langsmith.trace_refs import build_audit_reference
 from services.storage.repositories import STORE
 
@@ -19,7 +21,16 @@ from services.storage.repositories import STORE
 class OrchestratorInput(BaseModel):
     process_notes: str
     context_type: str = "organizational"
+    change_goal: str = ""
+    change_phase: str = "assessment"
+    requested_mode: str = "evaluate"
     case_id: str | None = None
+    signals: list[ChangeSignal] = Field(default_factory=list)
+    stakeholders: list[StakeholderEntry] = Field(default_factory=list)
+    sessions: list[ChangeSessionNote] = Field(default_factory=list)
+    tasks: list[ChangeTaskRecord] = Field(default_factory=list)
+    survey_inputs: list[SurveySignalInput] = Field(default_factory=list)
+    source_systems: list[IntakeSourceRef] = Field(default_factory=list)
 
 
 class OrchestratorOutput(BaseModel):
@@ -35,7 +46,7 @@ class OrchestratorOutput(BaseModel):
     revision_humana_requerida: bool
     estado_de_la_puerta_de_supervision_humana: dict
     recomendacion_final: dict
-    referencia_de_auditoría: str
+    referencia_de_auditoria: str = Field(serialization_alias="referencia_de_auditor\u00eda")
     case_id: str
 
 
@@ -48,9 +59,15 @@ class ChangeProcessCoachingOrchestrator:
 
     def _run(self, payload: OrchestratorInput, persist_plan: bool) -> OrchestratorOutput:
         case_id = payload.case_id or f"case-{uuid4().hex[:10]}"
-        signals = capture_signals(payload.process_notes)
+        signals = capture_signals(
+            payload.process_notes,
+            sessions=payload.sessions,
+            tasks=payload.tasks,
+            survey_inputs=payload.survey_inputs,
+            explicit_signals=payload.signals,
+        )
         resistance, blockers, friction, fatigue = analyze_friction(signals)
-        stakeholders = map_stakeholders(payload.context_type)
+        stakeholders = map_stakeholders(payload.context_type, payload.stakeholders)
         plan = build_intervention_plan(friction, resistance, blockers)
         breaker = evaluate_change_breaker(friction, resistance, blockers, fatigue)
         gate, milestones, recommendation = supervision_decision(friction, resistance, breaker.level)
@@ -73,7 +90,22 @@ class ChangeProcessCoachingOrchestrator:
         )
         if persist_plan:
             STORE.save_case(change_case)
-        self._append_event(audit_reference, "CHANGE_CASE", case_id, "evaluated", {"status": breaker.status, "level": breaker.level, "persisted": persist_plan})
+        self._append_event(
+            audit_reference,
+            "CHANGE_CASE",
+            case_id,
+            "evaluated",
+            {
+                "status": breaker.status,
+                "level": breaker.level,
+                "persisted": persist_plan,
+                "change_goal": payload.change_goal,
+                "change_phase": payload.change_phase,
+                "requested_mode": payload.requested_mode,
+                "breaker_reason_codes": breaker.reason_codes,
+                "breaker_evidence": breaker.evidence_bundle,
+            },
+        )
         return OrchestratorOutput(
             estado_del_proceso_de_cambio=change_case.estado_del_proceso_de_cambio,
             resumen_de_senales_detectadas=[item.model_dump(mode="json") for item in change_case.resumen_de_senales_detectadas],
@@ -87,7 +119,7 @@ class ChangeProcessCoachingOrchestrator:
             revision_humana_requerida=change_case.revision_humana_requerida,
             estado_de_la_puerta_de_supervision_humana=change_case.estado_de_la_puerta_de_supervision_humana.model_dump(mode="json"),
             recomendacion_final=change_case.recomendacion_final.model_dump(mode="json"),
-            referencia_de_auditoría=change_case.referencia_de_auditoria,
+            referencia_de_auditoria=change_case.referencia_de_auditoria,
             case_id=change_case.case_id,
         )
 

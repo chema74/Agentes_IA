@@ -12,9 +12,37 @@ from domain.signals.models import ChangeSignal
 from domain.stakeholders.models import StakeholderEntry
 
 
+class IntakeSourceRef(BaseModel):
+    source_type: str
+    source_id: str = ""
+    description: str = ""
+
+
+class ChangeSessionNote(BaseModel):
+    summary: str
+    source: str = "session_note"
+    sentiment: str = "neutral"
+
+
+class ChangeTaskRecord(BaseModel):
+    title: str
+    status: str
+    owner: str = ""
+    due_window: str = ""
+
+
+class SurveySignalInput(BaseModel):
+    prompt: str
+    response: str
+    score: float | None = None
+
+
 class Recommendation(BaseModel):
     summary: str
     level: int
+    rationale: str
+    automation_mode: str = "monitoring"
+    next_best_owner: str = "lider_del_proceso"
 
 
 class ChangeCase(BaseModel):
@@ -31,5 +59,5 @@ class ChangeCase(BaseModel):
     revision_humana_requerida: bool
     estado_de_la_puerta_de_supervision_humana: HumanSupervisionGate
     recomendacion_final: Recommendation
-    referencia_de_auditoria: str
+    referencia_de_auditoria: str = Field(serialization_alias="referencia_de_auditor\u00eda")
     created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))

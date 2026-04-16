@@ -17,7 +17,14 @@ def test_evaluate_returns_required_contract():
     from app.main import app
 
     client = TestClient(app)
-    response = client.post("/api/change-cases/evaluate", json={"process_notes": "Hay ambiguedad sobre prioridades. El equipo muestra fatiga y retrasos.", "context_type": "organizational"}, headers=_headers())
+    response = client.post(
+        "/api/change-cases/evaluate",
+        json={
+            "process_notes": "Hay ambiguedad sobre prioridades. El equipo muestra fatiga y retrasos.",
+            "context_type": "organizational",
+        },
+        headers=_headers(),
+    )
     assert response.status_code == 200
     body = response.json()
     for key in [
@@ -43,7 +50,11 @@ def test_intervene_persists_case():
     from app.main import app
 
     client = TestClient(app)
-    response = client.post("/api/change-cases/intervene", json={"process_notes": "Hay retrasos constantes y conflicto entre lider y equipo.", "context_type": "organizational"}, headers=_headers())
+    response = client.post(
+        "/api/change-cases/intervene",
+        json={"process_notes": "Hay retrasos constantes y conflicto entre lider y equipo.", "context_type": "organizational"},
+        headers=_headers(),
+    )
     body = response.json()
     saved = client.get(f"/api/change-cases/{body['case_id']}", headers=_headers())
     audit = client.get(f"/api/audit/{body['referencia_de_auditoría']}", headers=_headers())
@@ -57,7 +68,11 @@ def test_level_four_case_requires_human_review():
     from app.main import app
 
     client = TestClient(app)
-    response = client.post("/api/change-cases/evaluate", json={"process_notes": "Existe fatiga muy alta. Hay bloqueo operativo y conflicto interpersonal.", "context_type": "organizational"}, headers=_headers())
+    response = client.post(
+        "/api/change-cases/evaluate",
+        json={"process_notes": "Existe fatiga muy alta. Hay bloqueo operativo y conflicto interpersonal.", "context_type": "organizational"},
+        headers=_headers(),
+    )
     assert response.status_code == 200
     assert response.json()["revision_humana_requerida"] is True
 

@@ -14,3 +14,4 @@ def test_never_emit_strong_automation_on_low_confidence():
         ChangeFatigueAlert(level="low", evidence="none"),
     )
     assert result.level == 4
+    assert result.automation_stop is True

@@ -15,3 +15,4 @@ def test_breaker_escalates_level_four_on_fatigue_and_blocker():
     )
     assert result.level == 4
     assert result.human_review_required is True
+    assert result.automation_stop is True

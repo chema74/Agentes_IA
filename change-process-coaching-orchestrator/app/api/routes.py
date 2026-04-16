@@ -28,14 +28,44 @@ def health() -> dict:
 
 @router.post("/change-cases/evaluate")
 def evaluate(payload: ChangeCasePayload, _: str = Depends(require_service_api_key)) -> dict:
-    result = ORCHESTRATOR.evaluate(OrchestratorInput(process_notes=payload.process_notes, context_type=payload.context_type))
-    return result.model_dump(mode="json")
+    result = ORCHESTRATOR.evaluate(
+        OrchestratorInput(
+            process_notes=payload.process_notes,
+            context_type=payload.context_type,
+            change_goal=payload.change_goal,
+            change_phase=payload.change_phase,
+            requested_mode=payload.requested_mode,
+            case_id=payload.case_id,
+            signals=payload.signals,
+            stakeholders=payload.stakeholders,
+            sessions=payload.sessions,
+            tasks=payload.tasks,
+            survey_inputs=payload.survey_inputs,
+            source_systems=payload.source_systems,
+        )
+    )
+    return result.model_dump(mode="json", by_alias=True)
 
 
 @router.post("/change-cases/intervene")
 def intervene(payload: ChangeCasePayload, _: str = Depends(require_service_api_key)) -> dict:
-    result = ORCHESTRATOR.intervene(OrchestratorInput(process_notes=payload.process_notes, context_type=payload.context_type))
-    return result.model_dump(mode="json")
+    result = ORCHESTRATOR.intervene(
+        OrchestratorInput(
+            process_notes=payload.process_notes,
+            context_type=payload.context_type,
+            change_goal=payload.change_goal,
+            change_phase=payload.change_phase,
+            requested_mode=payload.requested_mode,
+            case_id=payload.case_id,
+            signals=payload.signals,
+            stakeholders=payload.stakeholders,
+            sessions=payload.sessions,
+            tasks=payload.tasks,
+            survey_inputs=payload.survey_inputs,
+            source_systems=payload.source_systems,
+        )
+    )
+    return result.model_dump(mode="json", by_alias=True)
 
 
 @router.get("/change-cases/{case_id}")
@@ -43,7 +73,7 @@ def get_case(case_id: str, _: str = Depends(require_service_api_key)) -> dict:
     item = STORE.get_case(case_id)
     if item is None:
         raise HTTPException(status_code=404, detail="Change case not found")
-    return item.model_dump(mode="json")
+    return item.model_dump(mode="json", by_alias=True)
 
 
 @router.get("/audit/{reference}")
@@ -51,4 +81,4 @@ def get_audit(reference: str, _: str = Depends(require_service_api_key)) -> dict
     events = STORE.audit_events_by_reference(reference)
     if not events:
         raise HTTPException(status_code=404, detail="Audit reference not found")
-    return {"referencia_de_auditoria": reference, "events": [event.model_dump(mode="json") for event in events]}
+    return {"referencia_de_auditor\u00eda": reference, "events": [event.model_dump(mode="json") for event in events]}

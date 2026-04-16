@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from domain.signals.models import ChangeSignal
 from agents.friction_analyzer import analyze_friction
+from domain.signals.models import ChangeSignal
 
 
 def test_friction_analyzer_detects_high_friction():
@@ -15,3 +15,4 @@ def test_friction_analyzer_detects_high_friction():
     assert blockers
     assert fatigue.level == "high"
     assert resistance.intensity == "high"
+    assert friction.discourse_execution_gap in {"medium", "high"}
