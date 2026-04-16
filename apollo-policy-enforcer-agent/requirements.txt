@@ -2,6 +2,7 @@ fastapi
 uvicorn[standard]
 pydantic
 httpx
+psycopg[binary]
 langgraph
 langchain-core
 pytest

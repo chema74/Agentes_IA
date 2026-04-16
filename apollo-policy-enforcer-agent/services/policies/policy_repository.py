@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import httpx
+
+from core.config.settings import settings
 from domain.policies.models import PolicyPredicate, PolicyRule
 from services.storage.repositories import STORE
 
@@ -109,6 +112,10 @@ class PolicyRepository:
         STORE.policies = {rule.policy_id: rule for rule in [spend_policy, data_policy, contract_policy]}
 
     def fetch_matching_rules(self, action_type: str) -> list[PolicyRule]:
+        if not settings.enable_fallback_policy_store and settings.supabase_url and settings.supabase_service_role_key:
+            remote = self._fetch_remote_rules(action_type)
+            if remote:
+                return remote
         return sorted(
             [policy for policy in STORE.policies.values() if action_type in policy.action_types],
             key=lambda item: item.priority,
@@ -116,7 +123,49 @@ class PolicyRepository:
         )
 
     def get_policy(self, policy_id: str) -> PolicyRule | None:
+        if not settings.enable_fallback_policy_store and settings.supabase_url and settings.supabase_service_role_key:
+            remote = self._fetch_remote_policy(policy_id)
+            if remote is not None:
+                return remote
         return STORE.policies.get(policy_id)
+
+    def health(self) -> dict:
+        if settings.enable_fallback_policy_store or not settings.supabase_url or not settings.supabase_service_role_key:
+            return {"status": "fallback", "backend": "in-memory"}
+        try:
+            with httpx.Client(timeout=settings.intent_typing_timeout_seconds, headers=self._headers()) as client:
+                response = client.get(f"{settings.supabase_url}/rest/v1/policies", params={"limit": "1"})
+                response.raise_for_status()
+            return {"status": "ok", "backend": "supabase"}
+        except Exception as exc:
+            return {"status": "error", "backend": "supabase", "detail": str(exc)}
+
+    def _fetch_remote_rules(self, action_type: str) -> list[PolicyRule]:
+        try:
+            with httpx.Client(timeout=settings.intent_typing_timeout_seconds, headers=self._headers()) as client:
+                response = client.get(f"{settings.supabase_url}/rest/v1/policies", params={"action_type": f"cs.{{{action_type}}}"})
+                response.raise_for_status()
+            return [PolicyRule.model_validate(item) for item in response.json()]
+        except Exception:
+            return []
+
+    def _fetch_remote_policy(self, policy_id: str) -> PolicyRule | None:
+        try:
+            with httpx.Client(timeout=settings.intent_typing_timeout_seconds, headers=self._headers()) as client:
+                response = client.get(f"{settings.supabase_url}/rest/v1/policies", params={"policy_id": f"eq.{policy_id}", "limit": "1"})
+                response.raise_for_status()
+            data = response.json()
+            if not data:
+                return None
+            return PolicyRule.model_validate(data[0])
+        except Exception:
+            return None
+
+    def _headers(self) -> dict:
+        return {
+            "apikey": settings.supabase_service_role_key,
+            "Authorization": f"Bearer {settings.supabase_service_role_key}",
+        }
 
 
 POLICY_REPOSITORY = PolicyRepository()

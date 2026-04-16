@@ -45,5 +45,10 @@ class SambaNovaClient:
             return "La accion queda autorizada porque la intencion tipada, los predicates y el estado simbolico son compatibles."
         return f"La accion no queda autorizada. Motivos formales: {', '.join(failure_reasons) if failure_reasons else 'validacion insuficiente'}."
 
+    def health(self) -> dict:
+        if not self.model:
+            return {"status": "error", "backend": "sambanova", "detail": "model not configured"}
+        return {"status": "configured", "backend": "sambanova", "model": self.model}
+
 
 SAMBANOVA_CLIENT = SambaNovaClient(model="Meta-Llama-3.1-8B-Instruct")

@@ -22,6 +22,8 @@ class OrchestratorInput(BaseModel):
     actor_id: str
     target_resource: str
     context: dict = Field(default_factory=dict)
+    request_id: str | None = None
+    idempotency_key: str | None = None
 
 
 class OrchestratorOutput(BaseModel):
@@ -40,6 +42,10 @@ class PolicyOrchestrator:
         return self._run(payload, persist_mandate=False)
 
     def enforce(self, payload: OrchestratorInput) -> OrchestratorOutput:
+        if payload.idempotency_key:
+            existing_response = STORE.get_idempotent_response(payload.idempotency_key)
+            if existing_response is not None:
+                return OrchestratorOutput.model_validate(existing_response)
         return self._run(payload, persist_mandate=True)
 
     def _run(self, payload: OrchestratorInput, persist_mandate: bool) -> OrchestratorOutput:
@@ -72,13 +78,7 @@ class PolicyOrchestrator:
             explanation=explanation,
             audit_reference=audit_reference,
         )
-        if persist_mandate:
-            STORE.mandates[mandate.mandate_id] = mandate
-        STORE.traces[validation_trace.trace_id] = validation_trace
-        self._append_event(audit_reference, "TYPED_INTENT", typed_intent.intent_id, "typed", {"action_type": typed_intent.action_type})
-        self._append_event(audit_reference, "VALIDATION_TRACE", validation_trace.trace_id, "validated", {"decision": final_decision})
-        self._append_event(audit_reference, "ACTION_MANDATE", mandate.mandate_id, "created", {"decision": final_decision, "persisted": persist_mandate})
-        return OrchestratorOutput(
+        output = OrchestratorOutput(
             typed_intent=typed_intent.model_dump(mode="json"),
             matched_predicates=[predicate.model_dump(mode="json") for predicate in predicates],
             symbolic_state=symbolic_state.model_dump(mode="json"),
@@ -88,6 +88,26 @@ class PolicyOrchestrator:
             explanation=explanation,
             audit_reference=audit_reference,
         )
+        if persist_mandate:
+            STORE.save_mandate(mandate, idempotency_key=payload.idempotency_key)
+            STORE.save_idempotent_response(payload.idempotency_key, output.model_dump(mode="json"))
+        STORE.save_trace(validation_trace)
+        self._append_event(
+            audit_reference,
+            "TYPED_INTENT",
+            typed_intent.intent_id,
+            "typed",
+            {"action_type": typed_intent.action_type, "request_id": payload.request_id, "idempotency_key": payload.idempotency_key},
+        )
+        self._append_event(audit_reference, "VALIDATION_TRACE", validation_trace.trace_id, "validated", {"decision": final_decision, "request_id": payload.request_id})
+        self._append_event(
+            audit_reference,
+            "ACTION_MANDATE",
+            mandate.mandate_id,
+            "created",
+            {"decision": final_decision, "persisted": persist_mandate, "request_id": payload.request_id},
+        )
+        return output
 
     def _append_event(self, reference: str, entity_type: str, entity_id: str, action: str, payload: dict) -> None:
         STORE.append_audit_event(make_audit_event(reference, entity_type, entity_id, action, payload))

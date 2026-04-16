@@ -8,3 +8,4 @@ class EnforcementPayload(BaseModel):
     actor_id: str
     target_resource: str
     context: dict = Field(default_factory=dict)
+    request_id: str | None = None
