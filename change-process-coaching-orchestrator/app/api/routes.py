@@ -5,7 +5,6 @@ from fastapi import APIRouter, Depends, HTTPException
 from app.api.deps import require_service_api_key
 from app.api.schemas import ChangeCasePayload
 from core.config.settings import settings
-from core.db.session import check_db_health
 from services.llm.gemini_client import GEMINI_CLIENT
 from services.llm.groq_client import GROQ_CLIENT
 from services.orchestration.change_orchestrator import ORCHESTRATOR, OrchestratorInput
@@ -22,7 +21,7 @@ def health() -> dict:
         "service": "change-process-coaching-orchestrator",
         "mode": STORE.mode,
         "require_api_key": settings.require_api_key,
-        "checks": {"database": check_db_health(), "groq": GROQ_CLIENT.health(), "gemini": GEMINI_CLIENT.health()},
+        "checks": {"storage": STORE.health_report(), "groq": GROQ_CLIENT.health(), "gemini": GEMINI_CLIENT.health()},
     }
 
 

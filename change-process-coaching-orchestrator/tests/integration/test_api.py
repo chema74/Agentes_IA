@@ -13,6 +13,17 @@ def _headers() -> dict:
 
 
 @pytest.mark.skipif(TestClient is None, reason="FastAPI no instalado en el entorno actual.")
+def test_health_exposes_storage_checks():
+    from app.main import app
+
+    client = TestClient(app)
+    response = client.get("/api/health")
+    assert response.status_code == 200
+    body = response.json()
+    assert "storage" in body["checks"]
+
+
+@pytest.mark.skipif(TestClient is None, reason="FastAPI no instalado en el entorno actual.")
 def test_evaluate_returns_required_contract():
     from app.main import app
 

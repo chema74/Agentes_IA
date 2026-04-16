@@ -58,6 +58,20 @@ class ChangeProcessCoachingOrchestrator:
         return self._run(payload, persist_plan=True)
 
     def _run(self, payload: OrchestratorInput, persist_plan: bool) -> OrchestratorOutput:
+        graph_result = self._run_via_graph(payload, persist_plan)
+        if graph_result is not None:
+            return graph_result
+        return self._run_local(payload, persist_plan)
+
+    def _run_via_graph(self, payload: OrchestratorInput, persist_plan: bool) -> OrchestratorOutput | None:
+        try:
+            from services.orchestration.graph_runtime import run_change_process_graph
+
+            return run_change_process_graph(payload, persist_plan=persist_plan)
+        except Exception:
+            return None
+
+    def _run_local(self, payload: OrchestratorInput, persist_plan: bool) -> OrchestratorOutput:
         case_id = payload.case_id or f"case-{uuid4().hex[:10]}"
         signals = capture_signals(
             payload.process_notes,
