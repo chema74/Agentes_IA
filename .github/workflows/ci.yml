@@ -50,5 +50,5 @@ jobs:
       - name: Install Test Runner
         run: python -m pip install --upgrade pip pytest
 
-      - name: Run Minimal Project Tests (Portfolio P01-P10)
+      - name: Run Portfolio Tests (P01-P10)
         run: pytest -q tests/test_projects_minimal.py
