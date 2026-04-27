@@ -41,6 +41,21 @@ La principal deuda no es solo de codigo. Es de orden:
 | `products/geopolitical-trade-intelligence-agent` | Avanzado | Completar producto, docs y acabados de API | Alta |
 | `products/nspa-psychological-orchestrator` | Avanzado | Seguridad, continuidad narrativa y experiencia de uso | Alta |
 
+## Priorizacion de portfolio
+
+| Proyecto | Score | Posicion | Siguiente paso |
+|---|---:|---|---|
+| `portfolio/p01-inteligencia-comercial-internacional` | 9.2 | 1 | Cerrar referencia unica, limpiar README duplicados y consolidar demo final |
+| `portfolio/p05-rag-documentacion-interna` | 8.1 | 2 | Homogeneizar docs y dejar mas clara su ambicion de base publica RAG |
+| `portfolio/p10-dashboard-lenguaje-natural` | 7.8 | 3 | Pulir narrativa de producto y simplificar la propuesta visual |
+| `portfolio/p08-rag-normativa-comercio` | 7.6 | 4 | Terminar homogeneizacion editorial y reforzar caso de uso |
+| `portfolio/p03-agente-licitaciones` | 7.5 | 5 | Dejar README consistente y mejorar posicionamiento funcional |
+| `portfolio/p09-evaluador-ideas-negocio` | 7.3 | 6 | Cerrar branding y alinear mensajes con el resto del portfolio |
+| `portfolio/p06-rag-contratos-legales` | 7.2 | 7 | Diferenciarlo mejor del agente legal serio y ajustar expectativas |
+| `portfolio/p04-agente-rrhh-candidatos` | 7.0 | 8 | Normalizar documentacion y revisar profundidad del caso de uso |
+| `portfolio/p07-chatbot-atencion-cliente` | 6.8 | 9 | Aclarar limites, mejorar onboarding y cerrar texto de presentacion |
+| `portfolio/p02-agente-multi-herramienta` | 6.5 | 10 | Definir mejor el valor diferencial y cerrar el storytelling |
+
 ## Priorizacion de products
 
 | Proyecto | Score | Posicion | Siguiente paso |
@@ -54,6 +69,20 @@ La principal deuda no es solo de codigo. Es de orden:
 | `products/nspa-psychological-orchestrator` | 7.6 | 7 | Fortalecer seguridad, limites y continuidad narrativa |
 | `products/agentic-learning-integrity-orchestrator` | 7.2 | 8 | Cerrar producto, casos docentes y trazabilidad de evidencia |
 | `products/autonomous-legal-counsel-agent` | 7.0 | 9 | Amplificar docs, tests y ruta de produccion |
+
+## Deuda de products
+
+| Proyecto | Falta principal |
+|---|---|
+| `products/audit-compliance-evidence-agent` | Cerrar despliegue real, observabilidad y UX final |
+| `products/contract-obligations-agent` | Consolidar conectores reales y empaquetado de produccion |
+| `products/apollo-policy-enforcer-agent` | Endurecer validacion, permisos y enforcement |
+| `products/a2a-self-healing-logistics-agent` | Cerrar recovery operativo y runtime docs |
+| `products/change-process-coaching-orchestrator` | Afinar persistencia, observabilidad y escalado |
+| `products/geopolitical-trade-intelligence-agent` | Completar historia de producto y APIs visibles |
+| `products/nspa-psychological-orchestrator` | Fortalecer seguridad, limites y continuidad |
+| `products/agentic-learning-integrity-orchestrator` | Cerrar casos docentes y trazabilidad |
+| `products/autonomous-legal-counsel-agent` | Amplificar docs, tests y ruta de produccion |
 
 ## Que falta en global
 
