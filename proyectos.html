@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agentes de IA | Portfolio IA Aplicada</title>
-  <meta name="description" content="Portfolio de 10 agentes de IA orientados a negocio: licitaciones, contratos, ventas, RAG corporativo, criba de candidatos, dashboards y análisis estratégico. José María - Sevilla." />
+  <title>Portfolio | IA Aplicada</title>
+  <meta name="description" content="Portfolio público de agentes de IA: demos, bases públicas y piezas orientadas a negocio." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -12,36 +12,38 @@
     <div class="container header-inner">
       <a href="index.html" class="logo"><span class="logo-mark">IA</span><span class="logo-text">Portfolio IA Aplicada</span></a>
       <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
-      <nav class="main-nav" id="main-nav"><ul><li><a href="index.html">Inicio</a></li><li><a href="proyectos.html" class="active">Agentes</a></li><li><a href="sobre-mi.html">Sobre mí</a></li><li><a href="formacion-docencia.html">Formación y docencia</a></li><li><a href="comercio-analisis.html">Comercio y análisis</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="proyectos.html" class="active">Portfolio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="formacion-docencia.html">Formación</a></li>
+          <li><a href="comercio-analisis.html">Comercio</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
+
   <main>
     <section class="hero hero-projects">
       <div class="container">
-        <p class="eyebrow">Portfolio público · 10 agentes finales</p>
-        <h1>Agentes de IA orientados a <em>negocio</em>, no un catálogo de piezas sueltas</h1>
-        <p class="lead">Esta capa pública del portfolio prioriza soluciones finales orientadas a negocio: agentes para licitaciones, contratos, ventas, criba de candidatos, dashboards, inteligencia comercial y RAG corporativo. Los proyectos fuente absorbidos siguen existiendo en el repositorio, pero ya no se presentan aquí como productos independientes.</p>
-        <div class="metrics-grid">
-          <div class="metric-card"><strong>10</strong><span>agentes finales</span></div>
-          <div class="metric-card"><strong>Base pública</strong><span>activa por agente cuando existe</span></div>
-          <div class="metric-card"><strong>ROI</strong><span>casos de uso visibles y ejecutables</span></div>
-        </div>
+        <p class="eyebrow">Portfolio público · 10 agentes</p>
+        <h1>La parte pública del repo se divide en casos de uso concretos y entendibles</h1>
+        <p class="lead">
+          Aquí se muestran las piezas pensadas para explicar rápido el valor: qué problema resuelven,
+          qué nivel de madurez tienen y hacia dónde evolucionan dentro del monorepo.
+        </p>
       </div>
     </section>
 
     <section class="projects-toolbar">
       <div class="container">
         <div class="legend">
-          <span class="legend-label">Cómo interpretar esta página:</span>
-          <span class="badge badge-live">Agente final público</span>
-          <span class="badge badge-plan">Consolidación progresiva</span>
-          <span class="legend-label">Los proyectos fuente absorbidos siguen en el repositorio, pero ya no aparecen aquí como productos públicos independientes.</span>
-        </div>
-
-        <div class="filter-bar" id="filter-bar">
-          <button class="filter-btn active" data-filter="all">Todos (10)</button>
-          <button class="filter-btn" data-filter="publico">Base pública activa</button>
-          <button class="filter-btn" data-filter="consolidado">Consolidado</button>
+          <span class="legend-label">Leyenda:</span>
+          <span class="badge badge-live">Listo para demo</span>
+          <span class="badge badge-plan">En consolidación</span>
+          <span class="legend-label">Los productos maduros viven en `products/` y se documentan aparte.</span>
         </div>
       </div>
     </section>
@@ -49,101 +51,26 @@
     <section class="projects-grid-section">
       <div class="container">
         <div class="projects-grid" id="projects-grid">
-          <article class="pcard reveal" data-category="publico">
-            <div class="pcard-header"><span class="pcard-num">Agente final 01</span></div>
-            <p class="pcard-area">Productividad - Orquestacion - Soporte ejecutivo</p>
-            <h3>Asistente ejecutivo multi-herramienta</h3>
-            <p class="pcard-desc">Agente orientado a organizacion, productividad y coordinacion de tareas de alto valor para entornos ejecutivos.</p>
-            <p class="pcard-impact">Proyecto publico principal: P02</p>
-            <div class="pcard-links"><a href="https://github.com/chema74/Agentes_IA/tree/main/portfolio/p02-agente-multi-herramienta" target="_blank" class="btn btn-outline">Ver proyecto →</a></div>
-          </article>
-          <article class="pcard reveal" data-category="publico">
-            <div class="pcard-header"><span class="pcard-num">Agente final 02</span></div>
-            <p class="pcard-area">Licitaciones - PDF - Evaluacion documental</p>
-            <h3>Agente de evaluacion de licitaciones</h3>
-            <p class="pcard-desc">Permite cargar pliegos en PDF, indexarlos localmente y obtener un analisis de viabilidad con foco en requisitos, riesgos y criterios de adjudicacion.</p>
-            <p class="pcard-impact">Proyecto publico principal: P03 - Estado: verde y cerrado</p>
-            <div class="pcard-links"><a href="https://github.com/chema74/Agentes_IA/tree/main/portfolio/p03-agente-licitaciones" target="_blank" class="btn btn-outline">Ver proyecto →</a></div>
-          </article>
-          <article class="pcard reveal" data-category="publico">
-            <div class="pcard-header"><span class="pcard-num">Agente final 03</span></div>
-            <p class="pcard-area">Contratos - Revision documental - Clausulas</p>
-            <h3>Revisor de contratos legales</h3>
-            <p class="pcard-desc">Agente enfocado en revision de contratos, lectura critica de clausulas y apoyo al analisis documental juridico.</p>
-            <p class="pcard-impact">Proyecto publico principal: P06</p>
-            <div class="pcard-links"><a href="https://github.com/chema74/Agentes_IA/tree/main/portfolio/p06-rag-contratos-legales" target="_blank" class="btn btn-outline">Ver proyecto →</a></div>
-          </article>
-          <article class="pcard reveal" data-category="publico">
-            <div class="pcard-header"><span class="pcard-num">Agente final 04</span></div>
-            <p class="pcard-area">Analitica - Lenguaje natural - Metricas</p>
-            <h3>Dashboard con lenguaje natural</h3>
-            <p class="pcard-desc">Permite explorar informacion y metricas mediante lenguaje natural, facilitando la consulta de datos por parte de perfiles no tecnicos.</p>
-            <p class="pcard-impact">Proyecto publico principal: P10</p>
-            <div class="pcard-links"><a href="https://github.com/chema74/Agentes_IA/tree/main/portfolio/p10-dashboard-lenguaje-natural" target="_blank" class="btn btn-outline">Ver proyecto →</a></div>
-          </article>
-          <article class="pcard reveal" data-category="publico">
-            <div class="pcard-header"><span class="pcard-num">Agente final 05</span></div>
-            <p class="pcard-area">RR. HH. - Seleccion - Priorizacion</p>
-            <h3>Agente de criba de candidatos</h3>
-            <p class="pcard-desc">Ayuda a filtrar y priorizar candidaturas a partir de criterios definidos, con foco en seleccion y evaluacion inicial.</p>
-            <p class="pcard-impact">Proyecto publico principal: P04</p>
-            <div class="pcard-links"><a href="https://github.com/chema74/Agentes_IA/tree/main/portfolio/p04-agente-rrhh-candidatos" target="_blank" class="btn btn-outline">Ver proyecto →</a></div>
-          </article>
-          <article class="pcard reveal" data-category="publico">
-            <div class="pcard-header"><span class="pcard-num">Agente final 06</span></div>
-            <p class="pcard-area">Liderazgo - Simulacion - Desarrollo directivo</p>
-            <h3>Simulador de habilidades directivas</h3>
-            <p class="pcard-desc">Agente orientado a entrenamiento, practica y simulacion de situaciones de gestion, liderazgo y toma de decisiones.</p>
-            <p class="pcard-impact">Codigo base por confirmar</p>
-            <div class="pcard-links"><span class="btn btn-disabled" aria-disabled="true">Pendiente de consolidacion</span></div>
-          </article>
-          <article class="pcard wide reveal" data-category="fusion">
-            <div class="pcard-header"><span class="pcard-num">Agente final 07</span></div>
-            <p class="pcard-area">Mercados internacionales - Riesgo pais - Inteligencia comercial</p>
-            <h3>Agente de inteligencia comercial internacional</h3>
-            <p class="pcard-desc">Integra analisis de contexto pais, variables geopoliticas, senales de mercado y apoyo a decisiones comerciales en entornos internacionales.</p>
-            <p class="pcard-impact">Fusion estrategica de: P01, P15, P18, P19 y P20</p>
-            <div class="pcard-stack"><span>P01</span><span>P15</span><span>P18</span><span>P19</span><span>P20</span></div>
-          </article>
-          <article class="pcard wide reveal" data-category="fusion">
-            <div class="pcard-header"><span class="pcard-num">Agente final 08</span></div>
-            <p class="pcard-area">RAG - Conocimiento interno - Consulta documental</p>
-            <h3>Motor RAG corporativo multi-dominio</h3>
-            <p class="pcard-desc">Base documental corporativa para recuperacion semantica, consulta contextual y asistencia sobre conocimiento interno en distintos dominios.</p>
-            <p class="pcard-impact">Fusion estrategica de: P06, P08, P09 y P21</p>
-            <div class="pcard-stack"><span>P06</span><span>P08</span><span>P09</span><span>P21</span></div>
-          </article>
-          <article class="pcard wide reveal" data-category="fusion">
-            <div class="pcard-header"><span class="pcard-num">Agente final 09</span></div>
-            <p class="pcard-area">Cambio organizativo - Personas - Desarrollo</p>
-            <h3>Plataforma de desarrollo organizacional</h3>
-            <p class="pcard-desc">Conjunto de capacidades orientadas a diagnostico organizativo, desarrollo de personas, evolucion de equipos y apoyo a procesos de cambio.</p>
-            <p class="pcard-impact">Fusion estrategica de: P17, P25, P27, P28 y P30</p>
-            <div class="pcard-stack"><span>P17</span><span>P25</span><span>P27</span><span>P28</span><span>P30</span></div>
-          </article>
-          <article class="pcard wide reveal" data-category="publico">
-            <div class="pcard-header"><span class="pcard-num">Agente final 10</span></div>
-            <p class="pcard-area">Ventas - Estrategia comercial - Propuestas</p>
-            <h3>Agente de ventas y estrategia de negocio</h3>
-            <p class="pcard-desc">Base publica actual del agente final orientado a ventas y estrategia de negocio. Hoy cubre la generacion de propuestas comerciales entregables a partir de informacion de cliente, oferta y contexto comercial.</p>
-            <p class="pcard-impact">Base publica actual: pendiente de publicacion en esta copia - Consolidacion estrategica sobre P04, P11, P16 y P23</p>
-            <div class="pcard-stack"><span>Pendiente</span><span>Groq</span><span>python-docx</span><span>Streamlit</span></div>
-            <div class="pcard-links"><span class="btn btn-disabled" aria-disabled="true">Pendiente de publicacion</span></div>
-          </article>
+          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P01</span></div><p class="pcard-area">Inteligencia comercial internacional</p><h3>Agente de análisis comercial internacional</h3><p class="pcard-desc">Evalúa contexto país, riesgo, señales comerciales y comparativas para apoyar decisiones de expansión.</p><p class="pcard-impact">Base pública muy avanzada</p></article>
+          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P02</span></div><p class="pcard-area">Productividad y orquestación</p><h3>Asistente ejecutivo multi-herramienta</h3><p class="pcard-desc">Asistente para coordinación de tareas, priorización y apoyo operativo en entornos ejecutivos.</p><p class="pcard-impact">Prototipo funcional</p></article>
+          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P03</span></div><p class="pcard-area">Licitaciones</p><h3>Agente de evaluación de licitaciones</h3><p class="pcard-desc">Analiza pliegos, requisitos, riesgos y viabilidad para acelerar la lectura inicial de concursos.</p><p class="pcard-impact">Prototipo funcional</p></article>
+          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P04</span></div><p class="pcard-area">RRHH</p><h3>Agente de criba de candidatos</h3><p class="pcard-desc">Filtra y prioriza candidaturas a partir de criterios definidos y CVs en PDF.</p><p class="pcard-impact">Prototipo funcional</p></article>
+          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P05</span></div><p class="pcard-area">RAG interno</p><h3>Documentación interna consultable</h3><p class="pcard-desc">Base RAG para búsqueda contextual sobre documentación interna y consultas recurrentes de negocio.</p><p class="pcard-impact">Base pública RAG</p></article>
+          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P06</span></div><p class="pcard-area">Contratos</p><h3>Revisor de contratos legales</h3><p class="pcard-desc">Lee cláusulas, detecta obligaciones y resume riesgos contractuales de forma asistida.</p><p class="pcard-impact">Base pública jurídica</p></article>
+          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P07</span></div><p class="pcard-area">Atención al cliente</p><h3>Chatbot de atención</h3><p class="pcard-desc">Demo conversacional para dudas frecuentes y soporte básico con foco en claridad de uso.</p><p class="pcard-impact">Prototipo ligero</p></article>
+          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P08</span></div><p class="pcard-area">Normativa comercio</p><h3>RAG de normativa comercial</h3><p class="pcard-desc">Consulta guiada de normativa, reglas y referencias útiles para comercio y exportación.</p><p class="pcard-impact">Base pública temática</p></article>
+          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P09</span></div><p class="pcard-area">Ideas de negocio</p><h3>Evaluador de oportunidades</h3><p class="pcard-desc">Valora ideas de negocio a partir de criterios, contexto y nivel de oportunidad percibida.</p><p class="pcard-impact">Prototipo de validación</p></article>
+          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P10</span></div><p class="pcard-area">Analítica</p><h3>Dashboard con lenguaje natural</h3><p class="pcard-desc">Convierte preguntas en lenguaje natural en análisis sobre tablas y métricas de negocio.</p><p class="pcard-impact">Demo analítica</p></article>
         </div>
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
-        <div>
-          <p class="footer-brand">Portfolio IA Aplicada</p>
-          <p>&copy; <span id="current-year"></span> Jose Maria - Sevilla</p>
-        </div>
-        <div>
-          <p>IA aplicada - analisis - formacion - automatizacion</p>
-        </div>
+        <div><p class="footer-brand">Portfolio IA Aplicada</p><p>&copy; <span id="current-year"></span> José María - Sevilla</p></div>
+        <div><p>Portfolio, catálogo y productos maduros en un mismo mapa</p></div>
       </div>
     </div>
   </footer>

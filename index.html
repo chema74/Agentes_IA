@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio IA Aplicada | José María</title>
-  <meta name="description" content="Portfolio de agentes de IA orientados a negocio. Soluciones aplicadas en licitaciones, ventas, contratos, dashboards, RAG corporativo, selección y análisis estratégico." />
+  <meta name="description" content="Portfolio de agentes de IA orientados a negocio. Demostraciones, productos maduros, docencia, comercio internacional y automatización." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -14,55 +14,81 @@
         <span class="logo-mark">IA</span>
         <span class="logo-text">Portfolio IA Aplicada</span>
       </a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
       <nav class="main-nav" id="main-nav">
         <ul>
           <li><a href="index.html" class="active">Inicio</a></li>
-          <li><a href="proyectos.html">Agentes</a></li>
+          <li><a href="proyectos.html">Portfolio</a></li>
           <li><a href="sobre-mi.html">Sobre mí</a></li>
-          <li><a href="formacion-docencia.html">Formación y docencia</a></li>
-          <li><a href="comercio-analisis.html">Comercio y análisis</a></li>
+          <li><a href="formacion-docencia.html">Formación</a></li>
+          <li><a href="comercio-analisis.html">Comercio</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
   <main>
     <section class="hero home-hero">
       <div class="container">
-        <p class="eyebrow">Portfolio de agentes de IA orientados a negocio</p>
-        <h1>Menos piezas sueltas. Más agentes finales con utilidad real.</h1>
-        <p class="lead">Este portfolio muestra soluciones aplicadas en automatización, análisis, gestión documental, ventas, inteligencia comercial y desarrollo organizacional. La capa pública prioriza agentes finales claros y demostrables, no un inventario disperso de proyectos.</p>
+        <p class="eyebrow">Agentes de IA para negocio real</p>
+        <h1>Menos demo dispersa. Más sistemas claros, útiles y bien contados.</h1>
+        <p class="lead">
+          Este sitio organiza el trabajo en tres niveles: `portfolio/` para prototipos y bases públicas,
+          `products/` para agentes maduros y esta web como capa pública coherente. La propuesta es
+          presentar utilidad real, no una colección suelta de pruebas.
+        </p>
         <div class="hero-actions">
-          <a href="proyectos.html" class="btn btn-primary">Ver agentes</a>
-          <a href="contacto.html" class="btn btn-secondary">Hablar sobre un caso real</a>
+          <a href="proyectos.html" class="btn btn-primary">Ver portfolio</a>
+          <a href="contacto.html" class="btn btn-secondary">Hablar de un caso</a>
         </div>
         <div class="metrics-grid">
-          <div class="metric-card"><strong>10</strong><span>agentes finales</span></div>
-          <div class="metric-card"><strong>Negocio</strong><span>casos de uso visibles</span></div>
-          <div class="metric-card"><strong>IA aplicada</strong><span>sin sobrepromesas</span></div>
+          <div class="metric-card"><strong>10</strong><span>proyectos de portfolio</span></div>
+          <div class="metric-card"><strong>9</strong><span>productos maduros</span></div>
+          <div class="metric-card"><strong>1</strong><span>narrativa coherente</span></div>
         </div>
       </div>
     </section>
+
     <section class="section featured-section">
       <div class="container">
-        <p class="section-kicker">Agentes destacados</p>
-        <h2>Tres referencias claras de la capa pública actual</h2>
+        <p class="section-kicker">Qué hay aquí</p>
+        <h2>La web pública explica la estructura del repositorio y qué está listo de verdad</h2>
         <div class="featured-grid">
-          <article class="feature-card"><span class="badge badge-live">Activo</span><h3>Agente de evaluación de licitaciones</h3><p>Analiza pliegos, identifica requisitos, extrae riesgos y ayuda a priorizar oportunidades de forma estructurada.</p></article>
-          <article class="feature-card"><span class="badge badge-plan">Productivo</span><h3>Revisor de contratos legales</h3><p>Localiza cláusulas, plazos y obligaciones para acelerar la revisión inicial de documentación contractual.</p></article>
-          <article class="feature-card"><span class="badge badge-live">Activo</span><h3>Dashboard con lenguaje natural</h3><p>Convierte preguntas en lenguaje natural en análisis guiados sobre datos tabulares de negocio.</p></article>
+          <article class="feature-card reveal">
+            <span class="badge badge-live">Portfolio</span>
+            <h3>Demos y bases públicas</h3>
+            <p>Diez piezas pensadas para mostrar capacidades concretas: licitaciones, contratos, RRHH, RAG, dashboards y comercio.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="badge badge-plan">Products</span>
+            <h3>Sistemas maduros</h3>
+            <p>Agentes y orquestadores más cercanos a producción, con mejores criterios de operación, persistencia y despliegue.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="badge badge-live">Catálogo</span>
+            <h3>Estado y priorización</h3>
+            <p>El catálogo resume qué está terminado, qué falta y cuál es el siguiente paso para cada bloque del repo.</p>
+          </article>
         </div>
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <div class="container">
-      <p>Portfolio IA Aplicada · <span id="current-year"></span></p>
+      <div class="footer-inner">
+        <div>
+          <p class="footer-brand">Portfolio IA Aplicada</p>
+          <p>&copy; <span id="current-year"></span> José María - Sevilla</p>
+        </div>
+        <div>
+          <p>IA aplicada - negocio - formación - automatización</p>
+        </div>
+      </div>
     </div>
   </footer>
+  <button id="back-to-top" aria-label="Volver arriba"></button>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
