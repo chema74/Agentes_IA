@@ -1,15 +1,15 @@
-ï»¿"""
-P10 Â· Dashboard con lenguaje natural
+"""
+P10 · Dashboard con lenguaje natural
 ===================================
-Autor: JosÃ© MarÃ­a
-Stack: Groq Â· pandas Â· Plotly Â· Streamlit
+Autor: José María
+Stack: Groq · pandas · Plotly · Streamlit
 
-CÃ³mo funciona:
+Cómo funciona:
 1. El usuario sube un CSV o Excel.
-2. Escribe una pregunta en espaÃ±ol sobre los datos.
-3. Groq genera cÃ³digo Python de anÃ¡lisis.
-4. La app valida el cÃ³digo y lo ejecuta con restricciones bÃ¡sicas.
-5. Se muestra el resultado como grÃ¡fico, tabla o valor.
+2. Escribe una pregunta en español sobre los datos.
+3. Groq genera código Python de análisis.
+4. La app valida el código y lo ejecuta con restricciones básicas.
+5. Se muestra el resultado como gráfico, tabla o valor.
 """
 
 import ast
@@ -49,13 +49,13 @@ MAX_CODE_LINES = 80
 MAX_AST_NODES = 500
 
 PATRONES_BLOQUEADOS = {
-    "import ": "No se permiten importaciones dinÃ¡micas.",
-    "from ": "No se permiten importaciones dinÃ¡micas.",
+    "import ": "No se permiten importaciones dinámicas.",
+    "from ": "No se permiten importaciones dinámicas.",
     "__": "No se permiten accesos especiales de Python.",
     "open(": "No se permite acceder a archivos locales.",
-    "exec(": "No se permite ejecutar cÃ³digo adicional.",
+    "exec(": "No se permite ejecutar código adicional.",
     "eval(": "No se permite evaluar expresiones arbitrarias.",
-    "compile(": "No se permite compilar cÃ³digo dinÃ¡micamente.",
+    "compile(": "No se permite compilar código dinámicamente.",
     "globals(": "No se permite acceder al entorno global.",
     "locals(": "No se permite acceder al entorno local.",
     "input(": "No se permite pedir entrada adicional.",
@@ -68,9 +68,9 @@ PATRONES_BLOQUEADOS = {
     "pathlib": "No se permite operar sobre rutas.",
     "socket": "No se permite acceso de red.",
     "requests": "No se permite acceso HTTP.",
-    "getattr(": "No se permite reflexiÃ³n dinÃ¡mica.",
-    "setattr(": "No se permite mutar atributos dinÃ¡micamente.",
-    "delattr(": "No se permite borrar atributos dinÃ¡micamente.",
+    "getattr(": "No se permite reflexión dinámica.",
+    "setattr(": "No se permite mutar atributos dinámicamente.",
+    "delattr(": "No se permite borrar atributos dinámicamente.",
 }
 
 NOMBRES_BLOQUEADOS = {
@@ -128,7 +128,7 @@ ATRIBUTOS_BLOQUEADOS = {
 
 st.set_page_config(
     page_title="Dashboard con lenguaje natural",
-    page_icon="ğŸ“Š",
+    page_icon="??",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -183,11 +183,11 @@ html, body, [class*="css"] { font-family:'DM Sans',sans-serif; background:#0c0c1
 
 @st.cache_resource
 def get_groq() -> Groq:
-    """Crea el cliente de Groq si la API key estÃ¡ disponible."""
+    """Crea el cliente de Groq si la API key está disponible."""
     api_key = os.getenv("GROQ_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError(
-            "Falta GROQ_API_KEY. Copia .env.example a .env y aÃ±ade tu clave antes de generar anÃ¡lisis."
+            "Falta GROQ_API_KEY. Copia .env.example a .env y añade tu clave antes de generar análisis."
         )
     return Groq(api_key=api_key)
 
@@ -202,10 +202,10 @@ def cargar_datos(archivo, separador: str) -> pd.DataFrame:
 
 
 def limpiar_codigo_llm(codigo: str) -> str:
-    """Extrae el bloque Ãºtil si el modelo devuelve fences Markdown."""
+    """Extrae el bloque útil si el modelo devuelve fences Markdown."""
     codigo = (codigo or "").strip()
     if not codigo:
-        raise ValueError("El modelo no devolviÃ³ cÃ³digo utilizable.")
+        raise ValueError("El modelo no devolvió código utilizable.")
 
     if "```" in codigo:
         for parte in codigo.split("```"):
@@ -221,58 +221,58 @@ def limpiar_codigo_llm(codigo: str) -> str:
 
 
 def validar_codigo_generado(codigo: str) -> str:
-    """Aplica validaciones bÃ¡sicas antes de ejecutar el cÃ³digo generado."""
+    """Aplica validaciones básicas antes de ejecutar el código generado."""
     codigo_limpio = limpiar_codigo_llm(codigo)
     codigo_lower = codigo_limpio.lower()
 
     if len(codigo_limpio) > MAX_CODE_CHARS:
-        raise ValueError("CÃ³digo bloqueado: respuesta demasiado larga para ejecuciÃ³n segura.")
+        raise ValueError("Código bloqueado: respuesta demasiado larga para ejecución segura.")
     if codigo_limpio.count("\n") + 1 > MAX_CODE_LINES:
-        raise ValueError("CÃ³digo bloqueado: demasiadas lÃ­neas para ejecuciÃ³n segura.")
+        raise ValueError("Código bloqueado: demasiadas líneas para ejecución segura.")
 
     for patron, mensaje in PATRONES_BLOQUEADOS.items():
         if patron in codigo_lower:
-            raise ValueError(f"CÃ³digo bloqueado: {mensaje}")
+            raise ValueError(f"Código bloqueado: {mensaje}")
 
     try:
         arbol = ast.parse(codigo_limpio)
     except SyntaxError as exc:
-        raise ValueError("El modelo devolviÃ³ cÃ³digo Python no vÃ¡lido.") from exc
+        raise ValueError("El modelo devolvió código Python no válido.") from exc
 
     nodos = list(ast.walk(arbol))
     if len(nodos) > MAX_AST_NODES:
-        raise ValueError("CÃ³digo bloqueado: complejidad sintÃ¡ctica excesiva.")
+        raise ValueError("Código bloqueado: complejidad sintáctica excesiva.")
 
     for nodo in nodos:
         if isinstance(nodo, (ast.Import, ast.ImportFrom)):
-            raise ValueError("CÃ³digo bloqueado: no se permiten importaciones.")
+            raise ValueError("Código bloqueado: no se permiten importaciones.")
         if isinstance(nodo, NODOS_BLOQUEADOS):
             raise ValueError(
-                f"CÃ³digo bloqueado: no se permite '{nodo.__class__.__name__}'."
+                f"Código bloqueado: no se permite '{nodo.__class__.__name__}'."
             )
         if isinstance(nodo, ast.Name) and nodo.id in NOMBRES_BLOQUEADOS:
-            raise ValueError(f"CÃ³digo bloqueado: uso no permitido de '{nodo.id}'.")
+            raise ValueError(f"Código bloqueado: uso no permitido de '{nodo.id}'.")
         if isinstance(nodo, ast.Attribute) and nodo.attr in ATRIBUTOS_BLOQUEADOS:
-            raise ValueError(f"CÃ³digo bloqueado: atributo no permitido '{nodo.attr}'.")
+            raise ValueError(f"Código bloqueado: atributo no permitido '{nodo.attr}'.")
         if isinstance(nodo, ast.Call):
             if isinstance(nodo.func, ast.Name) and nodo.func.id in NOMBRES_BLOQUEADOS:
-                raise ValueError(f"CÃ³digo bloqueado: llamada no permitida a '{nodo.func.id}'.")
+                raise ValueError(f"Código bloqueado: llamada no permitida a '{nodo.func.id}'.")
             if isinstance(nodo.func, ast.Attribute) and isinstance(nodo.func.value, ast.Name):
                 if nodo.func.value.id in NOMBRES_BLOQUEADOS:
                     raise ValueError(
-                        f"CÃ³digo bloqueado: acceso no permitido a '{nodo.func.value.id}'."
+                        f"Código bloqueado: acceso no permitido a '{nodo.func.value.id}'."
                     )
 
     if "resultado" not in codigo_limpio and "figura" not in codigo_limpio:
         raise ValueError(
-            "El anÃ¡lisis no devolviÃ³ ninguna salida reconocible. Prueba a reformular la pregunta."
+            "El análisis no devolvió ninguna salida reconocible. Prueba a reformular la pregunta."
         )
 
     return codigo_limpio
 
 
 def generar_codigo(groq: Groq, pregunta: str, tipos: dict, muestra: str) -> str:
-    """Pide a Groq cÃ³digo Python para responder la pregunta sobre el DataFrame."""
+    """Pide a Groq código Python para responder la pregunta sobre el DataFrame."""
     prompt = f"""Eres un analista de datos experto en Python y pandas.
 Tienes un DataFrame llamado 'df' con estas columnas y tipos:
 {json.dumps(tipos, indent=2, ensure_ascii=False)}
@@ -282,22 +282,22 @@ Muestra de los primeros datos:
 
 El usuario pregunta: "{pregunta}"
 
-Genera cÃ³digo Python vÃ¡lido que:
+Genera código Python válido que:
 1. Analiza df para responder la pregunta.
 2. Guarda el resultado en una variable llamada 'resultado'.
-3. Si el resultado es un nÃºmero, texto o lista: resultado = el valor directamente.
-4. Si el resultado es un grÃ¡fico: usa plotly express (px) y guarda la figura en 'figura'.
+3. Si el resultado es un número, texto o lista: resultado = el valor directamente.
+4. Si el resultado es un gráfico: usa plotly express (px) y guarda la figura en 'figura'.
 5. Si el resultado es una tabla: resultado = df_resultado (un DataFrame).
 
-REGLAS CRÃTICAS:
+REGLAS CRÍTICAS:
 - Usa solo: pandas (pd), plotly.express (px), plotly.graph_objects (go).
 - No uses importaciones, print, display, matplotlib ni seaborn.
 - No uses bloques try/except.
-- El cÃ³digo debe ser ejecutable directamente.
+- El código debe ser ejecutable directamente.
 - Si calculas fechas usa pd.to_datetime().
-- Para grÃ¡ficos aplica template='plotly_dark'.
+- Para gráficos aplica template='plotly_dark'.
 
-Responde solo con cÃ³digo Python. Sin explicaciones. Sin markdown. Sin comentarios."""
+Responde solo con código Python. Sin explicaciones. Sin markdown. Sin comentarios."""
 
     response = groq.chat.completions.create(
         model="llama-3.3-70b-versatile",
@@ -310,7 +310,7 @@ Responde solo con cÃ³digo Python. Sin explicaciones. Sin markdown. Sin comentari
 
 
 def ejecutar_codigo(codigo: str, df: pd.DataFrame):
-    """Ejecuta el cÃ³digo validado en un entorno restringido."""
+    """Ejecuta el código validado en un entorno restringido."""
     entorno = {
         "__builtins__": ALLOWED_BUILTINS,
         "df": df.copy(),
@@ -325,7 +325,7 @@ def ejecutar_codigo(codigo: str, df: pd.DataFrame):
     figura = entorno.get("figura")
 
     if figura is not None and not isinstance(figure := figura, go.Figure):
-        raise ValueError("La variable 'figura' debe ser un objeto Plotly vÃ¡lido.")
+        raise ValueError("La variable 'figura' debe ser un objeto Plotly válido.")
 
     tipos_permitidos = (pd.DataFrame, pd.Series, str, int, float, bool, list, dict, tuple, type(None))
     if not isinstance(resultado, tipos_permitidos):
@@ -346,7 +346,7 @@ with st.sidebar:
     archivo = st.file_uploader(
         "Sube tu CSV o Excel",
         type=["csv", "xlsx", "xls"],
-        help="El archivo se procesa en la app y no se usa para bÃºsqueda web ni para servicios externos adicionales.",
+        help="El archivo se procesa en la app y no se usa para búsqueda web ni para servicios externos adicionales.",
     )
 
     separador = st.selectbox("Separador CSV", [",", ";", "|", "\\t"], index=0)
@@ -355,14 +355,14 @@ with st.sidebar:
         """
     <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;
         line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
-        <span style="color:#4dd488">â—</span> Modelo: Llama 3.3 70B<br>
-        <span style="color:#4dd488">â—</span> Proveedor: Groq<br>
-        <span style="color:#4dd488">â—</span> Salida: tablas, valores y grÃ¡ficos Plotly<br>
-        <span style="color:#d4a84b">â—</span> Nota: revisa los resultados antes de usarlos
+        <span style="color:#4dd488">?</span> Modelo: Llama 3.3 70B<br>
+        <span style="color:#4dd488">?</span> Proveedor: Groq<br>
+        <span style="color:#4dd488">?</span> Salida: tablas, valores y gráficos Plotly<br>
+        <span style="color:#d4a84b">?</span> Nota: revisa los resultados antes de usarlos
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
-        P10 Â· Dashboard con lenguaje natural<br>
-        <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/proyectos/p10-dashboard-lenguaje-natural" style="color:#7a5e28">Ver proyecto en GitHub â†’</a>
+        P10 · Dashboard con lenguaje natural<br>
+        <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/portfolio/p10-dashboard-lenguaje-natural" style="color:#7a5e28">Ver proyecto en GitHub ?</a>
     </div>""",
         unsafe_allow_html=True,
     )
@@ -371,33 +371,33 @@ with st.sidebar:
 st.markdown(
     """
 <div class="app-header">
-  <div class="app-tag">P10 Â· Dashboard con lenguaje natural Â· Portfolio IA Aplicada
-    <span class="groq-badge">âš¡ Groq Â· Llama 3.3 70B</span>
+  <div class="app-tag">P10 · Dashboard con lenguaje natural · Portfolio IA Aplicada
+    <span class="groq-badge">? Groq · Llama 3.3 70B</span>
   </div>
   <div class="app-title">Explora tus datos con <em>lenguaje natural</em></div>
   <div class="app-subtitle">
-    La versiÃ³n actual permite cargar un CSV o Excel y generar anÃ¡lisis y visualizaciones bajo demanda a partir de preguntas en espaÃ±ol.
+    La versión actual permite cargar un CSV o Excel y generar análisis y visualizaciones bajo demanda a partir de preguntas en español.
   </div>
 </div>""",
     unsafe_allow_html=True,
 )
 
 st.info(
-    "Usa datos no sensibles cuando sea posible. El anÃ¡lisis depende de cÃ³digo generado por un LLM y conviene revisar el resultado antes de tomar decisiones."
+    "Usa datos no sensibles cuando sea posible. El análisis depende de código generado por un LLM y conviene revisar el resultado antes de tomar decisiones."
 )
 
 if archivo is None:
     st.markdown(
         """
     <div style="border:1px dashed rgba(212,168,75,.2);padding:3rem 2rem;text-align:center;margin-top:1rem">
-      <div style="font-size:2.5rem;margin-bottom:1rem">ğŸ“Š</div>
+      <div style="font-size:2.5rem;margin-bottom:1rem">??</div>
       <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#8c8a84;margin-bottom:.75rem">
         Sube un CSV o Excel para empezar
       </div>
       <div style="font-family:'DM Mono',monospace;font-size:.63rem;color:#44433f;letter-spacing:.06em;line-height:1.9">
-        DespuÃ©s podrÃ¡s preguntar sobre tus datos en espaÃ±ol.<br>
-        Ejemplos: "Â¿CuÃ¡l fue el mes con mÃ¡s ventas?" Â· "MuÃ©strame un grÃ¡fico por categorÃ­a"<br>
-        <span style="color:#4dd488">âš¡ AnÃ¡lisis con Groq y ejecuciÃ³n local con validaciones bÃ¡sicas</span>
+        Después podrás preguntar sobre tus datos en español.<br>
+        Ejemplos: "¿Cuál fue el mes con más ventas?" · "Muéstrame un gráfico por categoría"<br>
+        <span style="color:#4dd488">? Análisis con Groq y ejecución local con validaciones básicas</span>
       </div>
     </div>""",
         unsafe_allow_html=True,
@@ -410,7 +410,7 @@ except Exception as exc:
     st.error(
         "No se pudo leer el archivo. Revisa el formato, la hoja seleccionada o el separador si es un CSV."
     )
-    with st.expander("Ver detalle tÃ©cnico"):
+    with st.expander("Ver detalle técnico"):
         st.code(str(exc))
     st.stop()
 
@@ -434,8 +434,8 @@ c1, c2, c3, c4 = st.columns(4)
 stats = [
     (f"{len(df):,}", "filas"),
     (str(len(df.columns)), "columnas"),
-    (str(df.select_dtypes(include="number").shape[1]), "columnas numÃ©ricas"),
-    (f"{df.isnull().sum().sum():,}", "valores vacÃ­os"),
+    (str(df.select_dtypes(include="number").shape[1]), "columnas numéricas"),
+    (f"{df.isnull().sum().sum():,}", "valores vacíos"),
 ]
 for col, (valor, etiqueta) in zip([c1, c2, c3, c4], stats):
     with col:
@@ -457,18 +457,18 @@ cols_num = df.select_dtypes(include="number").columns.tolist()
 cols_cat = df.select_dtypes(include=["object", "category"]).columns.tolist()
 
 sugerencias = [
-    "Â¿CuÃ¡ntas filas tiene el dataset?",
-    "Â¿CuÃ¡les son los valores Ãºnicos de cada columna?",
-    "MuÃ©strame un resumen estadÃ­stico",
+    "¿Cuántas filas tiene el dataset?",
+    "¿Cuáles son los valores únicos de cada columna?",
+    "Muéstrame un resumen estadístico",
 ]
 if cols_num:
-    sugerencias.append(f"Â¿CuÃ¡l es el mÃ¡ximo de {cols_num[0]}?")
-    sugerencias.append(f"MuÃ©strame un histograma de {cols_num[0]}")
+    sugerencias.append(f"¿Cuál es el máximo de {cols_num[0]}?")
+    sugerencias.append(f"Muéstrame un histograma de {cols_num[0]}")
 if cols_cat:
-    sugerencias.append(f"Â¿CuÃ¡ntos registros hay por {cols_cat[0]}?")
-    sugerencias.append(f"MuÃ©strame un grÃ¡fico de barras por {cols_cat[0]}")
+    sugerencias.append(f"¿Cuántos registros hay por {cols_cat[0]}?")
+    sugerencias.append(f"Muéstrame un gráfico de barras por {cols_cat[0]}")
 if len(cols_num) >= 2:
-    sugerencias.append(f"Â¿Existe correlaciÃ³n entre {cols_num[0]} y {cols_num[1]}?")
+    sugerencias.append(f"¿Existe correlación entre {cols_num[0]} y {cols_num[1]}?")
 
 st.markdown(
     "<div style=\"font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#7a5e28;margin-bottom:.75rem\">Preguntas sugeridas</div>",
@@ -486,11 +486,11 @@ col_q, col_btn = st.columns([5, 1])
 with col_q:
     pregunta = st.text_input(
         "Escribe tu pregunta",
-        placeholder="Ej: Â¿CuÃ¡l fue el mes con mÃ¡s ventas? Â· MuÃ©strame un grÃ¡fico de barras por categorÃ­a",
+        placeholder="Ej: ¿Cuál fue el mes con más ventas? · Muéstrame un gráfico de barras por categoría",
     )
 with col_btn:
     st.markdown("<div style='height:1.85rem'></div>", unsafe_allow_html=True)
-    preguntar = st.button("Analizar â†’", use_container_width=True)
+    preguntar = st.button("Analizar ?", use_container_width=True)
 
 if preguntar and pregunta.strip():
     tipos = {col: str(dtype) for col, dtype in df.dtypes.items()}
@@ -507,9 +507,9 @@ if preguntar and pregunta.strip():
             codigo = generar_codigo(groq_client, pregunta.strip(), tipos, muestra)
         except Exception as exc:
             st.error(
-                "No se pudo generar un anÃ¡lisis vÃ¡lido para esta pregunta. Prueba a formularla de forma mÃ¡s concreta."
+                "No se pudo generar un análisis válido para esta pregunta. Prueba a formularla de forma más concreta."
             )
-            with st.expander("Ver detalle tÃ©cnico"):
+            with st.expander("Ver detalle técnico"):
                 st.code(str(exc))
             st.stop()
 
@@ -517,11 +517,11 @@ if preguntar and pregunta.strip():
         resultado, figura = ejecutar_codigo(codigo, df)
     except Exception as exc:
         st.error(
-            "Se generÃ³ cÃ³digo, pero no pudo ejecutarse correctamente con este dataset o esta pregunta."
+            "Se generó código, pero no pudo ejecutarse correctamente con este dataset o esta pregunta."
         )
-        with st.expander("Ver cÃ³digo generado"):
+        with st.expander("Ver código generado"):
             st.code(codigo, language="python")
-        with st.expander("Ver detalle tÃ©cnico"):
+        with st.expander("Ver detalle técnico"):
             st.code(str(exc))
         st.stop()
 
@@ -562,9 +562,9 @@ if preguntar and pregunta.strip():
             unsafe_allow_html=True,
         )
     else:
-        st.info("El anÃ¡lisis terminÃ³, pero no devolviÃ³ un resultado visible. Prueba a reformular la pregunta.")
+        st.info("El análisis terminó, pero no devolvió un resultado visible. Prueba a reformular la pregunta.")
 
-    with st.expander("Ver cÃ³digo generado por Groq"):
+    with st.expander("Ver código generado por Groq"):
         st.code(codigo, language="python")
 
 elif preguntar and not pregunta.strip():
@@ -572,6 +572,6 @@ elif preguntar and not pregunta.strip():
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    "<div class='app-footer'>P10 Â· Dashboard con lenguaje natural Â· Groq + Llama 3.3 70B Â· Portfolio IA Aplicada Â· JosÃ© MarÃ­a Â· Sevilla</div>",
+    "<div class='app-footer'>P10 · Dashboard con lenguaje natural · Groq + Llama 3.3 70B · Portfolio IA Aplicada · José María · Sevilla</div>",
     unsafe_allow_html=True,
 )

@@ -19,7 +19,7 @@ Describe tu idea de negocio y en pocos segundos recibes un analisis estructurado
 ## Instalacion
 
 ```bash
-cd proyectos/p09-evaluador-ideas-negocio
+cd portfolio/p09-evaluador-ideas-negocio
 python -m pip install -r requirements.txt
 copy .env.example .env
 python -m streamlit run app.py

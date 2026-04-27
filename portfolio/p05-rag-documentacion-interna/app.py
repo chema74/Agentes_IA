@@ -1,14 +1,14 @@
-ï»¿"""
-P05 Â· Base pÃºblica actual del motor RAG corporativo multi-dominio
+"""
+P05 · Base pública actual del motor RAG corporativo multi-dominio
 =================================================================
-Autor: JosÃ© MarÃ­a
-Stack: Groq Â· ChromaDB Â· sentence-transformers Â· PyMuPDF Â· Streamlit
+Autor: José María
+Stack: Groq · ChromaDB · sentence-transformers · PyMuPDF · Streamlit
 
-CÃ³mo funciona:
-1. El usuario sube PDFs de documentaciÃ³n interna.
+Cómo funciona:
+1. El usuario sube PDFs de documentación interna.
 2. La app extrae el texto, lo divide en fragmentos y lo indexa localmente.
-3. ChromaDB recupera los fragmentos mÃ¡s relevantes para cada pregunta.
-4. Groq genera la respuesta apoyÃ¡ndose en esos fragmentos.
+3. ChromaDB recupera los fragmentos más relevantes para cada pregunta.
+4. Groq genera la respuesta apoyándose en esos fragmentos.
 5. La app muestra la respuesta y las fuentes consultadas.
 """
 
@@ -34,8 +34,8 @@ TOP_K = 4
 
 
 st.set_page_config(
-    page_title="P05 Â· RAG documental corporativo",
-    page_icon="ğŸ“š",
+    page_title="P05 · RAG documental corporativo",
+    page_icon="??",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -205,11 +205,11 @@ def get_chroma():
 
 @st.cache_resource
 def get_groq() -> Groq:
-    """Crea el cliente de Groq si la API key estÃ¡ disponible."""
+    """Crea el cliente de Groq si la API key está disponible."""
     api_key = os.getenv("GROQ_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError(
-            "Falta GROQ_API_KEY. Copia .env.example a .env y aÃ±ade tu clave antes de hacer consultas."
+            "Falta GROQ_API_KEY. Copia .env.example a .env y añade tu clave antes de hacer consultas."
         )
     return Groq(api_key=api_key)
 
@@ -247,14 +247,14 @@ def extraer_texto_pdf(archivo_bytes: bytes, nombre: str) -> list[dict]:
 
     if not chunks:
         raise ValueError(
-            f"No se pudo extraer texto Ãºtil de '{nombre}'. Comprueba que no sea un PDF escaneado sin texto seleccionable."
+            f"No se pudo extraer texto útil de '{nombre}'. Comprueba que no sea un PDF escaneado sin texto seleccionable."
         )
 
     return chunks
 
 
 def indexar_documento(collection, chunks: list[dict], nombre: str):
-    """AÃ±ade los fragmentos del documento a ChromaDB."""
+    """Añade los fragmentos del documento a ChromaDB."""
     try:
         ids_existentes = collection.get(where={"fuente": nombre})["ids"]
         if ids_existentes:
@@ -274,7 +274,7 @@ def indexar_documento(collection, chunks: list[dict], nombre: str):
 
 
 def buscar_contexto(collection, pregunta: str, k: int = TOP_K) -> list[dict]:
-    """Recupera los fragmentos mÃ¡s relevantes para la pregunta."""
+    """Recupera los fragmentos más relevantes para la pregunta."""
     total = collection.count()
     if total == 0:
         return []
@@ -295,8 +295,8 @@ def buscar_contexto(collection, pregunta: str, k: int = TOP_K) -> list[dict]:
             chunks.append(
                 {
                     "texto": doc,
-                    "fuente": meta.get("fuente", "â€”"),
-                    "pagina": meta.get("pagina", "â€”"),
+                    "fuente": meta.get("fuente", "—"),
+                    "pagina": meta.get("pagina", "—"),
                     "score": round(1 - dist, 3),
                 }
             )
@@ -306,17 +306,17 @@ def buscar_contexto(collection, pregunta: str, k: int = TOP_K) -> list[dict]:
 def generar_respuesta(groq_client, pregunta: str, contexto: list[dict], historial: list, empresa: str = "") -> str:
     """Genera una respuesta a partir del contexto recuperado."""
     contexto_str = "\n\n---\n\n".join(
-        [f"[Fuente: {c['fuente']}, PÃ¡g. {c['pagina']}]\n{c['texto']}" for c in contexto]
+        [f"[Fuente: {c['fuente']}, Pág. {c['pagina']}]\n{c['texto']}" for c in contexto]
     )
 
     empresa_str = f" de {empresa}" if empresa else ""
     system = (
-        f"Eres un asistente de documentaciÃ³n interna{empresa_str}. "
+        f"Eres un asistente de documentación interna{empresa_str}. "
         "Responde a partir de los fragmentos recuperados del repositorio documental. "
-        "Si la informaciÃ³n no aparece con suficiente respaldo en el contexto, di exactamente: "
-        "'No encuentro esa informaciÃ³n con suficiente respaldo en la documentaciÃ³n disponible.' "
-        "Responde en espaÃ±ol, de forma clara y directa. "
-        "Cita siempre el documento y la pÃ¡gina cuando sea posible."
+        "Si la información no aparece con suficiente respaldo en el contexto, di exactamente: "
+        "'No encuentro esa información con suficiente respaldo en la documentación disponible.' "
+        "Responde en español, de forma clara y directa. "
+        "Cita siempre el documento y la página cuando sea posible."
     )
 
     mensajes = [{"role": "system", "content": system}]
@@ -337,18 +337,18 @@ def generar_respuesta(groq_client, pregunta: str, contexto: list[dict], historia
     )
     contenido = response.choices[0].message.content
     if not contenido:
-        raise ValueError("El modelo no devolviÃ³ una respuesta utilizable.")
+        raise ValueError("El modelo no devolvió una respuesta utilizable.")
     return contenido
 
 
 def get_docs_indexados(collection) -> dict:
-    """Devuelve los documentos indexados con su nÃºmero de fragmentos."""
+    """Devuelve los documentos indexados con su número de fragmentos."""
     if collection.count() == 0:
         return {}
     todos = collection.get(include=["metadatas"])
     conteo = {}
     for meta in todos["metadatas"]:
-        fuente = meta.get("fuente", "â€”")
+        fuente = meta.get("fuente", "—")
         conteo[fuente] = conteo.get(fuente, 0) + 1
     return conteo
 
@@ -373,7 +373,7 @@ with st.sidebar:
         "Sube PDFs de la empresa",
         type=["pdf"],
         accept_multiple_files=True,
-        help="Manuales, procedimientos, polÃ­ticas, organigramas, FAQs y otras guÃ­as internas.",
+        help="Manuales, procedimientos, políticas, organigramas, FAQs y otras guías internas.",
     )
 
     if archivos:
@@ -381,7 +381,7 @@ with st.sidebar:
             collection = get_chroma()
         except Exception as exc:
             st.error("No se pudo inicializar la base vectorial local.")
-            with st.expander("Ver detalle tÃ©cnico"):
+            with st.expander("Ver detalle técnico"):
                 st.code(str(exc))
             st.stop()
 
@@ -392,10 +392,10 @@ with st.sidebar:
                         chunks = extraer_texto_pdf(archivo.read(), archivo.name)
                         n_chunks = indexar_documento(collection, chunks, archivo.name)
                         st.session_state.docs_procesados.add(archivo.name)
-                        st.success(f"{archivo.name} Â· {n_chunks} fragmentos indexados")
+                        st.success(f"{archivo.name} · {n_chunks} fragmentos indexados")
                     except Exception as exc:
                         st.error(f"No se pudo procesar {archivo.name}.")
-                        with st.expander(f"Ver detalle tÃ©cnico: {archivo.name}"):
+                        with st.expander(f"Ver detalle técnico: {archivo.name}"):
                             st.code(str(exc))
 
     try:
@@ -410,7 +410,7 @@ with st.sidebar:
                 st.markdown(
                     f"""
                 <div class="doc-item">
-                  <span class="doc-name">ğŸ“„ {nombre[:28]}{'â€¦' if len(nombre) > 28 else ''}</span>
+                  <span class="doc-name">?? {nombre[:28]}{'…' if len(nombre) > 28 else ''}</span>
                   <span class="doc-chunks">{n} frags</span>
                 </div>""",
                     unsafe_allow_html=True,
@@ -418,7 +418,7 @@ with st.sidebar:
 
             total = sum(docs.values())
             st.markdown(
-                f"<div style=\"font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;margin-top:.5rem\">{len(docs)} docs Â· {total} fragmentos totales</div>",
+                f"<div style=\"font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;margin-top:.5rem\">{len(docs)} docs · {total} fragmentos totales</div>",
                 unsafe_allow_html=True,
             )
 
@@ -445,14 +445,14 @@ with st.sidebar:
         """
     <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;
         line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
-        <span style="color:#4dd488">â—</span> Embeddings e indexado: local<br>
-        <span style="color:#4dd488">â—</span> Base vectorial: ChromaDB en disco<br>
-        <span style="color:#4dd488">â—</span> Respuesta: Groq con fragmentos recuperados<br>
-        <span style="color:#d4a84b">â—</span> Base pÃºblica actual del motor RAG corporativo
+        <span style="color:#4dd488">?</span> Embeddings e indexado: local<br>
+        <span style="color:#4dd488">?</span> Base vectorial: ChromaDB en disco<br>
+        <span style="color:#4dd488">?</span> Respuesta: Groq con fragmentos recuperados<br>
+        <span style="color:#d4a84b">?</span> Base pública actual del motor RAG corporativo
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
-        P05 Â· Portfolio IA Aplicada<br>
-        <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/proyectos/p05-rag-documentacion-interna" style="color:#7a5e28">Ver proyecto en GitHub â†’</a>
+        P05 · Portfolio IA Aplicada<br>
+        <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/portfolio/p05-rag-documentacion-interna" style="color:#7a5e28">Ver proyecto en GitHub ?</a>
     </div>""",
         unsafe_allow_html=True,
     )
@@ -460,20 +460,20 @@ with st.sidebar:
 st.markdown(
     f"""
 <div class="app-header">
-  <div class="app-tag">P05 Â· Base pÃºblica actual Â· Motor RAG corporativo multi-dominio
-    <span class="groq-badge">âš¡ Groq Â· Llama 3.3 70B</span>
-    <span class="local-badge">ğŸ’¾ ChromaDB local</span>
+  <div class="app-tag">P05 · Base pública actual · Motor RAG corporativo multi-dominio
+    <span class="groq-badge">? Groq · Llama 3.3 70B</span>
+    <span class="local-badge">?? ChromaDB local</span>
   </div>
-  <div class="app-title">Asistente <em>documental</em>{f' Â· {nombre_empresa}' if nombre_empresa else ''}</div>
+  <div class="app-title">Asistente <em>documental</em>{f' · {nombre_empresa}' if nombre_empresa else ''}</div>
   <div class="app-subtitle">
-    Consulta documentaciÃ³n interna con RAG local y respuestas apoyadas en fragmentos recuperados.
+    Consulta documentación interna con RAG local y respuestas apoyadas en fragmentos recuperados.
   </div>
 </div>""",
     unsafe_allow_html=True,
 )
 
 st.info(
-    "La indexaciÃ³n y la base vectorial se gestionan localmente. Para responder, la app envÃ­a al modelo la pregunta y los fragmentos recuperados como contexto."
+    "La indexación y la base vectorial se gestionan localmente. Para responder, la app envía al modelo la pregunta y los fragmentos recuperados como contexto."
 )
 
 try:
@@ -481,7 +481,7 @@ try:
     total_docs = collection.count()
 except Exception as exc:
     st.error("No se pudo abrir la base documental local.")
-    with st.expander("Ver detalle tÃ©cnico"):
+    with st.expander("Ver detalle técnico"):
         st.code(str(exc))
     st.stop()
 
@@ -489,14 +489,14 @@ if total_docs == 0:
     st.markdown(
         """
     <div style="border:1px dashed rgba(212,168,75,.2);padding:3rem 2rem;text-align:center;margin-top:1rem">
-      <div style="font-size:2.5rem;margin-bottom:1rem">ğŸ“š</div>
+      <div style="font-size:2.5rem;margin-bottom:1rem">??</div>
       <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#8c8a84;margin-bottom:.75rem">
         Sube los PDFs de tu empresa para empezar
       </div>
       <div style="font-family:'DM Mono',monospace;font-size:.63rem;color:#44433f;letter-spacing:.06em;line-height:2">
-        Ejemplos: manual de empleado Â· procedimientos Â· polÃ­ticas de RR. HH.<br>
-        organigramas Â· FAQs internas Â· normativa Â· guÃ­as de producto<br>
-        <span style="color:#4dd488">La indexaciÃ³n se hace en local y la respuesta se apoya en fragmentos recuperados de tus documentos.</span>
+        Ejemplos: manual de empleado · procedimientos · políticas de RR. HH.<br>
+        organigramas · FAQs internas · normativa · guías de producto<br>
+        <span style="color:#4dd488">La indexación se hace en local y la respuesta se apoya en fragmentos recuperados de tus documentos.</span>
       </div>
     </div>""",
         unsafe_allow_html=True,
@@ -504,12 +504,12 @@ if total_docs == 0:
     st.stop()
 
 sugerencias = [
-    "Â¿CuÃ¡ntos dÃ­as de vacaciones tengo al aÃ±o?",
-    "Â¿CuÃ¡l es el procedimiento para solicitar una baja?",
-    "Â¿A quiÃ©n tengo que dirigirme para reportar una incidencia de IT?",
-    "Â¿CuÃ¡les son los horarios de trabajo?",
-    "Â¿QuÃ© herramientas usa el equipo de ventas?",
-    "Resume los valores y misiÃ³n de la empresa.",
+    "¿Cuántos días de vacaciones tengo al año?",
+    "¿Cuál es el procedimiento para solicitar una baja?",
+    "¿A quién tengo que dirigirme para reportar una incidencia de IT?",
+    "¿Cuáles son los horarios de trabajo?",
+    "¿Qué herramientas usa el equipo de ventas?",
+    "Resume los valores y misión de la empresa.",
 ]
 
 st.markdown(
@@ -526,7 +526,7 @@ st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
 
 if st.session_state.historial:
     st.markdown(
-        "<div style=\"font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#7a5e28;margin-bottom:.75rem\">// ConversaciÃ³n</div>",
+        "<div style=\"font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#7a5e28;margin-bottom:.75rem\">// Conversación</div>",
         unsafe_allow_html=True,
     )
 
@@ -535,7 +535,7 @@ if st.session_state.historial:
             st.markdown(
                 f"""
             <div class="hist-user">
-              <div class="hist-role">TÃº</div>
+              <div class="hist-role">Tú</div>
               {msg["content"]}
             </div>""",
                 unsafe_allow_html=True,
@@ -550,7 +550,7 @@ if st.session_state.historial:
                 unsafe_allow_html=True,
             )
 
-    if st.button("Limpiar conversaciÃ³n", use_container_width=False):
+    if st.button("Limpiar conversación", use_container_width=False):
         st.session_state.historial = []
         st.rerun()
 
@@ -560,19 +560,19 @@ col_q, col_btn = st.columns([5, 1])
 with col_q:
     pregunta = st.text_input(
         "Escribe tu pregunta",
-        placeholder="Ej: Â¿CuÃ¡ntos dÃ­as de vacaciones tengo? Â¿CuÃ¡l es el proceso de onboarding?",
+        placeholder="Ej: ¿Cuántos días de vacaciones tengo? ¿Cuál es el proceso de onboarding?",
         key="input_pregunta",
     )
 with col_btn:
     st.markdown("<div style='height:1.85rem'></div>", unsafe_allow_html=True)
-    preguntar = st.button("Preguntar â†’", use_container_width=True)
+    preguntar = st.button("Preguntar ?", use_container_width=True)
 
 if preguntar and pregunta.strip():
     try:
         collection = get_chroma()
     except Exception as exc:
         st.error("No se pudo abrir la base vectorial local para consultar documentos.")
-        with st.expander("Ver detalle tÃ©cnico"):
+        with st.expander("Ver detalle técnico"):
             st.code(str(exc))
         st.stop()
 
@@ -591,7 +591,7 @@ if preguntar and pregunta.strip():
             contexto = buscar_contexto(collection, pregunta.strip())
         except Exception as exc:
             st.error("No se pudo recuperar contexto desde la base documental.")
-            with st.expander("Ver detalle tÃ©cnico"):
+            with st.expander("Ver detalle técnico"):
                 st.code(str(exc))
             st.stop()
 
@@ -610,7 +610,7 @@ if preguntar and pregunta.strip():
             )
         except Exception as exc:
             st.error("No se pudo generar una respuesta a partir del contexto recuperado.")
-            with st.expander("Ver detalle tÃ©cnico"):
+            with st.expander("Ver detalle técnico"):
                 st.code(str(exc))
             st.stop()
 
@@ -629,10 +629,10 @@ if preguntar and pregunta.strip():
                 f"""
             <div class="source-box">
               <div class="source-header">
-                <span class="source-file">ğŸ“„ {chunk['fuente']}</span>
-                <span class="source-page">PÃ¡g. {chunk['pagina']} Â· Relevancia: {chunk['score']:.0%}</span>
+                <span class="source-file">?? {chunk['fuente']}</span>
+                <span class="source-page">Pág. {chunk['pagina']} · Relevancia: {chunk['score']:.0%}</span>
               </div>
-              <div class="source-text">{chunk['texto'][:300]}{'â€¦' if len(chunk['texto']) > 300 else ''}</div>
+              <div class="source-text">{chunk['texto'][:300]}{'…' if len(chunk['texto']) > 300 else ''}</div>
             </div>""",
                 unsafe_allow_html=True,
             )
@@ -645,6 +645,6 @@ elif preguntar and not pregunta.strip():
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    '<div class="app-footer">P05 Â· Base pÃºblica actual del motor RAG corporativo multi-dominio Â· Groq + ChromaDB local + sentence-transformers Â· Portfolio IA Aplicada Â· JosÃ© MarÃ­a Â· Sevilla</div>',
+    '<div class="app-footer">P05 · Base pública actual del motor RAG corporativo multi-dominio · Groq + ChromaDB local + sentence-transformers · Portfolio IA Aplicada · José María · Sevilla</div>',
     unsafe_allow_html=True,
 )
