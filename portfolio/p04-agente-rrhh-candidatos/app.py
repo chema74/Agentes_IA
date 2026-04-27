@@ -26,7 +26,7 @@ from groq import Groq
 
 load_dotenv()
 
-CHROMA_PATH = "./chroma_db_p05"
+CHROMA_PATH = "./chroma_db_p04"
 COLLECTION = "candidatos"
 CHUNK_SIZE = 800
 CHUNK_OVERLAP = 100
