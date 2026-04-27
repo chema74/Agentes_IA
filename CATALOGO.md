@@ -41,6 +41,20 @@ La principal deuda no es solo de codigo. Es de orden:
 | `products/geopolitical-trade-intelligence-agent` | Avanzado | Completar producto, docs y acabados de API | Alta |
 | `products/nspa-psychological-orchestrator` | Avanzado | Seguridad, continuidad narrativa y experiencia de uso | Alta |
 
+## Priorizacion de products
+
+| Proyecto | Score | Posicion | Siguiente paso |
+|---|---:|---|---|
+| `products/audit-compliance-evidence-agent` | 9.5 | 1 | Cerrar despliegue real, observabilidad y UX final |
+| `products/contract-obligations-agent` | 9.0 | 2 | Consolidar conectores reales y empaquetado de produccion |
+| `products/apollo-policy-enforcer-agent` | 8.7 | 3 | Endurecer validacion, permisos y casos de enforcement |
+| `products/a2a-self-healing-logistics-agent` | 8.4 | 4 | Cerrar operacion de recovery y documentacion de runtime |
+| `products/change-process-coaching-orchestrator` | 8.0 | 5 | Afinar persistencia, observabilidad y criterios de escalado |
+| `products/geopolitical-trade-intelligence-agent` | 7.8 | 6 | Completar historia de producto y cerrar APIs visibles |
+| `products/nspa-psychological-orchestrator` | 7.6 | 7 | Fortalecer seguridad, limites y continuidad narrativa |
+| `products/agentic-learning-integrity-orchestrator` | 7.2 | 8 | Cerrar producto, casos docentes y trazabilidad de evidencia |
+| `products/autonomous-legal-counsel-agent` | 7.0 | 9 | Amplificar docs, tests y ruta de produccion |
+
 ## Que falta en global
 
 - Un indice central por proyecto con estado, entrypoint y siguiente paso.
@@ -86,4 +100,3 @@ Agentes_IA/
 - `muy avanzado`: casi listo, pero falta pulido y operacion.
 - `avanzado`: buena base, todavia faltan cierres de producto.
 - `prototipo`: util como demo, pero aun no lo venderia como producto.
-
