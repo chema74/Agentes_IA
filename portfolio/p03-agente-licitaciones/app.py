@@ -9,6 +9,7 @@ Coste : GRATUITO
 import json
 import os
 import shutil
+from pathlib import Path
 
 import chromadb
 import fitz
@@ -16,10 +17,12 @@ import streamlit as st
 from chromadb.utils import embedding_functions
 from dotenv import load_dotenv
 from groq import Groq
+from config.settings import MODEL_NAME
 
 load_dotenv()
 
-CHROMA_PATH = "./chroma_db_p03"
+BASE_DIR = Path(__file__).resolve().parent
+CHROMA_PATH = str(BASE_DIR / "chroma_db_p03")
 COLLECTION = "licitaciones"
 CHUNK_SIZE = 700
 CHUNK_OVERLAP = 120
@@ -312,7 +315,7 @@ proximos_pasos: lista de 3 acciones si se decide concursar
 Solo JSON valido. Sin markdown."""
 
     r = groq_c.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model=MODEL_NAME,
         messages=[{"role": "user", "content": prompt}],
         temperature=0.1,
         max_tokens=1500,
@@ -336,7 +339,7 @@ def responder_consulta(groq_c, pregunta: str, contexto: list, historial: list) -
         msgs.append({"role": m["role"], "content": m["content"]})
     msgs.append({"role": "user", "content": f"PLIEGO:\n{ctx_str}\n\nPREGUNTA: {pregunta}"})
     r = groq_c.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model=MODEL_NAME,
         messages=msgs,
         temperature=0.1,
         max_tokens=700,

@@ -46,7 +46,10 @@ def with_retry(
     - Otros errores: se relanzan tal cual
     """
     # Importación local para evitar posibles ciclos
-    from config.settings import MIN_RATE_LIMIT_DELAY
+    try:
+        from config.settings import THROTTLING_DELAY as MIN_RATE_LIMIT_DELAY
+    except ImportError:
+        MIN_RATE_LIMIT_DELAY = 0.8
 
     if max_attempts < 1:
         raise ValueError("max_attempts debe ser >= 1")

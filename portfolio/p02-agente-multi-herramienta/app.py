@@ -7,6 +7,7 @@ UI : Corregida para Alta Legibilidad en Fondo Oscuro
 """
 
 import json
+from json import JSONDecodeError
 import streamlit as st
 from groq import Groq
 from tavily import TavilyClient
@@ -81,15 +82,22 @@ if "id_sesion" not in st.session_state: st.session_state.id_sesion = generar_id_
 if "chunks_pdf" not in st.session_state: st.session_state.chunks_pdf = []
 if "nombre_pdf" not in st.session_state: st.session_state.nombre_pdf = ""
 
-# Clientes de API
-groq_c = Groq(api_key=GROQ_API_KEY)
-tavily_c = TavilyClient(api_key=TAVILY_API_KEY)
+@st.cache_resource
+def get_groq_client():
+    return Groq(api_key=GROQ_API_KEY)
+
+
+@st.cache_resource
+def get_tavily_client():
+    return TavilyClient(api_key=TAVILY_API_KEY)
 
 # --- SIDEBAR (HISTORIAL E IDIOMA) ---
 with st.sidebar:
     st.session_state.lang = st.selectbox("🌐 Language", ["es", "en"], index=0)
-    L = st.session_state.lang
-    
+
+L = st.session_state.lang
+
+with st.sidebar:
     st.markdown(f"### {get_text('sidebar_history', lang=L)}")
     sesiones = listar_sesiones_disponibles()
     if sesiones:
@@ -150,7 +158,7 @@ if prompt := st.chat_input(get_text("input_placeholder", lang=L)):
 
                 # Primera llamada: Descubrimiento de herramientas
                 def call_groq_tools():
-                    return groq_c.chat.completions.create(
+                    return get_groq_client().chat.completions.create(
                         model=MODEL_NAME,
                         messages=[{"role":"system","content":"Responde siempre en " + L}] + st.session_state.mensajes[-5:],
                         tools=tools, tool_choice="auto"
@@ -163,11 +171,15 @@ if prompt := st.chat_input(get_text("input_placeholder", lang=L)):
                 if msg.tool_calls:
                     for tc in msg.tool_calls:
                         f_name = tc.function.name
-                        f_args = json.loads(tc.function.arguments)
+                        try:
+                            f_args = json.loads(tc.function.arguments)
+                        except JSONDecodeError:
+                            st.error(f"Argumentos inválidos para la herramienta {f_name}.")
+                            continue
                         st.write(f"🔧 {f_name}...")
                         
                         if f_name == "buscar_web":
-                            s = tavily_c.search(query=f_args.get("q"), max_results=MAX_RESULTS_PER_QUERY)
+                            s = get_tavily_client().search(query=f_args.get("q"), max_results=MAX_RESULTS_PER_QUERY)
                             content = "\n".join([r["content"] for r in s["results"]])
                         elif f_name == "analizar_pdf":
                             content = buscar_contexto_relevante(f_args.get("q"), st.session_state.chunks_pdf)
@@ -186,7 +198,7 @@ if prompt := st.chat_input(get_text("input_placeholder", lang=L)):
                 if tool_results:
                     final_msgs.append(msg)
                     final_msgs.extend(tool_results)
-                return groq_c.chat.completions.create(model=MODEL_NAME, messages=final_msgs, stream=True)
+                return get_groq_client().chat.completions.create(model=MODEL_NAME, messages=final_msgs, stream=True)
 
             stream = with_retry(call_groq_final, label="Final Answer")
             for chunk in stream:
