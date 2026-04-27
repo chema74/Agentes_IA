@@ -17,7 +17,8 @@ from chromadb.utils import embedding_functions
 
 load_dotenv()
 
-CHROMA_PATH = "./chroma_db_p09"
+BASE_DIR = Path(__file__).resolve().parent
+CHROMA_PATH = str(BASE_DIR / "chroma_db_p08")
 COLLECTION  = "normativa_comercio"
 CHUNK_SIZE  = 700
 CHUNK_OVERLAP = 120

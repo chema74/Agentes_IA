@@ -13,6 +13,7 @@ CÓMO FUNCIONA:
 """
 
 import os, json
+from pathlib import Path
 from datetime import datetime
 import streamlit as st
 from groq import Groq
@@ -20,6 +21,8 @@ from tavily import TavilyClient
 from dotenv import load_dotenv
 
 load_dotenv()
+
+BASE_DIR = Path(__file__).resolve().parent
 
 st.set_page_config(
     page_title="P09 - Evaluador de Ideas de Negocio",

@@ -14,6 +14,7 @@ Como funciona:
 import os
 import shutil
 import time
+from pathlib import Path
 
 import chromadb
 import fitz
@@ -25,7 +26,8 @@ from groq import Groq
 
 load_dotenv()
 
-CHROMA_PATH = "./chroma_db"
+BASE_DIR = Path(__file__).resolve().parent
+CHROMA_PATH = str(BASE_DIR / "chroma_db")
 COLLECTION = "documentacion_empresa"
 CHUNK_SIZE = 600
 CHUNK_OVERLAP = 100

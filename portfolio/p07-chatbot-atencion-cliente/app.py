@@ -24,7 +24,7 @@ st.set_page_config(
 )
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
-CHROMA_PATH = "chroma_db"
+CHROMA_PATH = str(Path(__file__).resolve().parent / "chroma_db_p07")
 COLLECTION_NAME = "atencion_cliente"
 EMBED_MODEL_NAME = "all-MiniLM-L6-v2"
 
