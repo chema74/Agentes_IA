@@ -1,10 +1,3 @@
-# P01 - Inteligencia comercial internacional
+﻿# P01 - Inteligencia comercial internacional (shim)
 
-Esta carpeta queda como residuo temporal de la migracion a `portfolio/p01-inteligencia-comercial-internacional`.
-
-La version activa y normalizada del proyecto esta en:
-
-- `portfolio/p01-inteligencia-comercial-internacional`
-
-Usa esa ruta como fuente de verdad.
-
+La version activa y normalizada del proyecto esta en `portfolio/p01-inteligencia-comercial-internacional`.

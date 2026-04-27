@@ -1,34 +1,34 @@
-# P10 · Dashboard con lenguaje natural
+ï»¿# P10 Â· Dashboard con lenguaje natural
 
-> **Portfolio IA Aplicada · José María · Sevilla**  
-> Stack: Groq · pandas · Plotly · Streamlit
+> **Portfolio IA Aplicada Â· JosÃ© MarÃ­a Â· Sevilla**  
+> Stack: Groq Â· pandas Â· Plotly Â· Streamlit
 
 ---
 
-## Qué hace este proyecto
+## QuÃ© hace este proyecto
 
-Esta versión pública del agente final **Dashboard con lenguaje natural** permite:
+Esta versiÃ³n pÃºblica del agente final **Dashboard con lenguaje natural** permite:
 
 - subir un archivo CSV o Excel,
-- hacer preguntas en español sobre los datos,
-- generar análisis y visualizaciones bajo demanda,
-- ver el resultado en pantalla como gráfico, tabla o valor.
+- hacer preguntas en espaÃ±ol sobre los datos,
+- generar anÃ¡lisis y visualizaciones bajo demanda,
+- ver el resultado en pantalla como grÃ¡fico, tabla o valor.
 
-No construye un dashboard persistente ni un modelo semántico completo. Su alcance actual es la **exploración asistida de datasets tabulares** con lenguaje natural.
+No construye un dashboard persistente ni un modelo semÃ¡ntico completo. Su alcance actual es la **exploraciÃ³n asistida de datasets tabulares** con lenguaje natural.
 
 ---
 
 ## Ejemplos de preguntas
 
-- *¿Cuál fue el mes con más ventas?*
-- *Muéstrame un gráfico de barras por categoría*
-- *¿Cuál es el valor medio de la columna precio?*
-- *¿Existe correlación entre ventas e ingresos?*
-- *Muéstrame los 10 clientes con más pedidos*
+- *Â¿CuÃ¡l fue el mes con mÃ¡s ventas?*
+- *MuÃ©strame un grÃ¡fico de barras por categorÃ­a*
+- *Â¿CuÃ¡l es el valor medio de la columna precio?*
+- *Â¿Existe correlaciÃ³n entre ventas e ingresos?*
+- *MuÃ©strame los 10 clientes con mÃ¡s pedidos*
 
 ---
 
-## Instalación
+## InstalaciÃ³n
 
 ```bash
 cd portfolio/p10-dashboard-lenguaje-natural
@@ -36,38 +36,39 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 copy .env.example .env
-# Añadir GROQ_API_KEY en el archivo .env
+# AÃ±adir GROQ_API_KEY en el archivo .env
 python -m streamlit run app.py
 ```
 
 ---
 
-## Cómo funciona
+## CÃ³mo funciona
 
 ```text
 Usuario sube CSV/Excel
         ?
 Streamlit carga el DataFrame con pandas
         ?
-Usuario escribe una pregunta en español
+Usuario escribe una pregunta en espaÃ±ol
         ?
-Groq genera código Python de análisis
+Groq genera cÃ³digo Python de anÃ¡lisis
         ?
-La app valida el código y lo ejecuta con restricciones básicas
+La app valida el cÃ³digo y lo ejecuta con restricciones bÃ¡sicas
         ?
-Resultado: gráfico Plotly / tabla / valor
+Resultado: grÃ¡fico Plotly / tabla / valor
 ```
 
 ---
 
-## Límites operativos
+## LÃ­mites operativos
 
-- El análisis depende de código generado por un LLM.
+- El anÃ¡lisis depende de cÃ³digo generado por un LLM.
 - Conviene revisar los resultados antes de usarlos para decisiones importantes.
 - Es preferible trabajar con datos no sensibles o anonimizar el archivo antes de subirlo.
-- La app aplica validaciones básicas antes de ejecutar el código, pero no implementa una sandbox completa.
+- La app aplica validaciones bÃ¡sicas antes de ejecutar el cÃ³digo, pero no implementa una sandbox completa.
 
 ---
 
-*Portfolio IA Aplicada · José María · Sevilla · 2026*
+*Portfolio IA Aplicada Â· JosÃ© MarÃ­a Â· Sevilla Â· 2026*
+
 

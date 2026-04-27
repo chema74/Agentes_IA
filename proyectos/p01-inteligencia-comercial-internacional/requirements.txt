@@ -1,2 +1,1 @@
-# Compatibilidad temporal.
-# La version activa del proyecto vive en portfolio/p01-inteligencia-comercial-internacional.
+﻿# Compatibilidad temporal.

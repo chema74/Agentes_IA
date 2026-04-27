@@ -1,45 +1,45 @@
-# P05 · Base pública actual del motor RAG corporativo multi-dominio
+ï»¿# P05 Â· Base pÃºblica actual del motor RAG corporativo multi-dominio
 
-> **Portfolio IA Aplicada · José María · Sevilla**  
-> Stack: Groq · ChromaDB · sentence-transformers · Streamlit  
+> **Portfolio IA Aplicada Â· JosÃ© MarÃ­a Â· Sevilla**  
+> Stack: Groq Â· ChromaDB Â· sentence-transformers Â· Streamlit  
 > Coste: **gratuito** salvo la llamada al modelo
 
 ---
 
-## Qué hace este proyecto
+## QuÃ© hace este proyecto
 
-Esta versión pública de **P05** actúa como base actual del agente final **Motor RAG corporativo multi-dominio**.
+Esta versiÃ³n pÃºblica de **P05** actÃºa como base actual del agente final **Motor RAG corporativo multi-dominio**.
 
 Hoy cubre un caso de uso concreto y defendible: **consulta documental interna con RAG sobre PDFs de empresa**.
 
 Permite:
 
-- subir documentación interna en PDF,
+- subir documentaciÃ³n interna en PDF,
 - indexarla localmente con embeddings,
 - hacer preguntas en lenguaje natural,
 - recuperar fragmentos relevantes,
 - obtener respuestas asistidas a partir del contexto recuperado.
 
-No representa todavía la consolidación completa del motor multi-dominio ni integra por sí solo todas las capacidades asociadas a otros proyectos fuente.
+No representa todavÃ­a la consolidaciÃ³n completa del motor multi-dominio ni integra por sÃ­ solo todas las capacidades asociadas a otros proyectos fuente.
 
 ---
 
 ## Casos de uso
 
-- *¿Cuántos días de vacaciones tengo al año?*
-- *¿Cuál es el proceso para solicitar una baja médica?*
-- *¿A quién reporto una incidencia de IT?*
-- *Resume los valores y la misión de la empresa.*
-- *¿Qué herramientas usa el departamento de ventas?*
+- *Â¿CuÃ¡ntos dÃ­as de vacaciones tengo al aÃ±o?*
+- *Â¿CuÃ¡l es el proceso para solicitar una baja mÃ©dica?*
+- *Â¿A quiÃ©n reporto una incidencia de IT?*
+- *Resume los valores y la misiÃ³n de la empresa.*
+- *Â¿QuÃ© herramientas usa el departamento de ventas?*
 
 ---
 
-## Cómo funciona
+## CÃ³mo funciona
 
 ```text
 PDFs de la empresa
       ?
-PyMuPDF extrae el texto página a página
+PyMuPDF extrae el texto pÃ¡gina a pÃ¡gina
       ?
 El texto se divide en fragmentos y se vectoriza localmente
       ?
@@ -47,7 +47,7 @@ ChromaDB guarda los embeddings en disco
       ?
 El usuario hace una pregunta
       ?
-La app recupera los fragmentos más relevantes
+La app recupera los fragmentos mÃ¡s relevantes
       ?
 Groq genera una respuesta apoyada en esos fragmentos
       ?
@@ -56,7 +56,7 @@ Streamlit muestra la respuesta y las fuentes consultadas
 
 ---
 
-## Instalación
+## InstalaciÃ³n
 
 ```bash
 cd portfolio/p05-rag-documentacion-interna
@@ -64,20 +64,20 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 copy .env.example .env
-# Añadir GROQ_API_KEY en el archivo .env
+# AÃ±adir GROQ_API_KEY en el archivo .env
 python -m streamlit run app.py
 ```
 
-**Nota:** en la primera ejecución, `sentence-transformers` descarga el modelo `all-MiniLM-L6-v2` (~90 MB). Solo ocurre una vez.
+**Nota:** en la primera ejecuciÃ³n, `sentence-transformers` descarga el modelo `all-MiniLM-L6-v2` (~90 MB). Solo ocurre una vez.
 
 ---
 
-## Límites operativos
+## LÃ­mites operativos
 
-- La indexación, los embeddings y la base vectorial se gestionan localmente.
-- Para responder, la app envía al modelo la pregunta del usuario y los fragmentos recuperados como contexto.
+- La indexaciÃ³n, los embeddings y la base vectorial se gestionan localmente.
+- Para responder, la app envÃ­a al modelo la pregunta del usuario y los fragmentos recuperados como contexto.
 - La respuesta intenta apoyarse en los documentos indexados, pero no conviene asumir exhaustividad total ni ausencia de errores.
-- Es una base pública sólida para RAG documental interno, no la consolidación completa del motor RAG corporativo multi-dominio.
+- Es una base pÃºblica sÃ³lida para RAG documental interno, no la consolidaciÃ³n completa del motor RAG corporativo multi-dominio.
 
 ---
 
@@ -94,4 +94,5 @@ p05-rag-documentacion-interna/
 
 ---
 
-*Portfolio IA Aplicada · José María · Sevilla · 2026*
+*Portfolio IA Aplicada Â· JosÃ© MarÃ­a Â· Sevilla Â· 2026*
+
