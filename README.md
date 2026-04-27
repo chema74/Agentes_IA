@@ -45,7 +45,7 @@ Agentes_IA/
 │   ├── p06-rag-contratos-legales
 │   ├── p07-chatbot-atencion-cliente
 │   ├── p08-rag-normativa-comercio
-│   ├── p9-evaluador-ideas-negocio
+│   ├── p09-evaluador-ideas-negocio
 │   └── p10-dashboard-lenguaje-natural
 ├── a2a-self-healing-logistics-agent/
 ├── agentic-learning-integrity-orchestrator/
@@ -80,4 +80,3 @@ Workflow GitHub Actions:
 - Mantener `README.md` coherentes por proyecto.
 - Mantener un entrypoint claro por carpeta.
 - Reservar `proyectos/` para piezas de portfolio y dejar el resto para agentes más completos.
-
