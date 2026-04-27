@@ -1,68 +1,50 @@
 ﻿# P01 - Inteligencia comercial internacional
 
-> Portfolio IA Aplicada - Txema Rios - Sevilla  
-> Stack: Groq - Tavily - Streamlit - Pydantic - pandas
+Base publica del agente de portfolio orientado a comparar paises y mercados para apoyar decisiones comerciales internacionales.
 
-## Que hace hoy este proyecto
+## Que hace
 
-Esta es la base publica actual del agente final Agente de inteligencia comercial internacional.
+- Busca senales relevantes de mercado con apoyo de web search.
+- Genera analisis estructurados por dimensiones.
+- Compara varios paises.
+- Calcula un ranking orientativo de mercados.
+- Guarda un historial basico de resultados.
 
-Su funcion actual es ayudar a comparar paises y mercados para apoyar decisiones comerciales internacionales mediante:
+## Stack
 
-- busqueda web asistida sobre senales relevantes de mercado,
-- analisis estructurado por dimensiones,
-- comparacion entre paises,
-- ranking orientativo de mercados,
-- historial basico de resultados.
-
-No se presenta como un sistema formal de rating pais, una due diligence completa ni una asesoria juridica o regulatoria.
+- Groq
+- Tavily
+- Streamlit
+- Pydantic
+- pandas
 
 ## Flujo principal
 
-1. Seleccionar uno o varios paises a comparar.
-2. Elegir sector y tipo de empresa.
-3. Recuperar contexto con busqueda web y analisis asistido por modelo.
-4. Mostrar resumen ejecutivo, senales por dimension y comparativa orientativa.
-5. Revisar ranking o historial cuando existan datos previos.
+1. Selecciona uno o varios paises a comparar.
+2. Elige sector y tipo de empresa.
+3. Recupera contexto con busqueda web y analisis asistido por modelo.
+4. Revisa resumen ejecutivo, senales por dimension y comparativa orientativa.
+5. Consulta el historial cuando existan datos previos.
 
-## Que entrega
+## Interpretacion del score
 
-- resumen ejecutivo por pais,
-- senales por dimension para apoyar la comparacion,
-- comparativa entre dos mercados,
-- ranking orientativo de varios paises,
-- panel historico con resultados guardados por la aplicacion.
+El indicador principal es `score_total`, un indice orientativo de riesgo y oportunidad:
 
-## Interpretacion del score orientativo
+- menor score = mejor posicion relativa,
+- no es un rating certificado,
+- no sustituye una due diligence completa ni una asesoria juridica.
 
-El indicador principal visible al usuario es un indice orientativo de riesgo (internamente `score_total`):
-
-- mide una estimacion comparativa de senales de riesgo y oportunidad sin presentarse como una escala fija o certificada,
-- menor score = mejor posicion relativa para priorizacion comparativa,
-- no es un rating certificado ni un veredicto de entrada a mercado.
-
-## Instalacion y ejecucion local
+## Instalacion
 
 ```bash
 cd portfolio/p01-inteligencia-comercial-internacional
-pyenv local 3.11.9
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 copy .env.example .env
-streamlit run app/streamlit_app.py
+streamlit run app.py
 ```
 
-## Ejecucion de tests
+## Estado
 
-```bash
-cd portfolio/p01-inteligencia-comercial-internacional
-pytest -q
-```
-
-## Deploy minimo en Streamlit Cloud
-
-- Entry point: `portfolio/p01-inteligencia-comercial-internacional/app/streamlit_app.py`
-- Requirements file: `portfolio/p01-inteligencia-comercial-internacional/requirements.txt`
-
-*Portfolio IA Aplicada - Txema Rios - Sevilla - 2026*
+Es la base publica mas avanzada del portfolio y la referencia principal del bloque de inteligencia comercial internacional.
