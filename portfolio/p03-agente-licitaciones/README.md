@@ -1,52 +1,35 @@
-# P03 - Agente de Evaluacion y Preparacion de Licitaciones
+# P03 - Agente de evaluacion de licitaciones
 
-Stack: Streamlit + Groq + ChromaDB + PyMuPDF
+Agente de portfolio para analizar pliegos en PDF y preparar una primera lectura de viabilidad.
 
 ## Que hace
 
-Subes un pliego en PDF y la app:
+- Indexa el contenido del pliego en ChromaDB local.
+- Genera un analisis estructurado con score, riesgos y recomendacion.
+- Permite chat libre sobre el documento con recuperacion de contexto.
 
-- indexa el contenido en ChromaDB local,
-- genera un analisis de viabilidad en JSON estructurado con score, riesgos y recomendacion,
-- permite chat libre sobre el pliego con recuperacion de contexto desde embeddings.
+## Stack
+
+- Streamlit
+- Groq
+- ChromaDB
+- PyMuPDF
 
 ## Requisitos
 
 - Python 3.11
-- Clave `GROQ_API_KEY`
+- `GROQ_API_KEY`
 
-## Instalacion
+## Como arrancarlo
 
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 copy .env.example .env
-```
-
-Despues, edita `.env` y completa:
-
-```bash
-GROQ_API_KEY=tu_clave_real
-```
-
-## Ejecucion
-
-```bash
 streamlit run app.py
 ```
 
-## Comportamiento real y limites
+## Estado
 
-- El indice vectorial se guarda en `./chroma_db_p03`.
-- Tras reiniciar la app, los embeddings pueden seguir disponibles para consulta.
-- El texto completo del PDF no se reconstruye automaticamente desde chunks solapados.
-- Para un analisis fiel de viabilidad tras reinicio, vuelve a subir el PDF.
-- El analisis usa un extracto maximo de `5000` caracteres del pliego (`MAX_TEXTO_ANALISIS`).
-
-## Troubleshooting rapido
-
-- Error de API: revisa que `GROQ_API_KEY` exista en `.env`.
-- Error de Chroma: elimina `chroma_db_p03` y vuelve a indexar el PDF.
-- Entorno sin Python activo: fija version local/global antes de instalar dependencias.
-
+Pieza de portfolio funcional, orientada a demo.

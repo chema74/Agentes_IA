@@ -1,18 +1,16 @@
-# -*- coding: cp1252 -*-
-"""
-P10 ï¿½ Dashboard con lenguaje natural
+﻿"""
+P10 - Dashboard con lenguaje natural
 ===================================
-Autor: Josï¿½ Marï¿½a
-Stack: Groq ï¿½ pandas ï¿½ Plotly ï¿½ Streamlit
+Autor: Jose Maria
+Stack: Groq - pandas - Plotly - Streamlit
 
-Cï¿½mo funciona:
+Como funciona:
 1. El usuario sube un CSV o Excel.
-2. Escribe una pregunta en espaï¿½ol sobre los datos.
-3. Groq genera cï¿½digo Python de anï¿½lisis.
-4. La app valida el cï¿½digo y lo ejecuta con restricciones bï¿½sicas.
-5. Se muestra el resultado como grï¿½fico, tabla o valor.
+2. Escribe una pregunta en espanol sobre los datos.
+3. Groq genera codigo Python de analisis.
+4. La app valida el codigo y lo ejecuta con restricciones basicas.
+5. Se muestra el resultado como grafico, tabla o valor.
 """
-
 import ast
 import json
 import os
@@ -576,3 +574,4 @@ st.markdown(
     "<div class='app-footer'>P10 ï¿½ Dashboard con lenguaje natural ï¿½ Groq + Llama 3.3 70B ï¿½ Portfolio IA Aplicada ï¿½ Josï¿½ Marï¿½a ï¿½ Sevilla</div>",
     unsafe_allow_html=True,
 )
+

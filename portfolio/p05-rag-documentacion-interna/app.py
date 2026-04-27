@@ -1,18 +1,16 @@
-# -*- coding: cp1252 -*-
-"""
-P05 ï¿½ Base pï¿½blica actual del motor RAG corporativo multi-dominio
+﻿"""
+P05 - Base publica del motor RAG corporativo multi-dominio
 =================================================================
-Autor: Josï¿½ Marï¿½a
-Stack: Groq ï¿½ ChromaDB ï¿½ sentence-transformers ï¿½ PyMuPDF ï¿½ Streamlit
+Autor: Jose Maria
+Stack: Groq - ChromaDB - sentence-transformers - PyMuPDF - Streamlit
 
-Cï¿½mo funciona:
-1. El usuario sube PDFs de documentaciï¿½n interna.
+Como funciona:
+1. El usuario sube PDFs de documentacion interna.
 2. La app extrae el texto, lo divide en fragmentos y lo indexa localmente.
-3. ChromaDB recupera los fragmentos mï¿½s relevantes para cada pregunta.
-4. Groq genera la respuesta apoyï¿½ndose en esos fragmentos.
+3. ChromaDB recupera los fragmentos mas relevantes para cada pregunta.
+4. Groq genera la respuesta apoyandose en esos fragmentos.
 5. La app muestra la respuesta y las fuentes consultadas.
 """
-
 import os
 import shutil
 import time
@@ -649,3 +647,4 @@ st.markdown(
     '<div class="app-footer">P05 ï¿½ Base pï¿½blica actual del motor RAG corporativo multi-dominio ï¿½ Groq + ChromaDB local + sentence-transformers ï¿½ Portfolio IA Aplicada ï¿½ Josï¿½ Marï¿½a ï¿½ Sevilla</div>',
     unsafe_allow_html=True,
 )
+

@@ -1,26 +1,28 @@
 ﻿# P10 - Dashboard con lenguaje natural
 
-> Portfolio IA Aplicada - Jose Maria - Sevilla
-> Stack: Groq - pandas - Plotly - Streamlit
+Dashboard de portfolio para explorar datasets tabulares mediante preguntas en lenguaje natural.
 
-## Que hace este proyecto
+## Que hace
 
-Esta version publica del agente final Dashboard con lenguaje natural permite:
+- Sube un CSV o Excel.
+- Permite hacer preguntas en espanol sobre los datos.
+- Genera analisis y visualizaciones bajo demanda.
+- Muestra el resultado como grafico, tabla o valor.
 
-- subir un archivo CSV o Excel,
-- hacer preguntas en espanol sobre los datos,
-- generar analisis y visualizaciones bajo demanda,
-- ver el resultado en pantalla como grafico, tabla o valor.
+## Stack
 
-No construye un dashboard persistente ni un modelo semantico completo. Su alcance actual es la exploracion asistida de datasets tabulares con lenguaje natural.
+- Groq
+- pandas
+- Plotly
+- Streamlit
 
 ## Ejemplos de preguntas
 
 - Cual fue el mes con mas ventas?
-- Muestrame un grafico de barras por categoria
+- Muestrame un grafico de barras por categoria.
 - Cual es el valor medio de la columna precio?
 - Existe correlacion entre ventas e ingresos?
-- Muestrame los 10 clientes con mas pedidos
+- Muestrame los 10 clientes con mas pedidos.
 
 ## Instalacion
 
@@ -33,27 +35,12 @@ copy .env.example .env
 python -m streamlit run app.py
 ```
 
-## Como funciona
-
-```text
-Usuario sube CSV/Excel
-        ->
-Streamlit carga el DataFrame con pandas
-        ->
-Usuario escribe una pregunta en espanol
-        ->
-Groq genera codigo Python de analisis
-        ->
-La app valida el codigo y lo ejecuta con restricciones basicas
-        ->
-Resultado: grafico Plotly / tabla / valor
-```
-
-## Limites operativos
+## Limites
 
 - El analisis depende de codigo generado por un LLM.
 - Conviene revisar los resultados antes de usarlos para decisiones importantes.
-- Es preferible trabajar con datos no sensibles o anonimizar el archivo antes de subirlo.
-- La app aplica validaciones basicas antes de ejecutar el codigo, pero no implementa una sandbox completa.
+- La app aplica validaciones basicas antes de ejecutar el codigo.
 
-*Portfolio IA Aplicada - Jose Maria - Sevilla - 2026*
+## Estado
+
+Demo de exploracion tabular con buena base, sin sandbox completa.
