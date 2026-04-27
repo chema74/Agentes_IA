@@ -1,9 +1,9 @@
 """
-P11 · Evaluador de Ideas de Negocio
-=====================================
+P09 - Evaluador de Ideas de Negocio
+====================================
 Autor : José María
 Stack : Groq · Tavily · Streamlit
-Coste : GRATUITO
+Coste : Gratuito
 
 CÓMO FUNCIONA:
   1. Describes tu idea de negocio
@@ -22,7 +22,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 st.set_page_config(
-    page_title="Evaluador de Ideas de Negocio IA",
+    page_title="P09 - Evaluador de Ideas de Negocio",
     page_icon="💡",
     layout="wide",
     initial_sidebar_state="expanded",
