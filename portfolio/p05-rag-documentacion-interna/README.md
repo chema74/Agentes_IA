@@ -84,12 +84,12 @@ python -m streamlit run app.py
 ## Estructura del proyecto
 
 ```text
-p05-rag-documentacion-interna/
-+-- app.py
-+-- requirements.txt
-+-- .env.example
-+-- .gitignore
-+-- README.md
+portfolio/p05-rag-documentacion-interna/
+├── app.py
+├── requirements.txt
+├── .env.example
+├── .gitignore
+└── README.md
 ```
 
 ---
