@@ -1,3 +1,4 @@
+# -*- coding: cp1252 -*-
 """
 P05 · Base pública actual del motor RAG corporativo multi-dominio
 =================================================================

@@ -8,9 +8,10 @@ import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECTS_DIR = ROOT / "proyectos"
+PROJECTS_DIR = ROOT / "portfolio"
 
 PROJECT_CASES = [
+    ("p01-inteligencia-comercial-internacional", "P01"),
     ("p02-agente-multi-herramienta", "P02"),
     ("p03-agente-licitaciones", "P03"),
     ("p04-agente-rrhh-candidatos", "P04"),
@@ -18,7 +19,7 @@ PROJECT_CASES = [
     ("p06-rag-contratos-legales", "P06"),
     ("p07-chatbot-atencion-cliente", "P07"),
     ("p08-rag-normativa-comercio", "P08"),
-    ("p9-evaluador-ideas-negocio", "P09"),
+    ("p09-evaluador-ideas-negocio", "P09"),
     ("p10-dashboard-lenguaje-natural", "P10"),
 ]
 
@@ -103,4 +104,3 @@ def test_project_env_example_contains_required_keys(folder: str, _expected_id: s
     assert not re.search(r"tvly-[A-Za-z0-9-]{20,}", content), (
         f"{folder} contiene una TAVILY key real en .env.example"
     )
-

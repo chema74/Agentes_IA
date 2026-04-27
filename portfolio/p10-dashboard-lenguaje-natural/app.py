@@ -1,3 +1,4 @@
+# -*- coding: cp1252 -*-
 """
 P10 · Dashboard con lenguaje natural
 ===================================
