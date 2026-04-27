@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECTS_DIR = ROOT / "proyectos"
+PROJECTS_DIRS = [ROOT / "portfolio", ROOT / "products"]
 
 
 def _project_id_from_folder(name: str) -> str | None:
@@ -31,40 +31,41 @@ def _read_text(path: Path) -> str:
 def main() -> int:
     errors: list[str] = []
 
-    if not PROJECTS_DIR.exists():
-        print("No existe el directorio 'proyectos'.")
-        return 1
-
-    for project in sorted(p for p in PROJECTS_DIR.iterdir() if p.is_dir()):
-        expected_id = _project_id_from_folder(project.name)
-        readme = _get_readme(project)
-        if readme is None:
-            errors.append(f"{project.name}: falta README.md/readme.md")
+    for projects_dir in PROJECTS_DIRS:
+        if not projects_dir.exists():
+            errors.append(f"No existe el directorio '{projects_dir.name}'.")
             continue
 
-        content = _read_text(readme)
-        first_non_empty = ""
-        for line in content.splitlines():
-            if line.strip():
-                first_non_empty = line.strip().lstrip("\ufeff")
-                break
+        for project in sorted(p for p in projects_dir.iterdir() if p.is_dir()):
+            expected_id = _project_id_from_folder(project.name)
+            readme = _get_readme(project)
+            if readme is None:
+                errors.append(f"{project}: falta README.md/readme.md")
+                continue
 
-        if expected_id and not first_non_empty.startswith(f"# {expected_id}"):
-            errors.append(
-                f"{project.name}: encabezado README no alineado "
-                f"(esperado '# {expected_id} ...')."
-            )
+            content = _read_text(readme)
+            first_non_empty = ""
+            for line in content.splitlines():
+                if line.strip():
+                    first_non_empty = line.strip().lstrip("\ufeff")
+                    break
 
-        if not (project / "requirements.txt").exists():
-            errors.append(f"{project.name}: falta requirements.txt")
+            if expected_id and not first_non_empty.startswith(f"# {expected_id}"):
+                errors.append(
+                    f"{project.name}: encabezado README no alineado "
+                    f"(esperado '# {expected_id} ...')."
+                )
 
-        has_entrypoint = (project / "app.py").exists() or (
-            project / "app" / "streamlit_app.py"
-        ).exists()
-        if not has_entrypoint:
-            errors.append(
-                f"{project.name}: falta entrypoint (app.py o app/streamlit_app.py)"
-            )
+            if not (project / "requirements.txt").exists():
+                errors.append(f"{project.name}: falta requirements.txt")
+
+            has_entrypoint = (project / "app.py").exists() or (
+                project / "app" / "streamlit_app.py"
+            ).exists()
+            if not has_entrypoint:
+                errors.append(
+                    f"{project.name}: falta entrypoint (app.py o app/streamlit_app.py)"
+                )
 
     if errors:
         print("CI lint detectó inconsistencias:")

@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGET_DIRS = [ROOT / "core", ROOT / "proyectos"]
+TARGET_DIRS = [ROOT / "core", ROOT / "portfolio", ROOT / "products"]
 SKIP_PARTS = {
     ".venv",
     "venv",
@@ -48,4 +48,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

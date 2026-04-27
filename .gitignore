@@ -40,6 +40,8 @@ chroma_db/
 chroma_db_*/
 **/chroma_db/
 **/chroma_db_*/
+products/*/.venv/
+products/*/.venv_*/
 
 # Local tooling/worktrees
 .claude/
