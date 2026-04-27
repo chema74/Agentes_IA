@@ -1,23 +1,28 @@
-# P02 · Executive Agent Pro. 
+﻿# P02 - Executive Agent Pro
 
-Agente de Inteligencia Artificial de alto rendimiento diseñado para la toma de decisiones ejecutivas. Este sistema no solo responde; **piensa, busca y analiza**.
+Agente de inteligencia artificial para apoyo ejecutivo, centrado en busqueda, analisis y sintesis de informacion.
 
-## 🌟 Características de Nivel Experto
-- **Reasoning Engine:** Utiliza Llama-3.3 sobre Groq para decisiones en milisegundos.
-- **Dynamic Tool Calling:** El agente decide autónomamente cuándo necesita internet (Tavily) o cuándo consultar tus archivos privados (RAG).
-- **Streaming UI:** Experiencia de usuario fluida con respuestas en tiempo real.
-- **Contextual PDF RAG:** Manejo inteligente de documentos largos mediante fragmentación semántica.
+## Que hace
 
-## 🛠️ Stack Tecnológico
-- **Core:** Groq Cloud (Inferencia de ultra baja latencia).
-- **Search:** Tavily AI (Búsqueda optimizada para LLMs).
-- **Processing:** PyMuPDF & LangChain.
-- **Frontend:** Streamlit con Custom CSS.
+- Busca informacion relevante con herramientas externas.
+- Analiza documentos y textos largos.
+- Resume hallazgos de forma operativa.
+- Ofrece una interfaz simple en Streamlit.
 
-## 🚀 Despliegue Rápido
-1. Clona el repositorio.
+## Stack
+
+- Groq
+- Tavily
+- Streamlit
+- PyMuPDF
+- LangChain
+
+## Despliegue rapido
+
+1. Instala dependencias.
 2. Crea un archivo `.env` con `GROQ_API_KEY` y `TAVILY_API_KEY`.
-3. Ejecuta: `pip install -r requirements.txt && streamlit run app.py`.
+3. Ejecuta `streamlit run app.py`.
 
----
-*Portfolio IA Aplicada · José María · Sevilla 2026*
+## Nota
+
+Es una base de portfolio y no un producto cerrado.
