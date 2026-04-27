@@ -1,15 +1,30 @@
 # Portfolio IA Aplicada
 
-Repositorio de portfolio con web pública + subproyectos de agentes IA orientados a negocio.
+Repositorio monorepo con una web pública en la raíz y una colección de agentes y prototipos de IA orientados a negocio.
 
-## Estado actual del repo
+## Mapa rápido
 
-- La web pública está en la raíz (`index.html`, `proyectos.html`, etc.).
-- El código ejecutable está en `proyectos/`.
-- Hay 10 líneas de agente a nivel portfolio, pero no todas tienen base pública dedicada en esta copia.
-- CI mínima activa con dos checks:
-  - `scripts/ci_lint.py` (coherencia estructura/README por proyecto)
-  - `scripts/ci_smoke.py` (compilación Python)
+- `proyectos/`: prototipos y bases públicas del portfolio.
+- `a2a-self-healing-logistics-agent/`: agente autónomo de logística y negociación.
+- `agentic-learning-integrity-orchestrator/`: orquestador de integridad del aprendizaje.
+- `apollo-policy-enforcer-agent/`: agente de enforcement simbólico de políticas.
+- `audit-compliance-evidence-agent/`: sistema de auditoría y evidencias.
+- `autonomous-legal-counsel-agent/`: agente legal API-first.
+- `change-process-coaching-orchestrator/`: orquestador de cambio organizativo.
+- `contract-obligations-agent/`: agente de revisión contractual y obligaciones.
+- `geopolitical-trade-intelligence-agent/`: agente de inteligencia geopolítica y comercial.
+- `nspa-psychological-orchestrator/`: orquestador de apoyo psicológico estructurado.
+
+## Estado del repositorio
+
+- La web pública vive en la raíz (`index.html`, `proyectos.html`, etc.).
+- El código ejecutable principal vive en las carpetas de agente y en `proyectos/`.
+- Hay una CI mínima que valida estructura y compilación Python.
+- El repositorio todavía mezcla productos maduros con prototipos de portfolio.
+
+## Catálogo
+
+La visión consolidada, el estado por proyecto y la propuesta de ordenación están en [CATALOGO.md](CATALOGO.md).
 
 ## Estructura real
 
@@ -18,6 +33,7 @@ Agentes_IA/
 ├── index.html
 ├── proyectos.html
 ├── README.md
+├── CATALOGO.md
 ├── assets/
 ├── core/
 ├── proyectos/
@@ -31,35 +47,18 @@ Agentes_IA/
 │   ├── p08-rag-normativa-comercio
 │   ├── p9-evaluador-ideas-negocio
 │   └── p10-dashboard-lenguaje-natural
+├── a2a-self-healing-logistics-agent/
+├── agentic-learning-integrity-orchestrator/
+├── apollo-policy-enforcer-agent/
+├── audit-compliance-evidence-agent/
+├── autonomous-legal-counsel-agent/
+├── change-process-coaching-orchestrator/
+├── contract-obligations-agent/
+├── geopolitical-trade-intelligence-agent/
+├── nspa-psychological-orchestrator/
 ├── scripts/
-└── .github/workflows/ci.yml
+└── tests/
 ```
-
-Nota: `p9-evaluador-ideas-negocio` corresponde al identificador funcional `P09`.
-
-## Mapa de bases públicas en esta copia
-
-- `P01` -> `proyectos/p01-inteligencia-comercial-internacional`
-- `P02` -> `proyectos/p02-agente-multi-herramienta`
-- `P03` -> `proyectos/p03-agente-licitaciones`
-- `P04` -> `proyectos/p04-agente-rrhh-candidatos`
-- `P05` -> `proyectos/p05-rag-documentacion-interna`
-- `P06` -> `proyectos/p06-rag-contratos-legales`
-- `P07` -> `proyectos/p07-chatbot-atencion-cliente`
-- `P08` -> `proyectos/p08-rag-normativa-comercio`
-- `P09` -> `proyectos/p9-evaluador-ideas-negocio`
-- `P10` -> `proyectos/p10-dashboard-lenguaje-natural`
-
-## Ejecución local rápida
-
-```bash
-# desde la raíz
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r proyectos/p01-inteligencia-comercial-internacional/requirements.txt
-```
-
-Cada subproyecto tiene su propio `requirements.txt` y su propio comando `streamlit run`.
 
 ## Calidad y CI
 
@@ -73,10 +72,12 @@ Ejecución local de los checks:
 Workflow GitHub Actions:
 
 - `.github/workflows/ci.yml`
-- Jobs: `lint` y `smoke` con Python 3.11
+- jobs `lint` y `smoke` con Python 3.11
 
 ## Política de repositorio
 
 - No versionar secretos (`.env`) ni artefactos de runtime (`sqlite`, `chroma_db`, `outputs`, `logs`, `site-packages`).
-- La raíz usa `.gitignore` global para proteger todo el monorepo.
+- Mantener `README.md` coherentes por proyecto.
+- Mantener un entrypoint claro por carpeta.
+- Reservar `proyectos/` para piezas de portfolio y dejar el resto para agentes más completos.
 
