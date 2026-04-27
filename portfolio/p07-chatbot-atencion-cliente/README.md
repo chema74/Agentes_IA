@@ -1,17 +1,14 @@
-# P07 - Chatbot de Atencion al Cliente sobre Base de Conocimiento Propia
+# P07 - Chatbot de atencion al cliente
 
-> Estado: En desarrollo
-
-Chatbot RAG para responder preguntas de clientes usando documentacion propia:
-catalogo, preguntas frecuentes, politicas, condiciones y soporte.
+Chatbot RAG para responder preguntas de clientes usando documentacion propia: catalogo, preguntas frecuentes, politicas, condiciones y soporte.
 
 ## Que hace
 
-- Permite subir PDFs de conocimiento interno
-- Indexa los documentos localmente con ChromaDB
-- Recupera fragmentos relevantes
-- Responde con base en la documentacion cargada
-- Si no encuentra suficiente evidencia, indica que debe escalarse a un agente humano
+- Permite subir PDFs de conocimiento interno.
+- Indexa los documentos localmente con ChromaDB.
+- Recupera fragmentos relevantes.
+- Responde con base en la documentacion cargada.
+- Si no encuentra suficiente evidencia, propone escalar a una persona.
 
 ## Stack
 
@@ -23,23 +20,11 @@ catalogo, preguntas frecuentes, politicas, condiciones y soporte.
 
 ## Ejecucion
 
-1. Instalar dependencias:
+1. Instala dependencias.
+2. Crea `.env` a partir de `.env.example`.
+3. Anade la API key de Groq.
+4. Lanza `python -m streamlit run app.py`.
 
-```bash
-python -m pip install -r requirements.txt
-```
+## Estado
 
-2. Crear entorno de variables:
-
-```bash
-copy .env.example .env
-```
-
-3. Anadir la API key de Groq en `.env`
-
-4. Lanzar:
-
-```bash
-python -m streamlit run app.py
-```
-
+Pieza de portfolio en desarrollo.

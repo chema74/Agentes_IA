@@ -1,13 +1,13 @@
-﻿# P02 - Executive Agent Pro
+# P02 - Agente multi-herramienta
 
-Agente de inteligencia artificial para apoyo ejecutivo, centrado en busqueda, analisis y sintesis de informacion.
+Agente de portfolio orientado a apoyo ejecutivo, busqueda de informacion y sintesis operativa.
 
 ## Que hace
 
 - Busca informacion relevante con herramientas externas.
 - Analiza documentos y textos largos.
-- Resume hallazgos de forma operativa.
-- Ofrece una interfaz simple en Streamlit.
+- Resume hallazgos de forma accionable.
+- Ofrece una interfaz sencilla en Streamlit.
 
 ## Stack
 
@@ -17,12 +17,12 @@ Agente de inteligencia artificial para apoyo ejecutivo, centrado en busqueda, an
 - PyMuPDF
 - LangChain
 
-## Despliegue rapido
+## Como arrancarlo
 
-1. Instala dependencias.
+1. Instala las dependencias del proyecto.
 2. Crea un archivo `.env` con `GROQ_API_KEY` y `TAVILY_API_KEY`.
 3. Ejecuta `streamlit run app.py`.
 
-## Nota
+## Estado
 
-Es una base de portfolio y no un producto cerrado.
+Es una pieza de portfolio, no un producto cerrado.
