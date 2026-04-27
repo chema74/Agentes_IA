@@ -1,24 +1,30 @@
-﻿# P08 Â· Consultor RAG de Normativa de Comercio Internacional
+# P08 - Consultor RAG de Normativa de Comercio Internacional
 
-> **Portfolio IA Aplicada â€” JosÃ© MarÃ­a Â· Sevilla**  
-> Stack: Groq Â· ChromaDB Â· sentence-transformers Â· PyMuPDF Â· Streamlit  
-> Coste: **GRATUITO**
+> Portfolio IA Aplicada - Jose Maria - Sevilla
+> Stack: Groq - ChromaDB - sentence-transformers - PyMuPDF - Streamlit
+> Coste: Gratuito
 
-## Â¿QuÃ© hace?
+## Que hace
 
-Carga guÃ­as ICEX, acuerdos comerciales UE y normativa aduanera en PDF.  
-Pregunta sobre aranceles, requisitos de origen, documentaciÃ³n y barreras.  
-Responde con fuente citada, adaptando la respuesta al contexto paÃ­s origen/destino/producto configurado.
+- Carga guias ICEX, acuerdos comerciales UE y normativa aduanera en PDF.
+- Pregunta sobre aranceles, requisitos de origen, documentacion y barreras.
+- Responde con fuente citada y adapta la respuesta al contexto pais origen/destino/producto configurado.
 
-**Fuentes recomendadas:** GuÃ­as de mercado ICEX Â· Acuerdos UE (EUR-Lex) Â· Reglamentos aduaneros
+## Fuentes recomendadas
 
-## InstalaciÃ³n
+- Guias de mercado ICEX
+- Acuerdos UE (EUR-Lex)
+- Reglamentos aduaneros
+
+## Instalacion
 
 ```bash
 pip install -r requirements.txt
-copy .env.example .env   # aÃ±adir GROQ_API_KEY
+copy .env.example .env
 python -m streamlit run app.py
 ```
 
----
-*Portfolio IA Aplicada Â· JosÃ© MarÃ­a Â· Sevilla*
+## Nota
+
+Es una demo documental orientativa, no un dictamen juridico ni una asesoria de cumplimiento.
+
