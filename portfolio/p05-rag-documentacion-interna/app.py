@@ -35,8 +35,8 @@ TOP_K = 4
 
 
 st.set_page_config(
-    page_title="P05  RAG documental corporativo",
-    page_icon="??",
+    page_title="P05 - RAG documental corporativo",
+    page_icon="📚",
     layout="wide",
     initial_sidebar_state="expanded",
 )

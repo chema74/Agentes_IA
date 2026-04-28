@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent
 
 st.set_page_config(
     page_title="P09 - Evaluador de Ideas de Negocio",
-    page_icon="",
+    page_icon="💡",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -93,7 +93,7 @@ def get_clients():
 
 
 def buscar_mercado(tavily, idea, sector, mercado):
-    """Busca informacin actualizada del mercado para la idea."""
+    """Busca informacion actualizada del mercado para la idea."""
     queries = [
         f"mercado {sector} {mercado} tamao tendencias 2024 2025",
         f"startups empresas {idea[:60]} competidores Espaa",
@@ -110,7 +110,7 @@ def buscar_mercado(tavily, idea, sector, mercado):
 
 
 def evaluar_idea(groq_client, idea, sector, mercado, capital, experiencia, info_web):
-    """Groq evala la idea de negocio en profundidad."""
+    """Groq evalua la idea de negocio en profundidad."""
 
     prompt = f"""Eres un consultor de estrategia empresarial e inversor de capital riesgo con 20 aos de experiencia.
 Evala esta idea de negocio con rigor y honestidad. No seas condescendiente: da una valoracin real.

@@ -48,13 +48,13 @@ MAX_CODE_LINES = 80
 MAX_AST_NODES = 500
 
 PATRONES_BLOQUEADOS = {
-    "import ": "No se permiten importaciones dinmicas.",
-    "from ": "No se permiten importaciones dinmicas.",
+    "import ": "No se permiten importaciones dinamicas.",
+    "from ": "No se permiten importaciones dinamicas.",
     "__": "No se permiten accesos especiales de Python.",
     "open(": "No se permite acceder a archivos locales.",
-    "exec(": "No se permite ejecutar cdigo adicional.",
+    "exec(": "No se permite ejecutar codigo adicional.",
     "eval(": "No se permite evaluar expresiones arbitrarias.",
-    "compile(": "No se permite compilar cdigo dinmicamente.",
+    "compile(": "No se permite compilar codigo dinamicamente.",
     "globals(": "No se permite acceder al entorno global.",
     "locals(": "No se permite acceder al entorno local.",
     "input(": "No se permite pedir entrada adicional.",
@@ -67,9 +67,9 @@ PATRONES_BLOQUEADOS = {
     "pathlib": "No se permite operar sobre rutas.",
     "socket": "No se permite acceso de red.",
     "requests": "No se permite acceso HTTP.",
-    "getattr(": "No se permite reflexin dinmica.",
-    "setattr(": "No se permite mutar atributos dinmicamente.",
-    "delattr(": "No se permite borrar atributos dinmicamente.",
+    "getattr(": "No se permite reflexion dinamica.",
+    "setattr(": "No se permite mutar atributos dinamicamente.",
+    "delattr(": "No se permite borrar atributos dinamicamente.",
 }
 
 NOMBRES_BLOQUEADOS = {
@@ -127,7 +127,7 @@ ATRIBUTOS_BLOQUEADOS = {
 
 st.set_page_config(
     page_title="Dashboard con lenguaje natural",
-    page_icon="",
+    page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -182,11 +182,11 @@ html, body, [class*="css"] { font-family:'DM Sans',sans-serif; background:#0c0c1
 
 @st.cache_resource
 def get_groq() -> Groq:
-    """Crea el cliente de Groq si la API key est disponible."""
+    """Crea el cliente de Groq si la API key esta disponible."""
     api_key = os.getenv("GROQ_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError(
-            "Falta GROQ_API_KEY. Copia .env.example a .env y aade tu clave antes de generar anlisis."
+            "Falta GROQ_API_KEY. Copia .env.example a .env y anade tu clave antes de generar analisis."
         )
     return Groq(api_key=api_key)
 
@@ -201,10 +201,10 @@ def cargar_datos(archivo, separador: str) -> pd.DataFrame:
 
 
 def limpiar_codigo_llm(codigo: str) -> str:
-    """Extrae el bloque til si el modelo devuelve fences Markdown."""
+    """Extrae el bloque util si el modelo devuelve fences Markdown."""
     codigo = (codigo or "").strip()
     if not codigo:
-        raise ValueError("El modelo no devolvi cdigo utilizable.")
+        raise ValueError("El modelo no devolvio codigo utilizable.")
 
     if "```" in codigo:
         for parte in codigo.split("```"):
