@@ -1,13 +1,10 @@
 ---
 name: P01-Inteligencia-Comercial
 version: 1.0
-state: secure
+state: closed
 priority: high
-modulos_pendientes:
-  - F01A
-  - F01B
-  - F01C
-  - F01D
+modulos_pendientes: []
+estado_cierre: cerrado_tecnico
 seguridad_militar: true
 zero_cost: true
 cobertura_tests: 100%

@@ -52,3 +52,26 @@ jobs:
 
       - name: Run Portfolio Tests (P01-P10)
         run: pytest -q tests/test_projects_minimal.py
+
+  products-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Test Runner
+        run: python -m pip install --upgrade pip pytest
+
+      - name: Install Product Dependencies
+        run: |
+          for req in products/*/requirements.txt; do
+            python -m pip install -r "$req"
+          done
+
+      - name: Run Products Tests
+        run: python scripts/ci_products.py

@@ -40,7 +40,7 @@ def main() -> int:
                 failures.append(f"{py_file}: {exc.msg}")
 
     if failures:
-        print("CI smoke detectó errores de compilación Python:")
+        print("CI smoke detecto errores de compilacion Python:")
         for err in failures:
             print(f"- {err}")
         return 1

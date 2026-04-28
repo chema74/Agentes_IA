@@ -127,7 +127,7 @@ ATRIBUTOS_BLOQUEADOS = {
 
 st.set_page_config(
     page_title="Dashboard con lenguaje natural",
-    page_icon="📊",
+    page_icon="ðŸ“Š",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -220,7 +220,7 @@ def limpiar_codigo_llm(codigo: str) -> str:
 
 
 def validar_codigo_generado(codigo: str) -> str:
-    """Aplica validaciones bsicas antes de ejecutar el cdigo generado."""
+    """Aplica validaciones bsicas antes de ejecutar el codigo generado."""
     codigo_limpio = limpiar_codigo_llm(codigo)
     codigo_lower = codigo_limpio.lower()
 
@@ -236,7 +236,7 @@ def validar_codigo_generado(codigo: str) -> str:
     try:
         arbol = ast.parse(codigo_limpio)
     except SyntaxError as exc:
-        raise ValueError("El modelo devolvi cdigo Python no vlido.") from exc
+        raise ValueError("El modelo devolvi codigo Python no vlido.") from exc
 
     nodos = list(ast.walk(arbol))
     if len(nodos) > MAX_AST_NODES:
@@ -264,14 +264,14 @@ def validar_codigo_generado(codigo: str) -> str:
 
     if "resultado" not in codigo_limpio and "figura" not in codigo_limpio:
         raise ValueError(
-            "El anlisis no devolvi ninguna salida reconocible. Prueba a reformular la pregunta."
+            "El analisis no devolvi ninguna salida reconocible. Prueba a reformular la pregunta."
         )
 
     return codigo_limpio
 
 
 def generar_codigo(groq: Groq, pregunta: str, tipos: dict, muestra: str) -> str:
-    """Pide a Groq cdigo Python para responder la pregunta sobre el DataFrame."""
+    """Pide a Groq codigo Python para responder la pregunta sobre el DataFrame."""
     prompt = f"""Eres un analista de datos experto en Python y pandas.
 Tienes un DataFrame llamado 'df' con estas columnas y tipos:
 {json.dumps(tipos, indent=2, ensure_ascii=False)}
@@ -281,10 +281,10 @@ Muestra de los primeros datos:
 
 El usuario pregunta: "{pregunta}"
 
-Genera cdigo Python vlido que:
+Genera codigo Python vlido que:
 1. Analiza df para responder la pregunta.
 2. Guarda el resultado en una variable llamada 'resultado'.
-3. Si el resultado es un nmero, texto o lista: resultado = el valor directamente.
+3. Si el resultado es un numero, texto o lista: resultado = el valor directamente.
 4. Si el resultado es un grfico: usa plotly express (px) y guarda la figura en 'figura'.
 5. Si el resultado es una tabla: resultado = df_resultado (un DataFrame).
 
@@ -292,11 +292,11 @@ REGLAS CRTICAS:
 - Usa solo: pandas (pd), plotly.express (px), plotly.graph_objects (go).
 - No uses importaciones, print, display, matplotlib ni seaborn.
 - No uses bloques try/except.
-- El cdigo debe ser ejecutable directamente.
+- El codigo debe ser ejecutable directamente.
 - Si calculas fechas usa pd.to_datetime().
 - Para grficos aplica template='plotly_dark'.
 
-Responde solo con cdigo Python. Sin explicaciones. Sin markdown. Sin comentarios."""
+Responde solo con codigo Python. Sin explicaciones. Sin markdown. Sin comentarios."""
 
     response = groq.chat.completions.create(
         model="llama-3.3-70b-versatile",
@@ -309,7 +309,7 @@ Responde solo con cdigo Python. Sin explicaciones. Sin markdown. Sin comentarios
 
 
 def ejecutar_codigo(codigo: str, df: pd.DataFrame):
-    """Ejecuta el cdigo validado en un entorno restringido."""
+    """Ejecuta el codigo validado en un entorno restringido."""
     entorno = {
         "__builtins__": ALLOWED_BUILTINS,
         "df": df.copy(),
@@ -375,14 +375,14 @@ st.markdown(
   </div>
   <div class="app-title">Explora tus datos con <em>lenguaje natural</em></div>
   <div class="app-subtitle">
-    La versin actual permite cargar un CSV o Excel y generar anlisis y visualizaciones bajo demanda a partir de preguntas en espaol.
+    La versin actual permite cargar un CSV o Excel y generar analisis y visualizaciones bajo demanda a partir de preguntas en espaol.
   </div>
 </div>""",
     unsafe_allow_html=True,
 )
 
 st.info(
-    "Usa datos no sensibles cuando sea posible. El anlisis depende de cdigo generado por un LLM y conviene revisar el resultado antes de tomar decisiones."
+    "Usa datos no sensibles cuando sea posible. El analisis depende de codigo generado por un LLM y conviene revisar el resultado antes de tomar decisiones."
 )
 
 if archivo is None:
@@ -409,7 +409,7 @@ except Exception as exc:
     st.error(
         "No se pudo leer el archivo. Revisa el formato, la hoja seleccionada o el separador si es un CSV."
     )
-    with st.expander("Ver detalle tcnico"):
+    with st.expander("Ver detalle tecnico"):
         st.code(str(exc))
     st.stop()
 
@@ -506,9 +506,9 @@ if preguntar and pregunta.strip():
             codigo = generar_codigo(groq_client, pregunta.strip(), tipos, muestra)
         except Exception as exc:
             st.error(
-                "No se pudo generar un anlisis vlido para esta pregunta. Prueba a formularla de forma ms concreta."
+                "No se pudo generar un analisis vlido para esta pregunta. Prueba a formularla de forma ms concreta."
             )
-            with st.expander("Ver detalle tcnico"):
+            with st.expander("Ver detalle tecnico"):
                 st.code(str(exc))
             st.stop()
 
@@ -516,11 +516,11 @@ if preguntar and pregunta.strip():
         resultado, figura = ejecutar_codigo(codigo, df)
     except Exception as exc:
         st.error(
-            "Se gener cdigo, pero no pudo ejecutarse correctamente con este dataset o esta pregunta."
+            "Se gener codigo, pero no pudo ejecutarse correctamente con este dataset o esta pregunta."
         )
-        with st.expander("Ver cdigo generado"):
+        with st.expander("Ver codigo generado"):
             st.code(codigo, language="python")
-        with st.expander("Ver detalle tcnico"):
+        with st.expander("Ver detalle tecnico"):
             st.code(str(exc))
         st.stop()
 
@@ -561,9 +561,9 @@ if preguntar and pregunta.strip():
             unsafe_allow_html=True,
         )
     else:
-        st.info("El anlisis termin, pero no devolvi un resultado visible. Prueba a reformular la pregunta.")
+        st.info("El analisis termin, pero no devolvi un resultado visible. Prueba a reformular la pregunta.")
 
-    with st.expander("Ver cdigo generado por Groq"):
+    with st.expander("Ver codigo generado por Groq"):
         st.code(codigo, language="python")
 
 elif preguntar and not pregunta.strip():
@@ -571,7 +571,7 @@ elif preguntar and not pregunta.strip():
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    "<div class='app-footer'>P10  Dashboard con lenguaje natural  Groq + Llama 3.3 70B  Portfolio IA Aplicada  Jos Mara  Sevilla</div>",
+    "<div class='app-footer'>P10  Dashboard con lenguaje natural  Groq + Llama 3.3 70B  Portfolio IA Aplicada  Jose Maria  Sevilla</div>",
     unsafe_allow_html=True,
 )
 

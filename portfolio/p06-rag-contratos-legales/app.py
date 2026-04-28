@@ -1,7 +1,7 @@
 """
 P07  Revisor de contratos legales
 =================================
-Autor: Jos Mara
+Autor: Jose Maria
 Stack: Groq  ChromaDB  sentence-transformers  PyMuPDF  Streamlit
 
 Cmo funciona:
@@ -86,7 +86,7 @@ def get_groq() -> Groq:
     api_key = os.getenv("GROQ_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError(
-            "Falta GROQ_API_KEY. Copia .env.example a .env y aade tu clave antes de analizar documentos."
+            "Falta GROQ_API_KEY. Copia .env.example a .env y anade tu clave antes de analizar documentos."
         )
     return Groq(api_key=api_key)
 
@@ -249,7 +249,7 @@ with st.sidebar:
             coleccion = get_chroma()
         except Exception as exc:
             st.error("No se pudo inicializar la base documental local.")
-            with st.expander("Ver detalle tcnico"):
+            with st.expander("Ver detalle tecnico"):
                 st.code(str(exc))
             st.stop()
 
@@ -263,7 +263,7 @@ with st.sidebar:
                         st.success(f"{archivo.name} indexado ({total_chunks} fragmentos).")
                     except Exception as exc:
                         st.error(f"No se pudo indexar {archivo.name}.")
-                        with st.expander(f"Detalle tcnico: {archivo.name}"):
+                        with st.expander(f"Detalle tecnico: {archivo.name}"):
                             st.code(str(exc))
 
     if st.session_state.docs_p07:
@@ -313,7 +313,7 @@ try:
     total = coleccion.count()
 except Exception as exc:
     st.error("No se pudo abrir la base documental local.")
-    with st.expander("Ver detalle tcnico"):
+    with st.expander("Ver detalle tecnico"):
         st.code(str(exc))
     st.stop()
 
@@ -390,7 +390,7 @@ if enviar and pregunta.strip():
                 )
             except Exception as exc:
                 st.error("No se pudo generar una respuesta sobre el documento.")
-                with st.expander("Ver detalle tcnico"):
+                with st.expander("Ver detalle tecnico"):
                     st.code(str(exc))
                 st.stop()
 
@@ -403,6 +403,6 @@ elif enviar and not pregunta.strip():
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    '<div class="app-footer">P07  Revisor de contratos legales  Groq + ChromaDB  Portfolio IA Aplicada  Jos Mara  Sevilla</div>',
+    '<div class="app-footer">P07  Revisor de contratos legales  Groq + ChromaDB  Portfolio IA Aplicada  Jose Maria  Sevilla</div>',
     unsafe_allow_html=True,
 )

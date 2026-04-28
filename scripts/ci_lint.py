@@ -72,7 +72,7 @@ def main() -> int:
                 )
 
     if errors:
-        print("CI lint detectó inconsistencias:")
+        print("CI lint detecto inconsistencias:")
         for err in errors:
             print(f"- {err}")
         return 1

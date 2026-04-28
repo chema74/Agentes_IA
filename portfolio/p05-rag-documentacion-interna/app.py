@@ -36,7 +36,7 @@ TOP_K = 4
 
 st.set_page_config(
     page_title="P05 - RAG documental corporativo",
-    page_icon="📚",
+    page_icon="ðŸ“š",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -210,7 +210,7 @@ def get_groq() -> Groq:
     api_key = os.getenv("GROQ_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError(
-            "Falta GROQ_API_KEY. Copia .env.example a .env y aade tu clave antes de hacer consultas."
+            "Falta GROQ_API_KEY. Copia .env.example a .env y anade tu clave antes de hacer consultas."
         )
     return Groq(api_key=api_key)
 
@@ -314,8 +314,8 @@ def generar_respuesta(groq_client, pregunta: str, contexto: list[dict], historia
     system = (
         f"Eres un asistente de documentacin interna{empresa_str}. "
         "Responde a partir de los fragmentos recuperados del repositorio documental. "
-        "Si la informacin no aparece con suficiente respaldo en el contexto, di exactamente: "
-        "'No encuentro esa informacin con suficiente respaldo en la documentacin disponible.' "
+        "Si la informacion no aparece con suficiente respaldo en el contexto, di exactamente: "
+        "'No encuentro esa informacion con suficiente respaldo en la documentacin disponible.' "
         "Responde en espaol, de forma clara y directa. "
         "Cita siempre el documento y la pgina cuando sea posible."
     )
@@ -343,7 +343,7 @@ def generar_respuesta(groq_client, pregunta: str, contexto: list[dict], historia
 
 
 def get_docs_indexados(collection) -> dict:
-    """Devuelve los documentos indexados con su nmero de fragmentos."""
+    """Devuelve los documentos indexados con su numero de fragmentos."""
     if collection.count() == 0:
         return {}
     todos = collection.get(include=["metadatas"])
@@ -382,7 +382,7 @@ with st.sidebar:
             collection = get_chroma()
         except Exception as exc:
             st.error("No se pudo inicializar la base vectorial local.")
-            with st.expander("Ver detalle tcnico"):
+            with st.expander("Ver detalle tecnico"):
                 st.code(str(exc))
             st.stop()
 
@@ -396,7 +396,7 @@ with st.sidebar:
                         st.success(f"{archivo.name}  {n_chunks} fragmentos indexados")
                     except Exception as exc:
                         st.error(f"No se pudo procesar {archivo.name}.")
-                        with st.expander(f"Ver detalle tcnico: {archivo.name}"):
+                        with st.expander(f"Ver detalle tecnico: {archivo.name}"):
                             st.code(str(exc))
 
     try:
@@ -449,7 +449,7 @@ with st.sidebar:
         <span style="color:#4dd488">?</span> Embeddings e indexado: local<br>
         <span style="color:#4dd488">?</span> Base vectorial: ChromaDB en disco<br>
         <span style="color:#4dd488">?</span> Respuesta: Groq con fragmentos recuperados<br>
-        <span style="color:#d4a84b">?</span> Base pblica actual del motor RAG corporativo
+        <span style="color:#d4a84b">?</span> Base publica actual del motor RAG corporativo
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
         P05  Portfolio IA Aplicada<br>
@@ -461,7 +461,7 @@ with st.sidebar:
 st.markdown(
     f"""
 <div class="app-header">
-  <div class="app-tag">P05  Base pblica actual  Motor RAG corporativo multi-dominio
+  <div class="app-tag">P05  Base publica actual  Motor RAG corporativo multi-dominio
     <span class="groq-badge">? Groq  Llama 3.3 70B</span>
     <span class="local-badge">?? ChromaDB local</span>
   </div>
@@ -482,7 +482,7 @@ try:
     total_docs = collection.count()
 except Exception as exc:
     st.error("No se pudo abrir la base documental local.")
-    with st.expander("Ver detalle tcnico"):
+    with st.expander("Ver detalle tecnico"):
         st.code(str(exc))
     st.stop()
 
@@ -573,7 +573,7 @@ if preguntar and pregunta.strip():
         collection = get_chroma()
     except Exception as exc:
         st.error("No se pudo abrir la base vectorial local para consultar documentos.")
-        with st.expander("Ver detalle tcnico"):
+        with st.expander("Ver detalle tecnico"):
             st.code(str(exc))
         st.stop()
 
@@ -592,7 +592,7 @@ if preguntar and pregunta.strip():
             contexto = buscar_contexto(collection, pregunta.strip())
         except Exception as exc:
             st.error("No se pudo recuperar contexto desde la base documental.")
-            with st.expander("Ver detalle tcnico"):
+            with st.expander("Ver detalle tecnico"):
                 st.code(str(exc))
             st.stop()
 
@@ -611,7 +611,7 @@ if preguntar and pregunta.strip():
             )
         except Exception as exc:
             st.error("No se pudo generar una respuesta a partir del contexto recuperado.")
-            with st.expander("Ver detalle tcnico"):
+            with st.expander("Ver detalle tecnico"):
                 st.code(str(exc))
             st.stop()
 
@@ -646,7 +646,7 @@ elif preguntar and not pregunta.strip():
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    '<div class="app-footer">P05  Base pblica actual del motor RAG corporativo multi-dominio  Groq + ChromaDB local + sentence-transformers  Portfolio IA Aplicada  Jos Mara  Sevilla</div>',
+    '<div class="app-footer">P05  Base publica actual del motor RAG corporativo multi-dominio  Groq + ChromaDB local + sentence-transformers  Portfolio IA Aplicada  Jose Maria  Sevilla</div>',
     unsafe_allow_html=True,
 )
 

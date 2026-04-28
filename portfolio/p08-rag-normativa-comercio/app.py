@@ -1,7 +1,7 @@
 """
 P09  Consultor RAG de Normativa de Comercio Internacional
 ===========================================================
-Autor : Jos Mara
+Autor : Jose Maria
 Stack : Groq  ChromaDB  sentence-transformers  PyMuPDF  Streamlit
 Coste : GRATUITO
 """
@@ -100,12 +100,12 @@ def responder(groq_client, pregunta, contexto, historial, pais_origen, pais_dest
     ctx_str = "\n\n---\n\n".join([f"[{c['fuente']}, Pg.{c['pagina']}]\n{c['texto']}" for c in contexto])
     ctx_empresa = ""
     if pais_origen or pais_destino or producto:
-        ctx_empresa = f"\nCONTEXTO: Empresa de {pais_origen or 'Espaa'} exportando {producto or 'producto'} a {pais_destino or 'mercado destino'}."
+        ctx_empresa = f"\nCONTEXTO: Empresa de {pais_origen or 'Espana'} exportando {producto or 'producto'} a {pais_destino or 'mercado destino'}."
     system = (
         f"Eres un experto en normativa de comercio internacional y comercio exterior.{ctx_empresa} "
         f"Responde EXCLUSIVAMENTE basndote en los documentos de normativa cargados. "
         f"Cita siempre el documento y pgina. Indica si la normativa puede estar desactualizada. "
-        f"Si no encuentras la informacin, dilo claramente. Responde en espaol."
+        f"Si no encuentras la informacion, dilo claramente. Responde en espaol."
     )
     msgs = [{"role":"system","content":system}]
     for m in historial[-4:]: msgs.append({"role":m["role"],"content":m["content"]})
@@ -141,7 +141,7 @@ with st.sidebar:
                 st.success(f" {arch.name}")
 
     st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#d4a84b;margin-top:1rem;margin-bottom:.75rem">// Contexto de exportacin</div>', unsafe_allow_html=True)
-    pais_origen  = st.text_input("Pas de origen", value="Espaa")
+    pais_origen  = st.text_input("Pas de origen", value="Espana")
     pais_destino = st.text_input("Pas de destino", placeholder="Ej: Marruecos")
     producto     = st.text_input("Producto", placeholder="Ej: Aceite de oliva")
 
@@ -205,7 +205,7 @@ if enviar and pregunta.strip():
     col = get_chroma()
     contexto = buscar(col, pregunta.strip())
     if not contexto:
-        st.warning("No se encontr informacin relevante en la normativa cargada.")
+        st.warning("No se encontr informacion relevante en la normativa cargada.")
     else:
         with st.spinner(" Consultando normativa..."):
             respuesta = responder(get_groq(), pregunta.strip(), contexto, st.session_state.historial_p09, pais_origen, pais_destino, producto)
@@ -217,4 +217,4 @@ if enviar and pregunta.strip():
         st.rerun()
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
-st.markdown('<div class="app-footer">P09  Consultor Normativa Comercio  Groq + ChromaDB  Portfolio IA Aplicada  Jos Mara  Sevilla</div>', unsafe_allow_html=True)
+st.markdown('<div class="app-footer">P09  Consultor Normativa Comercio  Groq + ChromaDB  Portfolio IA Aplicada  Jose Maria  Sevilla</div>', unsafe_allow_html=True)
