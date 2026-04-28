@@ -1,9 +1,9 @@
 """
 domain/dashboard.py
 -------------------
-Responsabilidad: Procesar el historial y los logs para generar métricas visuales.
+Responsabilidad: Procesar el historial y los logs para generara metricas visuales.
 Permite auditar el uso de herramientas y la actividad del asistente.
-Inspirado en la lógica de analítica de p01.
+Inspirado en la lgica de analtica de p01.
 """
 
 import pandas as pd
@@ -14,7 +14,7 @@ from domain.logger import leer_ultimos_logs
 
 def obtener_metricas_generales():
     """
-    Calcula estadísticas básicas sobre el uso del asistente.
+    Calcula estadisticas basicas sobre el uso del asistente.
    
     """
     sesiones = listar_sesiones_disponibles()
@@ -37,7 +37,7 @@ def obtener_metricas_generales():
 
 def obtener_uso_herramientas():
     """
-    Analiza los logs para contar cuántas veces se ha usado cada herramienta.
+    Analiza los logs para contar cuantas veces se ha usado cada herramienta.
    
     """
     logs = leer_ultimos_logs(limite=500)
@@ -61,7 +61,7 @@ def obtener_actividad_temporal():
     sesiones = listar_sesiones_disponibles()
     fechas = []
     for s in sesiones:
-        # Extraemos la fecha del ID de la sesión (sesion_YYYYMMDD_...)
+        # Extraemos la fecha del ID de la sesion (sesion_YYYYMMDD_...)
         try:
             fecha_str = s["id"].split("_")[1][:8]
             fechas.append(pd.to_datetime(fecha_str, format='%Y%m%d'))

@@ -63,7 +63,7 @@ def evaluate_change_breaker(
             status="change_compromised",
             reason_codes=["CHANGE_COMPROMISED"],
             human_review_required=True,
-            notes=["El proceso esta comprometido y requiere rediseño o revision humana."],
+            notes=["El proceso esta comprometido y requiere rediseno o revision humana."],
             evidence_bundle=evidence or ["Convergencia de senales altas de friccion."],
             automation_stop=False,
             required_human_owner="responsable_humano",

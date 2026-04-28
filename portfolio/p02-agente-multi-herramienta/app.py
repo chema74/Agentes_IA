@@ -1,8 +1,8 @@
 """
-P02 · ASISTENTE EJECUTIVO IA (VERSIÓN INDUSTRIAL CORREGIDA VISUALMENTE)
+P02  ASISTENTE EJECUTIVO IA (VERSIN INDUSTRIAL CORREGIDA VISUALMENTE)
 ====================================================================
-Autor : José María · Sevilla 2026
-Lógica: Modular (Settings, Retry, RAG, Exporters, History, i18n, Validators)
+Autor : Jos Mara  Sevilla 2026
+Lgica: Modular (Settings, Retry, RAG, Exporters, History, i18n, Validators)
 UI : Corregida para Alta Legibilidad en Fondo Oscuro
 """
 
@@ -12,7 +12,7 @@ import streamlit as st
 from groq import Groq
 from tavily import TavilyClient
 
-# Importación de módulos propios (Pasos 1-9)
+# Importacin de mdulos propios (Pasos 1-9)
 from config.settings import (
     GROQ_API_KEY, TAVILY_API_KEY, MODEL_NAME, 
     TEMPERATURE, MAX_TOKENS, MAX_RESULTS_PER_QUERY
@@ -27,29 +27,29 @@ from domain.history import (
 from domain.i18n import get_text
 from domain.validators import sanitizar_peticion, validar_pdf_subido
 
-# --- CONFIGURACIÓN DE PÁGINA ---
-st.set_page_config(page_title="Executive AI", page_icon="🤖", layout="wide")
+# --- CONFIGURACIN DE PGINA ---
+st.set_page_config(page_title="Executive AI", page_icon="", layout="wide")
 
 # Estilos Premium - CORREGIDOS PARA ALTA LEGIBILIDAD
 # -> Forzamos contraste blanco en textos de chat y inputs
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap');
     
     /* Fondo base ultra-oscuro */
     html, body, [class*="css"] { 
         font-family: 'DM Sans', sans-serif; 
         background: #0c0c10; 
-        color: #e4e2dc; /* Texto base claro, pero será sobreescrito en chat */
+        color: #e4e2dc; /* Texto base claro, pero ser sobreescrito en chat */
     }
     .stApp { background: #0c0c10; }
     
-    /* Título de la aplicación */
+    /* Ttulo de la aplicacin */
     .app-title { 
         font-family: 'Fraunces', serif; 
         font-size: 2.5rem; 
         font-weight: 900; 
-        color: #e4e2dc; /* Título claro */
+        color: #e4e2dc; /* Ttulo claro */
     }
     .app-title em { color: #d4a84b; font-style: italic; font-weight: 300; }
     
@@ -60,22 +60,22 @@ st.markdown("""
     }
     
     /* -------------------------------------------------------------------------
-       CORRECCIÓN CRÍTICA DE LEGIBILIDAD
+       CORRECCIN CRTICA DE LEGIBILIDAD
        Forzamos color blanco (#ffffff !important) en todos los elementos 
        de texto dentro de los mensajes de chat y el input del usuario.
        Esto soluciona el problema de texto oscuro sobre fondo oscuro.
        ------------------------------------------------------------------------- */
     .stChatMessage p, .stChatMessage div, .stChatInputContainer textarea {
-        color: #ffffff !important; /* Blanco puro para máximo contraste */
+        color: #ffffff !important; /* Blanco puro para maximo contraste */
     }
     
-    /* Aseguramos que el avatar también se vea bien (opcional, pero ayuda) */
+    /* Aseguramos que el avatar tambin se vea bien (opcional, pero ayuda) */
     .stChatMessage [data-testid="chatAvatarIcon"] {
         color: #d4a84b; /* Color acento dorado */
     }
 </style>""", unsafe_allow_html=True)
 
-# --- INICIALIZACIÓN DE ESTADO ---
+# --- INICIALIZACIN DE ESTADO ---
 if "lang" not in st.session_state: st.session_state.lang = "es"
 if "mensajes" not in st.session_state: st.session_state.mensajes = []
 if "id_sesion" not in st.session_state: st.session_state.id_sesion = generar_id_sesion()
@@ -93,7 +93,7 @@ def get_tavily_client():
 
 # --- SIDEBAR (HISTORIAL E IDIOMA) ---
 with st.sidebar:
-    st.session_state.lang = st.selectbox("🌐 Language", ["es", "en"], index=0)
+    st.session_state.lang = st.selectbox(" Language", ["es", "en"], index=0)
 
 L = st.session_state.lang
 
@@ -102,7 +102,7 @@ with st.sidebar:
     sesiones = listar_sesiones_disponibles()
     if sesiones:
         opciones = {s["id"]: s["label"] for s in sesiones}
-        seleccion = st.selectbox("Cargar sesión", options=list(opciones.keys()), format_func=lambda x: opciones[x])
+        seleccion = st.selectbox("Cargar sesion", options=list(opciones.keys()), format_func=lambda x: opciones[x])
         if st.button("Cargar Seleccionada"):
             data = cargar_sesion(seleccion)
             if data:
@@ -119,7 +119,7 @@ with st.sidebar:
             texto = extraer_texto_pdf(pdf_file.read())
             st.session_state.chunks_pdf = fragmentar_texto(texto)
             st.session_state.nombre_pdf = pdf_file.name
-            st.success(f"✅ {pdf_file.name}")
+            st.success(f" {pdf_file.name}")
         else:
             for e in errs: st.error(e)
 
@@ -147,10 +147,10 @@ if prompt := st.chat_input(get_text("input_placeholder", lang=L)):
         st.session_state.mensajes.append({"role": "user", "content": prompt_limpio})
         with st.chat_message("user"): st.markdown(prompt_limpio)
 
-        with st.chat_message("assistant", avatar="🤖"):
+        with st.chat_message("assistant", avatar=""):
             with st.status(get_text("loading_tools", lang=L)) as status:
                 
-                # Definición de herramientas para el Tool Calling
+                # Definicin de herramientas para el Tool Calling
                 tools = [
                     {"type": "function", "function": {"name": "buscar_web", "parameters": {"type": "object", "properties": {"q": {"type": "string"}}}}},
                     {"type": "function", "function": {"name": "analizar_pdf", "parameters": {"type": "object", "properties": {"q": {"type": "string"}}}}}
@@ -174,9 +174,9 @@ if prompt := st.chat_input(get_text("input_placeholder", lang=L)):
                         try:
                             f_args = json.loads(tc.function.arguments)
                         except JSONDecodeError:
-                            st.error(f"Argumentos inválidos para la herramienta {f_name}.")
+                            st.error(f"Argumentos invalidos para la herramienta {f_name}.")
                             continue
-                        st.write(f"🔧 {f_name}...")
+                        st.write(f" {f_name}...")
                         
                         if f_name == "buscar_web":
                             s = get_tavily_client().search(query=f_args.get("q"), max_results=MAX_RESULTS_PER_QUERY)
@@ -194,7 +194,7 @@ if prompt := st.chat_input(get_text("input_placeholder", lang=L)):
             placeholder = st.empty()
             
             def call_groq_final():
-                final_msgs = [{"role":"system","content":"Sintetiza la información de forma ejecutiva y profesional."}] + st.session_state.mensajes[-5:]
+                final_msgs = [{"role":"system","content":"Sintetiza la informacion de forma ejecutiva y profesional."}] + st.session_state.mensajes[-5:]
                 if tool_results:
                     final_msgs.append(msg)
                     final_msgs.extend(tool_results)
@@ -204,12 +204,12 @@ if prompt := st.chat_input(get_text("input_placeholder", lang=L)):
             for chunk in stream:
                 if chunk.choices[0].delta.content:
                     full_response += chunk.choices[0].delta.content
-                    placeholder.markdown(full_response + "▌")
+                    placeholder.markdown(full_response + "")
             
             placeholder.markdown(full_response)
             st.session_state.mensajes.append({"role": "assistant", "content": full_response})
             
-            # Guardado automático en Historial
+            # Guardado automatico en Historial
             guardar_sesion(st.session_state.id_sesion, st.session_state.mensajes, st.session_state.nombre_pdf)
 
 # --- ACCIONES FINALES ---

@@ -14,12 +14,12 @@ class GroqClient:
 
     def classify_signal(self, text: str) -> tuple[str, str]:
         """
-        Clasifica una señal organizativa devolviendo:
+        Clasifica una senal organizativa devolviendo:
         - category
         - intensity
 
         Intenta usar Groq real.
-        Si falla o no hay API key, cae a un fallback heurístico local.
+        Si falla o no hay API key, cae a un fallback heuristico local.
         """
         if not self.client:
             return self._fallback_classify(text)
@@ -27,22 +27,22 @@ class GroqClient:
         prompt = f"""
 Analiza este texto sobre un proceso de cambio organizativo.
 
-Debes elegir la señal PRINCIPAL más relevante.
+Debes elegir la senal PRINCIPAL mas relevante.
 
-Prioridades de clasificación:
-1. interpersonal_conflict -> si hay tensión, conflicto, choque entre responsables o fricción relacional
-2. fatigue -> si hay cansancio, saturación, sobrecarga o agotamiento del equipo
+Prioridades de clasificacion:
+1. interpersonal_conflict -> si hay tension, conflicto, choque entre responsables o friccion relacional
+2. fatigue -> si hay cansancio, saturacion, sobrecarga o agotamiento del equipo
 3. execution_block -> si hay retrasos, bloqueos, dependencias o imposibilidad de avanzar
-4. ambiguity -> si hay falta de claridad o confusión
-5. passive_resistance -> si hay resistencia pasiva o no colaboración indirecta
+4. ambiguity -> si hay falta de claridad o confusion
+5. passive_resistance -> si hay resistencia pasiva o no colaboracion indirecta
 6. adaptation -> si no aplica ninguna anterior
 
 Intensidad:
-- high -> señal fuerte y explícita
-- medium -> señal clara pero no extrema
-- low -> señal débil o secundaria
+- high -> senal fuerte y explicita
+- medium -> senal clara pero no extrema
+- low -> senal debil o secundaria
 
-Devuelve SOLO JSON válido con este formato exacto:
+Devuelve SOLO JSON valido con este formato exacto:
 {{"category":"...", "intensity":"..."}}
 
 Texto:
@@ -56,7 +56,7 @@ Texto:
                 messages=[
                     {
                         "role": "system",
-                        "content": "Eres un clasificador estricto de señales de cambio organizativo. Responde solo con JSON válido.",
+                        "content": "Eres un clasificador estricto de senales de cambio organizativo. Responde solo con JSON valido.",
                     },
                     {
                         "role": "user",
@@ -93,12 +93,12 @@ Texto:
 
     def _fallback_classify(self, text: str) -> tuple[str, str]:
         """
-        Clasificación local básica por palabras clave.
-        Se usa cuando Groq no está disponible o falla la llamada.
+        Clasificacin local basica por palabras clave.
+        Se usa cuando Groq no est disponible o falla la llamada.
         """
         lowered = text.lower()
 
-        if any(word in lowered for word in ["conflicto", "tensión", "tension", "choque", "fricción relacional", "friccion relacional"]):
+        if any(word in lowered for word in ["conflicto", "tension", "tension", "choque", "friccion relacional", "friccion relacional"]):
             return "interpersonal_conflict", "high"
 
         if any(word in lowered for word in ["agotado", "agotada", "cansado", "cansada", "fatiga", "saturado", "saturada", "sobrecarga"]):
@@ -107,7 +107,7 @@ Texto:
         if any(word in lowered for word in ["retraso", "retrasos", "bloqueo", "bloqueos", "dependencia", "dependencias", "no avanza", "no avanzar"]):
             return "execution_block", "high"
 
-        if any(word in lowered for word in ["ambigüedad", "ambiguedad", "no entiendo", "confusión", "confusion", "falta de claridad"]):
+        if any(word in lowered for word in ["ambiguedad", "ambiguedad", "no entiendo", "confusion", "confusion", "falta de claridad"]):
             return "ambiguity", "medium"
 
         if any(word in lowered for word in ["resistencia pasiva", "no colabora", "no colaboran", "pasividad"]):

@@ -36,7 +36,7 @@ def test_graph_runtime_returns_orchestrator_compatible_contract():
         "revision_humana_requerida",
         "estado_de_la_puerta_de_supervision_humana",
         "recomendacion_final",
-        "referencia_de_auditoría",
+        "referencia_de_auditor\u00eda",
         "case_id",
     ]:
         assert key in payload

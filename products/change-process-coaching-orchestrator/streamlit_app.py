@@ -8,7 +8,7 @@ API_KEY_DEFAULT = "change-dev-key"
 
 st.set_page_config(
     page_title="Change Process Coaching",
-    page_icon="🧭",
+    page_icon="",
     layout="wide",
 )
 
@@ -92,14 +92,14 @@ st.markdown(
     """
     <div class="hero-card">
         <div style="font-size:0.95rem; color:#98a2b3; margin-bottom:0.35rem;">
-            Demo operativa · evaluación e intervención en procesos de cambio
+            Demo operativa  evaluacion e intervencion en procesos de cambio
         </div>
         <div style="font-size:2.35rem; font-weight:800; line-height:1.05; margin-bottom:0.55rem;">
-            🧭 Change Process Coaching Orchestrator
+             Change Process Coaching Orchestrator
         </div>
         <div class="muted-text">
-            Analiza tensiones, fatiga, bloqueos, ambigüedad y fricción organizativa.
-            Devuelve una lectura estructurada del caso, una recomendación y un plan de intervención accionable.
+            Analiza tensiones, fatiga, bloqueos, ambiguedad y friccion organizativa.
+            Devuelve una lectura estructurada del caso, una recomendacion y un plan de intervencion accionable.
         </div>
     </div>
     """,
@@ -107,7 +107,7 @@ st.markdown(
 )
 
 with st.sidebar:
-    st.subheader("Configuración")
+    st.subheader("Configuracion")
     api_base_url = st.text_input("API Base URL", value=API_BASE_URL_DEFAULT)
     api_key = st.text_input("X-API-Key", value=API_KEY_DEFAULT, type="password")
     requested_mode = st.radio("Modo de trabajo", options=["evaluate", "intervene"], index=0)
@@ -120,9 +120,9 @@ st.markdown('<div class="section-card">', unsafe_allow_html=True)
 st.subheader("Entrada del caso")
 
 process_notes = st.text_area(
-    "Describe la situación",
+    "Describe la situacin",
     height=190,
-    placeholder="Ejemplo: Existe ambigüedad sobre prioridades, el equipo está cansado y además hay retrasos en decisiones clave.",
+    placeholder="Ejemplo: Existe ambiguedad sobre prioridades, el equipo esta cansado y ademas hay retrasos en decisiones clave.",
 )
 
 col1, col2, col3 = st.columns(3)
@@ -150,8 +150,8 @@ with col3:
 sample_col1, sample_col2, sample_col3 = st.columns(3)
 
 with sample_col1:
-    if st.button("Caso ejemplo · conflicto", use_container_width=True):
-        process_notes = "Hay tensión entre responsables y conflicto abierto en reuniones clave."
+    if st.button("Caso ejemplo  conflicto", use_container_width=True):
+        process_notes = "Hay tension entre responsables y conflicto abierto en reuniones clave."
         change_goal = "Recuperar alineamiento"
         st.session_state["sample_loaded"] = {
             "process_notes": process_notes,
@@ -159,8 +159,8 @@ with sample_col1:
         }
 
 with sample_col2:
-    if st.button("Caso ejemplo · fatiga", use_container_width=True):
-        process_notes = "El equipo está agotado, saturado y cansado del cambio."
+    if st.button("Caso ejemplo  fatiga", use_container_width=True):
+        process_notes = "El equipo est agotado, saturado y cansado del cambio."
         change_goal = "Reducir fatiga"
         st.session_state["sample_loaded"] = {
             "process_notes": process_notes,
@@ -168,9 +168,9 @@ with sample_col2:
         }
 
 with sample_col3:
-    if st.button("Caso ejemplo · bloqueo", use_container_width=True):
+    if st.button("Caso ejemplo  bloqueo", use_container_width=True):
         process_notes = "Hay retrasos, bloqueos operativos y dependencias que impiden avanzar."
-        change_goal = "Recuperar ejecución"
+        change_goal = "Recuperar ejecucion"
         st.session_state["sample_loaded"] = {
             "process_notes": process_notes,
             "change_goal": change_goal,
@@ -263,7 +263,7 @@ if data:
         st.markdown(
             f"""
             <div class="metric-card">
-                <div class="small-label">Nivel de fricción</div>
+                <div class="small-label">Nivel de friccion</div>
                 <div class="big-value">{safe_get(data, "nivel_de_friccion", "level")}</div>
                 <div class="muted-text">Intensidad estimada del desgaste del proceso.</div>
             </div>
@@ -277,7 +277,7 @@ if data:
             <div class="metric-card">
                 <div class="small-label">Fatiga</div>
                 <div class="big-value">{safe_get(data, "alerta_de_fatiga_de_cambio", "level")}</div>
-                <div class="muted-text">Señal de saturación o sobrecarga detectada.</div>
+                <div class="muted-text">Senal de saturacion o sobrecarga detectada.</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -287,9 +287,9 @@ if data:
         st.markdown(
             f"""
             <div class="metric-card">
-                <div class="small-label">Revisión humana</div>
+                <div class="small-label">Revision humana</div>
                 <div class="big-value">{data.get("revision_humana_requerida", False)}</div>
-                <div class="muted-text">Indica si el caso exige supervisión humana explícita.</div>
+                <div class="muted-text">Indica si el caso exige supervision humana explicita.</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -297,7 +297,7 @@ if data:
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown('<div class="section-card">', unsafe_allow_html=True)
-    st.subheader("Recomendación final")
+    st.subheader("Recomendacion final")
     recomendacion = data.get("recomendacion_final", {})
 
     st.markdown(
@@ -305,7 +305,7 @@ if data:
         <div class="result-box">
             <strong>Resumen:</strong> {recomendacion.get("summary", "-")}<br>
             <strong>Nivel:</strong> {recomendacion.get("level", "-")}<br>
-            <strong>Justificación:</strong> {recomendacion.get("rationale", "-")}<br>
+            <strong>Justificacion:</strong> {recomendacion.get("rationale", "-")}<br>
             <strong>Siguiente responsable:</strong> {recomendacion.get("next_best_owner", "-")}
         </div>
         """,
@@ -314,7 +314,7 @@ if data:
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown('<div class="section-card">', unsafe_allow_html=True)
-    st.subheader("Plan de intervención")
+    st.subheader("Plan de intervencion")
     plan = data.get("plan_de_intervencion", {})
 
     top1, top2, top3 = st.columns(3)
@@ -323,27 +323,27 @@ if data:
     top3.markdown(f"**Secuencia:** {plan.get('sequencing_rationale', '-')}")
 
     for idx, step in enumerate(plan.get("steps", []), start=1):
-        title = f"Paso {idx} · {step.get('intervention_type', 'step')}"
+        title = f"Paso {idx}  {step.get('intervention_type', 'step')}"
         with st.expander(title, expanded=(idx == 1)):
-            st.write(f"**Acción:** {step.get('step', '-')}")
+            st.write(f"**Accion:** {step.get('step', '-')}")
             st.write(f"**Responsable:** {step.get('owner', '-')}")
             st.write(f"**Momento:** {step.get('timing', '-')}")
             st.write(f"**Objetivo:** {step.get('objective', '-')}")
-            st.write(f"**Métrica de éxito:** {step.get('success_metric', '-')}")
+            st.write(f"**Metrica de exito:** {step.get('success_metric', '-')}")
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown('<div class="section-card">', unsafe_allow_html=True)
-    st.subheader("Señales detectadas")
+    st.subheader("Senales detectadas")
     signals = data.get("resumen_de_senales_detectadas", [])
     if signals:
         for signal in signals:
-            with st.expander(f"{signal.get('category', '-')} · {signal.get('intensity', '-')}"):
+            with st.expander(f"{signal.get('category', '-')}  {signal.get('intensity', '-')}"):
                 st.write(f"**Resumen:** {signal.get('summary', '-')}")
                 st.write(f"**Fuente:** {signal.get('source', '-')}")
                 st.write(f"**Confianza:** {signal.get('confidence', '-')}")
                 st.write(f"**Extracto:** {signal.get('evidence_excerpt', '-')}")
     else:
-        st.info("No hay señales detectadas para este caso.")
+        st.info("No hay senales detectadas para este caso.")
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown('<div class="section-card">', unsafe_allow_html=True)
@@ -351,7 +351,7 @@ if data:
     stakeholders = data.get("mapa_de_stakeholders_o_contexto_personal", [])
     if stakeholders:
         for item in stakeholders:
-            with st.expander(f"{item.get('actor', '-')} · {item.get('role', '-')}"):
+            with st.expander(f"{item.get('actor', '-')}  {item.get('role', '-')}"):
                 st.write(f"**Influencia:** {item.get('influence', '-')}")
                 st.write(f"**Alineamiento:** {item.get('alignment', '-')}")
                 st.write(f"**Resistencia:** {item.get('resistance_level', '-')}")
@@ -363,9 +363,9 @@ if data:
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown('<div class="section-card">', unsafe_allow_html=True)
-    st.subheader("Trazabilidad")
+    st.subheader("Traizabilidad")
     st.code(
-        f"case_id: {data.get('case_id', '-')}\nreferencia_de_auditoría: {data.get('referencia_de_auditoría', '-')}",
+        f"case_id: {data.get('case_id', '-')}\nreferencia_de_auditoria: {data.get('referencia_de_auditoría', '-')}",
         language="text",
     )
 

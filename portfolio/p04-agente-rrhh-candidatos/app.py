@@ -1,15 +1,15 @@
-﻿"""
-P04 · Agente de criba de candidatos
+"""
+P04  Agente de criba de candidatos
 ==================================
-Autor: José María
-Stack: Groq · ChromaDB · sentence-transformers · PyMuPDF · Streamlit
+Autor: Jos Mara
+Stack: Groq  ChromaDB  sentence-transformers  PyMuPDF  Streamlit
 
-Cómo funciona:
+Cmo funciona:
 1. El usuario define el puesto y las competencias requeridas.
 2. Sube uno o varios CVs en PDF.
 3. La app extrae texto e indexa localmente los documentos.
-4. Groq genera una preevaluación documental estructurada por candidato.
-5. La salida sirve como apoyo a la criba inicial y requiere revisión humana.
+4. Groq genera una preevaluacion documental estructurada por candidato.
+5. La salida sirve como apoyo a la criba inicial y requiere revision humana.
 """
 
 import json
@@ -45,7 +45,7 @@ CLAVES_OBLIGATORIAS = {
 
 st.set_page_config(
     page_title="Agente de criba de candidatos",
-    page_icon="👥",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -53,7 +53,7 @@ st.set_page_config(
 st.markdown(
     """
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap');
 html,body,[class*="css"]{font-family:'DM Sans',sans-serif;background:#0c0c10;color:#e4e2dc}
 .stApp{background:#0c0c10}#MainMenu,footer,header{visibility:hidden}
 .block-container{padding-top:2rem;padding-bottom:2rem;max-width:1100px}
@@ -86,18 +86,18 @@ html,body,[class*="css"]{font-family:'DM Sans',sans-serif;background:#0c0c10;col
 
 @st.cache_resource
 def get_groq() -> Groq:
-    """Crea el cliente de Groq si la API key está disponible."""
+    """Crea el cliente de Groq si la API key est disponible."""
     api_key = os.getenv("GROQ_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError(
-            "Falta GROQ_API_KEY. Copia .env.example a .env y añade tu clave antes de evaluar candidatos."
+            "Falta GROQ_API_KEY. Copia .env.example a .env y anade tu clave antes de evaluar candidatos."
         )
     return Groq(api_key=api_key)
 
 
 @st.cache_resource
 def get_chroma():
-    """Inicializa la colección persistente para CVs."""
+    """Inicializa la coleccin persistente para CVs."""
     ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
     client = chromadb.PersistentClient(path=CHROMA_PATH)
     return client.get_or_create_collection(
@@ -163,9 +163,9 @@ def indexar(collection, chunks, nombre):
 
 
 def extraer_json_objeto(texto: str) -> dict:
-    """Extrae y valida el primer objeto JSON útil de la respuesta del modelo."""
+    """Extrae y valida el primer objeto JSON til de la respuesta del modelo."""
     if not texto:
-        raise ValueError("El modelo no devolvió contenido.")
+        raise ValueError("El modelo no devolvi contenido.")
 
     texto = texto.strip()
     candidatos = []
@@ -202,24 +202,24 @@ def extraer_json_objeto(texto: str) -> dict:
                         break
             inicio = candidato.find("{", inicio + 1)
 
-    raise ValueError("La respuesta del modelo no contenía un JSON válido.")
+    raise ValueError("La respuesta del modelo no contenia un JSON valido.")
 
 
 def normalizar_evaluacion(data: dict, nombre_archivo: str) -> dict:
-    """Valida la estructura mínima esperada para la evaluación."""
+    """Valida la estructura minima esperada para la evaluacion."""
     faltantes = CLAVES_OBLIGATORIAS - set(data.keys())
     if faltantes:
-        raise ValueError(f"Faltan claves obligatorias en la evaluación: {', '.join(sorted(faltantes))}.")
+        raise ValueError(f"Faltan claves obligatorias en la evaluacion: {', '.join(sorted(faltantes))}.")
 
     try:
         puntuacion = float(data.get("puntuacion", 0))
     except (TypeError, ValueError) as exc:
-        raise ValueError("La puntuación devuelta por el modelo no es válida.") from exc
+        raise ValueError("La puntuacion devuelta por el modelo no es valida.") from exc
 
     evaluacion = {
         "nombre": str(data.get("nombre") or nombre_archivo).strip() or nombre_archivo,
         "puntuacion": max(0.0, min(10.0, round(puntuacion, 1))),
-        "nivel_recomendacion": str(data.get("nivel_recomendacion", "Señal orientativa")).strip(),
+        "nivel_recomendacion": str(data.get("nivel_recomendacion", "Seal orientativa")).strip(),
         "fortalezas": [str(x).strip() for x in data.get("fortalezas", []) if str(x).strip()],
         "debilidades": [str(x).strip() for x in data.get("debilidades", []) if str(x).strip()],
         "cumple_experiencia": bool(data.get("cumple_experiencia", False)),
@@ -234,40 +234,40 @@ def normalizar_evaluacion(data: dict, nombre_archivo: str) -> dict:
     }
 
     if not evaluacion["fortalezas"]:
-        raise ValueError("La evaluación no incluyó fortalezas utilizables.")
+        raise ValueError("La evaluacion no incluyo fortalezas utilizables.")
     if not evaluacion["preguntas_entrevista"]:
-        raise ValueError("La evaluación no incluyó preguntas de entrevista utilizables.")
+        raise ValueError("La evaluacion no incluyo preguntas de entrevista utilizables.")
 
     return evaluacion
 
 
 def evaluar_candidato(groq_client, nombre_cv, texto_cv, descripcion_puesto, competencias, experiencia_min):
-    """Solicita al modelo una preevaluación documental del CV."""
-    prompt = f"""Evalúa este CV como apoyo a una criba inicial documental. No tomes decisiones de contratación.
+    """Solicita al modelo una preevaluacion documental del CV."""
+    prompt = f"""Evalua este CV como apoyo a una criba inicial documental. No tomes decisiones de contratacion.
 
 PUESTO: {descripcion_puesto}
 COMPETENCIAS REQUERIDAS: {competencias}
-EXPERIENCIA MÍNIMA: {experiencia_min}
+EXPERIENCIA MNIMA: {experiencia_min}
 
 CV DE {nombre_cv}:
 {texto_cv}
 
 Genera un JSON con:
-nombre: nombre del candidato extraído del CV (o el nombre del archivo si no aparece)
-puntuacion: número del 1 al 10 como señal orientativa interna
-nivel_recomendacion: "Ajuste alto", "Ajuste medio", "Ajuste parcial" o "Ajuste débil"
+nombre: nombre del candidato extrado del CV (o el nombre del archivo si no aparece)
+puntuacion: numero del 1 al 10 como senal orientativa interna
+nivel_recomendacion: "Ajuste alto", "Ajuste medio", "Ajuste parcial" o "Ajuste debil"
 fortalezas: lista de 3 puntos fuertes observables en el CV para este puesto
-debilidades: lista de 2-3 gaps o puntos débiles respecto al perfil
+debilidades: lista de 2-3 gaps o puntos debiles respecto al perfil
 cumple_experiencia: true o false
 competencias_detectadas: lista de competencias requeridas detectables en el CV
-preguntas_entrevista: lista de 3 preguntas específicas para validar el perfil
-resumen: 2-3 frases de valoración global
+preguntas_entrevista: lista de 3 preguntas especificas para validar el perfil
+resumen: 2-3 frases de valoracion global
 
 IMPORTANTE:
-- Evalúa únicamente lo que aparece en el CV.
+- Evalua nicamente lo que aparece en el CV.
 - No afirmes objetividad total ni ausencia de sesgo.
-- No emitas un dictamen definitivo de contratación.
-- Devuelve solo JSON válido, sin markdown.
+- No emitas un dictamen definitivo de contratacion.
+- Devuelve solo JSON valido, sin markdown.
 """
 
     respuesta = groq_client.chat.completions.create(
@@ -288,22 +288,22 @@ if "cvs_indexados" not in st.session_state:
 
 with st.sidebar:
     st.markdown(
-        "<div style=\"font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#d4a84b;margin-bottom:1.25rem\">// Descripción del puesto</div>",
+        "<div style=\"font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#d4a84b;margin-bottom:1.25rem\">// Descripcin del puesto</div>",
         unsafe_allow_html=True,
     )
     descripcion = st.text_area(
-        "Descripción del puesto",
+        "Descripcin del puesto",
         placeholder="Ej: Buscamos un responsable de ventas con experiencia en B2B...",
         height=100,
     )
     competencias = st.text_area(
         "Competencias requeridas",
-        placeholder="Ej: Negociación, CRM, inglés B2, gestión de equipos...",
+        placeholder="Ej: Negociacin, CRM, ingls B2, gestin de equipos...",
         height=70,
     )
     experiencia_min = st.selectbox(
-        "Experiencia mínima",
-        ["Sin requisito", "1 año", "2 años", "3 años", "5 años", "10 años"],
+        "Experiencia minima",
+        ["Sin requisito", "1 ao", "2 aos", "3 aos", "5 aos", "10 aos"],
     )
 
     st.markdown("<div style='height:.5rem'></div>", unsafe_allow_html=True)
@@ -320,9 +320,9 @@ with st.sidebar:
     st.markdown(
         """
 <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
-<span style="color:#e87878">⚠️</span> Revisión humana obligatoria<br>
-<span style="color:#4dd488">●</span> Solo herramienta de apoyo documental<br>
-<span style="color:#d4a84b">●</span> No sustituye decisiones de RR. HH.
+<span style="color:#e87878"></span> Revisin humana obligatoria<br>
+<span style="color:#4dd488"></span> Solo herramienta de apoyo documental<br>
+<span style="color:#d4a84b"></span> No sustituye decisiones de RR. HH.
 </div>
 """,
         unsafe_allow_html=True,
@@ -331,10 +331,10 @@ with st.sidebar:
 st.markdown(
     """
 <div class="app-header">
-  <div class="app-tag">P04 · Agente de criba de candidatos · Portfolio IA Aplicada
-    <span class="groq-badge">⚡ Groq · ChromaDB local</span></div>
+  <div class="app-tag">P04  Agente de criba de candidatos  Portfolio IA Aplicada
+    <span class="groq-badge"> Groq  ChromaDB local</span></div>
   <div class="app-title">Criba inicial de <em>candidatos</em></div>
-  <div class="app-subtitle">Sube CVs, obtén señales orientativas de ajuste al perfil y prepara mejor la revisión humana y la entrevista.</div>
+  <div class="app-subtitle">Sube CVs, obtn senales orientativas de ajuste al perfil y prepara mejor la revision humana y la entrevista.</div>
 </div>""",
     unsafe_allow_html=True,
 )
@@ -342,16 +342,16 @@ st.markdown(
 st.markdown(
     """
 <div class="aviso-box">
-⚠️ <strong>Aviso importante:</strong> esta herramienta apoya una preevaluación documental inicial. No toma decisiones de contratación, no garantiza objetividad total y no elimina sesgos por sí misma. Cualquier resultado debe revisarse antes de usarlo en procesos reales de selección.
+ <strong>Aviso importante:</strong> esta herramienta apoya una preevaluacion documental inicial. No toma decisiones de contratacion, no garantiza objetividad total y no elimina sesgos por si misma. Cualquier resultado debe revisarse antes de usarlo en procesos reales de seleccion.
 </div>""",
     unsafe_allow_html=True,
 )
 
 if not descripcion.strip():
-    st.info("Define la descripción del puesto en el panel izquierdo para comenzar.")
+    st.info("Define la descripcin del puesto en el panel izquierdo para comenzar.")
     st.stop()
 
-if archivos and st.button("Evaluar candidatos →", use_container_width=False):
+if archivos and st.button("Evaluar candidatos ", use_container_width=False):
     try:
         groq_client = get_groq()
     except Exception as exc:
@@ -362,7 +362,7 @@ if archivos and st.button("Evaluar candidatos →", use_container_width=False):
         coleccion = get_chroma()
     except Exception as exc:
         st.error("No se pudo inicializar la base documental local de CVs.")
-        with st.expander("Ver detalle técnico"):
+        with st.expander("Ver detalle tcunico"):
             st.code(str(exc))
         st.stop()
 
@@ -385,7 +385,7 @@ if archivos and st.button("Evaluar candidatos →", use_container_width=False):
                     st.error(f"No se pudo evaluar {archivo.name}: {exc}")
                 except Exception as exc:
                     st.error(f"Se produjo un error al procesar {archivo.name}.")
-                    with st.expander(f"Ver detalle técnico: {archivo.name}"):
+                    with st.expander(f"Ver detalle tcunico: {archivo.name}"):
                         st.code(str(exc))
 
     todos = list(st.session_state.cvs_indexados.values())
@@ -403,7 +403,7 @@ if st.session_state.candidatos_evaluados:
         Ranking orientativo de {len(candidatos)} candidato{'s' if len(candidatos)!=1 else ''}
       </span>
       <span style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f">
-        Señal interna para revisión humana
+        Seal interna para revision humana
       </span>
     </div>""",
         unsafe_allow_html=True,
@@ -411,12 +411,12 @@ if st.session_state.candidatos_evaluados:
 
     for indice, candidato in enumerate(candidatos, 1):
         score = candidato.get("puntuacion", 0)
-        nivel = candidato.get("nivel_recomendacion", "—")
+        nivel = candidato.get("nivel_recomendacion", "")
         color_nivel = {
             "Ajuste alto": "#4dd488",
             "Ajuste medio": "#d4a84b",
             "Ajuste parcial": "#d4a84b",
-            "Ajuste débil": "#e87878",
+            "Ajuste debil": "#e87878",
         }.get(nivel, "#d4a84b")
         cumple_exp = candidato.get("cumple_experiencia", False)
 
@@ -425,11 +425,11 @@ if st.session_state.candidatos_evaluados:
         <div class="candidato-card">
         <div class="candidato-rank">#{indice}</div>
         <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap">
-          <div class="candidato-nombre">{candidato.get('nombre', candidato.get('archivo','—'))}</div>
+          <div class="candidato-nombre">{candidato.get('nombre', candidato.get('archivo',''))}</div>
           <div class="score-num" style="color:{color_nivel}">{score}/10</div>
           <div style="font-family:'DM Mono',monospace;font-size:.65rem;padding:.2rem .6rem;background:rgba(212,168,75,.06);color:{color_nivel};border:1px solid {color_nivel}40">{nivel}</div>
           <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:{'#4dd488' if cumple_exp else '#e87878'}">
-            {'✓ Cumple experiencia declarada' if cumple_exp else '✕ No acredita experiencia mínima declarada'}
+            {' Cumple experiencia declarada' if cumple_exp else ' No acredita experiencia minima declarada'}
           </div>
         </div>
         <div style="font-size:.875rem;color:#c8c6c0;line-height:1.8;margin-bottom:.75rem">{candidato.get('resumen','')}</div>
@@ -445,7 +445,7 @@ if st.session_state.candidatos_evaluados:
             )
             for fortaleza in candidato.get("fortalezas", []):
                 st.markdown(
-                    f'<div class="comp-item" style="color:#a8e8c0">· {fortaleza}</div>',
+                    f'<div class="comp-item" style="color:#a8e8c0"> {fortaleza}</div>',
                     unsafe_allow_html=True,
                 )
         with col_d:
@@ -455,7 +455,7 @@ if st.session_state.candidatos_evaluados:
             )
             for debilidad in candidato.get("debilidades", []):
                 st.markdown(
-                    f'<div class="comp-item" style="color:#e8b8b8">· {debilidad}</div>',
+                    f'<div class="comp-item" style="color:#e8b8b8"> {debilidad}</div>',
                     unsafe_allow_html=True,
                 )
         with col_q:
@@ -465,25 +465,25 @@ if st.session_state.candidatos_evaluados:
             )
             for pregunta_entrevista in candidato.get("preguntas_entrevista", []):
                 st.markdown(
-                    f'<div class="comp-item" style="color:#a0c0e8">· {pregunta_entrevista}</div>',
+                    f'<div class="comp-item" style="color:#a0c0e8"> {pregunta_entrevista}</div>',
                     unsafe_allow_html=True,
                 )
 
         st.markdown("<div style='height:.5rem'></div>", unsafe_allow_html=True)
 
 elif archivos:
-    st.info("Pulsa 'Evaluar candidatos' para generar la criba inicial de los CVs subidos.")
+    st.info("Pulsa 'Evaluar candidatos' para generara la criba inicial de los CVs subidos.")
 else:
     st.markdown(
         """
     <div style="border:1px dashed rgba(212,168,75,.2);padding:3rem;text-align:center;margin-top:1rem">
-    <div style="font-size:2.5rem;margin-bottom:1rem">👥</div>
+    <div style="font-size:2.5rem;margin-bottom:1rem"></div>
     <div style="font-family:'Fraunces',serif;font-size:1.1rem;color:#8c8a84;margin-bottom:.5rem">
       Define el puesto y sube los CVs en PDF
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:#44433f;line-height:1.9">
-      La app generará una preevaluación documental orientativa con fortalezas,<br>
-      gaps y preguntas de entrevista para revisión humana.
+      La app generara una preevaluacion documental orientativa con fortalezas,<br>
+      gaps y preguntas de entrevista para revision humana.
     </div>
     </div>""",
         unsafe_allow_html=True,
@@ -491,6 +491,6 @@ else:
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    '<div class="app-footer">P04 · Agente de criba de candidatos · Groq + ChromaDB · Portfolio IA Aplicada · José María · Sevilla</div>',
+    '<div class="app-footer">P04  Agente de criba de candidatos  Groq + ChromaDB  Portfolio IA Aplicada  Jos Mara  Sevilla</div>',
     unsafe_allow_html=True,
 )

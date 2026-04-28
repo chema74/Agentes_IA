@@ -1,8 +1,8 @@
 """
 domain/document_processor.py
 ----------------------------
-Motor de procesamiento de documentos y búsqueda contextual (RAG).
-Implementa fragmentación inteligente para no saturar el contexto del LLM.
+Motor de procesamiento de documentos y busqueda contextual (RAG).
+Implementa fragmentacin inteligente para no saturar el contexto del LLM.
 """
 
 import fitz  # PyMuPDF
@@ -19,13 +19,13 @@ def extraer_texto_pdf(pdf_stream) -> str:
         doc.close()
         return texto
     except Exception as e:
-        print(f"🚨 Error al extraer texto del PDF: {e}")
+        print(f" Error al extraer texto del PDF: {e}")
         return ""
 
 def fragmentar_texto(texto: str) -> list[str]:
     """
     Divide el texto en fragmentos (chunks) usando solapamiento para mantener el contexto.
-    Usa los parámetros definidos en settings.py.
+    Usa los parmetros definidos en settings.py.
     """
     if not texto:
         return []
@@ -39,16 +39,16 @@ def fragmentar_texto(texto: str) -> list[str]:
 
 def buscar_contexto_relevante(query: str, chunks: list[str], max_chunks: int = 3) -> str:
     """
-    Busca los fragmentos más relevantes para una pregunta.
-    Implementa un filtrado básico por palabras clave antes de enviar al LLM.
+    Busca los fragmentos mas relevantes para una pregunta.
+    Implementa un filtrado bsico por palabras clave antes de enviar al LLM.
     """
     if not chunks:
         return "No hay contenido disponible en el documento."
 
-    # [Inferencia] Filtrado por relevancia simple (palabras clave en común)
+    # [Inferencia] Filtrado por relevancia simple (palabras clave en comn)
     palabras_query = set(query.lower().split())
     
-    # Puntuamos cada fragmento según cuántas palabras de la pregunta contiene
+    # Puntuamos cada fragmento segn cuantas palabras de la pregunta contiene
     fragmentos_puntuados = []
     for c in chunks:
         puntos = sum(1 for p in palabras_query if p in c.lower())

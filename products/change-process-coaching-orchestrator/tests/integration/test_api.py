@@ -51,7 +51,7 @@ def test_evaluate_returns_required_contract():
         "revision_humana_requerida",
         "estado_de_la_puerta_de_supervision_humana",
         "recomendacion_final",
-        "referencia_de_auditoría",
+        "referencia_de_auditor\u00eda",
     ]:
         assert key in body
 
@@ -68,7 +68,8 @@ def test_intervene_persists_case():
     )
     body = response.json()
     saved = client.get(f"/api/change-cases/{body['case_id']}", headers=_headers())
-    audit = client.get(f"/api/audit/{body['referencia_de_auditoría']}", headers=_headers())
+    audit_reference = body["referencia_de_auditor\u00eda"]
+    audit = client.get(f"/api/audit/{audit_reference}", headers=_headers())
     assert response.status_code == 200
     assert saved.status_code == 200
     assert audit.status_code == 200

@@ -1,9 +1,9 @@
 """
 domain/history.py
 -----------------
-Responsabilidad: Persistencia física de las sesiones de chat y contextos.
+Responsabilidad: Persistencia fisica de las sesiones de chat y contextos.
 Permite que el asistente 'recuerde' conversaciones pasadas entre reinicios.
-Inspirado en la lógica de guardado de ejecuciones de p01.
+Inspirado en la lgica de guardado de ejecuciones de p01.
 """
 
 import json
@@ -11,7 +11,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 
-# Definimos la carpeta de historial en la raíz del proyecto
+# Definimos la carpeta de historial en la raiz del proyecto
 HISTORY_DIR = Path("history")
 
 def asegurar_directorio_historial() -> Path:
@@ -20,9 +20,9 @@ def asegurar_directorio_historial() -> Path:
     return HISTORY_DIR
 
 def generar_id_sesion(nombre_pdf: str = "general") -> str:
-    """Crea un ID único basado en la fecha y el tema del análisis."""
+    """Crea un ID unico basado en la fecha y el tema del analisis."""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    # Limpiamos el nombre del archivo para que sea un nombre de carpeta válido
+    # Limpiamos el nombre del archivo para que sea un nombre de carpeta valido
     nombre_limpio = "".join(filter(str.isalnum, nombre_pdf))[:20]
     return f"sesion_{timestamp}_{nombre_limpio}"
 
@@ -47,7 +47,7 @@ def guardar_sesion(id_sesion: str, mensajes: List[Dict[str, Any]], nombre_pdf: s
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
 def cargar_sesion(id_sesion: str) -> Optional[Dict[str, Any]]:
-    """Carga una sesión específica desde el disco."""
+    """Carga una sesion especifica desde el disco."""
     ruta_archivo = HISTORY_DIR / f"{id_sesion}.json"
     if not ruta_archivo.exists():
         return None
@@ -56,7 +56,7 @@ def cargar_sesion(id_sesion: str) -> Optional[Dict[str, Any]]:
         with open(ruta_archivo, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
-        print(f"🚨 Error al cargar la sesión {id_sesion}: {e}")
+        print(f" Error al cargar la sesion {id_sesion}: {e}")
         return None
 
 def listar_sesiones_disponibles() -> List[Dict[str, str]]:
@@ -72,10 +72,10 @@ def listar_sesiones_disponibles() -> List[Dict[str, str]]:
                 meta = data.get("metadata", {})
                 sesiones.append({
                     "id": meta.get("id"),
-                    "label": f"📅 {meta.get('fecha_creacion')[:16]} - 📄 {meta.get('nombre_pdf') or 'Sin PDF'}"
+                    "label": f" {meta.get('fecha_creacion')[:16]} -  {meta.get('nombre_pdf') or 'Sin PDF'}"
                 })
         except:
             continue
             
-    # Ordenamos por las más recientes primero
+    # Ordenamos por las mas recientes primero
     return sorted(sesiones, key=lambda x: x["id"], reverse=True)

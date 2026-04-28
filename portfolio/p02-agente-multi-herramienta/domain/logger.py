@@ -2,7 +2,7 @@
 domain/logger.py
 ----------------
 Sistema de registro de eventos estructurado (Observabilidad).
-Inspirado en la arquitectura de trazabilidad de p01.
+Inspirado en la arquitectura de traizabilidad de p01.
 """
 
 import json
@@ -21,23 +21,23 @@ def asegurar_directorio_logs():
 def registrar_evento(tipo_evento: str, datos: Dict[str, Any] | None = None):
     """
     Guarda un evento en el archivo .jsonl. 
-    Cada línea es un objeto JSON independiente, lo que facilita su lectura posterior.
+    Cada lnea es un objeto JSON independiente, lo que facilita su lectura posterior.
     """
     asegurar_directorio_logs()
 
-    # Estructura estándar del log
+    # Estructura estndar del log
     evento = {
         "timestamp": datetime.now().isoformat(timespec="seconds"),
         "tipo": tipo_evento,
         "detalles": datos or {}
     }
 
-    # 'a' (append) para añadir al final del archivo sin borrar lo anterior
+    # 'a' (append) para anadir al final del archivo sin borrar lo anterior
     with open(LOG_FILE, "a", encoding="utf-8") as f:
         f.write(json.dumps(evento, ensure_ascii=False) + "\n")
 
 def leer_ultimos_logs(limite: int = 50) -> List[Dict[str, Any]]:
-    """Lee los últimos eventos para mostrarlos en la interfaz si fuera necesario."""
+    """Lee los ltimos eventos para mostrarlos en la interfaz si fuera necesario."""
     if not LOG_FILE.exists():
         return []
 
