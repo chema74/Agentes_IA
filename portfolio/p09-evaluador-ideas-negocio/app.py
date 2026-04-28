@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent
 
 st.set_page_config(
     page_title="P09 - Evaluador de Ideas de Negocio",
-    page_icon="ðŸ’¡",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -63,7 +63,7 @@ html,body,[class*="css"]{font-family:'DM Sans',sans-serif;background:#0c0c10;col
 .block-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#7a5e28;margin-bottom:.6rem}
 .block-text{font-size:.9rem;color:#e4e2dc;line-height:1.85}
 
-/* Items */
+/* Itemas */
 .item-pos{padding:.45rem 0;border-bottom:1px solid rgba(212,168,75,.07);font-size:.875rem;color:#a8e8c0}
 .item-neg{padding:.45rem 0;border-bottom:1px solid rgba(212,168,75,.07);font-size:.875rem;color:#e8b8b8}
 .item-neu{padding:.45rem 0;border-bottom:1px solid rgba(212,168,75,.07);font-size:.875rem;color:#c8c6c0}
@@ -95,7 +95,7 @@ def get_clients():
 def buscar_mercado(tavily, idea, sector, mercado):
     """Busca informacion actualizada del mercado para la idea."""
     queries = [
-        f"mercado {sector} {mercado} tamao tendencias 2024 2025",
+        f"mercado {sector} {mercado} tamano tendencias 2024 2025",
         f"startups empresas {idea[:60]} competidores Espana",
     ]
     fragmentos = []
@@ -139,9 +139,9 @@ dimensiones: objeto con puntuacion (1-10) para cada una de:
   - facilidad_ejecucion
   - timing
 
-propuesta_de_valor: 2-3 frases sobre qu problema resuelve y para quin
+propuesta_de_valor: 2-3 frases sobre qu problema resuelve y para quien
 
-mercado_objetivo: descripcion del cliente ideal y tamao estimado del mercado
+mercado_objetivo: descripcion del cliente ideal y tamano estimado del mercado
 
 fortalezas: lista de 3-4 puntos fuertes reales de la idea
 
@@ -155,13 +155,13 @@ competidores_clave: lista de 3-4 competidores directos o sustitutos con 1 frase 
 
 modelo_de_negocio_sugerido: cmo monetizar, 2-3 frases
 
-inversion_estimada: rango de inversin inicial necesaria
+inversion_estimada: rango de inversion inicial necesaria
 
 tiempo_primer_ingreso: estimacin realista de cundo generar los primeros ingresos
 
-plan_validacion: lista de 5 pasos concretos y ordenados para validar la idea con el mnimo riesgo antes de invertir todo el capital
+plan_validacion: lista de 5 pasos concretos y ordenados para validar la idea con el minimo riesgo antes de invertir todo el capital
 
-consejo_experto: 2-3 frases del consejo ms importante que daras a este emprendedor
+consejo_experto: 2-3 frases del consejo mas importante que daras a este emprendedor
 
 Solo JSON valido. Sin markdown."""
 
@@ -196,14 +196,14 @@ with st.sidebar:
         "Formacion y educacion", "Salud y bienestar", "Alimentacion",
         "Turismo y hostelera", "Industria y manufactura", "Otro"
     ])
-    mercado   = st.text_input("Mercado geogrfico", placeholder="Ej: Andaluca  Espana  Europa")
+    mercado   = st.text_input("Mercado geografico", placeholder="Ej: Andalucia  Espana  Europa")
     capital   = st.selectbox("Capital disponible", [
         "Menos de 5.000", "5.000 - 20.000", "20.000 - 100.000",
         "100.000 - 500.000", "Ms de 500.000", "Por determinar"
     ])
     experiencia = st.selectbox("Experiencia en el sector", [
-        "Sin experiencia previa", "1-3 aos", "3-10 aos",
-        "Ms de 10 aos", "Experto en el sector"
+        "Sin experiencia previa", "1-3 anos", "3-10 anos",
+        "Ms de 10 anos", "Experto en el sector"
     ])
 
     st.markdown("""
@@ -251,8 +251,8 @@ with col_btn:
 with col_info:
     st.markdown("""
     <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:#44433f;padding:.75rem 0;line-height:1.8">
-        Cuanto ms detallada sea la descripcin, ms preciso ser el analisis.<br>
-        Incluye: qu problema resuelve  para quin  cmo monetiza  qu te diferencia
+        Cuanto mas detallada sea la descripcin, mas preciso ser el analisis.<br>
+        Incluye: qu problema resuelve  para quien  cmo monetiza  qu te diferencia
     </div>""", unsafe_allow_html=True)
 
 
@@ -300,12 +300,12 @@ if evaluar_btn:
 
     with c2:
         # Dimensiones
-        dims = eval_data.get("dimensiones", {})
+        dimas = eval_data.get("dimensiones", {})
         dim_labels = {
             "oportunidad_mercado":  "Oportunidad de mercado",
-            "diferenciacion":       "Diferenciacin",
+            "diferenciacion":       "Diferenciacion",
             "viabilidad_financiera": "Viabilidad financiera",
-            "facilidad_ejecucion":  "Facilidad de ejecucin",
+            "facilidad_ejecucion":  "Facilidad de ejecucion",
             "timing":               "Timing / momento",
         }
         st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:#7a5e28;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem">Anlisis por dimensin</div>', unsafe_allow_html=True)
@@ -384,7 +384,7 @@ if evaluar_btn:
                   <div style="font-size:.8rem;color:#8c8a84;line-height:1.6">{desc}</div>
                 </div>""", unsafe_allow_html=True)
 
-    # Modelo de negocio e inversin
+    # Modelo de negocio e inversion
     st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
     col_mn, col_inv = st.columns(2)
     with col_mn:
@@ -398,7 +398,7 @@ if evaluar_btn:
         <div style="background:#14141c;border:1px solid rgba(212,168,75,.15);padding:1.5rem">
           <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:#7a5e28;margin-bottom:.75rem">DATOS FINANCIEROS ESTIMADOS</div>
           <div style="margin-bottom:.6rem">
-            <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f">Inversin inicial</div>
+            <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f">Inversion inicial</div>
             <div style="font-size:1rem;font-weight:700;color:#d4a84b">{eval_data.get('inversion_estimada','')}</div>
           </div>
           <div>
@@ -471,7 +471,7 @@ else:
       </div>
       <div style="font-family:'DM Mono',monospace;font-size:.63rem;color:#44433f;letter-spacing:.06em;line-height:2">
         Viabilidad  mercado  competencia  DAFO  modelo de negocio<br>
-        Inversin estimada  tiempo al primer ingreso  plan de validacion<br>
+        Inversion estimada  tiempo al primer ingreso  plan de validacion<br>
         <span style="color:#4dd488"> Anlisis con datos de mercado en tiempo real  no halagos genricos</span>
       </div>
     </div>""", unsafe_allow_html=True)

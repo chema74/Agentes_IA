@@ -2,7 +2,7 @@
 P10 - Dashboard con lenguaje natural
 ===================================
 Autor: Jose Maria
-Stack: Groq - pandas - Plotly - Streamlit
+Stack: Groq - pandias - Plotly - Streamlit
 
 Como funciona:
 1. El usuario sube un CSV o Excel.
@@ -15,7 +15,7 @@ import ast
 import json
 import os
 
-import pandas as pd
+import pandias as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
@@ -127,7 +127,7 @@ ATRIBUTOS_BLOQUEADOS = {
 
 st.set_page_config(
     page_title="Dashboard con lenguaje natural",
-    page_icon="ðŸ“Š",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -201,7 +201,7 @@ def cargar_datos(archivo, separador: str) -> pd.DataFrame:
 
 
 def limpiar_codigo_llm(codigo: str) -> str:
-    """Extrae el bloque util si el modelo devuelve fences Markdown."""
+    """Extrae el bloque uutil si el modelo devuelve fences Markdown."""
     codigo = (codigo or "").strip()
     if not codigo:
         raise ValueError("El modelo no devolvio codigo utilizable.")
@@ -220,14 +220,14 @@ def limpiar_codigo_llm(codigo: str) -> str:
 
 
 def validar_codigo_generado(codigo: str) -> str:
-    """Aplica validaciones bsicas antes de ejecutar el codigo generado."""
+    """Aplica validaciones basicas antes de ejecutar el codigo generado."""
     codigo_limpio = limpiar_codigo_llm(codigo)
     codigo_lower = codigo_limpio.lower()
 
     if len(codigo_limpio) > MAX_CODE_CHARS:
-        raise ValueError("Cdigo bloqueado: respuesta demasiado larga para ejecucin segura.")
+        raise ValueError("Cdigo bloqueado: respuesta demasiado larga para ejecucion segura.")
     if codigo_limpio.count("\n") + 1 > MAX_CODE_LINES:
-        raise ValueError("Cdigo bloqueado: demasiadas lneas para ejecucin segura.")
+        raise ValueError("Cdigo bloqueado: demasiadias lneas para ejecucion segura.")
 
     for patron, mensaje in PATRONES_BLOQUEADOS.items():
         if patron in codigo_lower:
@@ -236,7 +236,7 @@ def validar_codigo_generado(codigo: str) -> str:
     try:
         arbol = ast.parse(codigo_limpio)
     except SyntaxError as exc:
-        raise ValueError("El modelo devolvi codigo Python no vlido.") from exc
+        raise ValueError("El modelo devolvio codigo Python no valido.") from exc
 
     nodos = list(ast.walk(arbol))
     if len(nodos) > MAX_AST_NODES:
@@ -264,7 +264,7 @@ def validar_codigo_generado(codigo: str) -> str:
 
     if "resultado" not in codigo_limpio and "figura" not in codigo_limpio:
         raise ValueError(
-            "El analisis no devolvi ninguna salida reconocible. Prueba a reformular la pregunta."
+            "El analisis no devolvio ninguna salida reconocible. Prueba a reformular la pregunta."
         )
 
     return codigo_limpio
@@ -272,7 +272,7 @@ def validar_codigo_generado(codigo: str) -> str:
 
 def generar_codigo(groq: Groq, pregunta: str, tipos: dict, muestra: str) -> str:
     """Pide a Groq codigo Python para responder la pregunta sobre el DataFrame."""
-    prompt = f"""Eres un analista de datos experto en Python y pandas.
+    prompt = f"""Eres un analista de datos experto en Python y pandias.
 Tienes un DataFrame llamado 'df' con estas columnas y tipos:
 {json.dumps(tipos, indent=2, ensure_ascii=False)}
 
@@ -281,20 +281,20 @@ Muestra de los primeros datos:
 
 El usuario pregunta: "{pregunta}"
 
-Genera codigo Python vlido que:
+Genera codigo Python valido que:
 1. Analiza df para responder la pregunta.
 2. Guarda el resultado en una variable llamada 'resultado'.
 3. Si el resultado es un numero, texto o lista: resultado = el valor directamente.
-4. Si el resultado es un grfico: usa plotly express (px) y guarda la figura en 'figura'.
+4. Si el resultado es un grafico: usa plotly express (px) y guarda la figura en 'figura'.
 5. Si el resultado es una tabla: resultado = df_resultado (un DataFrame).
 
 REGLAS CRTICAS:
-- Usa solo: pandas (pd), plotly.express (px), plotly.graph_objects (go).
+- Usa solo: pandias (pd), plotly.express (px), plotly.graph_objects (go).
 - No uses importaciones, print, display, matplotlib ni seaborn.
 - No uses bloques try/except.
 - El codigo debe ser ejecutable directamente.
 - Si calculas fechas usa pd.to_datetime().
-- Para grficos aplica template='plotly_dark'.
+- Para graficos aplica template='plotly_dark'.
 
 Responde solo con codigo Python. Sin explicaciones. Sin markdown. Sin comentarios."""
 
@@ -324,7 +324,7 @@ def ejecutar_codigo(codigo: str, df: pd.DataFrame):
     figura = entorno.get("figura")
 
     if figura is not None and not isinstance(figure := figura, go.Figure):
-        raise ValueError("La variable 'figura' debe ser un objeto Plotly vlido.")
+        raise ValueError("La variable 'figura' debe ser un objeto Plotly valido.")
 
     tipos_permitidos = (pd.DataFrame, pd.Series, str, int, float, bool, list, dict, tuple, type(None))
     if not isinstance(resultado, tipos_permitidos):
@@ -345,7 +345,7 @@ with st.sidebar:
     archivo = st.file_uploader(
         "Sube tu CSV o Excel",
         type=["csv", "xlsx", "xls"],
-        help="El archivo se procesa en la app y no se usa para bsqueda web ni para servicios externos adicionales.",
+        help="El archivo se procesa en la app y no se usa para busqueda web ni para servicios externos adicionales.",
     )
 
     separador = st.selectbox("Separador CSV", [",", ";", "|", "\\t"], index=0)
@@ -356,12 +356,12 @@ with st.sidebar:
         line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
         <span style="color:#4dd488">?</span> Modelo: Llama 3.3 70B<br>
         <span style="color:#4dd488">?</span> Proveedor: Groq<br>
-        <span style="color:#4dd488">?</span> Salida: tablas, valores y grficos Plotly<br>
+        <span style="color:#4dd488">?</span> Salida: tablas, valores y graficos Plotly<br>
         <span style="color:#d4a84b">?</span> Nota: revisa los resultados antes de usarlos
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
         P10  Dashboard con lenguaje natural<br>
-        <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/portfolio/p10-dashboard-lenguaje-natural" style="color:#7a5e28">Ver proyecto en GitHub ?</a>
+        <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/portfolio/p10-diashboard-lenguaje-natural" style="color:#7a5e28">Ver proyecto en GitHub</a>
     </div>""",
         unsafe_allow_html=True,
     )
@@ -371,11 +371,11 @@ st.markdown(
     """
 <div class="app-header">
   <div class="app-tag">P10  Dashboard con lenguaje natural  Portfolio IA Aplicada
-    <span class="groq-badge">? Groq  Llama 3.3 70B</span>
+    <span class="groq-badge">Groq  Llama 3.3 70B</span>
   </div>
   <div class="app-title">Explora tus datos con <em>lenguaje natural</em></div>
   <div class="app-subtitle">
-    La versin actual permite cargar un CSV o Excel y generar analisis y visualizaciones bajo demanda a partir de preguntas en espaol.
+    La version actual permite cargar un CSV o Excel y generar analisis y visualizaciones bajo demanda a partir de preguntas en espanol.
   </div>
 </div>""",
     unsafe_allow_html=True,
@@ -389,14 +389,14 @@ if archivo is None:
     st.markdown(
         """
     <div style="border:1px dashed rgba(212,168,75,.2);padding:3rem 2rem;text-align:center;margin-top:1rem">
-      <div style="font-size:2.5rem;margin-bottom:1rem">??</div>
+      <div style="font-size:2.5rem;margin-bottom:1rem"></div>
       <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#8c8a84;margin-bottom:.75rem">
         Sube un CSV o Excel para empezar
       </div>
       <div style="font-family:'DM Mono',monospace;font-size:.63rem;color:#44433f;letter-spacing:.06em;line-height:1.9">
-        Despus podrs preguntar sobre tus datos en espaol.<br>
-        Ejemplos: "Cul fue el mes con ms ventas?"  "Mustrame un grfico por categora"<br>
-        <span style="color:#4dd488">? Anlisis con Groq y ejecucin local con validaciones bsicas</span>
+        Despues podras preguntar sobre tus datos en espanol.<br>
+        Ejemplos: "Cual fue el mes con mas ventas?"  "Muestrame un grafico por categoria"<br>
+        <span style="color:#4dd488">? Anlisis con Groq y ejecucion local con validaciones basicas</span>
       </div>
     </div>""",
         unsafe_allow_html=True,
@@ -433,7 +433,7 @@ c1, c2, c3, c4 = st.columns(4)
 stats = [
     (f"{len(df):,}", "filas"),
     (str(len(df.columns)), "columnas"),
-    (str(df.select_dtypes(include="number").shape[1]), "columnas numricas"),
+    (str(df.select_dtypes(include="number").shape[1]), "columnas numericas"),
     (f"{df.isnull().sum().sum():,}", "valores vacos"),
 ]
 for col, (valor, etiqueta) in zip([c1, c2, c3, c4], stats):
@@ -456,18 +456,18 @@ cols_num = df.select_dtypes(include="number").columns.tolist()
 cols_cat = df.select_dtypes(include=["object", "category"]).columns.tolist()
 
 sugerencias = [
-    "Cuntas filas tiene el dataset?",
-    "Cules son los valores nicos de cada columna?",
-    "Mustrame un resumen estadstico",
+    "Cuantas filas tiene el dataset?",
+    "Cuales son los valores unicos de cada columna?",
+    "Muestrame un resumen estadistico",
 ]
 if cols_num:
-    sugerencias.append(f"Cul es el mximo de {cols_num[0]}?")
-    sugerencias.append(f"Mustrame un histograma de {cols_num[0]}")
+    sugerencias.append(f"Cual es el maximo de {cols_num[0]}?")
+    sugerencias.append(f"Muestrame un histograma de {cols_num[0]}")
 if cols_cat:
-    sugerencias.append(f"Cuntos registros hay por {cols_cat[0]}?")
-    sugerencias.append(f"Mustrame un grfico de barras por {cols_cat[0]}")
+    sugerencias.append(f"Cuantos registros hay por {cols_cat[0]}?")
+    sugerencias.append(f"Muestrame un grafico de barras por {cols_cat[0]}")
 if len(cols_num) >= 2:
-    sugerencias.append(f"Existe correlacin entre {cols_num[0]} y {cols_num[1]}?")
+    sugerencias.append(f"Existe correlacion entre {cols_num[0]} y {cols_num[1]}?")
 
 st.markdown(
     "<div style=\"font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#7a5e28;margin-bottom:.75rem\">Preguntas sugeridas</div>",
@@ -485,11 +485,11 @@ col_q, col_btn = st.columns([5, 1])
 with col_q:
     pregunta = st.text_input(
         "Escribe tu pregunta",
-        placeholder="Ej: Cul fue el mes con ms ventas?  Mustrame un grfico de barras por categora",
+        placeholder="Ej: Cual fue el mes con mas ventas?  Muestrame un grafico de barras por categoria",
     )
 with col_btn:
     st.markdown("<div style='height:1.85rem'></div>", unsafe_allow_html=True)
-    preguntar = st.button("Analizar ?", use_container_width=True)
+    preguntar = st.button("Analizar", use_container_width=True)
 
 if preguntar and pregunta.strip():
     tipos = {col: str(dtype) for col, dtype in df.dtypes.items()}
@@ -506,7 +506,7 @@ if preguntar and pregunta.strip():
             codigo = generar_codigo(groq_client, pregunta.strip(), tipos, muestra)
         except Exception as exc:
             st.error(
-                "No se pudo generar un analisis vlido para esta pregunta. Prueba a formularla de forma ms concreta."
+                "No se pudo generar un analisis valido para esta pregunta. Prueba a formularla de forma mas concreta."
             )
             with st.expander("Ver detalle tecnico"):
                 st.code(str(exc))
@@ -561,7 +561,7 @@ if preguntar and pregunta.strip():
             unsafe_allow_html=True,
         )
     else:
-        st.info("El analisis termin, pero no devolvi un resultado visible. Prueba a reformular la pregunta.")
+        st.info("El analisis termino, pero no devolvio un resultado visible. Prueba a reformular la pregunta.")
 
     with st.expander("Ver codigo generado por Groq"):
         st.code(codigo, language="python")
