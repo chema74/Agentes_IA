@@ -4,8 +4,8 @@
 
 On 2026-04-15, API keys were detected in Git history under:
 
-- `proyectos/p04-agente-rrhh-candidatos/.env`
-- `proyectos/p08-rag-normativa-comercio/.env`
+- `products/agentic-learning-integrity-orchestrator/.env`
+- `products/change-process-coaching-orchestrator/.env`
 
 History was rewritten to remove those files from all commits.
 
@@ -15,7 +15,7 @@ History was rewritten to remove those files from all commits.
    - Groq key (prefix `gsk_...`)
    - Tavily key (prefix `tvly-...`)
 2. Generate new keys.
-3. Update local `.env` files only (never commit).
+3. Update local `.env` files only (never commit), especially under `products/`.
 
 ## Publish rewritten history
 
@@ -62,4 +62,3 @@ Expected: no matches.
 - Keep `.env` ignored globally (`.gitignore` at repo root).
 - Use `.env.example` for templates only (no real keys).
 - Run secret scan before push in CI/local hooks.
-

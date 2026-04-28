@@ -1,15 +1,15 @@
-﻿"""
-P07 · Revisor de contratos legales
+"""
+P07  Revisor de contratos legales
 =================================
-Autor: José María
-Stack: Groq · ChromaDB · sentence-transformers · PyMuPDF · Streamlit
+Autor: Jos Mara
+Stack: Groq  ChromaDB  sentence-transformers  PyMuPDF  Streamlit
 
-Cómo funciona:
+Cmo funciona:
 1. El usuario sube uno o varios PDFs.
 2. La app extrae texto y lo indexa localmente con ChromaDB.
-3. El usuario hace preguntas sobre cláusulas, plazos, obligaciones o riesgos detectables en el texto.
+3. El usuario hace preguntas sobre clusulas, plazos, obligaciones o riesgos detectables en el texto.
 4. La app recupera fragmentos relevantes y Groq responde a partir de ellos.
-5. La salida es una revisión asistida, no asesoramiento jurídico profesional.
+5. La salida es una revisin asistida, no asesoramiento jurdico profesional.
 """
 
 import os
@@ -34,18 +34,18 @@ CHUNK_OVERLAP = 120
 TOP_K = 5
 
 PREGUNTAS_RAPIDAS = [
-    "¿Cuáles son las cláusulas más importantes de este contrato?",
-    "¿Qué riesgos o cláusulas sensibles detectas en el texto?",
-    "¿Cuáles son las obligaciones de cada parte?",
-    "¿Qué plazos y fechas clave aparecen en el documento?",
-    "¿Qué condiciones de rescisión o penalización se recogen?",
+    "Cules son las clusulas ms importantes de este contrato?",
+    "Qu riesgos o clusulas sensibles detectas en el texto?",
+    "Cules son las obligaciones de cada parte?",
+    "Qu plazos y fechas clave aparecen en el documento?",
+    "Qu condiciones de rescisin o penalizacin se recogen?",
     "Resume el documento en 5 puntos clave.",
 ]
 
 
 st.set_page_config(
     page_title="Revisor de contratos legales",
-    page_icon="⚖️",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -82,18 +82,18 @@ html,body,[class*="css"]{font-family:'DM Sans',sans-serif;background:#0c0c10;col
 
 @st.cache_resource
 def get_groq() -> Groq:
-    """Crea el cliente de Groq si la API key está disponible."""
+    """Crea el cliente de Groq si la API key est disponible."""
     api_key = os.getenv("GROQ_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError(
-            "Falta GROQ_API_KEY. Copia .env.example a .env y añade tu clave antes de analizar documentos."
+            "Falta GROQ_API_KEY. Copia .env.example a .env y aade tu clave antes de analizar documentos."
         )
     return Groq(api_key=api_key)
 
 
 @st.cache_resource
 def get_chroma():
-    """Inicializa la colección persistente de Chroma."""
+    """Inicializa la coleccin persistente de Chroma."""
     ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
     client = chromadb.PersistentClient(path=CHROMA_PATH)
     return client.get_or_create_collection(
@@ -134,7 +134,7 @@ def extraer_chunks(bytes_pdf, nombre):
 
     if not chunks:
         raise ValueError(
-            f"No se pudo extraer texto útil del PDF '{nombre}'. Comprueba que no sea una imagen escaneada sin texto seleccionable."
+            f"No se pudo extraer texto til del PDF '{nombre}'. Comprueba que no sea una imagen escaneada sin texto seleccionable."
         )
 
     return chunks
@@ -158,7 +158,7 @@ def indexar(collection, chunks, nombre):
 
 
 def buscar(collection, pregunta, k=TOP_K):
-    """Recupera los fragmentos más relevantes para la pregunta."""
+    """Recupera los fragmentos ms relevantes para la pregunta."""
     if collection.count() == 0:
         return []
 
@@ -178,8 +178,8 @@ def buscar(collection, pregunta, k=TOP_K):
             chunks.append(
                 {
                     "texto": doc,
-                    "fuente": meta.get("fuente", "—"),
-                    "pagina": meta.get("pagina", "—"),
+                    "fuente": meta.get("fuente", ""),
+                    "pagina": meta.get("pagina", ""),
                     "score": round(1 - dist, 3),
                 }
             )
@@ -189,15 +189,15 @@ def buscar(collection, pregunta, k=TOP_K):
 def responder(groq_client, pregunta, contexto, historial, tipo_doc):
     """Genera una respuesta a partir del contexto recuperado."""
     ctx_str = "\n\n---\n\n".join(
-        [f"[{c['fuente']}, Pág. {c['pagina']}]\n{c['texto']}" for c in contexto]
+        [f"[{c['fuente']}, Pg. {c['pagina']}]\n{c['texto']}" for c in contexto]
     )
     system = (
-        f"Eres un asistente de revisión documental especializado en {tipo_doc}. "
+        f"Eres un asistente de revisin documental especializado en {tipo_doc}. "
         "Responde solo a partir del contenido recuperado del documento. "
-        "Si identificas cláusulas sensibles, riesgos, obligaciones o plazos, destácalos con lenguaje claro. "
-        "Cita siempre la página cuando sea posible. "
-        "No afirmes que sustituyes revisión jurídica profesional. "
-        "Responde en español."
+        "Si identificas clusulas sensibles, riesgos, obligaciones o plazos, destcalos con lenguaje claro. "
+        "Cita siempre la pgina cuando sea posible. "
+        "No afirmes que sustituyes revisin jurdica profesional. "
+        "Responde en espaol."
     )
     mensajes = [{"role": "system", "content": system}]
     for mensaje in historial[-4:]:
@@ -217,7 +217,7 @@ def responder(groq_client, pregunta, contexto, historial, tipo_doc):
     )
     contenido = respuesta.choices[0].message.content
     if not contenido:
-        raise ValueError("El modelo no devolvió una respuesta utilizable.")
+        raise ValueError("El modelo no devolvi una respuesta utilizable.")
     return contenido
 
 
@@ -249,7 +249,7 @@ with st.sidebar:
             coleccion = get_chroma()
         except Exception as exc:
             st.error("No se pudo inicializar la base documental local.")
-            with st.expander("Ver detalle técnico"):
+            with st.expander("Ver detalle tcnico"):
                 st.code(str(exc))
             st.stop()
 
@@ -263,13 +263,13 @@ with st.sidebar:
                         st.success(f"{archivo.name} indexado ({total_chunks} fragmentos).")
                     except Exception as exc:
                         st.error(f"No se pudo indexar {archivo.name}.")
-                        with st.expander(f"Detalle técnico: {archivo.name}"):
+                        with st.expander(f"Detalle tcnico: {archivo.name}"):
                             st.code(str(exc))
 
     if st.session_state.docs_p07:
         for documento in st.session_state.docs_p07:
             st.markdown(
-                f"<div style=\"font-family:'DM Mono',monospace;font-size:.62rem;color:#7a5e28;padding:.3rem 0\">📄 {documento[:40]}</div>",
+                f"<div style=\"font-family:'DM Mono',monospace;font-size:.62rem;color:#7a5e28;padding:.3rem 0\"> {documento[:40]}</div>",
                 unsafe_allow_html=True,
             )
 
@@ -284,9 +284,9 @@ with st.sidebar:
     st.markdown(
         """
 <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
-<span style="color:#4dd488">●</span> Embeddings e indexado locales<br>
-<span style="color:#4dd488">●</span> Se envían al modelo solo fragmentos relevantes recuperados<br>
-<span style="color:#d4a84b">●</span> Revisión asistida, no asesoramiento jurídico
+<span style="color:#4dd488"></span> Embeddings e indexado locales<br>
+<span style="color:#4dd488"></span> Se envan al modelo solo fragmentos relevantes recuperados<br>
+<span style="color:#d4a84b"></span> Revisin asistida, no asesoramiento jurdico
 </div>
 """,
         unsafe_allow_html=True,
@@ -295,17 +295,17 @@ with st.sidebar:
 st.markdown(
     """
 <div class="app-header">
-  <div class="app-tag">P07 · Revisor de contratos legales · Portfolio IA Aplicada
-    <span class="groq-badge">⚡ Groq · ChromaDB local</span></div>
+  <div class="app-tag">P07  Revisor de contratos legales  Portfolio IA Aplicada
+    <span class="groq-badge"> Groq  ChromaDB local</span></div>
   <div class="app-title">Revisor de <em>contratos legales</em></div>
-  <div class="app-subtitle">Sube el PDF y consulta cláusulas, obligaciones, plazos, penalizaciones o riesgos detectables en el texto.</div>
+  <div class="app-subtitle">Sube el PDF y consulta clusulas, obligaciones, plazos, penalizaciones o riesgos detectables en el texto.</div>
 </div>
 """,
     unsafe_allow_html=True,
 )
 
 st.info(
-    "Esta app ayuda a revisar documentos legales a partir del texto recuperado. No sustituye la revisión jurídica profesional ni emite dictámenes legales."
+    "Esta app ayuda a revisar documentos legales a partir del texto recuperado. No sustituye la revisin jurdica profesional ni emite dictmenes legales."
 )
 
 try:
@@ -313,7 +313,7 @@ try:
     total = coleccion.count()
 except Exception as exc:
     st.error("No se pudo abrir la base documental local.")
-    with st.expander("Ver detalle técnico"):
+    with st.expander("Ver detalle tcnico"):
         st.code(str(exc))
     st.stop()
 
@@ -321,7 +321,7 @@ if total == 0:
     st.markdown(
         """
     <div style="border:1px dashed rgba(212,168,75,.2);padding:3rem;text-align:center">
-    <div style="font-size:2.5rem;margin-bottom:1rem">⚖️</div>
+    <div style="font-size:2.5rem;margin-bottom:1rem"></div>
     <div style="font-family:'Fraunces',serif;font-size:1.1rem;color:#8c8a84">Sube el contrato o documento legal en el panel izquierdo para empezar</div>
     </div>
     """,
@@ -343,7 +343,7 @@ st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
 for mensaje in st.session_state.historial_p07:
     if mensaje["role"] == "user":
         st.markdown(
-            f'<div class="msg-user"><div class="msg-role">Tú</div>{mensaje["content"]}</div>',
+            f'<div class="msg-user"><div class="msg-role">T</div>{mensaje["content"]}</div>',
             unsafe_allow_html=True,
         )
     else:
@@ -353,7 +353,7 @@ for mensaje in st.session_state.historial_p07:
         )
 
 if st.session_state.historial_p07:
-    if st.button("Limpiar conversación"):
+    if st.button("Limpiar conversacin"):
         st.session_state.historial_p07 = []
         st.rerun()
     st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
@@ -362,11 +362,11 @@ col_q, col_btn = st.columns([5, 1])
 with col_q:
     pregunta = st.text_input(
         "Tu pregunta sobre el documento",
-        placeholder="Ej: ¿Qué cláusulas pueden suponer un riesgo para mi empresa?",
+        placeholder="Ej: Qu clusulas pueden suponer un riesgo para mi empresa?",
         label_visibility="collapsed",
     )
 with col_btn:
-    enviar = st.button("Preguntar →", use_container_width=True)
+    enviar = st.button("Preguntar ", use_container_width=True)
 
 if enviar and pregunta.strip():
     contexto = buscar(coleccion, pregunta.strip())
@@ -390,7 +390,7 @@ if enviar and pregunta.strip():
                 )
             except Exception as exc:
                 st.error("No se pudo generar una respuesta sobre el documento.")
-                with st.expander("Ver detalle técnico"):
+                with st.expander("Ver detalle tcnico"):
                     st.code(str(exc))
                 st.stop()
 
@@ -403,6 +403,6 @@ elif enviar and not pregunta.strip():
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    '<div class="app-footer">P07 · Revisor de contratos legales · Groq + ChromaDB · Portfolio IA Aplicada · José María · Sevilla</div>',
+    '<div class="app-footer">P07  Revisor de contratos legales  Groq + ChromaDB  Portfolio IA Aplicada  Jos Mara  Sevilla</div>',
     unsafe_allow_html=True,
 )

@@ -1,15 +1,15 @@
 """
 P09 - Evaluador de Ideas de Negocio
 ====================================
-Autor : José María
-Stack : Groq · Tavily · Streamlit
+Autor : Jos Mara
+Stack : Groq  Tavily  Streamlit
 Coste : Gratuito
 
-CÓMO FUNCIONA:
+CMO FUNCIONA:
   1. Describes tu idea de negocio
-  2. Tavily busca información actualizada del mercado
+  2. Tavily busca informacin actualizada del mercado
   3. Groq analiza viabilidad, mercado, competencia, riesgos y oportunidades
-  4. Genera un informe estructurado con puntuación y plan de validación
+  4. Genera un informe estructurado con puntuacin y plan de validacin
 """
 
 import os, json
@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent
 
 st.set_page_config(
     page_title="P09 - Evaluador de Ideas de Negocio",
-    page_icon="💡",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -57,7 +57,7 @@ html,body,[class*="css"]{font-family:'DM Sans',sans-serif;background:#0c0c10;col
 .score-label{font-family:'DM Mono',monospace;font-size:.65rem;color:#8c8a84;text-transform:uppercase;letter-spacing:.12em;margin-top:.4rem}
 .veredicto{font-family:'DM Mono',monospace;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:2px;margin-top:.6rem;display:inline-block}
 
-/* Bloques de análisis */
+/* Bloques de anlisis */
 .analysis-block{background:#14141c;border:1px solid rgba(212,168,75,.15);padding:1.5rem;margin-bottom:1rem;position:relative}
 .analysis-block::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,#d4a84b,transparent)}
 .block-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#7a5e28;margin-bottom:.6rem}
@@ -75,7 +75,7 @@ html,body,[class*="css"]{font-family:'DM Sans',sans-serif;background:#0c0c10;col
 .dim-bar-fill{height:100%;border-radius:3px}
 .dim-score{font-family:'DM Mono',monospace;font-size:.65rem;width:30px;text-align:right}
 
-/* Pasos de validación */
+/* Pasos de validacin */
 .paso-card{border:1px solid rgba(212,168,75,.12);background:#0f0f18;padding:1.1rem 1.25rem;margin-bottom:.5rem;display:flex;align-items:flex-start;gap:1rem}
 .paso-num{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;color:rgba(212,168,75,.3);flex-shrink:0;line-height:1.2}
 .paso-content h4{font-family:'DM Mono',monospace;font-size:.68rem;color:#d4a84b;margin-bottom:.25rem}
@@ -93,10 +93,10 @@ def get_clients():
 
 
 def buscar_mercado(tavily, idea, sector, mercado):
-    """Busca información actualizada del mercado para la idea."""
+    """Busca informacin actualizada del mercado para la idea."""
     queries = [
-        f"mercado {sector} {mercado} tamaño tendencias 2024 2025",
-        f"startups empresas {idea[:60]} competidores España",
+        f"mercado {sector} {mercado} tamao tendencias 2024 2025",
+        f"startups empresas {idea[:60]} competidores Espaa",
     ]
     fragmentos = []
     for q in queries:
@@ -110,10 +110,10 @@ def buscar_mercado(tavily, idea, sector, mercado):
 
 
 def evaluar_idea(groq_client, idea, sector, mercado, capital, experiencia, info_web):
-    """Groq evalúa la idea de negocio en profundidad."""
+    """Groq evala la idea de negocio en profundidad."""
 
-    prompt = f"""Eres un consultor de estrategia empresarial e inversor de capital riesgo con 20 años de experiencia.
-Evalúa esta idea de negocio con rigor y honestidad. No seas condescendiente: da una valoración real.
+    prompt = f"""Eres un consultor de estrategia empresarial e inversor de capital riesgo con 20 aos de experiencia.
+Evala esta idea de negocio con rigor y honestidad. No seas condescendiente: da una valoracin real.
 
 IDEA DE NEGOCIO: {idea}
 SECTOR: {sector}
@@ -121,12 +121,12 @@ MERCADO OBJETIVO: {mercado}
 CAPITAL DISPONIBLE: {capital}
 EXPERIENCIA DEL EMPRENDEDOR: {experiencia}
 
-INFORMACIÓN DE MERCADO ACTUALIZADA:
+INFORMACIN DE MERCADO ACTUALIZADA:
 {info_web}
 
 Genera un JSON exhaustivo con:
 
-resumen_ejecutivo: 3-4 frases de valoración directa y honesta
+resumen_ejecutivo: 3-4 frases de valoracin directa y honesta
 
 puntuacion_global: numero del 1 al 10
 
@@ -139,13 +139,13 @@ dimensiones: objeto con puntuacion (1-10) para cada una de:
   - facilidad_ejecucion
   - timing
 
-propuesta_de_valor: 2-3 frases sobre qué problema resuelve y para quién
+propuesta_de_valor: 2-3 frases sobre qu problema resuelve y para quin
 
-mercado_objetivo: descripcion del cliente ideal y tamaño estimado del mercado
+mercado_objetivo: descripcion del cliente ideal y tamao estimado del mercado
 
 fortalezas: lista de 3-4 puntos fuertes reales de la idea
 
-debilidades: lista de 3-4 debilidades o puntos ciegos críticos
+debilidades: lista de 3-4 debilidades o puntos ciegos crticos
 
 oportunidades: lista de 3 oportunidades concretas a explotar
 
@@ -153,15 +153,15 @@ amenazas: lista de 3 amenazas o riesgos del mercado
 
 competidores_clave: lista de 3-4 competidores directos o sustitutos con 1 frase cada uno
 
-modelo_de_negocio_sugerido: cómo monetizar, 2-3 frases
+modelo_de_negocio_sugerido: cmo monetizar, 2-3 frases
 
-inversion_estimada: rango de inversión inicial necesaria
+inversion_estimada: rango de inversin inicial necesaria
 
-tiempo_primer_ingreso: estimación realista de cuándo generará los primeros ingresos
+tiempo_primer_ingreso: estimacin realista de cundo generar los primeros ingresos
 
-plan_validacion: lista de 5 pasos concretos y ordenados para validar la idea con el mínimo riesgo antes de invertir todo el capital
+plan_validacion: lista de 5 pasos concretos y ordenados para validar la idea con el mnimo riesgo antes de invertir todo el capital
 
-consejo_experto: 2-3 frases del consejo más importante que darías a este emprendedor
+consejo_experto: 2-3 frases del consejo ms importante que daras a este emprendedor
 
 Solo JSON valido. Sin markdown."""
 
@@ -187,59 +187,59 @@ def score_color(score):
     return "#e87878"
 
 
-# ─── SIDEBAR ──────────────────────────────
+#  SIDEBAR 
 with st.sidebar:
     st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#d4a84b;margin-bottom:1.25rem">// Contexto del emprendedor</div>', unsafe_allow_html=True)
 
     sector    = st.selectbox("Sector", [
-        "Tecnología / SaaS", "Comercio y retail", "Servicios profesionales",
-        "Formación y educación", "Salud y bienestar", "Alimentación",
-        "Turismo y hostelería", "Industria y manufactura", "Otro"
+        "Tecnologa / SaaS", "Comercio y retail", "Servicios profesionales",
+        "Formacin y educacin", "Salud y bienestar", "Alimentacin",
+        "Turismo y hostelera", "Industria y manufactura", "Otro"
     ])
-    mercado   = st.text_input("Mercado geográfico", placeholder="Ej: Andalucía · España · Europa")
+    mercado   = st.text_input("Mercado geogrfico", placeholder="Ej: Andaluca  Espaa  Europa")
     capital   = st.selectbox("Capital disponible", [
-        "Menos de 5.000€", "5.000€ - 20.000€", "20.000€ - 100.000€",
-        "100.000€ - 500.000€", "Más de 500.000€", "Por determinar"
+        "Menos de 5.000", "5.000 - 20.000", "20.000 - 100.000",
+        "100.000 - 500.000", "Ms de 500.000", "Por determinar"
     ])
     experiencia = st.selectbox("Experiencia en el sector", [
-        "Sin experiencia previa", "1-3 años", "3-10 años",
-        "Más de 10 años", "Experto en el sector"
+        "Sin experiencia previa", "1-3 aos", "3-10 aos",
+        "Ms de 10 aos", "Experto en el sector"
     ])
 
     st.markdown("""
     <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
-        <span style="color:#4dd488">●</span> Paso 1: Tavily busca info del mercado<br>
-        <span style="color:#4dd488">●</span> Paso 2: Groq evalúa en profundidad<br>
-        <span style="color:#d4a84b">●</span> Tiempo: 20-30 segundos<br>
-        <span style="color:#d4a84b">●</span> Análisis honesto, no condescendiente
+        <span style="color:#4dd488"></span> Paso 1: Tavily busca info del mercado<br>
+        <span style="color:#4dd488"></span> Paso 2: Groq evala en profundidad<br>
+        <span style="color:#d4a84b"></span> Tiempo: 20-30 segundos<br>
+        <span style="color:#d4a84b"></span> Anlisis honesto, no condescendiente
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
-        P11 · Portfolio IA Aplicada<br>
-        <a href="https://github.com/TU-USUARIO/portfolio-ia-aplicada" style="color:#7a5e28">GitHub →</a>
+        P11  Portfolio IA Aplicada<br>
+        <a href="https://github.com/TU-USUARIO/portfolio-ia-aplicada" style="color:#7a5e28">GitHub </a>
     </div>""", unsafe_allow_html=True)
 
 
-# ─── CABECERA ─────────────────────────────
+#  CABECERA 
 st.markdown("""
 <div class="app-header">
-  <div class="app-tag">P11 · Evaluador de ideas · Portfolio IA Aplicada
-    <span class="groq-badge">⚡ Groq · análisis</span>
-    <span class="tavily-badge">🔍 Tavily · mercado real</span>
+  <div class="app-tag">P11  Evaluador de ideas  Portfolio IA Aplicada
+    <span class="groq-badge"> Groq  anlisis</span>
+    <span class="tavily-badge"> Tavily  mercado real</span>
   </div>
-  <div class="app-title">Evalúa tu <em>Idea</em></div>
+  <div class="app-title">Evala tu <em>Idea</em></div>
   <div class="app-subtitle">
-    Describe tu idea · analizamos viabilidad, mercado y riesgos · plan de validación paso a paso
+    Describe tu idea  analizamos viabilidad, mercado y riesgos  plan de validacin paso a paso
   </div>
 </div>""", unsafe_allow_html=True)
 
 
-# ─── FORMULARIO ───────────────────────────
+#  FORMULARIO 
 idea = st.text_area(
     "Describe tu idea de negocio",
     placeholder=(
         "Ej: Plataforma de IA para que las PYMEs andaluzas automaticen "
-        "sus procesos administrativos sin necesidad de equipo técnico propio. "
-        "Modelo SaaS con cuota mensual de 200€/mes. Clientes objetivo: "
+        "sus procesos administrativos sin necesidad de equipo tcnico propio. "
+        "Modelo SaaS con cuota mensual de 200/mes. Clientes objetivo: "
         "empresas de 5-50 empleados del sector servicios."
     ),
     height=130,
@@ -247,16 +247,16 @@ idea = st.text_area(
 
 col_btn, col_info = st.columns([1, 3])
 with col_btn:
-    evaluar_btn = st.button("Evaluar idea →", use_container_width=True)
+    evaluar_btn = st.button("Evaluar idea ", use_container_width=True)
 with col_info:
     st.markdown("""
     <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:#44433f;padding:.75rem 0;line-height:1.8">
-        Cuanto más detallada sea la descripción, más preciso será el análisis.<br>
-        Incluye: qué problema resuelve · para quién · cómo monetiza · qué te diferencia
+        Cuanto ms detallada sea la descripcin, ms preciso ser el anlisis.<br>
+        Incluye: qu problema resuelve  para quin  cmo monetiza  qu te diferencia
     </div>""", unsafe_allow_html=True)
 
 
-# ─── ANÁLISIS ─────────────────────────────
+#  ANLISIS 
 if evaluar_btn:
     if not idea.strip():
         st.warning("Describe tu idea de negocio para evaluarla.")
@@ -264,19 +264,19 @@ if evaluar_btn:
 
     groq_client, tavily_client = get_clients()
 
-    with st.spinner("🔍 Analizando el mercado en tiempo real..."):
-        info_web = buscar_mercado(tavily_client, idea, sector, mercado or "España")
+    with st.spinner(" Analizando el mercado en tiempo real..."):
+        info_web = buscar_mercado(tavily_client, idea, sector, mercado or "Espaa")
 
-    with st.spinner("⚡ Evaluando viabilidad con Groq..."):
+    with st.spinner(" Evaluando viabilidad con Groq..."):
         try:
-            eval_data = evaluar_idea(groq_client, idea, sector, mercado or "España",
+            eval_data = evaluar_idea(groq_client, idea, sector, mercado or "Espaa",
                                      capital, experiencia, info_web)
         except json.JSONDecodeError:
-            st.error("Error al procesar la respuesta. Inténtalo de nuevo."); st.stop()
+            st.error("Error al procesar la respuesta. Intntalo de nuevo."); st.stop()
         except Exception as e:
             st.error(f"Error: {e}"); st.stop()
 
-    # ── RENDER ──────────────────────────────
+    #  RENDER 
     score    = eval_data.get("puntuacion_global", 5)
     veredicto = eval_data.get("veredicto", "Refinar antes de lanzar")
     color_v  = {
@@ -294,7 +294,7 @@ if evaluar_btn:
         st.markdown(f"""
         <div class="score-card">
           <div class="score-num" style="color:{score_color(score)}">{score}</div>
-          <div class="score-label">puntuación global / 10</div>
+          <div class="score-label">puntuacin global / 10</div>
           <div class="veredicto" style="color:{color_v};border:1px solid {color_v}40;background:{color_v}10">{veredicto}</div>
         </div>""", unsafe_allow_html=True)
 
@@ -303,12 +303,12 @@ if evaluar_btn:
         dims = eval_data.get("dimensiones", {})
         dim_labels = {
             "oportunidad_mercado":  "Oportunidad de mercado",
-            "diferenciacion":       "Diferenciación",
+            "diferenciacion":       "Diferenciacin",
             "viabilidad_financiera": "Viabilidad financiera",
-            "facilidad_ejecucion":  "Facilidad de ejecución",
+            "facilidad_ejecucion":  "Facilidad de ejecucin",
             "timing":               "Timing / momento",
         }
-        st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:#7a5e28;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem">Análisis por dimensión</div>', unsafe_allow_html=True)
+        st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:#7a5e28;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem">Anlisis por dimensin</div>', unsafe_allow_html=True)
         for key, label in dim_labels.items():
             val = dims.get(key, 5)
             if isinstance(val, dict): val = val.get("puntuacion", 5)
@@ -327,7 +327,7 @@ if evaluar_btn:
     # Resumen ejecutivo
     st.markdown(f"""
     <div class="analysis-block">
-      <div class="block-title">📋 Resumen ejecutivo</div>
+      <div class="block-title"> Resumen ejecutivo</div>
       <div class="block-text">{eval_data.get('resumen_ejecutivo','')}</div>
     </div>""", unsafe_allow_html=True)
 
@@ -336,13 +336,13 @@ if evaluar_btn:
     with col_pv:
         st.markdown(f"""
         <div class="analysis-block" style="height:100%">
-          <div class="block-title">💡 Propuesta de valor</div>
+          <div class="block-title"> Propuesta de valor</div>
           <div class="block-text">{eval_data.get('propuesta_de_valor','')}</div>
         </div>""", unsafe_allow_html=True)
     with col_m:
         st.markdown(f"""
         <div class="analysis-block" style="height:100%">
-          <div class="block-title">🎯 Mercado objetivo</div>
+          <div class="block-title"> Mercado objetivo</div>
           <div class="block-text">{eval_data.get('mercado_objetivo','')}</div>
         </div>""", unsafe_allow_html=True)
 
@@ -352,22 +352,22 @@ if evaluar_btn:
     for col_w, (titulo, items, css, emoji) in zip(
         [c_f, c_d, c_o, c_a],
         [
-            ("Fortalezas",    eval_data.get("fortalezas",[]),    "item-pos", "✅"),
-            ("Debilidades",   eval_data.get("debilidades",[]),   "item-neg", "⚠️"),
-            ("Oportunidades", eval_data.get("oportunidades",[]), "item-pos", "📈"),
-            ("Amenazas",      eval_data.get("amenazas",[]),      "item-neg", "🔴"),
+            ("Fortalezas",    eval_data.get("fortalezas",[]),    "item-pos", ""),
+            ("Debilidades",   eval_data.get("debilidades",[]),   "item-neg", ""),
+            ("Oportunidades", eval_data.get("oportunidades",[]), "item-pos", ""),
+            ("Amenazas",      eval_data.get("amenazas",[]),      "item-neg", ""),
         ]
     ):
         with col_w:
             st.markdown(f'<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:#7a5e28;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.6rem">{emoji} {titulo}</div>', unsafe_allow_html=True)
             for item in items:
-                st.markdown(f'<div class="{css}">· {item}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="{css}"> {item}</div>', unsafe_allow_html=True)
 
     # Competidores
     competidores = eval_data.get("competidores_clave", [])
     if competidores:
         st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
-        st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:#7a5e28;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem">⚔️ Competidores clave</div>', unsafe_allow_html=True)
+        st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:#7a5e28;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem"> Competidores clave</div>', unsafe_allow_html=True)
         cols_c = st.columns(min(len(competidores), 4))
         for col_w, comp in zip(cols_c, competidores):
             with col_w:
@@ -384,13 +384,13 @@ if evaluar_btn:
                   <div style="font-size:.8rem;color:#8c8a84;line-height:1.6">{desc}</div>
                 </div>""", unsafe_allow_html=True)
 
-    # Modelo de negocio e inversión
+    # Modelo de negocio e inversin
     st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
     col_mn, col_inv = st.columns(2)
     with col_mn:
         st.markdown(f"""
         <div class="analysis-block">
-          <div class="block-title">💰 Modelo de negocio sugerido</div>
+          <div class="block-title"> Modelo de negocio sugerido</div>
           <div class="block-text">{eval_data.get('modelo_de_negocio_sugerido','')}</div>
         </div>""", unsafe_allow_html=True)
     with col_inv:
@@ -398,20 +398,20 @@ if evaluar_btn:
         <div style="background:#14141c;border:1px solid rgba(212,168,75,.15);padding:1.5rem">
           <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:#7a5e28;margin-bottom:.75rem">DATOS FINANCIEROS ESTIMADOS</div>
           <div style="margin-bottom:.6rem">
-            <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f">Inversión inicial</div>
-            <div style="font-size:1rem;font-weight:700;color:#d4a84b">{eval_data.get('inversion_estimada','—')}</div>
+            <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f">Inversin inicial</div>
+            <div style="font-size:1rem;font-weight:700;color:#d4a84b">{eval_data.get('inversion_estimada','')}</div>
           </div>
           <div>
             <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f">Primer ingreso estimado</div>
-            <div style="font-size:1rem;font-weight:700;color:#4dd488">{eval_data.get('tiempo_primer_ingreso','—')}</div>
+            <div style="font-size:1rem;font-weight:700;color:#4dd488">{eval_data.get('tiempo_primer_ingreso','')}</div>
           </div>
         </div>""", unsafe_allow_html=True)
 
-    # Plan de validación
+    # Plan de validacin
     pasos = eval_data.get("plan_validacion", [])
     if pasos:
         st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
-        st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:#7a5e28;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem">🗺️ Plan de validación paso a paso</div>', unsafe_allow_html=True)
+        st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:#7a5e28;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem"> Plan de validacin paso a paso</div>', unsafe_allow_html=True)
         for i, paso in enumerate(pasos, 1):
             if isinstance(paso, dict):
                 titulo_paso = paso.get("titulo", paso.get("paso", f"Paso {i}"))
@@ -436,7 +436,7 @@ if evaluar_btn:
         <div style="background:rgba(212,168,75,.05);border:1px solid rgba(212,168,75,.2);padding:1.5rem 2rem;margin-top:1rem;position:relative">
           <div style="position:absolute;top:0;left:2rem;right:2rem;height:2px;background:linear-gradient(90deg,transparent,#d4a84b,transparent)"></div>
           <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:#7a5e28;margin-bottom:.5rem">
-            💬 Consejo del experto
+             Consejo del experto
           </div>
           <div style="font-family:'Fraunces',serif;font-size:1rem;font-weight:300;font-style:italic;color:#c8c6c0;line-height:1.85">
             "{consejo}"
@@ -445,17 +445,17 @@ if evaluar_btn:
 
     # Exportar
     st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
-    txt = f"EVALUACIÓN DE IDEA DE NEGOCIO\n{datetime.now().strftime('%d/%m/%Y')}\n{'='*60}\n\n"
-    txt += f"IDEA: {idea[:200]}\nSECTOR: {sector} · MERCADO: {mercado}\n\n"
-    txt += f"PUNTUACIÓN GLOBAL: {score}/10 · {veredicto}\n\n"
+    txt = f"EVALUACIN DE IDEA DE NEGOCIO\n{datetime.now().strftime('%d/%m/%Y')}\n{'='*60}\n\n"
+    txt += f"IDEA: {idea[:200]}\nSECTOR: {sector}  MERCADO: {mercado}\n\n"
+    txt += f"PUNTUACIN GLOBAL: {score}/10  {veredicto}\n\n"
     txt += f"RESUMEN:\n{eval_data.get('resumen_ejecutivo','')}\n\n"
-    txt += f"FORTALEZAS:\n" + "\n".join([f"• {f}" for f in eval_data.get("fortalezas",[])]) + "\n\n"
-    txt += f"DEBILIDADES:\n" + "\n".join([f"• {d}" for d in eval_data.get("debilidades",[])]) + "\n\n"
-    txt += f"PLAN DE VALIDACIÓN:\n" + "\n".join([f"{i+1}. {p if isinstance(p,str) else p.get('titulo','')}" for i,p in enumerate(pasos)]) + "\n\n"
-    txt += f"CONSEJO: {consejo}\n\n{'='*60}\nGenerado con IA · Portfolio IA Aplicada · José María · Sevilla"
+    txt += f"FORTALEZAS:\n" + "\n".join([f" {f}" for f in eval_data.get("fortalezas",[])]) + "\n\n"
+    txt += f"DEBILIDADES:\n" + "\n".join([f" {d}" for d in eval_data.get("debilidades",[])]) + "\n\n"
+    txt += f"PLAN DE VALIDACIN:\n" + "\n".join([f"{i+1}. {p if isinstance(p,str) else p.get('titulo','')}" for i,p in enumerate(pasos)]) + "\n\n"
+    txt += f"CONSEJO: {consejo}\n\n{'='*60}\nGenerado con IA  Portfolio IA Aplicada  Jos Mara  Sevilla"
 
     st.download_button(
-        "📥 Descargar evaluación (.txt)",
+        " Descargar evaluacin (.txt)",
         data=txt,
         file_name=f"evaluacion_idea_{datetime.now().strftime('%Y%m%d')}.txt",
         mime="text/plain",
@@ -465,21 +465,21 @@ else:
     # Estado inicial
     st.markdown("""
     <div style="border:1px dashed rgba(212,168,75,.2);padding:3rem 2rem;text-align:center;margin-top:1rem">
-      <div style="font-size:2.5rem;margin-bottom:1rem">💡</div>
+      <div style="font-size:2.5rem;margin-bottom:1rem"></div>
       <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#8c8a84;margin-bottom:.75rem">
-        Describe tu idea y recibe un análisis honesto en 30 segundos
+        Describe tu idea y recibe un anlisis honesto en 30 segundos
       </div>
       <div style="font-family:'DM Mono',monospace;font-size:.63rem;color:#44433f;letter-spacing:.06em;line-height:2">
-        Viabilidad · mercado · competencia · DAFO · modelo de negocio<br>
-        Inversión estimada · tiempo al primer ingreso · plan de validación<br>
-        <span style="color:#4dd488">⚡ Análisis con datos de mercado en tiempo real · no halagos genéricos</span>
+        Viabilidad  mercado  competencia  DAFO  modelo de negocio<br>
+        Inversin estimada  tiempo al primer ingreso  plan de validacin<br>
+        <span style="color:#4dd488"> Anlisis con datos de mercado en tiempo real  no halagos genricos</span>
       </div>
     </div>""", unsafe_allow_html=True)
 
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    '<div class="app-footer">P11 · Evaluador de Ideas de Negocio · '
-    'Groq + Tavily · Portfolio IA Aplicada · José María · Sevilla</div>',
+    '<div class="app-footer">P11  Evaluador de Ideas de Negocio  '
+    'Groq + Tavily  Portfolio IA Aplicada  Jos Mara  Sevilla</div>',
     unsafe_allow_html=True,
 )

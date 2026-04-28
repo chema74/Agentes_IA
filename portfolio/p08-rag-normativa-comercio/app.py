@@ -1,8 +1,8 @@
 """
-P09 · Consultor RAG de Normativa de Comercio Internacional
+P09  Consultor RAG de Normativa de Comercio Internacional
 ===========================================================
-Autor : José María
-Stack : Groq · ChromaDB · sentence-transformers · PyMuPDF · Streamlit
+Autor : Jos Mara
+Stack : Groq  ChromaDB  sentence-transformers  PyMuPDF  Streamlit
 Coste : GRATUITO
 """
 
@@ -24,7 +24,7 @@ CHUNK_SIZE  = 700
 CHUNK_OVERLAP = 120
 TOP_K = 5
 
-st.set_page_config(page_title="Consultor Normativa Comercio IA", page_icon="🌐", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Consultor Normativa Comercio IA", page_icon="", layout="wide", initial_sidebar_state="expanded")
 
 st.markdown("""
 <style>
@@ -93,19 +93,19 @@ def buscar(collection, pregunta, k=TOP_K):
     chunks = []
     if r and r["documents"]:
         for doc,meta,dist in zip(r["documents"][0],r["metadatas"][0],r["distances"][0]):
-            chunks.append({"texto":doc,"fuente":meta.get("fuente","—"),"pagina":meta.get("pagina","—"),"score":round(1-dist,3)})
+            chunks.append({"texto":doc,"fuente":meta.get("fuente",""),"pagina":meta.get("pagina",""),"score":round(1-dist,3)})
     return chunks
 
 def responder(groq_client, pregunta, contexto, historial, pais_origen, pais_destino, producto):
-    ctx_str = "\n\n---\n\n".join([f"[{c['fuente']}, Pág.{c['pagina']}]\n{c['texto']}" for c in contexto])
+    ctx_str = "\n\n---\n\n".join([f"[{c['fuente']}, Pg.{c['pagina']}]\n{c['texto']}" for c in contexto])
     ctx_empresa = ""
     if pais_origen or pais_destino or producto:
-        ctx_empresa = f"\nCONTEXTO: Empresa de {pais_origen or 'España'} exportando {producto or 'producto'} a {pais_destino or 'mercado destino'}."
+        ctx_empresa = f"\nCONTEXTO: Empresa de {pais_origen or 'Espaa'} exportando {producto or 'producto'} a {pais_destino or 'mercado destino'}."
     system = (
         f"Eres un experto en normativa de comercio internacional y comercio exterior.{ctx_empresa} "
-        f"Responde EXCLUSIVAMENTE basándote en los documentos de normativa cargados. "
-        f"Cita siempre el documento y página. Indica si la normativa puede estar desactualizada. "
-        f"Si no encuentras la información, dilo claramente. Responde en español."
+        f"Responde EXCLUSIVAMENTE basndote en los documentos de normativa cargados. "
+        f"Cita siempre el documento y pgina. Indica si la normativa puede estar desactualizada. "
+        f"Si no encuentras la informacin, dilo claramente. Responde en espaol."
     )
     msgs = [{"role":"system","content":system}]
     for m in historial[-4:]: msgs.append({"role":m["role"],"content":m["content"]})
@@ -117,18 +117,18 @@ if "historial_p09" not in st.session_state: st.session_state.historial_p09 = []
 if "docs_p09" not in st.session_state: st.session_state.docs_p09 = set()
 
 PREGUNTAS_RAPIDAS = [
-    "¿Qué aranceles aplican a este producto?",
-    "¿Qué documentación aduanera necesito?",
-    "¿Cuáles son los requisitos de origen del producto?",
-    "¿Qué acuerdos comerciales son aplicables?",
-    "¿Existen barreras no arancelarias para este mercado?",
-    "¿Qué certificaciones o homologaciones se requieren?",
+    "Qu aranceles aplican a este producto?",
+    "Qu documentacin aduanera necesito?",
+    "Cules son los requisitos de origen del producto?",
+    "Qu acuerdos comerciales son aplicables?",
+    "Existen barreras no arancelarias para este mercado?",
+    "Qu certificaciones o homologaciones se requieren?",
 ]
 
 with st.sidebar:
     st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#d4a84b;margin-bottom:1.25rem">// Cargar normativa</div>', unsafe_allow_html=True)
     archivos = st.file_uploader("Sube PDFs de normativa", type=["pdf"], accept_multiple_files=True,
-        help="Guías ICEX, normativa OMC, acuerdos comerciales UE, reglamentos aduaneros...")
+        help="Guas ICEX, normativa OMC, acuerdos comerciales UE, reglamentos aduaneros...")
 
     if archivos:
         col = get_chroma()
@@ -138,11 +138,11 @@ with st.sidebar:
                     chunks = extraer_chunks(arch.read(), arch.name)
                     indexar(col, chunks, arch.name)
                     st.session_state.docs_p09.add(arch.name)
-                st.success(f"✅ {arch.name}")
+                st.success(f" {arch.name}")
 
-    st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#d4a84b;margin-top:1rem;margin-bottom:.75rem">// Contexto de exportación</div>', unsafe_allow_html=True)
-    pais_origen  = st.text_input("País de origen", value="España")
-    pais_destino = st.text_input("País de destino", placeholder="Ej: Marruecos")
+    st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#d4a84b;margin-top:1rem;margin-bottom:.75rem">// Contexto de exportacin</div>', unsafe_allow_html=True)
+    pais_origen  = st.text_input("Pas de origen", value="Espaa")
+    pais_destino = st.text_input("Pas de destino", placeholder="Ej: Marruecos")
     producto     = st.text_input("Producto", placeholder="Ej: Aceite de oliva")
 
     if st.button("Borrar normativa", use_container_width=True):
@@ -155,15 +155,15 @@ with st.sidebar:
 
     st.markdown("""<div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
     Fuentes recomendadas:<br>
-    <span style="color:#7a5e28">· Guías de mercado ICEX</span><br>
-    <span style="color:#7a5e28">· Acuerdos UE (EUR-Lex)</span><br>
-    <span style="color:#7a5e28">· Reglamentos aduaneros</span></div>""", unsafe_allow_html=True)
+    <span style="color:#7a5e28"> Guas de mercado ICEX</span><br>
+    <span style="color:#7a5e28"> Acuerdos UE (EUR-Lex)</span><br>
+    <span style="color:#7a5e28"> Reglamentos aduaneros</span></div>""", unsafe_allow_html=True)
 
 st.markdown("""<div class="app-header">
-  <div class="app-tag">P09 · Normativa comercio · Portfolio IA Aplicada
-    <span class="groq-badge">⚡ Groq · ChromaDB local</span></div>
+  <div class="app-tag">P09  Normativa comercio  Portfolio IA Aplicada
+    <span class="groq-badge"> Groq  ChromaDB local</span></div>
   <div class="app-title">Consultor de <em>Normativa</em></div>
-  <div class="app-subtitle">Pregunta sobre aranceles, acuerdos comerciales, aduanas y requisitos de exportación</div>
+  <div class="app-subtitle">Pregunta sobre aranceles, acuerdos comerciales, aduanas y requisitos de exportacin</div>
 </div>""", unsafe_allow_html=True)
 
 try:
@@ -173,11 +173,11 @@ except: total = 0
 
 if total == 0:
     st.markdown("""<div style="border:1px dashed rgba(212,168,75,.2);padding:3rem;text-align:center">
-    <div style="font-size:2.5rem;margin-bottom:1rem">🌐</div>
+    <div style="font-size:2.5rem;margin-bottom:1rem"></div>
     <div style="font-family:'Fraunces',serif;font-size:1.1rem;color:#8c8a84;margin-bottom:.5rem">Carga documentos de normativa comercial</div>
     <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:#44433f;line-height:1.9">
-    Guías de mercado ICEX · Acuerdos comerciales UE · Reglamentos aduaneros<br>
-    El asistente responderá solo con lo que esté en los documentos cargados</div>
+    Guas de mercado ICEX  Acuerdos comerciales UE  Reglamentos aduaneros<br>
+    El asistente responder solo con lo que est en los documentos cargados</div>
     </div>""", unsafe_allow_html=True)
     st.stop()
 
@@ -187,34 +187,34 @@ st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
 
 for msg in st.session_state.historial_p09:
     if msg["role"] == "user":
-        st.markdown(f'<div class="msg-user"><div class="msg-role">Tú</div>{msg["content"]}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="msg-user"><div class="msg-role">T</div>{msg["content"]}</div>', unsafe_allow_html=True)
     else:
-        st.markdown(f'<div class="msg-bot"><div class="msg-role">🌐 Consultor normativa</div>{msg["content"]}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="msg-bot"><div class="msg-role"> Consultor normativa</div>{msg["content"]}</div>', unsafe_allow_html=True)
 
 if st.session_state.historial_p09:
-    if st.button("Limpiar conversación"): st.session_state.historial_p09 = []; st.rerun()
+    if st.button("Limpiar conversacin"): st.session_state.historial_p09 = []; st.rerun()
     st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
 
 col_q, col_btn = st.columns([5,1])
 with col_q:
-    pregunta = st.text_input("Tu consulta de normativa", placeholder="Ej: ¿Qué documentación necesito para exportar aceite de oliva a Marruecos?", label_visibility="collapsed")
+    pregunta = st.text_input("Tu consulta de normativa", placeholder="Ej: Qu documentacin necesito para exportar aceite de oliva a Marruecos?", label_visibility="collapsed")
 with col_btn:
-    enviar = st.button("Consultar →", use_container_width=True)
+    enviar = st.button("Consultar ", use_container_width=True)
 
 if enviar and pregunta.strip():
     col = get_chroma()
     contexto = buscar(col, pregunta.strip())
     if not contexto:
-        st.warning("No se encontró información relevante en la normativa cargada.")
+        st.warning("No se encontr informacin relevante en la normativa cargada.")
     else:
-        with st.spinner("⚡ Consultando normativa..."):
+        with st.spinner(" Consultando normativa..."):
             respuesta = responder(get_groq(), pregunta.strip(), contexto, st.session_state.historial_p09, pais_origen, pais_destino, producto)
         st.session_state.historial_p09.append({"role":"user","content":pregunta.strip()})
         st.session_state.historial_p09.append({"role":"assistant","content":respuesta})
-        with st.expander("📎 Ver fragmentos de normativa consultados"):
+        with st.expander(" Ver fragmentos de normativa consultados"):
             for c in contexto:
-                st.markdown(f'<div class="fuente-box"><span style="color:#d4a84b;font-family:\'DM Mono\',monospace;font-size:.6rem">{c["fuente"]} · Pág.{c["pagina"]} · {c["score"]:.0%}</span><br>{c["texto"][:250]}…</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="fuente-box"><span style="color:#d4a84b;font-family:\'DM Mono\',monospace;font-size:.6rem">{c["fuente"]}  Pg.{c["pagina"]}  {c["score"]:.0%}</span><br>{c["texto"][:250]}</div>', unsafe_allow_html=True)
         st.rerun()
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
-st.markdown('<div class="app-footer">P09 · Consultor Normativa Comercio · Groq + ChromaDB · Portfolio IA Aplicada · José María · Sevilla</div>', unsafe_allow_html=True)
+st.markdown('<div class="app-footer">P09  Consultor Normativa Comercio  Groq + ChromaDB  Portfolio IA Aplicada  Jos Mara  Sevilla</div>', unsafe_allow_html=True)
