@@ -12,7 +12,10 @@ SKIP_PARTS = {
     "venv",
     ".venv_check",
     "__pycache__",
+    ".pytest_cache",
+    ".claude",
     ".git",
+    "worktrees",
 }
 
 

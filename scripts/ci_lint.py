@@ -59,12 +59,16 @@ def main() -> int:
             if not (project / "requirements.txt").exists():
                 errors.append(f"{project.name}: falta requirements.txt")
 
-            has_entrypoint = (project / "app.py").exists() or (
-                project / "app" / "streamlit_app.py"
-            ).exists()
+            has_entrypoint = (
+                (project / "app.py").exists()
+                or (project / "streamlit_app.py").exists()
+                or (project / "app" / "streamlit_app.py").exists()
+                or (project / "app" / "main.py").exists()
+            )
             if not has_entrypoint:
                 errors.append(
-                    f"{project.name}: falta entrypoint (app.py o app/streamlit_app.py)"
+                    f"{project.name}: falta entrypoint "
+                    f"(app.py, streamlit_app.py, app/streamlit_app.py o app/main.py)"
                 )
 
     if errors:
