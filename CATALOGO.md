@@ -12,7 +12,7 @@ Lo que falta no es tanto hacer que funcione, sino cerrar limpieza, narrativa, do
 
 | Area | Estado | Pendiente principal |
 |---|---|---|
-| Web raiz | Funcional | Corregir textos finales y anadir contacto real |
+| Web raiz | Funcional | Mantener copy final y evolucionar canal de contacto si se publica fuera de GitHub |
 | `portfolio/` | Funcional como demo | Pulido editorial y cierre de `p05`, `p06`, `p08`, `p09`, `p10` |
 | `products/` | Cerrado tecnicamente | Documentacion de despliegue, observabilidad y limites de dominio |
 | `core/` | Estable | Reducir efectos al importar configuracion |
@@ -51,7 +51,6 @@ Lo que falta no es tanto hacer que funcione, sino cerrar limpieza, narrativa, do
 ## Pendiente global
 
 1. Terminar limpieza editorial en web y portfolio.
-2. Anadir mecanismo de contacto real en `contacto.html`.
-3. Revisar `core/config/settings.py` para evitar validaciones fuertes al importar.
-4. Mantener fuera del repo artefactos locales: `.pytest-tmp/`, `.pytest_cache/`, `data/`, `exports/`, `.venv/`.
-5. Documentar despliegue y variables de entorno por producto si se van a publicar.
+2. Revisar `core/config/settings.py` para evitar validaciones fuertes al importar.
+3. Mantener fuera del repo artefactos locales: `.pytest-tmp/`, `.pytest_cache/`, `data/`, `exports/`, `.venv/`.
+4. Documentar despliegue y variables de entorno por producto si se van a publicar.
