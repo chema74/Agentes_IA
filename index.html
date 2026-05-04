@@ -3,96 +3,247 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio IA Aplicada | Jose Maria</title>
-  <meta name="description" content="Portfolio de agentes de IA orientados a negocio. Demostraciones, productos maduros, formacion, comercio internacional y automatizacion." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23080810'/%3E%3Cpath d='M18 46L30 18h4l12 28h-5l-3-7H26l-3 7h-5zm10-11h8l-4-9-4 9z' fill='%23c8a04a'/%3E%3C/svg%3E" />
+  <title>Portfolio IA Aplicada | Monorepo de portfolio y productos</title>
+  <meta name="description" content="Web publica del monorepo Agentes_IA. Portfolio publico, productos maduros, enfoque de trabajo y contacto." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <header class="site-header" id="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">IA</span>
-        <span class="logo-text">Portfolio IA Aplicada</span>
-      </a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="main-nav" id="main-nav">
-        <ul>
-          <li><a href="index.html" class="active">Inicio</a></li>
-          <li><a href="proyectos.html">Portfolio</a></li>
-          <li><a href="sobre-mi.html">Sobre mi</a></li>
-          <li><a href="formacion-docencia.html">Formacion</a></li>
-          <li><a href="comercio-analisis.html">Comercio</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="site-shell">
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">IA</span>
+          <span class="brand-copy">
+            <span class="brand-title">Portfolio IA Aplicada</span>
+            <span class="brand-subtitle">Monorepo publico y productos</span>
+          </span>
+        </a>
 
-  <main>
-    <section class="hero home-hero">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+        </button>
+
+        <nav class="main-nav" id="main-nav">
+          <ul>
+            <li><a class="active" href="index.html">Inicio</a></li>
+            <li><a href="sobre-mi.html">Perfil</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <a class="header-cta" href="contacto.html">Abrir conversacion</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <article class="hero-panel reveal">
+            <span class="hero-kicker">Agentes IA orientados a negocio</span>
+            <h1 class="hero-title">Un monorepo con <span class="accent">portfolio publico</span> y productos que ya se comportan como sistemas.</h1>
+            <p class="hero-copy">
+              Esta web ya no intenta contar piezas aisladas. Expone una arquitectura clara:
+              <strong>portfolio/</strong> para demos y prototipos explicables,
+              <strong>products/</strong> para agentes maduros con mas rigor tecnico,
+              y una narrativa publica alineada con el estado real del repositorio.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="proyectos.html">Ver portfolio</a>
+              <a class="btn btn-secondary" href="productos.html">Ver productos</a>
+            </div>
+
+            <div class="hero-metrics">
+              <div class="metric">
+                <strong>10</strong>
+                <span>proyectos publicos en `portfolio/`</span>
+              </div>
+              <div class="metric">
+                <strong>9</strong>
+                <span>productos maduros en `products/`</span>
+              </div>
+              <div class="metric">
+                <strong>607</strong>
+                <span>archivos Python compilados en smoke</span>
+              </div>
+            </div>
+          </article>
+
+          <aside class="hero-aside reveal">
+            <div class="aside-stack">
+              <div class="aside-card">
+                <span class="aside-label">Portfolio</span>
+                <h3>Casos de uso entendibles</h3>
+                <p>Licitaciones, contratos, RR. HH., RAG, dashboards y comercio exterior con forma de demo presentable.</p>
+              </div>
+              <div class="aside-card">
+                <span class="aside-label">Products</span>
+                <h3>Agentes con mas disciplina</h3>
+                <p>Orquestadores y agentes verticales con persistencia, tests, docs y decisiones de arquitectura mas serias.</p>
+              </div>
+              <div class="aside-card">
+                <span class="aside-label">Narrativa</span>
+                <h3>Una capa publica coherente</h3>
+                <p>La web queda organizada por lo que existe de verdad en el repo, no por paginas sueltas ni temas secundarios.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-kicker">Mapa del repo</span>
+            <h2>La estructura publica ya sigue la estructura real de `Agentes_IA`</h2>
+            <p>La home resume como se reparte el trabajo entre demos, productos, utilidades compartidas y checks de calidad. No hay capas decorativas separadas del contenido real.</p>
+          </div>
+
+          <div class="section-card reveal">
+            <div class="repo-map">
+              <div class="map-card">
+                <strong>`portfolio/`</strong>
+                <p>Diez piezas de demo y prototipo con entrypoint claro, `.env.example`, requirements y enfoque de presentacion.</p>
+                <span class="mono">Casos visibles</span>
+              </div>
+              <div class="map-card">
+                <strong>`products/`</strong>
+                <p>Nueve agentes y orquestadores mas maduros, con tests por producto, `pyproject.toml`, docs y estructura de app.</p>
+                <span class="mono">Sistemas serios</span>
+              </div>
+              <div class="map-card">
+                <strong>`core/`</strong>
+                <p>Utilidades compartidas y configuracion comun. La validacion fuerte ya no bloquea el import en modo demo.</p>
+                <span class="mono">Base tecnica</span>
+              </div>
+              <div class="map-card">
+                <strong>`scripts/` + `tests/`</strong>
+                <p>Lint estructural, smoke de compilacion y pruebas minimas para asegurar que el repositorio sigue siendo presentable.</p>
+                <span class="mono">Guardrails</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container two-column">
+          <div class="narrative-panel reveal">
+            <span class="section-kicker">Portfolio</span>
+            <h3>La capa publica sirve para explicar utilidad concreta</h3>
+            <p>`portfolio/` agrupa demos y bases publicas que se entienden rapido: que problema atacan, que tecnologia usan y hasta donde llega su madurez.</p>
+            <div class="cards-grid">
+              <article class="catalog-card">
+                <div class="catalog-head">
+                  <span class="catalog-code">P01</span>
+                  <span class="catalog-status status-live">Cerrado tecnico</span>
+                </div>
+                <h3>Inteligencia comercial internacional</h3>
+                <p>Analisis de contexto pais, riesgo y comparativas para apoyar decisiones de expansion.</p>
+                <div class="catalog-meta">
+                  <span>Comercio</span>
+                  <span>Analisis</span>
+                  <span>Decision support</span>
+                </div>
+              </article>
+              <article class="catalog-card">
+                <div class="catalog-head">
+                  <span class="catalog-code">P05</span>
+                  <span class="catalog-status status-build">RAG publico</span>
+                </div>
+                <h3>Documentacion interna consultable</h3>
+                <p>RAG local sobre PDFs internos con fuentes recuperadas y foco en uso operativo.</p>
+                <div class="catalog-meta">
+                  <span>RAG</span>
+                  <span>Interno</span>
+                  <span>Streamlit</span>
+                </div>
+              </article>
+            </div>
+            <div class="inline-actions">
+              <a class="btn btn-secondary" href="proyectos.html">Explorar los 10 proyectos</a>
+            </div>
+          </div>
+
+          <div class="narrative-panel reveal">
+            <span class="section-kicker">Products</span>
+            <h3>La capa de producto ya habla de operacion, riesgos y verticales</h3>
+            <p>`products/` concentra agentes con mas profundidad de dominio, mas estructura y mas cautelas de despliegue. No son ya simples demos de escaparate.</p>
+            <div class="signal-list">
+              <div class="signal-item">
+                <strong>Legal y compliance</strong>
+                <span>`contract-obligations-agent`, `autonomous-legal-counsel-agent` y `audit-compliance-evidence-agent` cubren lectura contractual, trazabilidad y evidencia.</span>
+              </div>
+              <div class="signal-item">
+                <strong>Operaciones y cambio</strong>
+                <span>`a2a-self-healing-logistics-agent` y `change-process-coaching-orchestrator` apuntan a continuidad operativa y procesos organizacionales.</span>
+              </div>
+              <div class="signal-item">
+                <strong>Gobernanza y riesgo</strong>
+                <span>`apollo-policy-enforcer-agent`, `geopolitical-trade-intelligence-agent` o `nspa-psychological-orchestrator` muestran dominios mas sensibles.</span>
+              </div>
+            </div>
+            <div class="inline-actions">
+              <a class="btn btn-secondary" href="productos.html">Ver los 9 productos</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-kicker">Perfil y enfoque</span>
+            <h2>La parte personal ya no vive separada del trabajo, sino explicando como se construye</h2>
+            <p>El foco esta en IA aplicada, criterio tecnico, presentacion clara y una separacion limpia entre demo publica y producto mas serio.</p>
+          </div>
+
+          <div class="split-panel">
+            <div class="info-panel reveal">
+              <h3>Como trabajo</h3>
+              <div class="check-list">
+                <div class="check-item">
+                  <strong>1. Problema antes que tecnologia</strong>
+                  <p>Primero se define el caso de uso, luego el nivel correcto: demo, producto, o componente de soporte.</p>
+                </div>
+                <div class="check-item">
+                  <strong>2. Cierre tecnico visible</strong>
+                  <p>README, entrypoint, tests y narrativa publica deben decir lo mismo que el codigo.</p>
+                </div>
+                <div class="check-item">
+                  <strong>3. Rigor con limites</strong>
+                  <p>Los dominios sensibles se presentan con cautela: legal, compliance, psicologico, educativo o regulatorio.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-card reveal">
+              <h3>Siguiente paso</h3>
+              <p>Si un caso encaja con automatizacion, RAG, analitica o agentes verticales, la web ya separa bien donde mirar primero: demos publicas o productos maduros.</p>
+              <div class="inline-actions">
+                <a class="btn btn-primary" href="contacto.html">Ir a contacto</a>
+                <a class="btn btn-secondary" href="sobre-mi.html">Ver perfil completo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
       <div class="container">
-        <p class="eyebrow">Agentes de IA para negocio real</p>
-        <h1>Menos piezas sueltas. Mas sistemas claros, utiles y bien contados.</h1>
-        <p class="lead">
-          Este sitio organiza el trabajo en tres niveles: <strong>portfolio/</strong> para prototipos y bases publicas,
-          <strong>products/</strong> para agentes maduros y esta web como capa publica coherente.
-          La propuesta es presentar utilidad real, no una coleccion dispersa de pruebas.
-        </p>
-        <div class="hero-actions">
-          <a href="proyectos.html" class="btn btn-primary">Ver portfolio</a>
-          <a href="contacto.html" class="btn btn-secondary">Hablar de un caso</a>
-        </div>
-        <div class="metrics-grid">
-          <div class="metric-card"><strong>10</strong><span>proyectos de portfolio</span></div>
-          <div class="metric-card"><strong>9</strong><span>productos maduros</span></div>
-          <div class="metric-card"><strong>1</strong><span>narrativa coherente</span></div>
+        <div class="footer-shell">
+          <div class="footer-brand">
+            <strong>Portfolio IA Aplicada</strong>
+            <span>&copy; <span id="current-year"></span> Jose Maria · Sevilla</span>
+          </div>
+          <div class="footer-note">Portfolio publico, productos maduros y contacto desde una sola capa web.</div>
         </div>
       </div>
-    </section>
+    </footer>
+  </div>
 
-    <section class="section featured-section">
-      <div class="container">
-        <p class="section-kicker">Que hay aqui</p>
-        <h2>La web publica explica la estructura del repositorio y que esta listo de verdad</h2>
-        <div class="featured-grid">
-          <article class="feature-card reveal">
-            <span class="badge badge-live">Portfolio</span>
-            <h3>Demos y bases publicas</h3>
-            <p>Diez piezas pensadas para mostrar capacidades concretas: licitaciones, contratos, RR. HH., RAG, dashboards y comercio.</p>
-          </article>
-          <article class="feature-card reveal">
-            <span class="badge badge-plan">Products</span>
-            <h3>Sistemas maduros</h3>
-            <p>Agentes y orquestadores mas cercanos a produccion, con mejores criterios de operacion, persistencia y despliegue.</p>
-          </article>
-          <article class="feature-card reveal">
-            <span class="badge badge-live">Catalogo</span>
-            <h3>Estado y priorizacion</h3>
-            <p>El catalogo resume que esta terminado, que falta y cual es el siguiente paso para cada bloque del repo.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <p class="footer-brand">Portfolio IA Aplicada</p>
-          <p>&copy; <span id="current-year"></span> Jose Maria - Sevilla</p>
-        </div>
-        <div>
-          <p>IA aplicada - negocio - formacion - automatizacion</p>
-        </div>
-      </div>
-    </div>
-  </footer>
   <button id="back-to-top" aria-label="Volver arriba"></button>
   <script src="assets/js/main.js" defer></script>
 </body>

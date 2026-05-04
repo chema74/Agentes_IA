@@ -3,80 +3,236 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | IA Aplicada</title>
-  <meta name="description" content="Portfolio publico de agentes de IA: demos, bases publicas y piezas orientadas a negocio." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23080810'/%3E%3Cpath d='M18 46L30 18h4l12 28h-5l-3-7H26l-3 7h-5zm10-11h8l-4-9-4 9z' fill='%23c8a04a'/%3E%3C/svg%3E" />
+  <title>Proyectos | Portfolio IA Aplicada</title>
+  <meta name="description" content="Los 10 proyectos publicos del directorio portfolio/ de Agentes_IA." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <header class="site-header" id="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo"><span class="logo-mark">IA</span><span class="logo-text">Portfolio IA Aplicada</span></a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
-      <nav class="main-nav" id="main-nav">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="proyectos.html" class="active">Portfolio</a></li>
-          <li><a href="sobre-mi.html">Sobre mi</a></li>
-          <li><a href="formacion-docencia.html">Formacion</a></li>
-          <li><a href="comercio-analisis.html">Comercio</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero hero-projects">
-      <div class="container">
-        <p class="eyebrow">Portfolio publico · 10 agentes</p>
-        <h1>La parte publica del repo se divide en casos de uso concretos y entendibles</h1>
-        <p class="lead">
-          Aqui se muestran las piezas pensadas para explicar rapido el valor: que problema resuelven,
-          que nivel de madurez tienen y hacia donde evolucionan dentro del monorepo.
-        </p>
+  <div class="site-shell">
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">IA</span>
+          <span class="brand-copy">
+            <span class="brand-title">Portfolio IA Aplicada</span>
+            <span class="brand-subtitle">Monorepo publico y productos</span>
+          </span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+        </button>
+        <nav class="main-nav" id="main-nav">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre-mi.html">Perfil</a></li>
+            <li><a class="active" href="proyectos.html">Proyectos</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+        <a class="header-cta" href="productos.html">Ver capa producto</a>
       </div>
-    </section>
+    </header>
 
-    <section class="projects-toolbar">
+    <main>
+      <section class="page-intro">
+        <div class="container">
+          <div class="page-banner reveal">
+            <span class="eyebrow">Portfolio publico</span>
+            <h1>Diez proyectos para mostrar capacidades concretas, no humo generico.</h1>
+            <p>Cada pieza de `portfolio/` se presenta como demo o prototipo entendible: problema, tipo de madurez y lectura correcta dentro del monorepo.</p>
+            <div class="page-tools">
+              <span class="tag-pill">10 proyectos</span>
+              <span class="tag-pill">Streamlit</span>
+              <span class="tag-pill">Groq</span>
+              <span class="tag-pill">RAG</span>
+              <span class="tag-pill">Analitica</span>
+              <span class="tag-pill">Discovery</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="cards-grid">
+            <article class="catalog-card reveal">
+              <div class="catalog-head">
+                <span class="catalog-code">P01</span>
+                <span class="catalog-status status-live">Cerrado tecnico</span>
+              </div>
+              <h3>Inteligencia comercial internacional</h3>
+              <p>Evalua contexto pais, riesgo, senales comerciales y comparativas para apoyar expansion internacional.</p>
+              <div class="catalog-meta">
+                <span>Comercio</span><span>Riesgo</span><span>Analisis</span>
+              </div>
+              <div class="catalog-foot">
+                <strong>Muy avanzado</strong>
+                <span>Demo y narrativa final</span>
+              </div>
+            </article>
+
+            <article class="catalog-card reveal">
+              <div class="catalog-head">
+                <span class="catalog-code">P02</span>
+                <span class="catalog-status status-build">Prototipo funcional</span>
+              </div>
+              <h3>Agente multi-herramienta</h3>
+              <p>Asistente ejecutivo para coordinacion de tareas, priorizacion y apoyo operativo con varias herramientas.</p>
+              <div class="catalog-meta">
+                <span>Productividad</span><span>Tools</span><span>Executive support</span>
+              </div>
+              <div class="catalog-foot">
+                <strong>Posicionamiento abierto</strong>
+                <span>Definir valor diferencial</span>
+              </div>
+            </article>
+
+            <article class="catalog-card reveal">
+              <div class="catalog-head">
+                <span class="catalog-code">P03</span>
+                <span class="catalog-status status-build">Prototipo solido</span>
+              </div>
+              <h3>Agente de licitaciones</h3>
+              <p>Analiza pliegos, requisitos y riesgos para acelerar la lectura inicial de concursos y licitaciones.</p>
+              <div class="catalog-meta">
+                <span>Licitaciones</span><span>PDF</span><span>Screening</span>
+              </div>
+              <div class="catalog-foot">
+                <strong>Base clara</strong>
+                <span>README y enfoque comercial</span>
+              </div>
+            </article>
+
+            <article class="catalog-card reveal">
+              <div class="catalog-head">
+                <span class="catalog-code">P04</span>
+                <span class="catalog-status status-build">Prototipo solido</span>
+              </div>
+              <h3>Criba de candidatos</h3>
+              <p>Filtra y prioriza candidaturas en funcion de criterios definidos y CVs en PDF.</p>
+              <div class="catalog-meta">
+                <span>RR. HH.</span><span>PDF</span><span>Priorizacion</span>
+              </div>
+              <div class="catalog-foot">
+                <strong>Estable</strong>
+                <span>Limpieza editorial menor</span>
+              </div>
+            </article>
+
+            <article class="catalog-card reveal">
+              <div class="catalog-head">
+                <span class="catalog-code">P05</span>
+                <span class="catalog-status status-live">Funcional y presentable</span>
+              </div>
+              <h3>RAG de documentacion interna</h3>
+              <p>Consulta documental sobre PDFs de empresa con indexacion local, fragmentos recuperados y respuestas apoyadas en contexto.</p>
+              <div class="catalog-meta">
+                <span>RAG</span><span>Interno</span><span>ChromaDB</span>
+              </div>
+              <div class="catalog-foot">
+                <strong>Publico util</strong>
+                <span>Escalable a mas dominios</span>
+              </div>
+            </article>
+
+            <article class="catalog-card reveal">
+              <div class="catalog-head">
+                <span class="catalog-code">P06</span>
+                <span class="catalog-status status-live">Funcional y presentable</span>
+              </div>
+              <h3>RAG de contratos legales</h3>
+              <p>Revision asistida de contratos y documentos legales a partir de texto recuperado del propio PDF.</p>
+              <div class="catalog-meta">
+                <span>Legal</span><span>RAG</span><span>Revision asistida</span>
+              </div>
+              <div class="catalog-foot">
+                <strong>Separacion clara</strong>
+                <span>No sustituye el producto legal serio</span>
+              </div>
+            </article>
+
+            <article class="catalog-card reveal">
+              <div class="catalog-head">
+                <span class="catalog-code">P07</span>
+                <span class="catalog-status status-build">Simple y estable</span>
+              </div>
+              <h3>Chatbot de atencion al cliente</h3>
+              <p>Demo conversacional para dudas frecuentes y soporte basico con foco en claridad de uso.</p>
+              <div class="catalog-meta">
+                <span>Chatbot</span><span>Atencion</span><span>UX</span>
+              </div>
+              <div class="catalog-foot">
+                <strong>Ligero</strong>
+                <span>Onboarding y limites</span>
+              </div>
+            </article>
+
+            <article class="catalog-card reveal">
+              <div class="catalog-head">
+                <span class="catalog-code">P08</span>
+                <span class="catalog-status status-live">Funcional y presentable</span>
+              </div>
+              <h3>RAG de normativa de comercio</h3>
+              <p>Consulta guiada de normativa comercial con contexto de pais origen, destino y producto.</p>
+              <div class="catalog-meta">
+                <span>Normativa</span><span>Comercio</span><span>Fuentes PDF</span>
+              </div>
+              <div class="catalog-foot">
+                <strong>Discovery util</strong>
+                <span>Mejor con fuentes oficiales versionadas</span>
+              </div>
+            </article>
+
+            <article class="catalog-card reveal">
+              <div class="catalog-head">
+                <span class="catalog-code">P09</span>
+                <span class="catalog-status status-live">Funcional y presentable</span>
+              </div>
+              <h3>Evaluador de ideas de negocio</h3>
+              <p>Valora una idea con Groq y Tavily para estructurar mercado, riesgos, competidores y plan de validacion.</p>
+              <div class="catalog-meta">
+                <span>Discovery</span><span>Mercado</span><span>Tavily</span>
+              </div>
+              <div class="catalog-foot">
+                <strong>Pre-evaluacion</strong>
+                <span>No sustituye diligence real</span>
+              </div>
+            </article>
+
+            <article class="catalog-card reveal">
+              <div class="catalog-head">
+                <span class="catalog-code">P10</span>
+                <span class="catalog-status status-live">Funcional y presentable</span>
+              </div>
+              <h3>Dashboard con lenguaje natural</h3>
+              <p>Explora CSV o Excel mediante preguntas y visualizaciones generadas con guardrails basicos.</p>
+              <div class="catalog-meta">
+                <span>Analitica</span><span>Plotly</span><span>Tabular</span>
+              </div>
+              <div class="catalog-foot">
+                <strong>Base razonable</strong>
+                <span>Sandbox a endurecer si escala</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
       <div class="container">
-        <div class="legend">
-          <span class="legend-label">Leyenda:</span>
-          <span class="badge badge-live">Listo para demo</span>
-          <span class="badge badge-plan">En consolidacion</span>
-          <span class="legend-label">Los productos maduros viven en <code>products/</code> y se documentan aparte.</span>
+        <div class="footer-shell">
+          <div class="footer-brand">
+            <strong>Portfolio IA Aplicada</strong>
+            <span>&copy; <span id="current-year"></span> Jose Maria · Sevilla</span>
+          </div>
+          <div class="footer-note">Los diez proyectos publicos ya se leen como mapa de capacidades, no como lista dispersa.</div>
         </div>
       </div>
-    </section>
+    </footer>
+  </div>
 
-    <section class="projects-grid-section">
-      <div class="container">
-        <div class="projects-grid" id="projects-grid">
-          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P01</span></div><p class="pcard-area">Inteligencia comercial internacional</p><h3>Agente de analisis comercial internacional</h3><p class="pcard-desc">Evalua contexto pais, riesgo, senales comerciales y comparativas para apoyar decisiones de expansion.</p><p class="pcard-impact">Base publica muy avanzada</p></article>
-          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P02</span></div><p class="pcard-area">Productividad y orquestacion</p><h3>Asistente ejecutivo multi-herramienta</h3><p class="pcard-desc">Asistente para coordinacion de tareas, priorizacion y apoyo operativo en entornos ejecutivos.</p><p class="pcard-impact">Prototipo funcional</p></article>
-          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P03</span></div><p class="pcard-area">Licitaciones</p><h3>Agente de evaluacion de licitaciones</h3><p class="pcard-desc">Analiza pliegos, requisitos, riesgos y viabilidad para acelerar la lectura inicial de concursos.</p><p class="pcard-impact">Prototipo funcional</p></article>
-          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P04</span></div><p class="pcard-area">RR. HH.</p><h3>Agente de criba de candidatos</h3><p class="pcard-desc">Filtra y prioriza candidaturas a partir de criterios definidos y CVs en PDF.</p><p class="pcard-impact">Prototipo funcional</p></article>
-          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P05</span></div><p class="pcard-area">RAG interno</p><h3>Documentacion interna consultable</h3><p class="pcard-desc">Base RAG para busqueda contextual sobre documentacion interna y consultas recurrentes de negocio.</p><p class="pcard-impact">Base publica RAG</p></article>
-          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P06</span></div><p class="pcard-area">Contratos</p><h3>Revisor de contratos legales</h3><p class="pcard-desc">Lee clausulas, detecta obligaciones y resume riesgos contractuales de forma asistida.</p><p class="pcard-impact">Base publica juridica</p></article>
-          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P07</span></div><p class="pcard-area">Atencion al cliente</p><h3>Chatbot de atencion</h3><p class="pcard-desc">Demo conversacional para dudas frecuentes y soporte basico con foco en claridad de uso.</p><p class="pcard-impact">Prototipo ligero</p></article>
-          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P08</span></div><p class="pcard-area">Normativa comercio</p><h3>RAG de normativa comercial</h3><p class="pcard-desc">Consulta guiada de normativa, reglas y referencias utiles para comercio y exportacion.</p><p class="pcard-impact">Base publica tematica</p></article>
-          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P09</span></div><p class="pcard-area">Ideas de negocio</p><h3>Evaluador de oportunidades</h3><p class="pcard-desc">Valora ideas de negocio a partir de criterios, contexto y nivel de oportunidad percibida.</p><p class="pcard-impact">Prototipo de validacion</p></article>
-          <article class="pcard reveal"><div class="pcard-header"><span class="pcard-num">P10</span></div><p class="pcard-area">Analitica</p><h3>Dashboard con lenguaje natural</h3><p class="pcard-desc">Convierte preguntas en lenguaje natural en analisis sobre tablas y metricas de negocio.</p><p class="pcard-impact">Demo analitica</p></article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div><p class="footer-brand">Portfolio IA Aplicada</p><p>&copy; <span id="current-year"></span> Jose Maria - Sevilla</p></div>
-        <div><p>Portfolio, catalogo y productos maduros en un mismo mapa</p></div>
-      </div>
-    </div>
-  </footer>
   <button id="back-to-top" aria-label="Volver arriba"></button>
   <script src="assets/js/main.js" defer></script>
 </body>
