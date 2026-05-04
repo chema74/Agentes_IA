@@ -1,64 +1,52 @@
-# P06 · Revisor de contratos legales
+ï»¿# P06 - Revisor de contratos legales
 
-> **Portfolio IA Aplicada · José María · Sevilla**  
-> Stack: Groq · ChromaDB · sentence-transformers · PyMuPDF · Streamlit  
-> Coste: **gratuito** salvo la clave de acceso a Groq
+Version publica de portfolio para revisar contratos y otros documentos legales con ayuda de RAG local y un LLM.
 
-## Qué hace este proyecto
+## Que hace
 
-Esta versión pública del agente final **Revisor de contratos legales** permite:
+- Sube contratos y documentos legales en PDF.
+- Indexa el contenido localmente para consulta posterior.
+- Permite preguntar por clausulas, obligaciones, plazos, penalizaciones o riesgos detectables en el texto.
+- Devuelve respuestas apoyadas en fragmentos recuperados del propio documento.
 
-- subir contratos y otros documentos legales en PDF,
-- indexarlos localmente para consultar el contenido,
-- hacer preguntas sobre cláusulas, obligaciones, plazos, penalizaciones o riesgos detectables en el texto,
-- obtener respuestas con referencia a los fragmentos del documento recuperados.
-
-Su función es **asistir la revisión documental**, no sustituir la revisión jurídica profesional.
+Su funcion es asistir la revision documental, no sustituir revision juridica profesional.
 
 ## Ejemplos de preguntas
 
-- *¿Cuáles son las cláusulas más importantes de este contrato?*
-- *¿Qué riesgos o cláusulas sensibles detectas en el texto?*
-- *¿Cuáles son las obligaciones de cada parte?*
-- *¿Qué plazos y fechas clave aparecen en el documento?*
-- *¿Qué condiciones de rescisión o penalización se recogen?*
+- Cuales son las clausulas mas importantes de este contrato?
+- Que riesgos o clausulas sensibles detectas en el texto?
+- Cuales son las obligaciones de cada parte?
+- Que plazos y fechas clave aparecen en el documento?
+- Que condiciones de rescision o penalizacion se recogen?
 
-## Instalación
+## Stack
 
-```bash
+- Groq
+- ChromaDB
+- sentence-transformers
+- PyMuPDF
+- Streamlit
+
+## Instalacion
+
+```powershell
 cd portfolio/p06-rag-contratos-legales
+python -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
 copy .env.example .env
-# Añadir GROQ_API_KEY en el archivo .env
 python -m streamlit run app.py
 ```
 
-**Primera ejecución:** se descarga el modelo `all-MiniLM-L6-v2` (~90 MB, solo una vez).
+Primera ejecucion: se descarga el modelo `all-MiniLM-L6-v2` una sola vez.
 
-## Cómo funciona
+## Limites
 
-```text
-Usuario sube uno o varios PDFs
-        ?
-La app extrae texto y genera embeddings locales con ChromaDB
-        ?
-El usuario formula una pregunta sobre el documento
-        ?
-La app recupera los fragmentos más relevantes
-        ?
-Groq responde a partir de esos fragmentos
-        ?
-Se muestra una respuesta asistida con referencia útil al documento
-```
+- Las respuestas dependen del texto recuperado y del modelo.
+- Conviene revisar siempre el documento original.
+- La app envia al modelo solo los fragmentos relevantes recuperados para responder.
+- No emite dictamenes legales ni sustituye asesoramiento juridico.
 
-## Límites operativos
+## Estado
 
-- Las respuestas dependen del texto recuperado y del modelo LLM.
-- Conviene revisar siempre el documento original y validar los hallazgos antes de tomar decisiones jurídicas.
-- La app indexa los documentos localmente, pero envía al modelo los fragmentos relevantes recuperados para poder responder.
-- No sustituye asesoramiento legal profesional ni emite dictámenes jurídicos.
-
----
-
-*Portfolio IA Aplicada · José María · Sevilla · 2026*
-
+Pieza de portfolio funcional para revision asistida de contratos. Debe leerse como demo documental seria, no como sustituto del producto legal mas maduro de `products/`.

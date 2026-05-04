@@ -89,7 +89,17 @@ html,body,[class*="css"]{font-family:'DM Sans',sans-serif;background:#0c0c10;col
 
 @st.cache_resource
 def get_clients():
-    return Groq(api_key=os.getenv("GROQ_API_KEY")), TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
+    groq_api_key = os.getenv("GROQ_API_KEY", "").strip()
+    tavily_api_key = os.getenv("TAVILY_API_KEY", "").strip()
+    if not groq_api_key:
+        raise RuntimeError(
+            "Falta GROQ_API_KEY. Copia .env.example a .env y anade tu clave antes de evaluar ideas."
+        )
+    if not tavily_api_key:
+        raise RuntimeError(
+            "Falta TAVILY_API_KEY. Copia .env.example a .env y anade tu clave antes de buscar mercado."
+        )
+    return Groq(api_key=groq_api_key), TavilyClient(api_key=tavily_api_key)
 
 
 def buscar_mercado(tavily, idea, sector, mercado):
@@ -214,8 +224,8 @@ with st.sidebar:
         <span style="color:#d4a84b"></span> Anlisis honesto, no condescendiente
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
-        P09 - Portfolio IA Aplicada<br>
-        <a href="https://github.com/chema74/portfolio-ia-aplicada" style="color:#7a5e28">GitHub </a>
+        P09 - Evaluador de ideas de negocio<br>
+        <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/portfolio/p09-evaluador-ideas-negocio" style="color:#7a5e28">Ver proyecto en GitHub</a>
     </div>""", unsafe_allow_html=True)
 
 
@@ -310,7 +320,7 @@ if evaluar_btn:
         }
         st.markdown('<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:#7a5e28;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem">Anlisis por dimensin</div>', unsafe_allow_html=True)
         for key, label in dim_labels.items():
-            val = dims.get(key, 5)
+            val = dimas.get(key, 5)
             if isinstance(val, dict): val = val.get("puntuacion", 5)
             col = score_color(val)
             st.markdown(f"""

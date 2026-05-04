@@ -2,7 +2,7 @@
 P10 - Dashboard con lenguaje natural
 ===================================
 Autor: Jose Maria
-Stack: Groq - pandias - Plotly - Streamlit
+Stack: Groq - pandas - Plotly - Streamlit
 
 Como funciona:
 1. El usuario sube un CSV o Excel.
@@ -15,7 +15,7 @@ import ast
 import json
 import os
 
-import pandias as pd
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
@@ -201,7 +201,7 @@ def cargar_datos(archivo, separador: str) -> pd.DataFrame:
 
 
 def limpiar_codigo_llm(codigo: str) -> str:
-    """Extrae el bloque uutil si el modelo devuelve fences Markdown."""
+    """Extrae el bloque util si el modelo devuelve fences Markdown."""
     codigo = (codigo or "").strip()
     if not codigo:
         raise ValueError("El modelo no devolvio codigo utilizable.")
@@ -225,13 +225,13 @@ def validar_codigo_generado(codigo: str) -> str:
     codigo_lower = codigo_limpio.lower()
 
     if len(codigo_limpio) > MAX_CODE_CHARS:
-        raise ValueError("Cdigo bloqueado: respuesta demasiado larga para ejecucion segura.")
+        raise ValueError("Codigo bloqueado: respuesta demasiado larga para ejecucion segura.")
     if codigo_limpio.count("\n") + 1 > MAX_CODE_LINES:
-        raise ValueError("Cdigo bloqueado: demasiadias lneas para ejecucion segura.")
+        raise ValueError("Codigo bloqueado: demasiadas lineas para ejecucion segura.")
 
     for patron, mensaje in PATRONES_BLOQUEADOS.items():
         if patron in codigo_lower:
-            raise ValueError(f"Cdigo bloqueado: {mensaje}")
+            raise ValueError(f"Codigo bloqueado: {mensaje}")
 
     try:
         arbol = ast.parse(codigo_limpio)
@@ -240,26 +240,26 @@ def validar_codigo_generado(codigo: str) -> str:
 
     nodos = list(ast.walk(arbol))
     if len(nodos) > MAX_AST_NODES:
-        raise ValueError("Cdigo bloqueado: complejidad sintctica excesiva.")
+        raise ValueError("Codigo bloqueado: complejidad sintactica excesiva.")
 
     for nodo in nodos:
         if isinstance(nodo, (ast.Import, ast.ImportFrom)):
-            raise ValueError("Cdigo bloqueado: no se permiten importaciones.")
+            raise ValueError("Codigo bloqueado: no se permiten importaciones.")
         if isinstance(nodo, NODOS_BLOQUEADOS):
             raise ValueError(
-                f"Cdigo bloqueado: no se permite '{nodo.__class__.__name__}'."
+                f"Codigo bloqueado: no se permite '{nodo.__class__.__name__}'."
             )
         if isinstance(nodo, ast.Name) and nodo.id in NOMBRES_BLOQUEADOS:
-            raise ValueError(f"Cdigo bloqueado: uso no permitido de '{nodo.id}'.")
+            raise ValueError(f"Codigo bloqueado: uso no permitido de '{nodo.id}'.")
         if isinstance(nodo, ast.Attribute) and nodo.attr in ATRIBUTOS_BLOQUEADOS:
-            raise ValueError(f"Cdigo bloqueado: atributo no permitido '{nodo.attr}'.")
+            raise ValueError(f"Codigo bloqueado: atributo no permitido '{nodo.attr}'.")
         if isinstance(nodo, ast.Call):
             if isinstance(nodo.func, ast.Name) and nodo.func.id in NOMBRES_BLOQUEADOS:
-                raise ValueError(f"Cdigo bloqueado: llamada no permitida a '{nodo.func.id}'.")
+                raise ValueError(f"Codigo bloqueado: llamada no permitida a '{nodo.func.id}'.")
             if isinstance(nodo.func, ast.Attribute) and isinstance(nodo.func.value, ast.Name):
                 if nodo.func.value.id in NOMBRES_BLOQUEADOS:
                     raise ValueError(
-                        f"Cdigo bloqueado: acceso no permitido a '{nodo.func.value.id}'."
+                        f"Codigo bloqueado: acceso no permitido a '{nodo.func.value.id}'."
                     )
 
     if "resultado" not in codigo_limpio and "figura" not in codigo_limpio:
@@ -272,7 +272,7 @@ def validar_codigo_generado(codigo: str) -> str:
 
 def generar_codigo(groq: Groq, pregunta: str, tipos: dict, muestra: str) -> str:
     """Pide a Groq codigo Python para responder la pregunta sobre el DataFrame."""
-    prompt = f"""Eres un analista de datos experto en Python y pandias.
+    prompt = f"""Eres un analista de datos experto en Python y pandas.
 Tienes un DataFrame llamado 'df' con estas columnas y tipos:
 {json.dumps(tipos, indent=2, ensure_ascii=False)}
 
@@ -288,8 +288,8 @@ Genera codigo Python valido que:
 4. Si el resultado es un grafico: usa plotly express (px) y guarda la figura en 'figura'.
 5. Si el resultado es una tabla: resultado = df_resultado (un DataFrame).
 
-REGLAS CRTICAS:
-- Usa solo: pandias (pd), plotly.express (px), plotly.graph_objects (go).
+REGLAS CRITICAS:
+- Usa solo: pandas (pd), plotly.express (px), plotly.graph_objects (go).
 - No uses importaciones, print, display, matplotlib ni seaborn.
 - No uses bloques try/except.
 - El codigo debe ser ejecutable directamente.
@@ -354,10 +354,10 @@ with st.sidebar:
         """
     <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;
         line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
-        <span style="color:#4dd488">?</span> Modelo: Llama 3.3 70B<br>
-        <span style="color:#4dd488">?</span> Proveedor: Groq<br>
-        <span style="color:#4dd488">?</span> Salida: tablas, valores y graficos Plotly<br>
-        <span style="color:#d4a84b">?</span> Nota: revisa los resultados antes de usarlos
+        <span style="color:#4dd488">OK</span> Modelo: Llama 3.3 70B<br>
+        <span style="color:#4dd488">OK</span> Proveedor: Groq<br>
+        <span style="color:#4dd488">OK</span> Salida: tablas, valores y graficos Plotly<br>
+        <span style="color:#d4a84b">AVISO</span> Nota: revisa los resultados antes de usarlos
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
         P10  Dashboard con lenguaje natural<br>

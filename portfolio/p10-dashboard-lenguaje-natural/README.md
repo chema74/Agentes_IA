@@ -1,4 +1,4 @@
-﻿# P10 - Dashboard con lenguaje natural
+# P10 - Dashboard con lenguaje natural
 
 Dashboard de portfolio para explorar datasets tabulares mediante preguntas en lenguaje natural.
 
@@ -8,6 +8,7 @@ Dashboard de portfolio para explorar datasets tabulares mediante preguntas en le
 - Permite hacer preguntas en espanol sobre los datos.
 - Genera analisis y visualizaciones bajo demanda.
 - Muestra el resultado como grafico, tabla o valor.
+- Aplica validaciones basicas antes de ejecutar el codigo generado por el LLM.
 
 ## Stack
 
@@ -26,7 +27,7 @@ Dashboard de portfolio para explorar datasets tabulares mediante preguntas en le
 
 ## Instalacion
 
-```bash
+```powershell
 cd portfolio/p10-dashboard-lenguaje-natural
 python -m venv .venv
 .venv\Scripts\activate
@@ -39,8 +40,8 @@ python -m streamlit run app.py
 
 - El analisis depende de codigo generado por un LLM.
 - Conviene revisar los resultados antes de usarlos para decisiones importantes.
-- La app aplica validaciones basicas antes de ejecutar el codigo.
+- La app tiene guardrails basicos, no una sandbox completa.
 
 ## Estado
 
-Demo de exploracion tabular con buena base, sin sandbox completa.
+Demo de exploracion tabular con una base razonable para evolucionar. Es util para analisis guiado y presentaciones, pero no debe tratarse como entorno seguro multiusuario.

@@ -1,13 +1,14 @@
-﻿# P05 - Base publica del motor RAG documental
+# P05 - RAG de documentacion interna
 
-Base de portfolio para consulta documental interna sobre PDFs de empresa.
+Base publica de portfolio para consulta documental interna sobre PDFs de empresa.
 
 ## Que hace
 
 - Sube documentacion interna en PDF.
-- Indexa el contenido localmente con embeddings.
+- Extrae texto y lo indexa localmente con ChromaDB.
 - Permite hacer preguntas en lenguaje natural.
 - Recupera fragmentos relevantes y responde con contexto.
+- Muestra fuentes y paginas cuando hay respaldo documental.
 
 ## Stack
 
@@ -19,7 +20,7 @@ Base de portfolio para consulta documental interna sobre PDFs de empresa.
 
 ## Instalacion
 
-```bash
+```powershell
 cd portfolio/p05-rag-documentacion-interna
 python -m venv .venv
 .venv\Scripts\activate
@@ -28,6 +29,23 @@ copy .env.example .env
 python -m streamlit run app.py
 ```
 
+## Uso recomendado
+
+Documentos utiles para demo:
+
+- manual de empleado
+- politicas internas
+- procedimientos operativos
+- FAQs
+- organigramas
+- guias de producto
+
+## Limites
+
+- La indexacion es local, pero la respuesta se genera con Groq a partir de los fragmentos recuperados.
+- No sustituye la lectura del documento original.
+- Funciona mejor con PDFs con texto seleccionable.
+
 ## Estado
 
-Pieza de portfolio solida para RAG documental interno, sin consolidar todavia el motor multi-dominio completo.
+Pieza de portfolio funcional y estable. Buena base publica para RAG documental interno, aunque todavia no pretende cubrir un motor multi-dominio completo ni flujos enterprise.

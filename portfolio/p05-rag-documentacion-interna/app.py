@@ -452,7 +452,7 @@ with st.sidebar:
         <span style="color:#d4a84b">?</span> Base publica actual del motor RAG corporativo
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
-        P05  Portfolio IA Aplicada<br>
+        P05  RAG documental interno<br>
         <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/portfolio/p05-rag-documentacion-interna" style="color:#7a5e28">Ver proyecto en GitHub</a>
     </div>""",
         unsafe_allow_html=True,
@@ -510,7 +510,7 @@ sugerencias = [
     "A quien tengo que dirigirme para reportar una incidencia de IT?",
     "Cuales son los horarios de trabajo?",
     "Que herramientas usa el equipo de ventas?",
-    "Resume los valores y misin de la empresa.",
+    "Resume los valores y mision de la empresa.",
 ]
 
 st.markdown(
@@ -527,7 +527,7 @@ st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
 
 if st.session_state.historial:
     st.markdown(
-        "<div style=\"font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#7a5e28;margin-bottom:.75rem\">// Conversacin</div>",
+            "<div style=\"font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#7a5e28;margin-bottom:.75rem\">// Conversacion</div>",
         unsafe_allow_html=True,
     )
 

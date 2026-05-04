@@ -1,5 +1,5 @@
 """
-P07  Revisor de contratos legales
+P06  Revisor de contratos legales
 =================================
 Autor: Jose Maria
 Stack: Groq  ChromaDB  sentence-transformers  PyMuPDF  Streamlit
@@ -221,10 +221,10 @@ def responder(groq_client, pregunta, contexto, historial, tipo_doc):
     return contenido
 
 
-if "historial_p07" not in st.session_state:
-    st.session_state.historial_p07 = []
-if "docs_p07" not in st.session_state:
-    st.session_state.docs_p07 = set()
+if "historial_p06" not in st.session_state:
+    st.session_state.historial_p06 = []
+if "docs_p06" not in st.session_state:
+    st.session_state.docs_p06 = set()
 
 with st.sidebar:
     st.markdown(
@@ -254,20 +254,20 @@ with st.sidebar:
             st.stop()
 
         for archivo in archivos:
-            if archivo.name not in st.session_state.docs_p07:
+            if archivo.name not in st.session_state.docs_p06:
                 with st.spinner(f"Indexando {archivo.name}..."):
                     try:
                         chunks = extraer_chunks(archivo.read(), archivo.name)
                         total_chunks = indexar(coleccion, chunks, archivo.name)
-                        st.session_state.docs_p07.add(archivo.name)
+                        st.session_state.docs_p06.add(archivo.name)
                         st.success(f"{archivo.name} indexado ({total_chunks} fragmentos).")
                     except Exception as exc:
                         st.error(f"No se pudo indexar {archivo.name}.")
                         with st.expander(f"Detalle tecnico: {archivo.name}"):
                             st.code(str(exc))
 
-    if st.session_state.docs_p07:
-        for documento in st.session_state.docs_p07:
+    if st.session_state.docs_p06:
+        for documento in st.session_state.docs_p06:
             st.markdown(
                 f"<div style=\"font-family:'DM Mono',monospace;font-size:.62rem;color:#7a5e28;padding:.3rem 0\"> {documento[:40]}</div>",
                 unsafe_allow_html=True,
@@ -277,8 +277,8 @@ with st.sidebar:
         st.cache_resource.clear()
         time.sleep(0.3)
         shutil.rmtree(CHROMA_PATH, ignore_errors=True)
-        st.session_state.docs_p07 = set()
-        st.session_state.historial_p07 = []
+        st.session_state.docs_p06 = set()
+        st.session_state.historial_p06 = []
         st.rerun()
 
     st.markdown(
@@ -286,7 +286,7 @@ with st.sidebar:
 <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
 <span style="color:#4dd488"></span> Embeddings e indexado locales<br>
 <span style="color:#4dd488"></span> Se envian al modelo solo fragmentos relevantes recuperados<br>
-<span style="color:#d4a84b"></span> Revisin asistida, no asesoramiento juridico
+<span style="color:#d4a84b"></span> Revision asistida, no asesoramiento juridico
 </div>
 """,
         unsafe_allow_html=True,
@@ -295,7 +295,7 @@ with st.sidebar:
 st.markdown(
     """
 <div class="app-header">
-  <div class="app-tag">P07  Revisor de contratos legales  Portfolio IA Aplicada
+  <div class="app-tag">P06  Revisor de contratos legales  Portfolio IA Aplicada
     <span class="groq-badge"> Groq  ChromaDB local</span></div>
   <div class="app-title">Revisor de <em>contratos legales</em></div>
   <div class="app-subtitle">Sube el PDF y consulta clausulas, obligaciones, plazos, penalizaciones o riesgos detectables en el texto.</div>
@@ -340,7 +340,7 @@ st.markdown(
 st.caption("Son ejemplos de consulta. Escribe tu pregunta en el campo inferior.")
 st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
 
-for mensaje in st.session_state.historial_p07:
+for mensaje in st.session_state.historial_p06:
     if mensaje["role"] == "user":
         st.markdown(
             f'<div class="msg-user"><div class="msg-role">T</div>{mensaje["content"]}</div>',
@@ -352,9 +352,9 @@ for mensaje in st.session_state.historial_p07:
             unsafe_allow_html=True,
         )
 
-if st.session_state.historial_p07:
+if st.session_state.historial_p06:
     if st.button("Limpiar conversacion"):
-        st.session_state.historial_p07 = []
+        st.session_state.historial_p06 = []
         st.rerun()
     st.markdown("<div class='custom-divider'></div>", unsafe_allow_html=True)
 
@@ -385,7 +385,7 @@ if enviar and pregunta.strip():
                     groq_client,
                     pregunta.strip(),
                     contexto,
-                    st.session_state.historial_p07,
+                    st.session_state.historial_p06,
                     tipo_doc,
                 )
             except Exception as exc:
@@ -394,8 +394,8 @@ if enviar and pregunta.strip():
                     st.code(str(exc))
                 st.stop()
 
-        st.session_state.historial_p07.append({"role": "user", "content": pregunta.strip()})
-        st.session_state.historial_p07.append({"role": "assistant", "content": respuesta})
+        st.session_state.historial_p06.append({"role": "user", "content": pregunta.strip()})
+        st.session_state.historial_p06.append({"role": "assistant", "content": respuesta})
         st.rerun()
 
 elif enviar and not pregunta.strip():
@@ -403,6 +403,6 @@ elif enviar and not pregunta.strip():
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    '<div class="app-footer">P07  Revisor de contratos legales  Groq + ChromaDB  Portfolio IA Aplicada  Jose Maria  Sevilla</div>',
+    '<div class="app-footer">P06  Revisor de contratos legales  Groq + ChromaDB  Portfolio IA Aplicada  Jose Maria  Sevilla</div>',
     unsafe_allow_html=True,
 )
