@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import Annotated
 
 from fastapi import APIRouter, File, Form, UploadFile
 
@@ -15,8 +14,8 @@ def health() -> dict[str, str]:
 
 @router.post("/analyze")
 async def analyze(
-    file: Annotated[UploadFile, File(...)],
-    checklist_json: Annotated[str | None, Form(None)] = None,
+    file: UploadFile = File(...),
+    checklist_json: str | None = Form(None),
 ) -> dict:
     payload = await file.read()
     result = analyze_contract_file(
@@ -26,4 +25,3 @@ async def analyze(
         checklist_json=checklist_json,
     )
     return result.model_dump(mode="json")
-

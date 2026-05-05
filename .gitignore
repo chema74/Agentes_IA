@@ -40,6 +40,8 @@ exports/
 # Code packages that happen to live under ignored names
 !products/audit-compliance-evidence-agent/connectors/logs/
 !products/audit-compliance-evidence-agent/connectors/logs/*.py
+!products/audit-compliance-evidence-agent/sample_data/logs/
+!products/audit-compliance-evidence-agent/sample_data/logs/auth_review_log.txt
 
 # Vector DB and generated stores
 chroma_db/
