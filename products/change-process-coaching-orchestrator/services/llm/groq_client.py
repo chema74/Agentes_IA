@@ -3,14 +3,17 @@ from __future__ import annotations
 import json
 import os
 
-from groq import Groq
+try:
+    from groq import Groq
+except ImportError:  # pragma: no cover - optional dependency in CI
+    Groq = None
 
 
 class GroqClient:
     def __init__(self, model: str) -> None:
         self.model = model
         self.api_key = os.getenv("GROQ_API_KEY")
-        self.client = Groq(api_key=self.api_key) if self.api_key else None
+        self.client = Groq(api_key=self.api_key) if self.api_key and Groq else None
 
     def classify_signal(self, text: str) -> tuple[str, str]:
         """
