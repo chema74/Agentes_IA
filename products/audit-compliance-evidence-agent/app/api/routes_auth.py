@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from dataclasses import asdict
+
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel
 
@@ -20,4 +22,9 @@ def api_login(payload: LoginRequest) -> dict:
         user = authenticate(payload.email, payload.password)
     except PermissionError as exc:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str(exc)) from exc
-    return {"access_token": user.user_id, "token_type": "bearer", "user": user.model_dump()}
+
+    return {
+        "access_token": user.user_id,
+        "token_type": "bearer",
+        "user": asdict(user),
+    }
