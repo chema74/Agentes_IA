@@ -12,3 +12,7 @@ build/
 dist/
 Thumbs.db
 .DS_Store
+
+# Allow the Python package under services/exports/
+!services/exports/
+!services/exports/*.py

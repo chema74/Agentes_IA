@@ -20,6 +20,10 @@ venv/
 data/
 exports/
 
+# Allow the Python package under services/exports/
+!services/exports/
+!services/exports/*.py
+
 # OS/editor noise
 .DS_Store
 Thumbs.db
