@@ -1,0 +1,6 @@
+exclude:
+  - ".claude"
+  - "**/.claude"
+  - "**/.claude/**"
+  - "portfolio/p01-inteligencia-comercial-internacional/.claude"
+  - "portfolio/p01-inteligencia-comercial-internacional/.claude/**"
