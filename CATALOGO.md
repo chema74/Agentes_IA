@@ -99,13 +99,11 @@ Este proyecto conecta directamente con negocio, internacionalización, análisis
 
 Estado:
 
-Cerrado técnicamente como demo principal de portfolio.
+Cerrado. README reescrito con propuesta de valor, descripción del problema que resuelve y enlace al producto equivalente.
 
 Pendiente recomendado:
 
-- Pulido narrativo final.
-- README más orientado a caso de uso empresarial.
-- Demo final con ejemplo claro de sector, país y resultado.
+- Demo final con ejemplo claro de sector, país y resultado (grabación o capturas).
 
 ---
 
@@ -134,13 +132,11 @@ Es una demo muy vendible para empresas. Cualquier PYME (*Small and Medium-sized 
 
 Estado:
 
-Funcional y presentable.
+Cerrado. Iconos rotos corregidos. Presentable como demo clara.
 
 Pendiente recomendado:
 
-- Mantenerlo como demo clara y sencilla.
-- No sobrecargarlo con demasiados dominios.
-- Reforzar ejemplos de uso empresarial.
+- Reforzar ejemplos de uso empresarial con capturas o casos concretos.
 
 ---
 
@@ -208,13 +204,11 @@ Qué demuestra:
 
 Estado:
 
-Prototipo funcional.
+Cerrado. README reescrito explicando el diferencial frente a p05/p06/p07: ilustra el patrón tool calling con decisión autónoma de herramienta, no el patrón RAG.
 
 Pendiente recomendado:
 
-- Definir mejor el valor diferencial.
-- Evitar que parezca una demo genérica.
-- Reposicionarlo como copiloto operativo para tareas empresariales simples.
+- Nada bloqueante. Revisar si se añade a los proyectos destacados de la web.
 
 ---
 
@@ -236,13 +230,11 @@ Qué demuestra:
 
 Estado:
 
-Prototipo sólido.
+Cerrado. README reescrito con caso de uso concreto, perfil de usuario objetivo y límites honestos. Diferencia clara respecto a contract-obligations-agent añadida.
 
 Pendiente recomendado:
 
-- Mejorar README.
-- Explicar mejor el caso de uso.
-- Separar claramente análisis preliminar de decisión legal o administrativa.
+- Nada bloqueante.
 
 ---
 
@@ -264,13 +256,11 @@ Qué demuestra:
 
 Estado:
 
-Prototipo sólido.
+Cerrado. README reescrito con caso de uso, límites de sesgo, nota de privacidad y advertencia de que la decisión final es siempre del equipo de selección.
 
 Pendiente recomendado:
 
-- Reforzar límites de sesgo y supervisión humana.
-- Aclarar que no toma decisiones finales.
-- Mejorar narrativa ética y de cumplimiento.
+- Nada bloqueante.
 
 ---
 
@@ -292,13 +282,11 @@ Qué demuestra:
 
 Estado:
 
-Funcional y presentable.
+Cerrado. Disclaimer añadido en sidebar y subtítulo diferenciando esta demo del producto contract-obligations-agent. Advertencia de revisión humana reforzada.
 
 Pendiente recomendado:
 
-- Mantener clara la diferencia respecto a `contract-obligations-agent`.
-- Presentarlo como demo documental, no como producto legal completo.
-- Reforzar advertencia de revisión humana.
+- Nada bloqueante.
 
 ---
 
@@ -320,14 +308,11 @@ Qué demuestra:
 
 Estado:
 
-Simple y estable.
+Cerrado. Reescrito completamente: bug crítico corregido (page_title decía P08), tema visual alineado con el resto del portfolio (oscuro/dorado), onboarding en 3 pasos añadido, escalado a humano con indicador visual propio.
 
 Pendiente recomendado:
 
-- Mejorar onboarding.
-- Explicar límites.
-- Evitar venderlo como “chatbot genérico”.
-- Reposicionarlo como asistente de primer nivel con escalado humano.
+- Nada bloqueante.
 
 ---
 
@@ -349,13 +334,11 @@ Qué demuestra:
 
 Estado:
 
-Funcional y presentable.
+Cerrado. page_title e icono corregidos. Aviso de frescura de datos añadido en sidebar y subtítulo. Tag de cabecera coherente con el resto del portfolio.
 
 Pendiente recomendado:
 
-- Incorporar fuentes oficiales versionadas si se endurece.
-- Añadir fecha de actualización de fuentes.
-- Mantener advertencia sobre vigencia normativa.
+- Incorporar fuentes oficiales versionadas si se endurece a producto.
 
 ---
 
@@ -377,13 +360,11 @@ Qué demuestra:
 
 Estado:
 
-Funcional y presentable.
+Cerrado. Encoding roto del prompt interno y de la UI corregido. Iconos rotos en sidebar y estado inicial corregidos. Footer y cabecera alineados con el estilo del portfolio.
 
 Pendiente recomendado:
 
-- Mejorar trazabilidad de fuentes.
-- Evitar que parezca una “máquina de validar startups”.
-- Presentarlo como herramienta de exploración inicial.
+- Nada bloqueante.
 
 ---
 
@@ -405,13 +386,11 @@ Qué demuestra:
 
 Estado:
 
-Funcional y presentable.
+Cerrado. page_title e icono corregidos. Caracter unicode roto en estado inicial corregido.
 
 Pendiente recomendado:
 
 - Endurecer sandbox si pasa a multiusuario.
-- Añadir ejemplos de preguntas de negocio.
-- Reforzar control de errores y límites de interpretación.
 
 ---
 
@@ -655,34 +634,30 @@ Para una revisión profesional, se recomienda este orden:
 
 ---
 
-## Pendiente Global
+## Estado Global — Mayo 2026
 
-### Documentación
+El portfolio está cerrado y presentable. Todos los proyectos han sido revisados, los bugs corregidos y la documentación actualizada.
 
-- Revisar README de proyectos secundarios.
-- Mantener nombres comerciales en español en la documentación visible.
-- Separar con claridad demo, prototipo, laboratorio y producto.
-- Añadir advertencias de uso en dominios sensibles.
+### Completado en esta sesión
 
-### Operación
+- README de p01, p02, p03 y p04 reescritos con propuesta de valor clara.
+- p07 reescrito completamente: bug P08→P07 corregido, tema visual alineado, onboarding añadido.
+- p05, p08, p09 y p10: iconos y encoding rotos corregidos, page_title e icono consistentes.
+- p06: disclaimer de diferenciación respecto al producto legal serio añadido.
+- Web pública (contacto.html): email, LinkedIn, GitHub y Formspree configurados con datos reales.
 
-- Documentar despliegue y variables de entorno por producto cuando sea necesario.
-- Añadir instrucciones de ejecución homogéneas donde falten.
-- Mantener `.env.example` sin secretos reales.
-- Evitar artefactos locales, bases vectoriales, cachés o exportes dentro del repositorio.
+### Pendiente menor (no bloquea el portfolio)
 
-### Seguridad
+- Grabación o capturas de demo para p01 (el proyecto estrella merece un ejemplo visual).
+- Runbooks de despliegue para los productos si se van a publicar como entregables operativos.
+- Endurecer sandbox de p10 si pasa a multiusuario.
 
-- Confirmar externamente la rotación de claves mencionada en `SECURITY_ROTATION.md`.
-- Mantener `.env` fuera del repositorio.
-- Ejecutar revisiones de secretos antes de publicar cambios relevantes.
-- Documentar solo plantillas, nunca credenciales reales.
+### Reglas de mantenimiento
 
-### Calidad
-
-- Mantener los checks locales.
+- Mantener `.env.example` sin secretos reales en todos los proyectos.
+- Evitar artefactos locales (bases vectoriales, cachés, exportes) dentro del repositorio.
 - Ampliar pruebas solo en proyectos que pasen de demo a producto endurecido.
-- Priorizar estabilidad, claridad y trazabilidad por encima de añadir más agentes.
+- Confirmar rotación de claves antes de cualquier publicación pública (ver `SECURITY_ROTATION.md`).
 
 ---
 
@@ -729,4 +704,4 @@ La evolución natural del repositorio debería centrarse en menos proyectos visi
 ## 🪪 Licencia y Autoría
 
 Publicado bajo licencia Creative Commons CC BY-SA 4.0 International.  
-© 2025 – Txema Ríos. Todos los derechos compartidos.
+© 2026 – José María Tinajero Ríos. Todos los derechos compartidos.

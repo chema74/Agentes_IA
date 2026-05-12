@@ -26,7 +26,7 @@ CHUNK_SIZE  = 700
 CHUNK_OVERLAP = 120
 TOP_K = 5
 
-st.set_page_config(page_title="Consultor Normativa Comercio IA", page_icon="", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="P08 - Consultor normativa comercio internacional", page_icon="📋", layout="wide", initial_sidebar_state="expanded")
 
 st.markdown("""
 <style>
@@ -162,15 +162,17 @@ with st.sidebar:
 
     st.markdown("""<div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
     Fuentes recomendadas:<br>
-    <span style="color:#7a5e28"> Guias de mercado ICEX</span><br>
-    <span style="color:#7a5e28"> Acuerdos UE (EUR-Lex)</span><br>
-    <span style="color:#7a5e28"> Reglamentos aduaneros</span></div>""", unsafe_allow_html=True)
+    <span style="color:#7a5e28">&#10003; Guias de mercado ICEX</span><br>
+    <span style="color:#7a5e28">&#10003; Acuerdos UE (EUR-Lex)</span><br>
+    <span style="color:#7a5e28">&#10003; Reglamentos aduaneros</span><br><br>
+    <span style="color:#d4a84b">!</span> <span style="color:#8c8a84">La normativa cargada puede estar desactualizada. Verifica siempre con fuentes oficiales antes de operar.</span>
+    </div>""", unsafe_allow_html=True)
 
 st.markdown("""<div class="app-header">
-  <div class="app-tag">P08  Normativa comercio  Portfolio IA Aplicada
-    <span class="groq-badge"> Groq  ChromaDB local</span></div>
+  <div class="app-tag">P08 · Normativa comercio internacional · Portfolio IA Aplicada
+    <span class="groq-badge">&#10003; Groq · ChromaDB local</span></div>
   <div class="app-title">Consultor de <em>Normativa</em></div>
-  <div class="app-subtitle">Pregunta sobre aranceles, acuerdos comerciales, aduanas y requisitos de exportacion</div>
+  <div class="app-subtitle">Pregunta sobre aranceles, acuerdos comerciales, aduanas y requisitos de exportacion. Orientativo: verifica siempre con fuentes oficiales actualizadas.</div>
 </div>""", unsafe_allow_html=True)
 
 try:

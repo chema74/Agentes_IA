@@ -126,8 +126,8 @@ ATRIBUTOS_BLOQUEADOS = {
 
 
 st.set_page_config(
-    page_title="Dashboard con lenguaje natural",
-    page_icon="",
+    page_title="P10 - Dashboard con lenguaje natural",
+    page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -396,7 +396,7 @@ if archivo is None:
       <div style="font-family:'DM Mono',monospace;font-size:.63rem;color:#44433f;letter-spacing:.06em;line-height:1.9">
         Despues podras preguntar sobre tus datos en espanol.<br>
         Ejemplos: "Cual fue el mes con mas ventas?"  "Muestrame un grafico por categoria"<br>
-        <span style="color:#4dd488">? Anlisis con Groq y ejecucion local con validaciones basicas</span>
+        <span style="color:#4dd488">&#10003; Analisis con Groq y ejecucion local con validaciones basicas</span>
       </div>
     </div>""",
         unsafe_allow_html=True,

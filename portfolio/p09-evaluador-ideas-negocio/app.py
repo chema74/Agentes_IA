@@ -123,7 +123,7 @@ def evaluar_idea(groq_client, idea, sector, mercado, capital, experiencia, info_
     """Groq evalua la idea de negocio en profundidad."""
 
     prompt = f"""Eres un consultor de estrategia empresarial e inversor de capital riesgo con 20 anos de experiencia.
-Evala esta idea de negocio con rigor y honestidad. No seas condescendiente: da una valoracin real.
+Evalua esta idea de negocio con rigor y honestidad. No seas condescendiente: da una valoracion real.
 
 IDEA DE NEGOCIO: {idea}
 SECTOR: {sector}
@@ -131,12 +131,12 @@ MERCADO OBJETIVO: {mercado}
 CAPITAL DISPONIBLE: {capital}
 EXPERIENCIA DEL EMPRENDEDOR: {experiencia}
 
-INFORMACIN DE MERCADO ACTUALIZADA:
+INFORMACION DE MERCADO ACTUALIZADA:
 {info_web}
 
 Genera un JSON exhaustivo con:
 
-resumen_ejecutivo: 3-4 frases de valoracin directa y honesta
+resumen_ejecutivo: 3-4 frases de valoracion directa y honesta
 
 puntuacion_global: numero del 1 al 10
 
@@ -149,13 +149,13 @@ dimensiones: objeto con puntuacion (1-10) para cada una de:
   - facilidad_ejecucion
   - timing
 
-propuesta_de_valor: 2-3 frases sobre qu problema resuelve y para quien
+propuesta_de_valor: 2-3 frases sobre que problema resuelve y para quien
 
 mercado_objetivo: descripcion del cliente ideal y tamano estimado del mercado
 
 fortalezas: lista de 3-4 puntos fuertes reales de la idea
 
-debilidades: lista de 3-4 debilidades o puntos ciegos crticos
+debilidades: lista de 3-4 debilidades o puntos ciegos criticos
 
 oportunidades: lista de 3 oportunidades concretas a explotar
 
@@ -163,15 +163,15 @@ amenazas: lista de 3 amenazas o riesgos del mercado
 
 competidores_clave: lista de 3-4 competidores directos o sustitutos con 1 frase cada uno
 
-modelo_de_negocio_sugerido: cmo monetizar, 2-3 frases
+modelo_de_negocio_sugerido: como monetizar, 2-3 frases
 
 inversion_estimada: rango de inversion inicial necesaria
 
-tiempo_primer_ingreso: estimacin realista de cundo generar los primeros ingresos
+tiempo_primer_ingreso: estimacion realista de cuando generar los primeros ingresos
 
 plan_validacion: lista de 5 pasos concretos y ordenados para validar la idea con el minimo riesgo antes de invertir todo el capital
 
-consejo_experto: 2-3 frases del consejo mas importante que daras a este emprendedor
+consejo_experto: 2-3 frases del consejo mas importante que darias a este emprendedor
 
 Solo JSON valido. Sin markdown."""
 
@@ -218,10 +218,10 @@ with st.sidebar:
 
     st.markdown("""
     <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
-        <span style="color:#4dd488"></span> Paso 1: Tavily busca info del mercado<br>
-        <span style="color:#4dd488"></span> Paso 2: Groq evala en profundidad<br>
-        <span style="color:#d4a84b"></span> Tiempo: 20-30 segundos<br>
-        <span style="color:#d4a84b"></span> Anlisis honesto, no condescendiente
+        <span style="color:#4dd488">&#10003;</span> Paso 1: Tavily busca info del mercado<br>
+        <span style="color:#4dd488">&#10003;</span> Paso 2: Groq evalua en profundidad<br>
+        <span style="color:#d4a84b">!</span> Tiempo: 20-30 segundos<br>
+        <span style="color:#d4a84b">!</span> Analisis honesto, no condescendiente
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
         P09 - Evaluador de ideas de negocio<br>
@@ -232,13 +232,13 @@ with st.sidebar:
 #  CABECERA 
 st.markdown("""
 <div class="app-header">
-  <div class="app-tag">P09 - Evaluador de ideas  Portfolio IA Aplicada
-    <span class="groq-badge"> Groq  analisis</span>
-    <span class="tavily-badge"> Tavily  mercado real</span>
+  <div class="app-tag">P09 · Evaluador de ideas de negocio · Portfolio IA Aplicada
+    <span class="groq-badge">&#10003; Groq · analisis</span>
+    <span class="tavily-badge">&#10003; Tavily · mercado real</span>
   </div>
-  <div class="app-title">Evala tu <em>Idea</em></div>
+  <div class="app-title">Evalua tu <em>Idea</em></div>
   <div class="app-subtitle">
-    Describe tu idea  analizamos viabilidad, mercado y riesgos  plan de validacion paso a paso
+    Describe tu idea · analizamos viabilidad, mercado y riesgos · plan de validacion paso a paso
   </div>
 </div>""", unsafe_allow_html=True)
 
@@ -475,21 +475,21 @@ else:
     # Estado inicial
     st.markdown("""
     <div style="border:1px dashed rgba(212,168,75,.2);padding:3rem 2rem;text-align:center;margin-top:1rem">
-      <div style="font-size:2.5rem;margin-bottom:1rem"></div>
+      <div style="font-size:2.5rem;margin-bottom:1rem">💡</div>
       <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#8c8a84;margin-bottom:.75rem">
         Describe tu idea y recibe un analisis honesto en 30 segundos
       </div>
       <div style="font-family:'DM Mono',monospace;font-size:.63rem;color:#44433f;letter-spacing:.06em;line-height:2">
-        Viabilidad  mercado  competencia  DAFO  modelo de negocio<br>
-        Inversion estimada  tiempo al primer ingreso  plan de validacion<br>
-        <span style="color:#4dd488"> Anlisis con datos de mercado en tiempo real  no halagos genricos</span>
+        Viabilidad · mercado · competencia · DAFO · modelo de negocio<br>
+        Inversion estimada · tiempo al primer ingreso · plan de validacion<br>
+        <span style="color:#4dd488">&#10003; Analisis con datos de mercado en tiempo real · sin halagos genericos</span>
       </div>
     </div>""", unsafe_allow_html=True)
 
 
 st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown(
-    '<div class="app-footer">P09 - Evaluador de Ideas de Negocio  '
-    'Groq + Tavily  Portfolio IA Aplicada  Jose Maria  Sevilla</div>',
+    '<div class="app-footer">P09 · Evaluador de Ideas de Negocio · '
+    'Groq + Tavily · Portfolio IA Aplicada · Jose Maria · Sevilla</div>',
     unsafe_allow_html=True,
 )

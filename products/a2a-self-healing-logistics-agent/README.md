@@ -1,23 +1,19 @@
 # A2A Self-Healing Logistics Agent
 
-Agente API-first para continuidad logistica. Detecta disrupciones, descubre peers A2A, negocia capacidad alternativa, evalua riesgo de SLA y ejecuta recuperaciones bajo governance-as-code.
+Agente API-first para continuidad logística. Detecta disrupciones, descubre peers A2A, negocia capacidad alternativa, evalúa riesgo de SLA y ejecuta recuperaciones bajo governance-as-code.
 
-## Stack
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109-green)
+![LangGraph](https://img.shields.io/badge/LangGraph-Agent-orange)
+![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)
+![Demo](https://img.shields.io/badge/Demo-Streamlit-orange)
 
-- Python 3.11
-- FastAPI
-- LangGraph
-- Supabase
-- Upstash Redis
-- Neon
-- A2A + MCP
-- Groq con Llama 8B
+## 🚀 Ejecución Rápida
 
-## API
-
-- `GET /api/health`
-- `POST /api/disruptions/evaluate`
-- `POST /api/recovery/execute`
-- `GET /api/tasks/{task_id}`
-- `GET /api/recovery-plans/{plan_id}`
-- `GET /api/audit/{reference}`
+### Dashboard Visual (Recomendado)
+```powershell
+cd products/a2a-self-healing-logistics-agent
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+streamlit run app.py

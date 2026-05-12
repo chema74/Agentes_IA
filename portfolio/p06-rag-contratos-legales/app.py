@@ -284,9 +284,12 @@ with st.sidebar:
     st.markdown(
         """
 <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
-<span style="color:#4dd488"></span> Embeddings e indexado locales<br>
-<span style="color:#4dd488"></span> Se envian al modelo solo fragmentos relevantes recuperados<br>
-<span style="color:#d4a84b"></span> Revision asistida, no asesoramiento juridico
+<span style="color:#4dd488">✓</span> Embeddings e indexado locales<br>
+<span style="color:#4dd488">✓</span> Se envian al modelo solo fragmentos relevantes<br>
+<span style="color:#d4a84b">!</span> Revision asistida, no asesoramiento juridico<br><br>
+<span style="color:#8c8a84;font-size:.58rem;line-height:1.8">
+Esta es una demo de portfolio. Para un agente de revision contractual con extraccion de obligaciones, matriz de clausulas y exportacion estructurada, consulta el producto <b style="color:#d4a84b">contract-obligations-agent</b> del repositorio.
+</span>
 </div>
 """,
         unsafe_allow_html=True,
@@ -298,7 +301,7 @@ st.markdown(
   <div class="app-tag">P06  Revisor de contratos legales  Portfolio IA Aplicada
     <span class="groq-badge"> Groq  ChromaDB local</span></div>
   <div class="app-title">Revisor de <em>contratos legales</em></div>
-  <div class="app-subtitle">Sube el PDF y consulta clausulas, obligaciones, plazos, penalizaciones o riesgos detectables en el texto.</div>
+  <div class="app-subtitle">Sube el PDF y consulta clausulas, obligaciones, plazos, penalizaciones o riesgos detectables en el texto. Demo de portfolio — no sustituye revision juridica profesional ni dictamen legal.</div>
 </div>
 """,
     unsafe_allow_html=True,

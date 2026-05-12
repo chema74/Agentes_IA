@@ -1,50 +1,55 @@
-﻿# P01 - Inteligencia comercial internacional
+# P01 - Inteligencia comercial internacional
 
-Base publica del agente de portfolio orientado a comparar paises y mercados para apoyar decisiones comerciales internacionales.
+La pieza de portfolio mas avanzada del bloque. Compara mercados internacionales con apoyo de busqueda web en tiempo real y analisis estructurado por dimensiones para apoyar decisiones de internacionalizacion.
+
+## Que problema resuelve
+
+Evaluar la viabilidad comercial en varios paises requiere contrastar indicadores de mercado, riesgo regulatorio, competencia local y capacidad de entrada. Este agente recupera senales actualizadas de cada mercado, las analiza por dimensiones y genera un ranking orientativo con resumen ejecutivo, facilitando la primera criba antes de invertir en estudios de mercado detallados.
 
 ## Que hace
 
-- Busca senales relevantes de mercado con apoyo de web search.
-- Genera analisis estructurados por dimensiones.
-- Compara varios paises.
-- Calcula un ranking orientativo de mercados.
-- Guarda un historial basico de resultados.
+- Busca senales relevantes de mercado para cada pais con web search (Tavily).
+- Genera analisis estructurado por dimensiones: oportunidad, riesgo, competencia, regulacion, logistica.
+- Compara varios paises en paralelo y calcula un ranking orientativo.
+- Exporta resultados en multiples formatos (PDF, Excel, JSON).
+- Guarda un historial basico de analisis anteriores para comparacion.
 
 ## Stack
 
-- Groq
-- Tavily
+- Groq (LLama 3.3 70B)
+- Tavily (busqueda web en tiempo real)
 - Streamlit
-- Pydantic
-- pandas
+- Pydantic (validacion de datos estructurados)
+- pandas (comparativas y exportacion)
 
 ## Flujo principal
 
 1. Selecciona uno o varios paises a comparar.
-2. Elige sector y tipo de empresa.
-3. Recupera contexto con busqueda web y analisis asistido por modelo.
-4. Revisa resumen ejecutivo, senales por dimension y comparativa orientativa.
-5. Consulta el historial cuando existan datos previos.
+2. Elige sector y tipo de empresa exportadora.
+3. El agente recupera contexto con busqueda web y lo analiza dimension a dimension.
+4. Revisa el resumen ejecutivo, las senales por dimension y el ranking comparativo.
+5. Exporta o consulta el historial de analisis previos.
 
 ## Interpretacion del score
 
-El indicador principal es `score_total`, un indice orientativo de riesgo y oportunidad:
+El indicador `score_total` es un indice orientativo de riesgo y oportunidad calculado a partir de las senales recuperadas:
 
-- menor score = mejor posicion relativa,
-- no es un rating certificado,
-- no sustituye una due diligence completa ni una asesoria juridica.
+- **Menor score = mejor posicion relativa** para ese mercado.
+- No es un rating certificado ni sustituye due diligence completa.
+- No reemplaza asesoria juridica, fiscal o logistica especializada.
 
 ## Instalacion
 
 ```bash
 cd portfolio/p01-inteligencia-comercial-internacional
-python -m venv venv
-venv\Scripts\activate
+python -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
 copy .env.example .env
+# Edita .env con GROQ_API_KEY y TAVILY_API_KEY
 streamlit run app.py
 ```
 
 ## Estado
 
-Es la base publica mas avanzada del portfolio y la referencia principal del bloque de inteligencia comercial internacional.
+Pieza de portfolio cerrada tecnicamente. Es la referencia principal del bloque de inteligencia comercial internacional y la demo mas completa del portfolio. Para un agente de trade intelligence con cobertura geopolitica y evaluacion de rutas consulta el producto geopolitical-trade-intelligence-agent del repositorio.

@@ -446,13 +446,13 @@ with st.sidebar:
         """
     <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:#44433f;
         line-height:1.9;border-top:1px solid rgba(212,168,75,.1);padding-top:1rem;margin-top:1rem">
-        <span style="color:#4dd488">?</span> Embeddings e indexado: local<br>
-        <span style="color:#4dd488">?</span> Base vectorial: ChromaDB en disco<br>
-        <span style="color:#4dd488">?</span> Respuesta: Groq con fragmentos recuperados<br>
-        <span style="color:#d4a84b">?</span> Base publica actual del motor RAG corporativo
+        <span style="color:#4dd488">&#10003;</span> Embeddings e indexado: local<br>
+        <span style="color:#4dd488">&#10003;</span> Base vectorial: ChromaDB en disco<br>
+        <span style="color:#4dd488">&#10003;</span> Respuesta: Groq con fragmentos recuperados<br>
+        <span style="color:#d4a84b">!</span> Demo publica del motor RAG corporativo
     </div>
     <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:#44433f;margin-top:1.5rem">
-        P05  RAG documental interno<br>
+        P05 &middot; RAG documental interno<br>
         <a href="https://github.com/chema74/portfolio-ia-aplicada/tree/main/portfolio/p05-rag-documentacion-interna" style="color:#7a5e28">Ver proyecto en GitHub</a>
     </div>""",
         unsafe_allow_html=True,
@@ -490,7 +490,7 @@ if total_docs == 0:
     st.markdown(
         """
     <div style="border:1px dashed rgba(212,168,75,.2);padding:3rem 2rem;text-align:center;margin-top:1rem">
-      <div style="font-size:2.5rem;margin-bottom:1rem"></div>
+      <div style="font-size:2.5rem;margin-bottom:1rem">📄</div>
       <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#8c8a84;margin-bottom:.75rem">
         Sube los PDFs de tu empresa para empezar
       </div>

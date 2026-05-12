@@ -70,6 +70,17 @@ Agentes independientes optimizados para validación ejecutable en <90 segundos, 
 
 > Estos proyectos comparten filosofía local-first y open-source, pero están optimizados para validación rápida. Este monorepo (`Agentes_IA`) prioriza arquitectura modular, trazabilidad y evolución técnica sobre velocidad de demo.
 
+---
+
+## 📊 Visualización de Agentes
+
+Los agentes incluyen dashboards interactivos para visualización de resultados.
+
+### Ejemplo: Contract Obligations Agent
+
+```powershell
+cd products/contract-obligations-agent
+streamlit run app.py
 ## 🪪 Licencia y Autoría
 
 Publicado bajo licencia Creative Commons CC BY-SA 4.0 International.  
