@@ -1,4 +1,4 @@
-"""
+﻿"""
 P06  Revisor de contratos legales
 =================================
 Autor: Jose Maria
@@ -288,7 +288,7 @@ with st.sidebar:
 <span style="color:#4dd488">✓</span> Se envian al modelo solo fragmentos relevantes<br>
 <span style="color:#d4a84b">!</span> Revision asistida, no asesoramiento juridico<br><br>
 <span style="color:#8c8a84;font-size:.58rem;line-height:1.8">
-Esta es una demo de portfolio. Para un agente de revision contractual con extraccion de obligaciones, matriz de clausulas y exportacion estructurada, consulta el producto <b style="color:#d4a84b">contract-obligations-agent</b> del repositorio.
+Esta es una demo de portfolio. Para un agente de revision contractual con extraccion de obligaciones, matriz de clausulas y exportacion estructurada, consulta el producto <b style="color:#d4a84b">agente-obligaciones-contractuales</b> del repositorio.
 </span>
 </div>
 """,

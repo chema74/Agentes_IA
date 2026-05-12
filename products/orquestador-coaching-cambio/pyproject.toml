@@ -1,0 +1,9 @@
+﻿[project]
+name = "orquestador-coaching-cambio"
+version = "0.1.0"
+description = "Orquestador agencial para observacion, intervencion y supervision de procesos de cambio."
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --basetemp=.pytest-tmp"

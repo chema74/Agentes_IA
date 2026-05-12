@@ -1,11 +1,11 @@
-# Security Rotation Playbook
+﻿# Security Rotation Playbook
 
 ## Incident summary
 
 On 2026-04-15, API keys were detected in Git history under:
 
-- `products/agentic-learning-integrity-orchestrator/.env`
-- `products/change-process-coaching-orchestrator/.env`
+- `products/orquestador-integridad-educativa/.env`
+- `products/orquestador-coaching-cambio/.env`
 
 History was rewritten to remove those files from all commits.
 

@@ -1,0 +1,9 @@
+﻿[project]
+name = "agente-cumplimiento-politicas"
+version = "0.1.0"
+description = "Compuerta normativa neuro-simbolica para enforcement determinista de politicas corporativas."
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --basetemp=.pytest-tmp"

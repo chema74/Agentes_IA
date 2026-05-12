@@ -1,4 +1,4 @@
-# Portfolio IA Aplicada
+﻿# Portfolio IA Aplicada
 
 Monorepo tecnico de agentes de IA (*Artificial Intelligence – Inteligencia Artificial*) aplicada a negocio, documentacion, comercio exterior, cumplimiento normativo y automatizacion empresarial.
 
@@ -23,7 +23,7 @@ Este repositorio no se plantea como una web publica ni como una landing comercia
 
 - `portfolio/p01-inteligencia-comercial-internacional`: inteligencia comercial internacional para comparar paises, sectores y oportunidades de mercado.
 - `portfolio/p05-rag-documentacion-interna`: RAG (*Retrieval-Augmented Generation – Generacion Aumentada por Recuperacion*) para consulta de documentacion interna.
-- `products/contract-obligations-agent`: agente supervisado de obligaciones contractuales, evidencias, riesgos y exportes.
+- `products/agente-obligaciones-contractuales`: agente supervisado de obligaciones contractuales, evidencias, riesgos y exportes.
 
 El estado completo por proyecto esta documentado en [CATALOGO.md](CATALOGO.md).
 
@@ -79,7 +79,7 @@ Los agentes incluyen dashboards interactivos para visualización de resultados.
 ### Ejemplo: Contract Obligations Agent
 
 ```powershell
-cd products/contract-obligations-agent
+cd products/agente-obligaciones-contractuales
 streamlit run app.py
 ## 🪪 Licencia y Autoría
 

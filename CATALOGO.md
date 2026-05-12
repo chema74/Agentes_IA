@@ -1,4 +1,4 @@
-# Catálogo del Monorepo
+﻿# Catálogo del Monorepo
 
 Este documento resume el estado actual de `Agentes_IA` como repositorio técnico de agentes de IA (*Artificial Intelligence – Inteligencia Artificial*) aplicada a negocio, documentación, comercio exterior, cumplimiento normativo y automatización empresarial.
 
@@ -144,7 +144,7 @@ Pendiente recomendado:
 
 Ruta interna:
 
-`products/contract-obligations-agent`
+`products/agente-obligaciones-contractuales`
 
 Nombre comercial recomendado:
 
@@ -230,7 +230,7 @@ Qué demuestra:
 
 Estado:
 
-Cerrado. README reescrito con caso de uso concreto, perfil de usuario objetivo y límites honestos. Diferencia clara respecto a contract-obligations-agent añadida.
+Cerrado. README reescrito con caso de uso concreto, perfil de usuario objetivo y límites honestos. Diferencia clara respecto a agente-obligaciones-contractuales añadida.
 
 Pendiente recomendado:
 
@@ -282,7 +282,7 @@ Qué demuestra:
 
 Estado:
 
-Cerrado. Disclaimer añadido en sidebar y subtítulo diferenciando esta demo del producto contract-obligations-agent. Advertencia de revisión humana reforzada.
+Cerrado. Disclaimer añadido en sidebar y subtítulo diferenciando esta demo del producto agente-obligaciones-contractuales. Advertencia de revisión humana reforzada.
 
 Pendiente recomendado:
 
@@ -406,11 +406,11 @@ Su valor principal es demostrar capacidad de arquitectura, exploración de domin
 
 Ruta interna:
 
-`products/a2a-self-healing-logistics-agent`
+`products/agente-logistica-autonoma`
 
 Nombre técnico original:
 
-`a2a-self-healing-logistics-agent`
+`agente-logistica-autonoma`
 
 Qué demuestra:
 
@@ -432,11 +432,11 @@ Requiere operación, runbook y validación con datos reales antes de presentarlo
 
 Ruta interna:
 
-`products/apollo-policy-enforcer-agent`
+`products/agente-cumplimiento-politicas`
 
 Nombre técnico original:
 
-`apollo-policy-enforcer-agent`
+`agente-cumplimiento-politicas`
 
 Qué demuestra:
 
@@ -458,11 +458,11 @@ Requiere validación estricta de permisos, alcance y consecuencias antes de cual
 
 Ruta interna:
 
-`products/geopolitical-trade-intelligence-agent`
+`products/agente-inteligencia-geopolitica`
 
 Nombre técnico original:
 
-`geopolitical-trade-intelligence-agent`
+`agente-inteligencia-geopolitica`
 
 Qué demuestra:
 
@@ -484,11 +484,11 @@ Dominio sensible por frescura de datos, interpretación de riesgo y dependencia 
 
 Ruta interna:
 
-`products/autonomous-legal-counsel-agent`
+`products/asistente-legal-supervisado`
 
 Nombre técnico original:
 
-`autonomous-legal-counsel-agent`
+`asistente-legal-supervisado`
 
 Nombre comercial recomendado:
 
@@ -514,11 +514,11 @@ Dominio legal sensible. No debe presentarse como abogado autónomo ni como susti
 
 Ruta interna:
 
-`products/nspa-psychological-orchestrator`
+`products/orquestador-psicoeducativo`
 
 Nombre técnico original:
 
-`nspa-psychological-orchestrator`
+`orquestador-psicoeducativo`
 
 Nombre comercial recomendado:
 
@@ -544,11 +544,11 @@ Dominio psicológico sensible. No debe presentarse como diagnóstico, terapia ni
 
 Ruta interna:
 
-`products/audit-compliance-evidence-agent`
+`products/agente-evidencias-auditoria`
 
 Nombre técnico original:
 
-`audit-compliance-evidence-agent`
+`agente-evidencias-auditoria`
 
 Qué demuestra:
 
@@ -571,11 +571,11 @@ Requiere despliegue, UX (*User Experience – Experiencia de Usuario*) final y v
 
 Ruta interna:
 
-`products/agentic-learning-integrity-orchestrator`
+`products/orquestador-integridad-educativa`
 
 Nombre técnico original:
 
-`agentic-learning-integrity-orchestrator`
+`orquestador-integridad-educativa`
 
 Qué demuestra:
 
@@ -597,11 +597,11 @@ Contexto educativo sensible. Debe evitar decisiones automáticas injustificadas 
 
 Ruta interna:
 
-`products/change-process-coaching-orchestrator`
+`products/orquestador-coaching-cambio`
 
 Nombre técnico original:
 
-`change-process-coaching-orchestrator`
+`orquestador-coaching-cambio`
 
 Qué demuestra:
 
@@ -628,7 +628,7 @@ Para una revisión profesional, se recomienda este orden:
 3. Entrar en los tres productos estrella:
    - `portfolio/p01-inteligencia-comercial-internacional`
    - `portfolio/p05-rag-documentacion-interna`
-   - `products/contract-obligations-agent`
+   - `products/agente-obligaciones-contractuales`
 4. Revisar después las demos de portfolio según el caso de uso.
 5. Usar el laboratorio técnico como evidencia de amplitud, arquitectura y exploración avanzada.
 

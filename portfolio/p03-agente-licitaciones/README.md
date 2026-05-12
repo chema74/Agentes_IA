@@ -1,4 +1,4 @@
-# P03 - Agente de evaluacion de licitaciones
+﻿# P03 - Agente de evaluacion de licitaciones
 
 Demo de portfolio para analizar pliegos de contratacion publica en PDF y preparar una primera lectura de viabilidad antes de decidir si presentarse o no.
 
@@ -44,4 +44,4 @@ streamlit run app.py
 
 ## Estado
 
-Prototipo de portfolio funcional orientado a la fase de primer filtro de licitaciones. Para un agente de extraccion de obligaciones contractuales con exportacion estructurada consulta el producto contract-obligations-agent del repositorio.
+Prototipo de portfolio funcional orientado a la fase de primer filtro de licitaciones. Para un agente de extraccion de obligaciones contractuales con exportacion estructurada consulta el producto agente-obligaciones-contractuales del repositorio.

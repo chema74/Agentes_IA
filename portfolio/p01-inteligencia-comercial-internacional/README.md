@@ -1,4 +1,4 @@
-# P01 - Inteligencia comercial internacional
+﻿# P01 - Inteligencia comercial internacional
 
 La pieza de portfolio mas avanzada del bloque. Compara mercados internacionales con apoyo de busqueda web en tiempo real y analisis estructurado por dimensiones para apoyar decisiones de internacionalizacion.
 
@@ -52,4 +52,4 @@ streamlit run app.py
 
 ## Estado
 
-Pieza de portfolio cerrada tecnicamente. Es la referencia principal del bloque de inteligencia comercial internacional y la demo mas completa del portfolio. Para un agente de trade intelligence con cobertura geopolitica y evaluacion de rutas consulta el producto geopolitical-trade-intelligence-agent del repositorio.
+Pieza de portfolio cerrada tecnicamente. Es la referencia principal del bloque de inteligencia comercial internacional y la demo mas completa del portfolio. Para un agente de trade intelligence con cobertura geopolitica y evaluacion de rutas consulta el producto agente-inteligencia-geopolitica del repositorio.
