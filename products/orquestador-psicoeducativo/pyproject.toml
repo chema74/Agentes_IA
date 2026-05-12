@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "orquestador-psicoeducativo"
 version = "0.1.0"
 description = "Orquestador neuro-simbolico para apoyo emocional con seguridad y continuidad narrativa."

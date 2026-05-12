@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "agente-logistica-autonoma"
 version = "0.1.0"
 description = "Agente de continuidad logistica con discovery A2A, negociacion y circuit breaker."

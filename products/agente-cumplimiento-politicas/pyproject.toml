@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "agente-cumplimiento-politicas"
 version = "0.1.0"
 description = "Compuerta normativa neuro-simbolica para enforcement determinista de politicas corporativas."
