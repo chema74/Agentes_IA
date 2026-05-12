@@ -57,6 +57,18 @@ El estado completo por proyecto esta documentado en [CATALOGO.md](CATALOGO.md).
 1. Revisar primero [CATALOGO.md](CATALOGO.md).
 2. Entrar despues en los tres proyectos destacados.
 3. Usar el resto del repositorio como evidencia tecnica y laboratorio de evolucion.
+---
+
+## 🧪 Proyectos Complementarios (Demos Rápidas)
+
+Agentes independientes optimizados para validación ejecutable en <90 segundos, sin configuración compleja:
+
+| Agente | Enfoque | Comando | Enlace |
+|--------|---------|---------|--------|
+| 💰 [agente-finanzas-pyme](https://github.com/chema74/agente-finanzas-pyme) | Detección de anomalías + XAI | `powershell -File scripts/demo/run_demo.ps1` | [Ver repo](https://github.com/chema74/agente-finanzas-pyme) |
+| 🌱 [agente-esg-reporting](https://github.com/chema74/agente-esg-reporting) | Reporting ESG + trazabilidad CSRD | `powershell -File scripts/demo/run_demo.ps1` | [Ver repo](https://github.com/chema74/agente-esg-reporting) |
+
+> Estos proyectos comparten filosofía local-first y open-source, pero están optimizados para validación rápida. Este monorepo (`Agentes_IA`) prioriza arquitectura modular, trazabilidad y evolución técnica sobre velocidad de demo.
 
 ## 🪪 Licencia y Autoría
 
