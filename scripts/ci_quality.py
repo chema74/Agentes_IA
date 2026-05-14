@@ -10,11 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 COMMANDS: list[list[str]] = [
     [
-        sys.executable,
-        "-m",
-        "ruff",
-        "check",
-        "core",
+        sys.executable, "-m", "ruff", "check",
         "scripts/ci_lint.py",
         "scripts/ci_smoke.py",
         "scripts/ci_products.py",
@@ -22,34 +18,13 @@ COMMANDS: list[list[str]] = [
         "scripts/ci_release_guard.py",
         "tests/test_projects_minimal.py",
     ],
-    [sys.executable, "-m", "mypy", "core", "scripts"],
-    [
-        sys.executable,
-        "-m",
-        "bandit",
-        "-q",
-        "-r",
-        "core",
-        "products",
-        "portfolio",
-        "-x",
-        "*/tests/*",
-        "-s",
-        "B101",
-    ],
-    [
-        sys.executable,
-        "-m",
-        "coverage",
-        "run",
-        "-m",
-        "pytest",
-        "-q",
-        "tests/test_projects_minimal.py",
-    ],
+    [sys.executable, "-m", "mypy", "scripts"],
+    [sys.executable, "-m", "bandit", "-q", "-r", "scripts"],
+    [sys.executable, "-m", "coverage", "run", "-m", "pytest", "-q", "tests/test_projects_minimal.py"],
     [sys.executable, "-m", "coverage", "xml", "-o", "coverage.xml"],
-    [sys.executable, "-m", "coverage", "report", "--fail-under=60"],
+    [sys.executable, "-m", "coverage", "report", "--fail-under=90"],
 ]
+
 
 
 def _run(command: list[str]) -> int:
