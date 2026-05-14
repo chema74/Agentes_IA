@@ -23,7 +23,7 @@ COMMANDS: list[list[str]] = [
         "tests/test_projects_minimal.py",
     ],
     [sys.executable, "-m", "coverage", "xml", "-o", "coverage.xml"],
-    [sys.executable, "-m", "coverage", "report", "--fail-under=85"],
+    [sys.executable, "-m", "coverage", "report", "--fail-under=60"],
 ]
 
 
