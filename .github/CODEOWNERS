@@ -1,0 +1,10 @@
+﻿# Global fallback
+* @chema74
+
+# CI/CD and repo governance
+/.github/workflows/* @chema74
+/scripts/ci_* @chema74
+/pyproject.toml @chema74
+/requirements-dev.txt @chema74
+/docs/OPERATIONS.md @chema74
+/docs/RELEASE.md @chema74
