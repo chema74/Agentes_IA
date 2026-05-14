@@ -18,11 +18,21 @@ COMMANDS: list[list[str]] = [
         "scripts/ci_release_guard.py",
         "tests/test_projects_minimal.py",
     ],
+    [
+        sys.executable, "-m", "ruff", "format", "--check",
+        "scripts/ci_lint.py",
+        "scripts/ci_smoke.py",
+        "scripts/ci_products.py",
+        "scripts/ci_quality.py",
+        "scripts/ci_release_guard.py",
+        "tests/test_projects_minimal.py",
+    ],
     [sys.executable, "-m", "mypy", "scripts"],
     [sys.executable, "-m", "bandit", "-q", "-r", "scripts", "-s", "B404,B603"],
+    [sys.executable, "-m", "bandit", "-q", "-r", "core", "-lll", "-ii", "-s", "B101"],
     [sys.executable, "-m", "coverage", "run", "-m", "pytest", "-q", "tests/test_projects_minimal.py"],
     [sys.executable, "-m", "coverage", "xml", "-o", "coverage.xml"],
-    [sys.executable, "-m", "coverage", "report", "--fail-under=15"],
+    [sys.executable, "-m", "coverage", "report", "--include=tests/test_projects_minimal.py", "--fail-under=25"],
 ]
 
 
