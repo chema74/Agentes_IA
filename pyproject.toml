@@ -26,3 +26,20 @@ exclude_dirs = [
   ".pytest-tmp"
 ]
 skips = ["B101"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+follow_imports = "skip"
+warn_unused_ignores = true
+warn_redundant_casts = true
+show_error_codes = true
+exclude = "(^data/|^exports/|\\.venv/)"
+
+[tool.coverage.run]
+branch = true
+source = ["core", "scripts", "tests"]
+
+[tool.coverage.report]
+skip_empty = true
+show_missing = true

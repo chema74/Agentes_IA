@@ -40,11 +40,17 @@ El estado completo por proyecto esta documentado en [CATALOGO.md](CATALOGO.md).
 ```powershell
 .venv\Scripts\python.exe -m pip install -r requirements-dev.txt
 .venv\Scripts\python.exe scripts/ci_quality.py
+.venv\Scripts\python.exe scripts/ci_release_guard.py
 .venv\Scripts\python.exe scripts/ci_lint.py
 .venv\Scripts\python.exe scripts/ci_smoke.py
 .venv\Scripts\python.exe -m pytest tests -q
 .venv\Scripts\python.exe scripts/ci_products.py
 ```
+
+## Operacion y release
+
+- Runbook operativo y SLOs: [docs/OPERATIONS.md](docs/OPERATIONS.md)
+- Politica de release y versionado: [docs/RELEASE.md](docs/RELEASE.md)
 
 ## Politica del repositorio
 

@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 COMMANDS: list[list[str]] = [
     [sys.executable, "-m", "ruff", "check", "core", "scripts", "tests"],
+    [sys.executable, "-m", "mypy", "core", "scripts"],
     [sys.executable, "-m", "bandit", "-q", "-r", "core", "scripts", "products", "portfolio"],
     [
         sys.executable,
@@ -21,6 +22,7 @@ COMMANDS: list[list[str]] = [
         "-q",
         "tests/test_projects_minimal.py",
     ],
+    [sys.executable, "-m", "coverage", "xml", "-o", "coverage.xml"],
     [sys.executable, "-m", "coverage", "report", "--fail-under=85"],
 ]
 
