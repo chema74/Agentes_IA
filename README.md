@@ -38,6 +38,8 @@ El estado completo por proyecto esta documentado en [CATALOGO.md](CATALOGO.md).
 ## Checks locales
 
 ```powershell
+.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.venv\Scripts\python.exe scripts/ci_quality.py
 .venv\Scripts\python.exe scripts/ci_lint.py
 .venv\Scripts\python.exe scripts/ci_smoke.py
 .venv\Scripts\python.exe -m pytest tests -q

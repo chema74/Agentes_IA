@@ -1,0 +1,28 @@
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [
+  ".venv",
+  "data",
+  "exports",
+  ".pytest_cache",
+  ".pytest-tmp"
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.bandit]
+exclude_dirs = [
+  "tests",
+  ".venv",
+  "data",
+  "exports",
+  ".pytest_cache",
+  ".pytest-tmp"
+]
+skips = ["B101"]
