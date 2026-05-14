@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "asistente-legal-supervisado"
 version = "0.1.0"
 description = "Agente de revision contractual, redlining y negociacion gobernada por playbooks."

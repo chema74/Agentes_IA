@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "agente-inteligencia-geopolitica"
 version = "0.1.0"
 description = "Agente de inteligencia geopolítica aplicada a comercio exterior y expansion internacional."
