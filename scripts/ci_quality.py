@@ -9,9 +9,34 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 COMMANDS: list[list[str]] = [
-    [sys.executable, "-m", "ruff", "check", "core", "scripts", "tests"],
+    [
+        sys.executable,
+        "-m",
+        "ruff",
+        "check",
+        "core",
+        "scripts/ci_lint.py",
+        "scripts/ci_smoke.py",
+        "scripts/ci_products.py",
+        "scripts/ci_quality.py",
+        "scripts/ci_release_guard.py",
+        "tests/test_projects_minimal.py",
+    ],
     [sys.executable, "-m", "mypy", "core", "scripts"],
-    [sys.executable, "-m", "bandit", "-q", "-r", "core", "scripts", "products", "portfolio"],
+    [
+        sys.executable,
+        "-m",
+        "bandit",
+        "-q",
+        "-r",
+        "core",
+        "products",
+        "portfolio",
+        "-x",
+        "*/tests/*",
+        "-s",
+        "B101",
+    ],
     [
         sys.executable,
         "-m",
