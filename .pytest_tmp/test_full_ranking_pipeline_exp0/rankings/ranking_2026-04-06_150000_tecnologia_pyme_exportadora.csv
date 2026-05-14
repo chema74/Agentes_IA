@@ -1,0 +1,4 @@
+﻿position,country,score_total,executive_summary,sources_count,score_estabilidad_economica,score_riesgo_comercial,score_riesgo_politico
+1,México,22.0,México destaca por equilibrio entre oportunidad y riesgo.,1,10.0,5.0,4.0
+2,Chile,20.0,Chile presenta estabilidad relativa.,0,9.0,6.0,4.0
+3,Colombia,18.0,Colombia ofrece potencial con cautelas.,0,8.0,6.0,5.0

@@ -13,6 +13,7 @@ Como funciona:
 """
 import ast
 import json
+import multiprocessing
 import os
 
 import pandas as pd
@@ -46,6 +47,7 @@ ALLOWED_BUILTINS = {
 MAX_CODE_CHARS = 4000
 MAX_CODE_LINES = 80
 MAX_AST_NODES = 500
+EXEC_TIMEOUT_SECONDS = 6
 
 PATRONES_BLOQUEADOS = {
     "import ": "No se permiten importaciones dinamicas.",
@@ -308,8 +310,8 @@ Responde solo con codigo Python. Sin explicaciones. Sin markdown. Sin comentario
     return validar_codigo_generado(contenido)
 
 
-def ejecutar_codigo(codigo: str, df: pd.DataFrame):
-    """Ejecuta el codigo validado en un entorno restringido."""
+def _exec_worker(codigo: str, df: pd.DataFrame, queue):
+    """Ejecuta codigo validado en un proceso aislado."""
     entorno = {
         "__builtins__": ALLOWED_BUILTINS,
         "df": df.copy(),
@@ -319,9 +321,31 @@ def ejecutar_codigo(codigo: str, df: pd.DataFrame):
         "resultado": None,
         "figura": None,
     }
-    exec(codigo, entorno, entorno)
-    resultado = entorno.get("resultado")
-    figura = entorno.get("figura")
+    try:
+        exec(codigo, entorno, entorno)
+        queue.put({"ok": True, "resultado": entorno.get("resultado"), "figura": entorno.get("figura")})
+    except Exception as exc:
+        queue.put({"ok": False, "error": str(exc)})
+
+
+def ejecutar_codigo(codigo: str, df: pd.DataFrame):
+    """Ejecuta el codigo validado en un entorno restringido y con timeout."""
+    ctx = multiprocessing.get_context("spawn")
+    queue = ctx.Queue()
+    proc = ctx.Process(target=_exec_worker, args=(codigo, df, queue), daemon=True)
+    proc.start()
+    proc.join(EXEC_TIMEOUT_SECONDS)
+    if proc.is_alive():
+        proc.terminate()
+        proc.join()
+        raise ValueError("Tiempo de ejecucion excedido para codigo generado.")
+    if queue.empty():
+        raise ValueError("El proceso aislado no devolvio resultado.")
+    payload = queue.get()
+    if not payload.get("ok"):
+        raise ValueError(payload.get("error", "Error desconocido al ejecutar codigo generado."))
+    resultado = payload.get("resultado")
+    figura = payload.get("figura")
 
     if figura is not None and not isinstance(figure := figura, go.Figure):
         raise ValueError("La variable 'figura' debe ser un objeto Plotly valido.")

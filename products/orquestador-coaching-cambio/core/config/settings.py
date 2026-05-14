@@ -18,7 +18,7 @@ class Settings:
     app_name: str = _env("APP_NAME", "orquestador-coaching-cambio")
     app_env: str = _env("APP_ENV", "demo")
     app_base_url: str = _env("APP_BASE_URL", "http://127.0.0.1:8060")
-    service_api_key: str = _env("SERVICE_API_KEY", "change-dev-key")
+    service_api_key: str = _env("SERVICE_API_KEY")
     require_api_key: bool = _env_bool("REQUIRE_API_KEY", True)
     data_dir: Path = Path(_env("APP_DATA_DIR", "./data")).resolve()
     export_dir: Path = Path(_env("APP_EXPORT_DIR", "./exports")).resolve()

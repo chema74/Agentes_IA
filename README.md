@@ -45,7 +45,10 @@ El estado completo por proyecto esta documentado en [CATALOGO.md](CATALOGO.md).
 .venv\Scripts\python.exe scripts/ci_smoke.py
 .venv\Scripts\python.exe -m pytest tests -q
 .venv\Scripts\python.exe scripts/ci_products.py
+.venv\Scripts\python.exe scripts/ci_monorepo_tests.py
 ```
+
+Nota: no ejecutes `pytest` plano en la raiz para todo `products/` y `portfolio/`; en este monorepo hay colisiones de imports entre proyectos. Usa `scripts/ci_monorepo_tests.py` para aislar cada suite por carpeta.
 
 ## Operacion y release
 

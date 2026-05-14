@@ -11,7 +11,11 @@ class SupabaseStorageAdapter:
         self.base_dir.mkdir(parents=True, exist_ok=True)
 
     def upload(self, bucket: str, relative_path: str, content: bytes) -> str:
-        path = self.base_dir / bucket / relative_path
+        bucket_dir = (self.base_dir / bucket).resolve()
+        candidate = (bucket_dir / relative_path).resolve()
+        if not str(candidate).startswith(str(bucket_dir)):
+            raise ValueError("Invalid storage path.")
+        path = candidate
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(content)
         return str(path)

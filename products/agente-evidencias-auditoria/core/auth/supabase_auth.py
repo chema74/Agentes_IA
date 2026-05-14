@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import hmac
+import os
+
 from core.config.settings import settings
 from core.security.access import UserContext
 
@@ -12,7 +15,13 @@ DEMO_USERS = {
 
 
 def authenticate(email: str, password: str) -> UserContext:
-    if settings.mock_auth_enabled and email in DEMO_USERS and password == "demo":
+    demo_password = os.getenv("DEMO_AUTH_PASSWORD", "").strip()
+    if (
+        settings.mock_auth_enabled
+        and demo_password
+        and email in DEMO_USERS
+        and hmac.compare_digest(password, demo_password)
+    ):
         return DEMO_USERS[email]
     raise PermissionError("Authentication failed.")
 

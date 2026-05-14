@@ -63,6 +63,13 @@ def _read_env(name: str, default: Any = None) -> Any:
     return default
 
 
+def _require_env(name: str) -> str:
+    value = str(_read_env(name, "")).strip()
+    if not value:
+        raise RuntimeError(f"La variable de entorno {name} es obligatoria.")
+    return value
+
+
 AppMode = Literal["demo", "production"]
 
 
@@ -239,4 +246,9 @@ __all__ = [
     "MAX_BACKOFF_SECONDS",
     "RETRY_JITTER_SECONDS",
     "THROTTLING_DELAY",
+    "_to_bool",
+    "_to_int",
+    "_to_float",
+    "_read_env",
+    "_require_env",
 ]

@@ -8,6 +8,8 @@ from core.config.settings import settings
 def require_service_api_key(x_api_key: str | None = Header(default=None, alias="X-API-Key")) -> str:
     if not settings.require_api_key:
         return "auth-disabled"
+    if not settings.service_api_key:
+        raise HTTPException(status_code=500, detail="SERVICE_API_KEY is not configured.")
     if x_api_key != settings.service_api_key:
         raise HTTPException(status_code=401, detail="Invalid API key")
     return x_api_key

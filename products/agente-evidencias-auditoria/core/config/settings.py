@@ -38,7 +38,7 @@ class Settings:
     anthropic_api_key: str = _env("ANTHROPIC_API_KEY")
     redaction_enabled: bool = _env_bool("REDACTION_ENABLED", True)
     max_file_mb: int = int(_env("MAX_FILE_MB", "25"))
-    mock_auth_enabled: bool = _env_bool("MOCK_AUTH_ENABLED", True)
+    mock_auth_enabled: bool = _env_bool("MOCK_AUTH_ENABLED", False)
 
     def ensure_dirs(self) -> None:
         self.data_dir.mkdir(parents=True, exist_ok=True)

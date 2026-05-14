@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from uuid import uuid4
 
 from connectors.files.loader import load_bytes
@@ -39,18 +40,19 @@ class AuditWorkflowService:
         return control
 
     def ingest_evidence(self, scope_id: str, filename: str, content: bytes, uploaded_by: str, source_type: str = "manual_upload", source_name: str | None = None) -> Evidence:
-        validate_upload(filename, len(content))
-        loaded = load_bytes(filename, content)
+        safe_filename = Path(filename).name
+        validate_upload(safe_filename, len(content))
+        loaded = load_bytes(safe_filename, content)
         normalized_text, metadata = parse_loaded_file(loaded, redact=settings.redaction_enabled)
-        storage_path = self.storage.store_evidence(f"{scope_id}/{filename}", content)
+        storage_path = self.storage.store_evidence(f"{scope_id}/{safe_filename}", content)
         evidence_id = f"evidence-{uuid4().hex[:12]}"
         evidence = Evidence(
             id=evidence_id,
             scope_id=scope_id,
-            title=filename,
+            title=safe_filename,
             description=f"Evidencia cargada desde {source_type}.",
             source_type=source_type,
-            source_name=source_name or filename,
+            source_name=source_name or safe_filename,
             source_author=None,
             evidence_type=metadata.get("classification", "unknown"),
             mime_type=loaded.suffix or "application/octet-stream",
@@ -66,7 +68,7 @@ class AuditWorkflowService:
                 EvidenceArtifact(
                     id=f"artifact-{uuid4().hex[:12]}",
                     evidence_id=evidence_id,
-                    file_name=filename,
+                    file_name=safe_filename,
                     storage_path=storage_path,
                     mime_type=loaded.suffix or "application/octet-stream",
                     size_bytes=len(content),
