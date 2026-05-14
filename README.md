@@ -51,6 +51,8 @@ El estado completo por proyecto esta documentado en [CATALOGO.md](CATALOGO.md).
 
 - Runbook operativo y SLOs: [docs/OPERATIONS.md](docs/OPERATIONS.md)
 - Politica de release y versionado: [docs/RELEASE.md](docs/RELEASE.md)
+- Changelog automatico: workflow [release-drafter.yml](.github/workflows/release-drafter.yml) y config [release-drafter.yml](.github/release-drafter.yml)
+- Endurecimiento progresivo de cobertura: workflow [quality-ratchet.yml](.github/workflows/quality-ratchet.yml) con objetivos 35% y 50%
 
 ## Politica del repositorio
 
