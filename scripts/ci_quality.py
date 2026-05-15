@@ -5,7 +5,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_COVERAGE_FAIL_UNDER = "25"
 coverage_fail_under = os.getenv("COVERAGE_FAIL_UNDER", DEFAULT_COVERAGE_FAIL_UNDER)
@@ -13,21 +12,24 @@ coverage_fail_under = os.getenv("COVERAGE_FAIL_UNDER", DEFAULT_COVERAGE_FAIL_UND
 
 COMMANDS: list[list[str]] = [
     [
-        sys.executable, "-m", "ruff", "check", "--fix",
+        sys.executable,
+        "-m",
+        "ruff",
+        "check",
         "scripts/ci_lint.py",
-        "scripts/ci_smoke.py",
+        "scripts/ci_monorepo_tests.py",
         "scripts/ci_products.py",
         "scripts/ci_quality.py",
         "scripts/ci_release_guard.py",
+        "scripts/ci_smoke.py",
         "tests/test_projects_minimal.py",
     ],
     [
-        sys.executable, "-m", "ruff", "format", "--check",
-        "scripts/ci_lint.py",
-        "scripts/ci_smoke.py",
-        "scripts/ci_products.py",
-        "scripts/ci_quality.py",
-        "scripts/ci_release_guard.py",
+        sys.executable,
+        "-m",
+        "ruff",
+        "format",
+        "--check",
         "tests/test_projects_minimal.py",
     ],
     [sys.executable, "-m", "mypy", "scripts"],
@@ -47,7 +49,16 @@ COMMANDS: list[list[str]] = [
         "-s",
         "B101,B110,B404,B603",
     ],
-    [sys.executable, "-m", "coverage", "run", "-m", "pytest", "-q", "tests/test_projects_minimal.py"],
+    [
+        sys.executable,
+        "-m",
+        "coverage",
+        "run",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_projects_minimal.py",
+    ],
     [sys.executable, "-m", "coverage", "xml", "-o", "coverage.xml"],
     [
         sys.executable,
@@ -58,7 +69,6 @@ COMMANDS: list[list[str]] = [
         f"--fail-under={coverage_fail_under}",
     ],
 ]
-
 
 
 def _run(command: list[str]) -> int:

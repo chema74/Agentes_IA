@@ -4,7 +4,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 PRODUCTS_DIR = ROOT / "products"
 PORTFOLIO_DIR = ROOT / "portfolio"
@@ -37,8 +36,8 @@ def main() -> int:
 
     if failures:
         print("Fallaron tests en:")
-        for project in failures:
-            print(f"- {project}")
+        for failed_project in failures:
+            print(f"- {failed_project}")
         return 1
 
     print("Monorepo tests OK (ejecucion aislada por proyecto).")

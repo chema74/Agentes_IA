@@ -1,9 +1,7 @@
 from __future__ import annotations
 
 import py_compile
-import sys
 from pathlib import Path
-
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET_DIRS = [ROOT / "core", ROOT / "portfolio", ROOT / "products"]

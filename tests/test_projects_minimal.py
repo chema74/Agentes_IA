@@ -6,7 +6,6 @@ from pathlib import Path
 
 import pytest
 
-
 ROOT = Path(__file__).resolve().parents[1]
 PROJECTS_DIR = ROOT / "portfolio"
 
@@ -60,15 +59,13 @@ def test_project_entrypoint_exists_and_compiles(folder: str, expected_id: str) -
         (line.strip().lstrip("\ufeff") for line in _read_text(readme).splitlines() if line.strip()),
         "",
     )
-    assert first_non_empty.startswith(
-        f"# {expected_id}"
-    ), f"README desalineado en {folder}: {first_non_empty}"
+    assert first_non_empty.startswith(f"# {expected_id}"), (
+        f"README desalineado en {folder}: {first_non_empty}"
+    )
 
 
 @pytest.mark.parametrize("folder,_expected_id", PROJECT_CASES)
-def test_project_requirements_have_core_runtime_deps(
-    folder: str, _expected_id: str
-) -> None:
+def test_project_requirements_have_core_runtime_deps(folder: str, _expected_id: str) -> None:
     req_path = PROJECTS_DIR / folder / "requirements.txt"
     assert req_path.exists(), f"Falta requirements.txt en {folder}"
 
@@ -95,7 +92,9 @@ def test_project_env_example_contains_required_keys(folder: str, _expected_id: s
     app_code = _read_text(project_dir / "app.py")
     uses_tavily = "TAVILY_API_KEY" in app_code or "from tavily" in app_code.lower()
     if uses_tavily:
-        assert "TAVILY_API_KEY=" in content, f"{folder} usa Tavily pero no define TAVILY_API_KEY en .env.example"
+        assert "TAVILY_API_KEY=" in content, (
+            f"{folder} usa Tavily pero no define TAVILY_API_KEY en .env.example"
+        )
 
     # Guardrail simple: .env.example no debe incluir claves reales.
     assert not re.search(r"gsk_[A-Za-z0-9]{20,}", content), (
