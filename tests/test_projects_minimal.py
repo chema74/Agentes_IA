@@ -59,9 +59,9 @@ def test_project_entrypoint_exists_and_compiles(folder: str, expected_id: str) -
         (line.strip().lstrip("\ufeff") for line in _read_text(readme).splitlines() if line.strip()),
         "",
     )
-    assert first_non_empty.startswith(f"# {expected_id}"), (
-        f"README desalineado en {folder}: {first_non_empty}"
-    )
+    assert first_non_empty.startswith(
+        f"# {expected_id}"
+    ), f"README desalineado en {folder}: {first_non_empty}"
 
 
 @pytest.mark.parametrize("folder,_expected_id", PROJECT_CASES)
@@ -75,9 +75,9 @@ def test_project_requirements_have_core_runtime_deps(folder: str, _expected_id: 
 
     app_code = _read_text(PROJECTS_DIR / folder / "app.py")
     if "TAVILY_API_KEY" in app_code or "from tavily" in app_code.lower():
-        assert any("tavily-python" in r for r in reqs), (
-            f"{folder} usa Tavily en app.py pero no lo declara en requirements"
-        )
+        assert any(
+            "tavily-python" in r for r in reqs
+        ), f"{folder} usa Tavily en app.py pero no lo declara en requirements"
 
 
 @pytest.mark.parametrize("folder,_expected_id", PROJECT_CASES)
@@ -92,14 +92,14 @@ def test_project_env_example_contains_required_keys(folder: str, _expected_id: s
     app_code = _read_text(project_dir / "app.py")
     uses_tavily = "TAVILY_API_KEY" in app_code or "from tavily" in app_code.lower()
     if uses_tavily:
-        assert "TAVILY_API_KEY=" in content, (
-            f"{folder} usa Tavily pero no define TAVILY_API_KEY en .env.example"
-        )
+        assert (
+            "TAVILY_API_KEY=" in content
+        ), f"{folder} usa Tavily pero no define TAVILY_API_KEY en .env.example"
 
     # Guardrail simple: .env.example no debe incluir claves reales.
-    assert not re.search(r"gsk_[A-Za-z0-9]{20,}", content), (
-        f"{folder} contiene una GROQ key real en .env.example"
-    )
-    assert not re.search(r"tvly-[A-Za-z0-9-]{20,}", content), (
-        f"{folder} contiene una TAVILY key real en .env.example"
-    )
+    assert not re.search(
+        r"gsk_[A-Za-z0-9]{20,}", content
+    ), f"{folder} contiene una GROQ key real en .env.example"
+    assert not re.search(
+        r"tvly-[A-Za-z0-9-]{20,}", content
+    ), f"{folder} contiene una TAVILY key real en .env.example"
